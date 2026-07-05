@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "mcp__claude-in-chrome__tabs_context_mcp",
-      "WebFetch(domain:claude.ai)",
-      "Bash(npx --yes create-next-app@latest . --ts --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --use-npm --yes)"
-    ]
-  }
-}
