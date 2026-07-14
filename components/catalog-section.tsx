@@ -1,6 +1,11 @@
 import Link from "next/link";
 import Animate from "@/components/animate";
-import { getCatalog, type CatalogSection as Section } from "@/lib/catalog";
+import ProductTable from "@/components/product-table";
+import {
+  getCatalog,
+  getCategorySummaries,
+  type CatalogSection as Section,
+} from "@/lib/catalog";
 
 type Props = {
   section: Section;
@@ -9,10 +14,20 @@ type Props = {
   query?: string;
 };
 
-function specsLine(specs: Record<string, string>) {
-  const entries = Object.entries(specs ?? {});
-  if (entries.length === 0) return null;
-  return entries.map(([k, v]) => `${k}: ${v}`).join(" · ");
+function SourcingCta() {
+  return (
+    <div className="catalog-cta" data-reveal>
+      <h2>We source far more than we list</h2>
+      <p>
+        The catalog shows a curated selection - most of what we place for
+        customers never appears on a public list. Send us a part number or your
+        whole BOM and we&apos;ll quote it within 24 hours.
+      </p>
+      <Link href="/contact" className="btn btn-clay btn-lg">
+        Request a quote
+      </Link>
+    </div>
+  );
 }
 
 export default async function CatalogSection({
@@ -21,9 +36,11 @@ export default async function CatalogSection({
   intro,
   query,
 }: Props) {
-  const categories = await getCatalog(section, query);
   const basePath = section === "components" ? "/components" : "/hardware";
-  const hasResults = categories.length > 0;
+
+  // With a search term: results view. Without: the category directory.
+  const results = query ? await getCatalog(section, query) : null;
+  const categories = query ? null : await getCategorySummaries(section);
 
   return (
     <Animate>
@@ -35,104 +52,88 @@ export default async function CatalogSection({
           <h1 data-hero-item>{title}</h1>
           <p data-hero-item>{intro}</p>
 
-          <form
-            method="get"
-            action={basePath}
-            className="catalog-search"
-            data-hero-item
-          >
-            <input
-              type="search"
-              name="q"
-              defaultValue={query ?? ""}
-              placeholder="Search part number, name, manufacturer…"
-              aria-label={`Search ${title}`}
-            />
-            <button type="submit" className="btn btn-clay">
-              Search
-            </button>
-            {query ? (
-              <Link href={basePath} className="catalog-clear">
-                Clear
-              </Link>
-            ) : null}
+          <form method="get" action={basePath} className="catalog-search" data-hero-item>
+            <span className="catalog-search-label">
+              Know the part number? Jump straight to it:
+            </span>
+            <div className="catalog-search-row">
+              <input
+                type="search"
+                name="q"
+                defaultValue={query ?? ""}
+                placeholder="Part number, name, or manufacturer…"
+                aria-label={`Search ${title}`}
+              />
+              <button type="submit" className="btn btn-ghost">
+                Search
+              </button>
+            </div>
           </form>
         </div>
       </header>
 
       <section className="block tight">
         <div className="wrap">
-          {hasResults ? (
-            categories.map((cat) => (
-              <div key={cat.name} className="catalog-category" data-reveal>
-                <h2>{cat.name}</h2>
-                <div className="card catalog-card">
-                  <div className="catalog-scroll">
-                    <table className="catalog-table">
-                      <thead>
-                        <tr>
-                          <th>Part number</th>
-                          <th>Name</th>
-                          <th>Manufacturer</th>
-                          <th>Key specs</th>
-                          <th aria-label="Actions"></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {cat.products.map((p) => (
-                          <tr key={p.id}>
-                            <td className="catalog-pn">{p.part_number}</td>
-                            <td>
-                              {p.name}
-                              {p.description ? (
-                                <span className="catalog-desc">
-                                  {p.description}
-                                </span>
-                              ) : null}
-                            </td>
-                            <td>{p.manufacturer ?? "—"}</td>
-                            <td className="catalog-specs">
-                              {specsLine(p.specs) ?? "—"}
-                              {p.datasheet_url ? (
-                                <a
-                                  href={p.datasheet_url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="catalog-datasheet"
-                                >
-                                  Datasheet ↗
-                                </a>
-                              ) : null}
-                            </td>
-                            <td>
-                              <Link
-                                href={`/contact?part=${encodeURIComponent(p.part_number)}`}
-                                className="btn btn-clay catalog-quote"
-                              >
-                                Request quote
-                              </Link>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
+          {results ? (
+            <>
+              <p className="catalog-results-note" data-reveal>
+                <Link href={basePath}>← All {title.toLowerCase()} categories</Link>
+              </p>
+              {results.length > 0 ? (
+                results.map((cat) => (
+                  <div key={cat.slug} className="catalog-category" data-reveal>
+                    <h2>
+                      <Link href={`${basePath}/${cat.slug}`}>{cat.name}</Link>
+                    </h2>
+                    <div className="card catalog-card">
+                      <ProductTable products={cat.products} />
+                    </div>
                   </div>
+                ))
+              ) : (
+                <div className="catalog-cta" data-reveal>
+                  <h2>No matches for &ldquo;{query}&rdquo;</h2>
+                  <p>
+                    Not listed doesn&apos;t mean not available - most of what we
+                    source never appears on a public list. Send us the part
+                    number and we&apos;ll quote it within 24 hours.
+                  </p>
+                  <Link
+                    href={`/contact?part=${encodeURIComponent(query ?? "")}`}
+                    className="btn btn-clay btn-lg"
+                  >
+                    Request this part
+                  </Link>
                 </div>
+              )}
+            </>
+          ) : categories && categories.length > 0 ? (
+            <>
+              <div className="cat-grid" data-reveal-group>
+                {categories.map((cat) => (
+                  <Link
+                    key={cat.slug}
+                    href={`${basePath}/${cat.slug}`}
+                    className="cat-card"
+                  >
+                    <div className="cat-count">
+                      {cat.count} part{cat.count === 1 ? "" : "s"}
+                    </div>
+                    <h3>{cat.name}</h3>
+                    <p className="cat-sample">{cat.sample.join(" · ")}</p>
+                    <span className="cat-arrow">Browse →</span>
+                  </Link>
+                ))}
               </div>
-            ))
+              <SourcingCta />
+            </>
           ) : (
-            <div className="card catalog-empty" data-reveal>
-              <h2>
-                {query
-                  ? `No matches for “${query}”`
-                  : "This catalog is being stocked"}
-              </h2>
+            <div className="catalog-cta" data-reveal>
+              <h2>This catalog is being stocked</h2>
               <p>
-                {query
-                  ? "We may still be able to source it — most of what we place never appears on a public list."
-                  : "We're adding parts section by section. In the meantime, we source far more than we list."}{" "}
-                Send us the part number or your whole BOM and we'll quote it
-                within 24 hours.
+                We&apos;re adding parts section by section. In the meantime, we
+                source far more than we list - send us the part number or your
+                whole BOM and we&apos;ll quote it within 24 hours.
               </p>
               <Link href="/contact" className="btn btn-clay btn-lg">
                 Request a quote

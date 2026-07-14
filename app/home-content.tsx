@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { usePageAnimations } from "@/lib/use-page-animations";
+import type { CategorySummary } from "@/lib/catalog";
 
 const GlobeSphere = dynamic(() => import("./globe-sphere"), { ssr: false });
 
@@ -118,7 +119,11 @@ const COMMITMENTS = [
   "Lot and date code traceability, when available",
 ];
 
-export default function HomeContent() {
+export default function HomeContent({
+  catalogCategories = [],
+}: {
+  catalogCategories?: CategorySummary[];
+}) {
   const rootRef = useRef<HTMLDivElement>(null);
   usePageAnimations(rootRef);
 
@@ -228,6 +233,55 @@ export default function HomeContent() {
           </div>
         </div>
       </section>
+
+      {catalogCategories.length > 0 && (
+        <section className="block tight">
+          <div className="wrap">
+            <div className="section-head" data-reveal>
+              <div className="eyebrow">Browse The Catalog</div>
+              <h2>Components &amp; hardware, ready to quote</h2>
+              <p>
+                A curated selection from our sourcing network - and we place
+                far more than we list.
+              </p>
+            </div>
+            <div className="cat-grid" data-reveal-group>
+              {catalogCategories.map((cat) => (
+                <Link
+                  key={`${cat.section}-${cat.slug}`}
+                  href={`/${cat.section}/${cat.slug}`}
+                  className="cat-card"
+                >
+                  <div className="cat-count">
+                    {cat.section === "components" ? "Components" : "Hardware"} ·{" "}
+                    {cat.count} part{cat.count === 1 ? "" : "s"}
+                  </div>
+                  <h3>{cat.name}</h3>
+                  <p className="cat-sample">{cat.sample.join(" · ")}</p>
+                  <span className="cat-arrow">Browse →</span>
+                </Link>
+              ))}
+            </div>
+            <div
+              style={{
+                marginTop: 36,
+                display: "flex",
+                gap: 14,
+                justifyContent: "center",
+                flexWrap: "wrap",
+              }}
+              data-reveal
+            >
+              <Link href="/components" className="btn btn-ghost">
+                All Components →
+              </Link>
+              <Link href="/hardware" className="btn btn-ghost">
+                All Hardware →
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="block tight">
         <div className="wrap">

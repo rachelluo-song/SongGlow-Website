@@ -26,10 +26,14 @@ styles.css, globe.js). The site is a faithful Next.js recreation of those design
 ## Pages and user flows (all public, no auth)
 - `/` — Home: dark hero card with three.js globe, trust strip, services
   preview, commitments list, dark CTA band
-- `/components` — Electronic Components catalog: search box, products grouped
-  by category in spec tables, "Request quote" per part (links to contact with
-  the part number prefilled). Graceful "being stocked" state when empty.
-- `/hardware` — Hardware & Mechanical catalog, same template
+- `/components` — Electronic Components: directory of category cards
+  (browse-first; search demoted to a "know the part number?" helper).
+  `?q=` shows search results; no-match state offers "Request this part".
+- `/components/[category]` — one category's parts table (breadcrumb back,
+  "don't see the exact part?" CTA). Slug = lowercased-hyphenated category name.
+- `/hardware` and `/hardware/[category]` — same template for hardware
+- Home page shows a "Browse the catalog" block (top 6 categories across both
+  sections, revalidated every 5 min) when the catalog has data
 - `/services` — six service cards, 3-step process, CTA band
 - `/contact` — page hero, contact form (name, company, email, phone/WhatsApp,
   message; `?part=` prefills the message), sales team cards, response-time card
