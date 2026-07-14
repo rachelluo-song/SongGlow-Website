@@ -776,6 +776,126 @@ textarea {
   color: var(--clay-dark);
 }
 
+/* ---------- Catalog (Components / Hardware) ---------- */
+
+.catalog-search {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 28px;
+  max-width: 560px;
+}
+
+.catalog-search input {
+  flex: 1;
+}
+
+.catalog-clear {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.catalog-clear:hover {
+  color: var(--ink);
+}
+
+.catalog-category {
+  margin-bottom: 40px;
+}
+
+.catalog-category h2 {
+  font-size: 26px;
+  margin-bottom: 16px;
+}
+
+.catalog-card {
+  padding: 8px;
+}
+
+.catalog-scroll {
+  overflow-x: auto;
+}
+
+.catalog-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+
+.catalog-table th {
+  text-align: left;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.catalog-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  color: var(--ink-soft);
+}
+
+.catalog-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.catalog-table tbody tr:hover td {
+  background: var(--cream);
+}
+
+.catalog-pn {
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.catalog-desc {
+  display: block;
+  font-size: 13.5px;
+  color: var(--ink-faint);
+  margin-top: 4px;
+}
+
+.catalog-specs {
+  max-width: 320px;
+}
+
+.catalog-datasheet {
+  display: block;
+  margin-top: 6px;
+  color: var(--clay-dark);
+  font-weight: 600;
+  font-size: 13.5px;
+}
+
+.catalog-quote {
+  padding: 9px 18px;
+  font-size: 13.5px;
+  white-space: nowrap;
+}
+
+.catalog-empty {
+  text-align: center;
+  padding: 64px 36px;
+}
+
+.catalog-empty h2 {
+  font-size: 30px;
+  margin-bottom: 14px;
+}
+
+.catalog-empty p {
+  color: var(--ink-soft);
+  max-width: 520px;
+  margin: 0 auto 28px;
+}
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 980px) {
@@ -818,6 +938,12 @@ textarea {
   }
   .band-dark {
     padding: 48px 28px;
+  }
+  .catalog-search {
+    flex-wrap: wrap;
+  }
+  .catalog-search input {
+    flex-basis: 100%;
   }
 }
 

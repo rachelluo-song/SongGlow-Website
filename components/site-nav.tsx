@@ -7,6 +7,8 @@ import LogoMark from "./logo-mark";
 
 const LINKS = [
   { href: "/", label: "Home" },
+  { href: "/components", label: "Components" },
+  { href: "/hardware", label: "Hardware" },
   { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
 ];

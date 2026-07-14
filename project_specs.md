@@ -26,15 +26,29 @@ styles.css, globe.js). The site is a faithful Next.js recreation of those design
 ## Pages and user flows (all public, no auth)
 - `/` — Home: dark hero card with three.js globe, trust strip, services
   preview, commitments list, dark CTA band
+- `/components` — Electronic Components catalog: search box, products grouped
+  by category in spec tables, "Request quote" per part (links to contact with
+  the part number prefilled). Graceful "being stocked" state when empty.
+- `/hardware` — Hardware & Mechanical catalog, same template
 - `/services` — six service cards, 3-step process, CTA band
 - `/contact` — page hero, contact form (name, company, email, phone/WhatsApp,
-  message), sales team cards (Rachel Luo, Phoebe Kim), response-time card
+  message; `?part=` prefills the message), sales team cards, response-time card
+
+## Catalog content workflow (no deploy needed)
+Rachel adds/edits rows in Supabase → Table Editor → `products`
+(section = components|hardware, category, part_number, name, manufacturer,
+description, specs as JSON key/values, optional datasheet_url). Catalog pages
+render fresh on every request. Compliance: text specs only, datasheet LINKS to
+manufacturer sites only (never rehost PDFs), no scraped distributor content.
 
 ## Data models / storage
-Supabase Postgres table `public.messages` (id, name, company, email, phone,
-message, created_at) — schema in `supabase/schema.sql`. RLS is enabled with no
-public policies; the browser never touches the table. The form POSTs to
-`/app/api/contact` which inserts using the server-side `service_role` key.
+Supabase Postgres, schema in `supabase/schema.sql`, RLS enabled with no public
+policies on both tables; the browser never touches them directly.
+- `public.messages` (id, name, company, email, phone, message, created_at) —
+  contact form submissions via `/app/api/contact` (service_role insert)
+- `public.products` (id, section, category, part_number, name, manufacturer,
+  description, specs jsonb, datasheet_url, created_at) — catalog, read
+  server-side by the /components and /hardware pages (service_role select)
 
 ## Third-party services
 - **Supabase** — stores contact form submissions (env: `NEXT_PUBLIC_SUPABASE_URL`,

@@ -1,12 +1,19 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import gsap from "gsap";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
   const [error, setError] = useState<string | null>(null);
   const successRef = useRef<HTMLDivElement>(null);
+
+  // "Request quote" buttons in the catalog link here with ?part=<part number>
+  const part = useSearchParams().get("part");
+  const prefilledMessage = part
+    ? `I'd like a quote for part number: ${part}\n\nQuantity: \nTarget date: `
+    : undefined;
 
   useEffect(() => {
     if (status === "sent" && successRef.current) {
@@ -136,6 +143,7 @@ export default function ContactForm() {
           id="message"
           name="message"
           placeholder="Tell us about your BOM or project..."
+          defaultValue={prefilledMessage}
           required
         />
       </div>

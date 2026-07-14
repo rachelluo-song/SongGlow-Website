@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 import { usePageAnimations } from "@/lib/use-page-animations";
 import ContactForm from "./contact-form";
 
@@ -71,7 +71,9 @@ export default function ContactContent() {
           <div className="grid-2" style={{ gap: 40, alignItems: "start" }}>
             <div className="card" style={{ padding: 40 }} data-reveal>
               <h2 style={{ fontSize: 24, marginBottom: 28 }}>Send a message</h2>
-              <ContactForm />
+              <Suspense fallback={null}>
+                <ContactForm />
+              </Suspense>
             </div>
 
             <div

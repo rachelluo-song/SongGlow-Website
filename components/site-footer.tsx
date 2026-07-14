@@ -12,6 +12,8 @@ export default function SiteFooter() {
           </Link>
           <div className="footer-links">
             <Link href="/">Home</Link>
+            <Link href="/components">Components</Link>
+            <Link href="/hardware">Hardware</Link>
             <Link href="/services">Services</Link>
             <Link href="/contact">Contact</Link>
           </div>
