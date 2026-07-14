@@ -1,0 +1,4 @@
+section,category,part_number,name,manufacturer,description,specs,datasheet_url
+components,Microcontrollers,STM32F103C8T6,"ARM Cortex-M3 MCU, 64KB Flash",STMicroelectronics,Mainstream MCU for industrial control,"Package: LQFP48; Core: Cortex-M3; Flash: 64 KB; Max Clock: 72 MHz",https://www.st.com/en/microcontrollers-microprocessors/stm32f103c8.html
+components,Resistors,RC0603FR-0710KL,"10 kΩ ±1% 0603 Chip Resistor",Yageo,,"Package: 0603; Resistance: 10 kΩ; Tolerance: ±1%; Power: 0.1 W",
+hardware,Fasteners,M3x8-PH-SS,"M3 x 8mm Phillips Pan Head Screw, 304 Stainless",,Sold per 100 pcs,"Thread: M3; Length: 8 mm; Material: 304 Stainless; Head: Pan",
