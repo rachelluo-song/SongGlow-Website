@@ -880,6 +880,39 @@ textarea {
   color: var(--ink);
 }
 
+/* Brand filter chips on category pages */
+.brand-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.brand-chip {
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+.brand-chip:hover {
+  border-color: #c7d4ee;
+  color: var(--ink);
+}
+
+.brand-chip.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--cream);
+}
+
 /* Pagination on category pages */
 .catalog-pagination {
   display: flex;

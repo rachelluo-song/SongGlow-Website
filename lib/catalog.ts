@@ -160,6 +160,42 @@ function splitBrands(raw: string): string[] {
     .filter(Boolean);
 }
 
+export type BrandFacet = { key: string; label: string; count: number };
+
+/** Brand chips for a category page: cleaned brand names with product counts. */
+export function getBrandFacets(products: Product[]): BrandFacet[] {
+  const counts = new Map<string, number>();
+  const forms = new Map<string, Map<string, number>>();
+  for (const p of products) {
+    if (!p.manufacturer) continue;
+    const seen = new Set<string>();
+    for (const brand of splitBrands(p.manufacturer)) {
+      const key = brand.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      counts.set(key, (counts.get(key) ?? 0) + 1);
+      const f = forms.get(key) ?? new Map<string, number>();
+      f.set(brand, (f.get(brand) ?? 0) + 1);
+      forms.set(key, f);
+    }
+  }
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([key, count]) => {
+      const fs = [...(forms.get(key) ?? new Map<string, number>())].sort(
+        (a, b) => b[1] - a[1]
+      );
+      return { key, label: fs[0]?.[0] ?? key, count };
+    });
+}
+
+export function productHasBrand(p: Product, brandKey: string): boolean {
+  if (!p.manufacturer) return false;
+  return splitBrands(p.manufacturer).some(
+    (b) => b.toLowerCase() === brandKey
+  );
+}
+
 export async function getCategorySummaries(
   section?: CatalogSection
 ): Promise<CategorySummary[]> {
