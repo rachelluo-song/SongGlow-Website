@@ -18,6 +18,20 @@ ENV_PATH = os.path.join(REPO, ".env.local")
 CSV_PATH = sys.argv[1] if len(sys.argv) > 1 else os.path.join(
     REPO, "supabase", "products-template.csv"
 )
+
+# Distributor-export category names → SongGlow's clean names (agreed 2026-07-18).
+# Extend this map as new export styles show up.
+CATEGORY_MAP = {
+    "Capacitors": "Aluminum Electrolytic Capacitors",
+    "Capacitors - Ceramic Capacitors": "Ceramic Capacitors",
+    "Chip Resistor - Surface Mount": "Chip Resistors",
+    "Resistors": "Chip Resistors",
+    "Inductors - Fixed Inductors": "Fixed Inductors",
+    "Crystals, Oscillators, Resonators - Crystals": "Crystals",
+    "Circuit Protection - TVS Diodes": "TVS Diodes",
+    "Circuit Protection - Fuses": "Fuses",
+    "Filters - Ferrite Beads and Chips": "Ferrite Beads",
+}
 VALID_SECTIONS = {"components", "hardware"}
 
 def load_env(path):
@@ -80,6 +94,10 @@ with open(CSV_PATH, newline="", encoding="utf-8-sig") as f:
         if not category or not name:
             errors.append(f"line {i} ({pn}): missing category or name — row skipped")
             continue
+        if category in CATEGORY_MAP:
+            new_cat = CATEGORY_MAP[category]
+            warnings.append(f"{pn}: category '{category}' normalized to '{new_cat}'")
+            category = new_cat
         key = (section, pn)
         if key in rows:
             warnings.append(f"{pn}: appears more than once in the CSV — kept the LAST occurrence (line {i})")
