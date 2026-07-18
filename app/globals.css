@@ -3,28 +3,31 @@
 /* ===== SongGlow — design system (ported from Claude Design handoff) ===== */
 
 :root {
-  --cream: #f2f5fc;
-  --cream-dim: #e3e9f7;
+  /* Precision-tune palette (2026-07-18): cooler, near-white ground */
+  --cream: #f7f9fb;
+  --cream-dim: #e9edf3;
   --paper: #ffffff;
   --ink: #0f1430;
   --ink-soft: #454c6e;
-  --ink-faint: #8891ad;
+  --ink-faint: #828ba6;
   --clay: #2f5fd9;
   --clay-dark: #1e3fa0;
   --clay-tint: #dce7fb;
   --sage: #6fa3f5;
   --slate: #33406b;
-  --line: #dce3f2;
+  --line: #dfe4ec;
   --dark: #0a0f26;
   --dark-2: #121a3e;
   --lightblue: #afcbfb;
   --navy-cta: #0b00a0;
 
-  --serif: var(--font-lora), "Lora", Georgia, serif;
+  /* --serif now points at the heading sans (IBM Plex) — name kept to avoid
+     touching every usage; treat it as "display font" */
+  --serif: var(--font-heading), "IBM Plex Sans", -apple-system, sans-serif;
   --sans: var(--font-public-sans), "Public Sans", -apple-system, "Segoe UI", sans-serif;
 
-  --radius: 20px;
-  --radius-sm: 12px;
+  --radius: 10px;
+  --radius-sm: 8px;
 }
 
 html {
@@ -43,9 +46,9 @@ h1,
 h2,
 h3 {
   font-family: var(--serif);
-  font-weight: 500;
-  line-height: 1.08;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   margin: 0;
   color: var(--ink);
 }
@@ -77,7 +80,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(242, 245, 252, 0.86);
+  background: rgba(247, 249, 251, 0.86);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
@@ -193,8 +196,8 @@ img {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 13px 26px;
-  border-radius: 999px;
+  padding: 12px 24px;
+  border-radius: 8px;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
@@ -245,7 +248,7 @@ img {
 }
 
 .btn-lg {
-  padding: 16px 32px;
+  padding: 14px 28px;
   font-size: 16px;
 }
 
@@ -255,8 +258,8 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 9px 18px 9px 14px;
-  border-radius: 999px;
+  padding: 8px 16px 8px 12px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.14);
   color: #f2eee4;
@@ -283,11 +286,11 @@ img {
   position: relative;
   overflow: hidden;
   background: radial-gradient(120% 140% at 15% 100%, #16204a 0%, var(--dark) 45%, #05081a 100%);
-  border-radius: 28px;
-  min-height: 640px;
+  border-radius: 16px;
+  min-height: 620px;
   display: flex;
   align-items: flex-end;
-  padding: 64px 64px 72px;
+  padding: 56px 56px 60px;
 }
 
 .hero-shapes {
@@ -365,8 +368,8 @@ img {
 
 .hero-content h1 {
   color: #fbf9f4;
-  font-size: 68px;
-  margin-bottom: 30px;
+  font-size: 60px;
+  margin-bottom: 26px;
 }
 
 .hero-row {
@@ -436,10 +439,10 @@ img {
 /* ---------- Section shells ---------- */
 
 section.block {
-  padding: 110px 0;
+  padding: 88px 0;
 }
 section.block.tight {
-  padding: 80px 0;
+  padding: 64px 0;
 }
 
 .eyebrow {
@@ -463,11 +466,11 @@ section.block.tight {
 
 .section-head {
   max-width: 640px;
-  margin-bottom: 56px;
+  margin-bottom: 44px;
 }
 
 .section-head h2 {
-  font-size: 44px;
+  font-size: 38px;
   margin-bottom: 18px;
 }
 .section-head p {
@@ -529,7 +532,7 @@ section.block.tight {
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 .grid-2 {
   display: grid;
@@ -541,14 +544,14 @@ section.block.tight {
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 36px;
+  padding: 30px;
 }
 
 .service-card {
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 38px 34px;
+  padding: 32px 28px;
   transition:
     transform 0.18s ease,
     box-shadow 0.18s ease,
@@ -594,8 +597,8 @@ section.block.tight {
 
 .band-dark {
   background: var(--dark);
-  border-radius: 28px;
-  padding: 72px 64px;
+  border-radius: 16px;
+  padding: 60px 56px;
   position: relative;
   overflow: hidden;
 }
@@ -625,7 +628,7 @@ section.block.tight {
 
 footer {
   border-top: 1px solid var(--line);
-  padding: 56px 0 40px;
+  padding: 44px 0 36px;
 }
 
 .footer-inner {
@@ -656,12 +659,12 @@ footer {
 /* ---------- Page header (services/contact) ---------- */
 
 .page-hero {
-  padding: 64px 0 30px;
+  padding: 52px 0 24px;
 }
 
 .page-hero h1 {
-  font-size: 56px;
-  margin-bottom: 20px;
+  font-size: 46px;
+  margin-bottom: 16px;
 }
 .page-hero p {
   font-size: 18px;
@@ -815,7 +818,7 @@ textarea {
 .cat-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
 .cat-card {
@@ -824,7 +827,7 @@ textarea {
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 30px 28px;
+  padding: 24px 22px;
   transition:
     transform 0.18s ease,
     box-shadow 0.18s ease,
@@ -890,7 +893,7 @@ textarea {
 
 .brand-chip {
   padding: 7px 14px;
-  border-radius: 999px;
+  border-radius: 6px;
   border: 1px solid var(--line);
   background: var(--paper);
   font-size: 13.5px;
@@ -987,23 +990,23 @@ textarea {
 .catalog-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14.5px;
+  font-size: 14px;
 }
 
 .catalog-table th {
   text-align: left;
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-faint);
-  padding: 14px 16px 10px;
+  padding: 12px 14px 9px;
   border-bottom: 1px solid var(--line);
   white-space: nowrap;
 }
 
 .catalog-table td {
-  padding: 14px 16px;
+  padding: 11px 14px;
   border-bottom: 1px solid var(--line);
   vertical-align: top;
   color: var(--ink-soft);
@@ -1064,7 +1067,7 @@ textarea {
     display: flex;
   }
   .hero-content h1 {
-    font-size: 44px;
+    font-size: 40px;
   }
   .hero-card {
     padding: 40px 28px 48px;
@@ -1083,10 +1086,10 @@ textarea {
     grid-template-columns: 1fr;
   }
   .section-head h2 {
-    font-size: 32px;
+    font-size: 29px;
   }
   .page-hero h1 {
-    font-size: 38px;
+    font-size: 34px;
   }
   .band-dark {
     padding: 48px 28px;

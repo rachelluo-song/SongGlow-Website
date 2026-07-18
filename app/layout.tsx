@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Lora, Public_Sans } from "next/font/google";
+import { IBM_Plex_Sans, Public_Sans } from "next/font/google";
 import "./globals.css";
 import SiteNav from "@/components/site-nav";
 import SiteFooter from "@/components/site-footer";
 
-const lora = Lora({
+const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
-  variable: "--font-lora",
+  variable: "--font-heading",
 });
 
 const publicSans = Public_Sans({
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lora.variable} ${publicSans.variable}`}
+      className={`${plexSans.variable} ${publicSans.variable}`}
       data-scroll-behavior="smooth"
     >
       <body>
