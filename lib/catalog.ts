@@ -25,7 +25,8 @@ export type CategorySummary = {
   name: string;
   slug: string;
   count: number;
-  sample: string[];
+  /** Click-worthy card subtitle: top brands in the category, or sample part numbers as fallback */
+  subtitle: string;
 };
 
 export function slugifyCategory(name: string): string {
@@ -141,28 +142,94 @@ export async function getCatalog(
  * Category cards for the directory pages (and the home page block when no
  * section is given): name, slug, part count, and a few sample part numbers.
  */
+/**
+ * Manufacturer cell → clean brand names for display.
+ * "Eaton - Electronics Division" → ["Eaton"]; "YAGEO,WEC" → ["YAGEO", "WEC"];
+ * "NDK (NIHON DEMPA KOGYO CO., LTD)" → ["NDK"]; "Littelfuse Inc." → ["Littelfuse"]
+ */
+function splitBrands(raw: string): string[] {
+  return raw
+    .split(" (")[0]
+    .split(",")
+    .map((part) =>
+      part
+        .split(" - ")[0]
+        .replace(/,?\s+(inc\.?|llc|ltd\.?|corp\.?|co\.)$/i, "")
+        .trim()
+    )
+    .filter(Boolean);
+}
+
 export async function getCategorySummaries(
   section?: CatalogSection
 ): Promise<CategorySummary[]> {
   const products = await fetchProducts(section);
-  const map = new Map<string, CategorySummary>();
+
+  type Bucket = {
+    section: CatalogSection;
+    name: string;
+    count: number;
+    brands: Map<string, number>;
+    brandForms: Map<string, Map<string, number>>;
+    partNumbers: string[];
+  };
+  const map = new Map<string, Bucket>();
   for (const p of products) {
     const key = `${p.section}:${p.category}`;
-    const existing = map.get(key);
-    if (existing) {
-      existing.count += 1;
-      if (existing.sample.length < 3) existing.sample.push(p.part_number);
-    } else {
-      map.set(key, {
+    let bucket = map.get(key);
+    if (!bucket) {
+      bucket = {
         section: p.section,
         name: p.category,
-        slug: slugifyCategory(p.category),
-        count: 1,
-        sample: [p.part_number],
-      });
+        count: 0,
+        brands: new Map(),
+        brandForms: new Map(),
+        partNumbers: [],
+      };
+      map.set(key, bucket);
     }
+    bucket.count += 1;
+    if (p.manufacturer) {
+      for (const brand of splitBrands(p.manufacturer)) {
+        // merge case variants ("YAGEO"/"Yageo") under one key
+        const key = brand.toLowerCase();
+        bucket.brands.set(key, (bucket.brands.get(key) ?? 0) + 1);
+        const forms = bucket.brandForms.get(key) ?? new Map<string, number>();
+        forms.set(brand, (forms.get(brand) ?? 0) + 1);
+        bucket.brandForms.set(key, forms);
+      }
+    }
+    if (bucket.partNumbers.length < 2) bucket.partNumbers.push(p.part_number);
   }
-  return [...map.values()];
+
+  return [...map.values()].map((b) => {
+    const topBrands = [...b.brands.entries()]
+      .sort((x, y) => y[1] - x[1])
+      .map(([key]) => {
+        // display the most common written form of this brand
+        const forms = [...(b.brandForms.get(key) ?? new Map())];
+        forms.sort((x, y) => y[1] - x[1]);
+        return forms[0]?.[0] ?? key;
+      });
+    let subtitle: string;
+    if (topBrands.length > 0) {
+      subtitle = topBrands.slice(0, 3).join(" · ");
+      const more = topBrands.length - 3;
+      if (more > 0) {
+        subtitle += ` +${more} more brand${more === 1 ? "" : "s"}`;
+      }
+    } else {
+      // no manufacturer data in this category — fall back to part numbers
+      subtitle = b.partNumbers.join(" · ");
+    }
+    return {
+      section: b.section,
+      name: b.name,
+      slug: slugifyCategory(b.name),
+      count: b.count,
+      subtitle,
+    };
+  });
 }
 
 /** A single category (by URL slug) within a section, or null if unknown. */

@@ -257,7 +257,7 @@ export default function HomeContent({
                     {cat.count} part{cat.count === 1 ? "" : "s"}
                   </div>
                   <h3>{cat.name}</h3>
-                  <p className="cat-sample">{cat.sample.join(" · ")}</p>
+                  <p className="cat-sample">{cat.subtitle}</p>
                   <span className="cat-arrow">Browse →</span>
                 </Link>
               ))}
