@@ -880,6 +880,21 @@ textarea {
   color: var(--ink);
 }
 
+/* Pagination on category pages */
+.catalog-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.catalog-pagination-note {
+  font-size: 14px;
+  color: var(--ink-faint);
+}
+
 /* Sourcing CTA card */
 .catalog-cta {
   background: var(--paper);

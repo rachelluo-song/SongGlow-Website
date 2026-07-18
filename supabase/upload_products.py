@@ -96,39 +96,54 @@ with open(CSV_PATH, newline="", encoding="utf-8-sig") as f:
             "datasheet_url": (row.get("datasheet_url") or "").strip() or None,
         }
 
-# Which part numbers already exist in the database?
-pns = ",".join(f'"{k[1]}"' for k in rows)
-req = urllib.request.Request(
-    f"{URL}/rest/v1/products?select=section,part_number&part_number=in.({urllib.parse.quote(pns)})",
-    headers=HEADERS,
-)
-existing = {(r["section"], r["part_number"]) for r in json.load(urllib.request.urlopen(req))}
+# Which part numbers already exist in the database? (chunked — URL length limits)
+existing = set()
+all_pns = [k[1] for k in rows]
+for i in range(0, len(all_pns), 150):
+    chunk = ",".join(f'"{p}"' for p in all_pns[i : i + 150])
+    req = urllib.request.Request(
+        f"{URL}/rest/v1/products?select=section,part_number&part_number=in.({urllib.parse.quote(chunk)})",
+        headers=HEADERS,
+    )
+    existing |= {(r["section"], r["part_number"]) for r in json.load(urllib.request.urlopen(req))}
 
 to_insert = [rows[k] for k in order if k not in existing]
 skipped = [k[1] for k in order if k in existing]
 
-if to_insert:
+# Insert in batches so no single request gets too large
+inserted = 0
+for i in range(0, len(to_insert), 500):
+    batch = to_insert[i : i + 500]
     req = urllib.request.Request(
         f"{URL}/rest/v1/products",
-        data=json.dumps(to_insert).encode(),
+        data=json.dumps(batch).encode(),
         headers={**HEADERS, "Prefer": "return=minimal"},
         method="POST",
     )
     resp = urllib.request.urlopen(req)
-    status = resp.status
-else:
-    status = "n/a"
+    if resp.status not in (200, 201):
+        print(f"INSERT FAILED at batch {i // 500 + 1}: HTTP {resp.status}")
+        sys.exit(1)
+    inserted += len(batch)
+    print(f"  batch {i // 500 + 1}: {len(batch)} rows inserted")
 
-print(f"insert status: {status}")
-print(f"added: {len(to_insert)}")
-for r in to_insert:
-    print(f"  + [{r['section']}/{r['category']}] {r['part_number']}")
-print(f"skipped (already in database): {len(skipped)} -> {', '.join(skipped)}")
+import collections
+by_cat = collections.Counter(f"{r['section']}/{r['category']}" for r in to_insert)
+print(f"\nadded: {inserted}")
+for cat, n in by_cat.most_common():
+    print(f"  + {cat}: {n}")
+print(f"skipped (already in database): {len(skipped)}")
+if skipped[:10]:
+    print(f"  e.g. {', '.join(skipped[:10])}{'…' if len(skipped) > 10 else ''}")
 if warnings:
-    print("warnings:")
-    for w in warnings:
+    print(f"warnings ({len(warnings)}):")
+    for w in warnings[:15]:
         print(f"  ! {w}")
+    if len(warnings) > 15:
+        print(f"  … and {len(warnings) - 15} more")
 if errors:
-    print("errors:")
-    for e in errors:
+    print(f"errors ({len(errors)}):")
+    for e in errors[:15]:
         print(f"  x {e}")
+    if len(errors) > 15:
+        print(f"  … and {len(errors) - 15} more")

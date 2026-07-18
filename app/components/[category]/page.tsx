@@ -17,15 +17,19 @@ export async function generateMetadata({
 
 export default async function ComponentsCategoryPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ category: string }>;
+  searchParams: Promise<{ page?: string }>;
 }) {
   const { category } = await params;
+  const { page } = await searchParams;
   return (
     <CatalogCategory
       section="components"
       sectionTitle="Electronic Components"
       slug={category}
+      page={Number(page) || 1}
     />
   );
 }

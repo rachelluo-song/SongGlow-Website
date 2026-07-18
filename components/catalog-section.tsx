@@ -4,6 +4,7 @@ import ProductTable from "@/components/product-table";
 import {
   getCatalog,
   getCategorySummaries,
+  SEARCH_LIMIT,
   type CatalogSection as Section,
 } from "@/lib/catalog";
 
@@ -78,6 +79,10 @@ export default async function CatalogSection({
             <>
               <p className="catalog-results-note" data-reveal>
                 <Link href={basePath}>← All {title.toLowerCase()} categories</Link>
+                {results.reduce((n, c) => n + c.products.length, 0) >=
+                SEARCH_LIMIT
+                  ? ` · Showing the first ${SEARCH_LIMIT} matches - refine your search to narrow down.`
+                  : null}
               </p>
               {results.length > 0 ? (
                 results.map((cat) => (

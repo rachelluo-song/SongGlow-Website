@@ -17,15 +17,19 @@ export async function generateMetadata({
 
 export default async function HardwareCategoryPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ category: string }>;
+  searchParams: Promise<{ page?: string }>;
 }) {
   const { category } = await params;
+  const { page } = await searchParams;
   return (
     <CatalogCategory
       section="hardware"
       sectionTitle="Hardware & Mechanical"
       slug={category}
+      page={Number(page) || 1}
     />
   );
 }

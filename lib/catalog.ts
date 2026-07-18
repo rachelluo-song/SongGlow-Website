@@ -53,6 +53,11 @@ function getClient() {
 const COLUMNS =
   "id, section, category, part_number, name, manufacturer, description, specs, datasheet_url";
 
+// Supabase returns at most 1000 rows per request, so full reads are paged.
+const PAGE_SIZE = 1000;
+// Search results are capped — beyond this, refining the term beats scrolling.
+export const SEARCH_LIMIT = 200;
+
 /**
  * Server-side only (service_role key). Returns [] on any error — e.g. the
  * table not existing yet — so pages render their "being stocked" states.
@@ -64,32 +69,50 @@ async function fetchProducts(
   const supabase = getClient();
   if (!supabase) return [];
 
-  let request = supabase
-    .from("products")
-    .select(COLUMNS)
-    .order("section", { ascending: true })
-    .order("category", { ascending: true })
-    .order("part_number", { ascending: true })
-    .limit(1000);
+  const build = (from: number, to: number) => {
+    let request = supabase
+      .from("products")
+      .select(COLUMNS)
+      .order("section", { ascending: true })
+      .order("category", { ascending: true })
+      .order("part_number", { ascending: true })
+      .range(from, to);
+    if (section) {
+      request = request.eq("section", section);
+    }
+    const term = query?.trim();
+    if (term) {
+      const like = `%${term.replaceAll("%", "").replaceAll(",", " ")}%`;
+      request = request.or(
+        `part_number.ilike.${like},name.ilike.${like},manufacturer.ilike.${like},category.ilike.${like}`
+      );
+    }
+    return request;
+  };
 
-  if (section) {
-    request = request.eq("section", section);
+  // Searches: one capped request.
+  if (query?.trim()) {
+    const { data, error } = await build(0, SEARCH_LIMIT - 1);
+    if (error) {
+      console.error("[catalog] search failed:", error.message);
+      return [];
+    }
+    return (data ?? []) as Product[];
   }
 
-  const term = query?.trim();
-  if (term) {
-    const like = `%${term.replaceAll("%", "").replaceAll(",", " ")}%`;
-    request = request.or(
-      `part_number.ilike.${like},name.ilike.${like},manufacturer.ilike.${like},category.ilike.${like}`
-    );
+  // Full reads: page through until a short page.
+  const all: Product[] = [];
+  for (let from = 0; ; from += PAGE_SIZE) {
+    const { data, error } = await build(from, from + PAGE_SIZE - 1);
+    if (error) {
+      console.error("[catalog] fetch failed:", error.message);
+      return all;
+    }
+    const rows = (data ?? []) as Product[];
+    all.push(...rows);
+    if (rows.length < PAGE_SIZE) break;
   }
-
-  const { data, error } = await request;
-  if (error) {
-    console.error("[catalog] fetch failed:", error.message);
-    return [];
-  }
-  return (data ?? []) as Product[];
+  return all;
 }
 
 function groupByCategory(products: Product[]): CatalogCategory[] {
