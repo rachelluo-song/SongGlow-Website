@@ -196,6 +196,71 @@ export function productHasBrand(p: Product, brandKey: string): boolean {
   );
 }
 
+export type SpecFacet = {
+  key: string;
+  values: { value: string; count: number }[];
+};
+
+// Which spec keys make good filters, in preference order. A key qualifies if
+// ≥80% of the category's parts carry it and it has 2–30 distinct values.
+const SPEC_PRIORITY = [
+  "Package",
+  "Voltage",
+  "Frequency",
+  "Inductance",
+  "Impedance",
+  "Current",
+  "Capacitance",
+  "Resistance",
+  "Power",
+  "Mounting",
+  "Tolerance",
+  "Temperature",
+];
+const SPEC_MIN_COVERAGE = 0.8;
+const SPEC_MAX_DISTINCT = 30;
+
+/** Numeric-aware ordering so "5V" sorts before "10V" and "25V". */
+function specValueCompare(a: string, b: string): number {
+  const na = parseFloat((a.match(/-?\d+(\.\d+)?/) ?? [""])[0]);
+  const nb = parseFloat((b.match(/-?\d+(\.\d+)?/) ?? [""])[0]);
+  const aNum = !Number.isNaN(na);
+  const bNum = !Number.isNaN(nb);
+  if (aNum && bNum && na !== nb) return na - nb;
+  if (aNum !== bNum) return aNum ? -1 : 1;
+  return a.localeCompare(b);
+}
+
+/** Pick up to `max` filterable spec keys for a set of products. */
+export function getSpecFacets(products: Product[], max = 2): SpecFacet[] {
+  const n = products.length;
+  if (n === 0) return [];
+  const byKey = new Map<string, Map<string, number>>();
+  for (const p of products) {
+    for (const [k, v] of Object.entries(p.specs ?? {})) {
+      const m = byKey.get(k) ?? new Map<string, number>();
+      m.set(v, (m.get(v) ?? 0) + 1);
+      byKey.set(k, m);
+    }
+  }
+  const facets: SpecFacet[] = [];
+  for (const key of SPEC_PRIORITY) {
+    if (facets.length >= max) break;
+    const m = byKey.get(key);
+    if (!m) continue;
+    const coverage = [...m.values()].reduce((a, b) => a + b, 0) / n;
+    if (coverage < SPEC_MIN_COVERAGE) continue;
+    if (m.size < 2 || m.size > SPEC_MAX_DISTINCT) continue;
+    facets.push({
+      key,
+      values: [...m.entries()]
+        .sort((x, y) => specValueCompare(x[0], y[0]))
+        .map(([value, count]) => ({ value, count })),
+    });
+  }
+  return facets;
+}
+
 export async function getCategorySummaries(
   section?: CatalogSection
 ): Promise<CategorySummary[]> {

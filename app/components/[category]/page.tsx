@@ -20,17 +20,18 @@ export default async function ComponentsCategoryPage({
   searchParams,
 }: {
   params: Promise<{ category: string }>;
-  searchParams: Promise<{ page?: string; brand?: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const { category } = await params;
-  const { page, brand } = await searchParams;
+  const sp = await searchParams;
   return (
     <CatalogCategory
       section="components"
       sectionTitle="Electronic Components"
       slug={category}
-      page={Number(page) || 1}
-      brand={typeof brand === "string" ? brand : undefined}
+      page={Number(sp.page) || 1}
+      brand={typeof sp.brand === "string" ? sp.brand : undefined}
+      params={sp}
     />
   );
 }
