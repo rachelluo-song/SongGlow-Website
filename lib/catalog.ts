@@ -189,6 +189,111 @@ export function hardwareFamilyRank(family: string): number {
   return i === -1 ? HARDWARE_FAMILY_ORDER.length : i;
 }
 
+/**
+ * Hardware size string → comparable inches: "#6" (numbered screw sizes),
+ * "M4" / "4mm" (metric), "1/4\"" and "3 1/2\"" (fractions), "0.25\"".
+ */
+function sizeInches(s: string): number | null {
+  const t = s.trim();
+  const num = t.match(/^#(\d+)/);
+  if (num) return 0.06 + 0.013 * parseInt(num[1]);
+  const metric = t.match(/^M(\d+(?:\.\d+)?)/i);
+  if (metric) return parseFloat(metric[1]) / 25.4;
+  const mm = t.match(/^(\d+(?:\.\d+)?)\s*mm/i);
+  if (mm) return parseFloat(mm[1]) / 25.4;
+  const frac = t.match(/^(?:(\d+)\s+)?(\d+)\/(\d+)/);
+  if (frac)
+    return (
+      (frac[1] ? parseInt(frac[1]) : 0) + parseInt(frac[2]) / parseInt(frac[3])
+    );
+  const dec = t.match(/^(\d+(?:\.\d+)?)/);
+  if (dec) return parseFloat(dec[1]);
+  return null;
+}
+
+function sizeCompare(a: string, b: string): number {
+  const va = sizeInches(a);
+  const vb = sizeInches(b);
+  if (va !== null && vb !== null && va !== vb) return va - vb;
+  return specValueCompare(a, b);
+}
+
+/** The spec key whose values best describe a hardware family's size range. */
+function primarySizeKey(family: string): string | null {
+  if (family === "Screws" || family === "Bolts") return "Thread Size";
+  if (family === "Washers" || family === "Nuts") return "For Screw Size";
+  if (family === "O-Rings" || family === "Bushings" || family === "Grommets")
+    return "ID";
+  if (family === "Springs") return "OD";
+  return null;
+}
+
+export type FamilySummary = {
+  family: string;
+  slug: string;
+  count: number;
+  lines: number;
+  subtitle: string;
+};
+
+/** Major-family cards for the hardware directory (Screws, Washers, …). */
+export async function getHardwareFamilies(): Promise<FamilySummary[]> {
+  const products = await fetchProducts("hardware");
+  type FB = {
+    count: number;
+    cats: Set<string>;
+    materials: Map<string, number>;
+    sizes: Set<string>;
+  };
+  const map = new Map<string, FB>();
+  for (const p of products) {
+    const fam = hardwareFamily(p.category);
+    let b = map.get(fam);
+    if (!b) {
+      b = { count: 0, cats: new Set(), materials: new Map(), sizes: new Set() };
+      map.set(fam, b);
+    }
+    b.count += 1;
+    b.cats.add(p.category);
+    const specs = p.specs ?? {};
+    if (specs["Material"]) {
+      b.materials.set(
+        specs["Material"],
+        (b.materials.get(specs["Material"]) ?? 0) + 1
+      );
+    }
+    const sizeKey = primarySizeKey(fam);
+    if (sizeKey && specs[sizeKey]) b.sizes.add(specs[sizeKey]);
+  }
+  return [...map.entries()]
+    .map(([family, b]) => {
+      const mats = [...b.materials.entries()]
+        .sort((x, y) => y[1] - x[1])
+        .map(([m]) => m);
+      const sizes = [...b.sizes].sort(sizeCompare);
+      const parts: string[] = [];
+      if (mats.length) {
+        parts.push(
+          mats.slice(0, 3).join(", ") +
+            (mats.length > 3 ? ` +${mats.length - 3} more` : "")
+        );
+      }
+      if (sizes.length > 1)
+        parts.push(`${sizes[0]} – ${sizes[sizes.length - 1]}`);
+      return {
+        family,
+        slug: slugifyCategory(family),
+        count: b.count,
+        lines: b.cats.size,
+        subtitle: parts.join(" · "),
+      };
+    })
+    .sort((a, b) => {
+      const r = hardwareFamilyRank(a.family) - hardwareFamilyRank(b.family);
+      return r !== 0 ? r : b.count - a.count;
+    });
+}
+
 export type BrandFacet = { key: string; label: string; count: number };
 
 /** Brand chips for a category page: cleaned brand names with product counts. */
@@ -302,6 +407,8 @@ export async function getCategorySummaries(
     brands: Map<string, number>;
     brandForms: Map<string, Map<string, number>>;
     partNumbers: string[];
+    materials: Map<string, number>;
+    sizes: Set<string>;
   };
   const map = new Map<string, Bucket>();
   for (const p of products) {
@@ -315,6 +422,8 @@ export async function getCategorySummaries(
         brands: new Map(),
         brandForms: new Map(),
         partNumbers: [],
+        materials: new Map(),
+        sizes: new Set(),
       };
       map.set(key, bucket);
     }
@@ -328,6 +437,17 @@ export async function getCategorySummaries(
         forms.set(brand, (forms.get(brand) ?? 0) + 1);
         bucket.brandForms.set(key, forms);
       }
+    }
+    if (p.section === "hardware") {
+      const specs = p.specs ?? {};
+      if (specs["Material"]) {
+        bucket.materials.set(
+          specs["Material"],
+          (bucket.materials.get(specs["Material"]) ?? 0) + 1
+        );
+      }
+      const sizeKey = primarySizeKey(hardwareFamily(p.category));
+      if (sizeKey && specs[sizeKey]) bucket.sizes.add(specs[sizeKey]);
     }
     if (bucket.partNumbers.length < 2) bucket.partNumbers.push(p.part_number);
   }
@@ -348,6 +468,17 @@ export async function getCategorySummaries(
       if (more > 0) {
         subtitle += ` +${more} more brand${more === 1 ? "" : "s"}`;
       }
+    } else if (b.section === "hardware" && (b.materials.size || b.sizes.size)) {
+      // generic hardware: materials + size range make the best subtitle
+      const mats = [...b.materials.entries()]
+        .sort((x, y) => y[1] - x[1])
+        .map(([m]) => m);
+      const sizes = [...b.sizes].sort(sizeCompare);
+      const parts: string[] = [];
+      if (mats.length) parts.push(mats.slice(0, 2).join(", "));
+      if (sizes.length > 1) parts.push(`${sizes[0]} – ${sizes[sizes.length - 1]}`);
+      else if (sizes.length === 1) parts.push(sizes[0]);
+      subtitle = parts.join(" · ");
     } else {
       // no manufacturer data in this category — fall back to part numbers
       subtitle = b.partNumbers.join(" · ");

@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Animate from "@/components/animate";
+import CategoryCard from "@/components/category-card";
 import ProductTable from "@/components/product-table";
 import {
   getCatalog,
   getCategorySummaries,
-  hardwareFamily,
+  getHardwareFamilies,
   SEARCH_LIMIT,
-  type CategorySummary,
   type CatalogSection as Section,
 } from "@/lib/catalog";
 
@@ -16,45 +16,6 @@ type Props = {
   intro: string;
   query?: string;
 };
-
-function groupByFamily(
-  categories: CategorySummary[]
-): [string, CategorySummary[]][] {
-  const groups = new Map<string, CategorySummary[]>();
-  for (const cat of categories) {
-    const family = hardwareFamily(cat.name);
-    const list = groups.get(family) ?? [];
-    list.push(cat);
-    groups.set(family, list);
-  }
-  // categories arrive pre-sorted by family rank, so map order is correct
-  return [...groups.entries()];
-}
-
-function CategoryCard({
-  cat,
-  basePath,
-  stripPrefix,
-}: {
-  cat: CategorySummary;
-  basePath: string;
-  stripPrefix?: string;
-}) {
-  const title =
-    stripPrefix && cat.name.startsWith(stripPrefix)
-      ? cat.name.slice(stripPrefix.length)
-      : cat.name;
-  return (
-    <Link href={`${basePath}/${cat.slug}`} className="cat-card">
-      <div className="cat-count">
-        {cat.count} part{cat.count === 1 ? "" : "s"}
-      </div>
-      <h3>{title}</h3>
-      <p className="cat-sample">{cat.subtitle}</p>
-      <span className="cat-arrow">Browse →</span>
-    </Link>
-  );
-}
 
 function SourcingCta() {
   return (
@@ -80,9 +41,13 @@ export default async function CatalogSection({
 }: Props) {
   const basePath = section === "components" ? "/components" : "/hardware";
 
-  // With a search term: results view. Without: the category directory.
+  // With a search term: results view. Without: the directory — major family
+  // cards for hardware, category cards for components.
   const results = query ? await getCatalog(section, query) : null;
-  const categories = query ? null : await getCategorySummaries(section);
+  const families =
+    !query && section === "hardware" ? await getHardwareFamilies() : null;
+  const categories =
+    !query && section === "components" ? await getCategorySummaries(section) : null;
 
   return (
     <Animate>
@@ -153,31 +118,34 @@ export default async function CatalogSection({
                 </div>
               )}
             </>
+          ) : families && families.length > 0 ? (
+            <>
+              <div className="cat-grid" data-reveal-group>
+                {families.map((fam) => (
+                  <Link
+                    key={fam.slug}
+                    href={`${basePath}/${fam.slug}`}
+                    className="cat-card"
+                  >
+                    <div className="cat-count">
+                      {fam.count} part{fam.count === 1 ? "" : "s"} ·{" "}
+                      {fam.lines} line{fam.lines === 1 ? "" : "s"}
+                    </div>
+                    <h3>{fam.family}</h3>
+                    <p className="cat-sample">{fam.subtitle}</p>
+                    <span className="cat-arrow">Browse →</span>
+                  </Link>
+                ))}
+              </div>
+              <SourcingCta />
+            </>
           ) : categories && categories.length > 0 ? (
             <>
-              {section === "hardware" ? (
-                groupByFamily(categories).map(([family, cats]) => (
-                  <div key={family} className="hw-family" data-reveal>
-                    <h2 className="hw-family-title">{family}</h2>
-                    <div className="cat-grid">
-                      {cats.map((cat) => (
-                        <CategoryCard
-                          key={cat.slug}
-                          cat={cat}
-                          basePath={basePath}
-                          stripPrefix={`${family} - `}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <div className="cat-grid" data-reveal-group>
-                  {categories.map((cat) => (
-                    <CategoryCard key={cat.slug} cat={cat} basePath={basePath} />
-                  ))}
-                </div>
-              )}
+              <div className="cat-grid" data-reveal-group>
+                {categories.map((cat) => (
+                  <CategoryCard key={cat.slug} cat={cat} basePath={basePath} />
+                ))}
+              </div>
               <SourcingCta />
             </>
           ) : (

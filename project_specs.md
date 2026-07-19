@@ -31,10 +31,13 @@ styles.css, globe.js). The site is a faithful Next.js recreation of those design
   `?q=` shows search results; no-match state offers "Request this part".
 - `/components/[category]` — one category's parts table (breadcrumb back,
   "don't see the exact part?" CTA). Slug = lowercased-hyphenated category name.
-- `/hardware` — directory grouped by family (Screws, Washers, O-Rings, …)
-  ordered by commonality (`HARDWARE_FAMILY_ORDER` in lib/catalog.ts), then
-  part count; card titles drop the family prefix
-- `/hardware/[category]` — same template as components categories
+- `/hardware` — major-family cards (Screws, Washers, O-Rings, …) ordered by
+  commonality (`HARDWARE_FAMILY_ORDER`), each with an auto-generated subtitle
+  (top materials + size range, size-aware sorting for #N/metric/fractions)
+- `/hardware/[family]` (e.g. /hardware/screws) — the family's product-line
+  cards (prefix-stripped titles, material + size-range subtitles)
+- `/hardware/[category]` — full category slug falls through to the parts
+  table with filters, pagination, and drawings
 - `/api/drawing/[id]` — parametric 2D dimension drawing (SVG) generated from
   the part's specs (lib/drawings.ts): screws (head style from category name),
   flat washers, O-rings. "Drawing ⤓" link appears on drawable rows. Geometry

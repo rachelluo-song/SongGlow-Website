@@ -869,21 +869,9 @@ textarea {
   color: var(--clay-dark);
 }
 
-/* Hardware directory family groups */
-.hw-family {
-  margin-bottom: 44px;
-}
-
-.hw-family-title {
-  font-size: 24px;
-  margin-bottom: 14px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--line);
-}
-
-.hw-family .cat-card h3 {
-  font-size: 16.5px;
-  line-height: 1.35;
+/* Hardware product-line cards can have long names */
+.cat-card h3 {
+  overflow-wrap: anywhere;
 }
 
 /* Breadcrumb on category pages */
