@@ -1182,6 +1182,15 @@ textarea {
   margin-top: 4px;
 }
 
+/* Branded hardware: maker shown under the name instead of a column */
+.catalog-brand-line {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--clay-dark);
+  margin-top: 4px;
+}
+
 .catalog-specs {
   max-width: 320px;
 }

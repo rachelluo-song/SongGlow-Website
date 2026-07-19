@@ -50,6 +50,9 @@ function orderedSpecs(specs: Record<string, string>): [string, string][] {
 }
 
 export default function ProductTable({ products }: { products: Product[] }) {
+  // Hardware is largely generic — no Manufacturer column; a maker, when
+  // present (branded hardware), shows as a line under the part name instead.
+  const isHardware = products[0]?.section === "hardware";
   return (
     <div className="catalog-scroll">
       <table className="catalog-table">
@@ -57,7 +60,7 @@ export default function ProductTable({ products }: { products: Product[] }) {
           <tr>
             <th>Part number</th>
             <th>Name</th>
-            <th>Manufacturer</th>
+            {!isHardware && <th>Manufacturer</th>}
             <th>Key specs</th>
             <th aria-label="Actions"></th>
           </tr>
@@ -68,11 +71,14 @@ export default function ProductTable({ products }: { products: Product[] }) {
               <td className="catalog-pn">{p.part_number}</td>
               <td>
                 {p.name}
+                {isHardware && p.manufacturer ? (
+                  <span className="catalog-brand-line">{p.manufacturer}</span>
+                ) : null}
                 {p.description ? (
                   <span className="catalog-desc">{p.description}</span>
                 ) : null}
               </td>
-              <td>{p.manufacturer ?? "—"}</td>
+              {!isHardware && <td>{p.manufacturer ?? "—"}</td>}
               <td className="catalog-specs">
                 {orderedSpecs(p.specs).length > 0
                   ? orderedSpecs(p.specs).map(([k, v]) => (
