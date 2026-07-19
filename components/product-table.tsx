@@ -49,6 +49,36 @@ function orderedSpecs(specs: Record<string, string>): [string, string][] {
   );
 }
 
+function DatasheetIcon() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M6 3H14L19 8V21H6V3Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+      <path d="M14 3V8H19" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function DrawingIcon() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+      <rect x="3" y="5" width="18" height="14" stroke="currentColor" strokeWidth="2" />
+      <path
+        d="M3 15L8 10L12 14L16 9"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M17 19V16M14 19V17.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export default function ProductTable({ products }: { products: Product[] }) {
   // Hardware is largely generic — no Manufacturer column; a maker, when
   // present (branded hardware), shows as a line under the part name instead.
@@ -62,6 +92,7 @@ export default function ProductTable({ products }: { products: Product[] }) {
             <th>Name</th>
             {!isHardware && <th>Manufacturer</th>}
             <th>Key specs</th>
+            <th>Docs</th>
             <th aria-label="Actions"></th>
           </tr>
         </thead>
@@ -69,7 +100,7 @@ export default function ProductTable({ products }: { products: Product[] }) {
           {products.map((p) => (
             <tr key={p.id}>
               <td className="catalog-pn">{p.part_number}</td>
-              <td>
+              <td className="catalog-name">
                 {p.name}
                 {isHardware && p.manufacturer ? (
                   <span className="catalog-brand-line">{p.manufacturer}</span>
@@ -87,14 +118,16 @@ export default function ProductTable({ products }: { products: Product[] }) {
                       </div>
                     ))
                   : "—"}
+              </td>
+              <td className="catalog-docs">
                 {p.datasheet_url ? (
                   <a
                     href={p.datasheet_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="catalog-datasheet"
+                    className="doc-link"
                   >
-                    Datasheet ↗
+                    <DatasheetIcon /> Datasheet
                   </a>
                 ) : null}
                 {canDrawProduct(p) ? (
@@ -102,11 +135,12 @@ export default function ProductTable({ products }: { products: Product[] }) {
                     href={`/api/drawing/${p.id}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="catalog-datasheet"
+                    className="doc-link"
                   >
-                    Drawing ⤓
+                    <DrawingIcon /> Drawing
                   </a>
                 ) : null}
+                {!p.datasheet_url && !canDrawProduct(p) ? "—" : null}
               </td>
               <td>
                 <Link

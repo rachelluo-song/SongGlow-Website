@@ -1191,16 +1191,37 @@ textarea {
   margin-top: 4px;
 }
 
-.catalog-specs {
-  max-width: 320px;
+/* Part number identifies the row — the name can wrap in a narrower column,
+   leaving the width to Key specs */
+.catalog-name {
+  max-width: 230px;
 }
 
-.catalog-datasheet {
-  display: block;
-  margin-top: 6px;
+.catalog-specs {
+  min-width: 260px;
+}
+
+.catalog-docs {
+  white-space: nowrap;
+}
+
+.doc-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  margin: 2px 0;
+  border: 1px solid var(--line);
+  border-radius: 6px;
   color: var(--clay-dark);
   font-weight: 600;
-  font-size: 13.5px;
+  font-size: 13px;
+  width: fit-content;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.doc-link:hover {
+  border-color: #c7d4ee;
+  background: var(--cream);
 }
 
 .catalog-quote {
