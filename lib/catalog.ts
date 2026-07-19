@@ -160,6 +160,35 @@ function splitBrands(raw: string): string[] {
     .filter(Boolean);
 }
 
+// Hardware directory ordering: most commonly used families first
+// (user decision 2026-07-19); unknown families sort to the end.
+const HARDWARE_FAMILY_ORDER = [
+  "Screws",
+  "Bolts",
+  "Nuts",
+  "Washers",
+  "Threaded Inserts",
+  "O-Rings",
+  "Springs",
+  "Pins",
+  "Spacers",
+  "Standoffs",
+  "Grommets",
+  "Bushings",
+  "Fittings",
+];
+
+/** "Screws - 18-8 (304) ... Pan Head" → "Screws" */
+export function hardwareFamily(categoryName: string): string {
+  const i = categoryName.indexOf(" - ");
+  return i === -1 ? categoryName : categoryName.slice(0, i);
+}
+
+export function hardwareFamilyRank(family: string): number {
+  const i = HARDWARE_FAMILY_ORDER.indexOf(family);
+  return i === -1 ? HARDWARE_FAMILY_ORDER.length : i;
+}
+
 export type BrandFacet = { key: string; label: string; count: number };
 
 /** Brand chips for a category page: cleaned brand names with product counts. */
@@ -330,6 +359,15 @@ export async function getCategorySummaries(
       count: b.count,
       subtitle,
     };
+  }).sort((a, b) => {
+    if (a.section !== b.section) return a.section === "components" ? -1 : 1;
+    if (a.section === "hardware") {
+      const ra = hardwareFamilyRank(hardwareFamily(a.name));
+      const rb = hardwareFamilyRank(hardwareFamily(b.name));
+      if (ra !== rb) return ra - rb;
+      return b.count - a.count;
+    }
+    return a.name.localeCompare(b.name);
   });
 }
 

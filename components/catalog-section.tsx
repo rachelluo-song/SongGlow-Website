@@ -4,7 +4,9 @@ import ProductTable from "@/components/product-table";
 import {
   getCatalog,
   getCategorySummaries,
+  hardwareFamily,
   SEARCH_LIMIT,
+  type CategorySummary,
   type CatalogSection as Section,
 } from "@/lib/catalog";
 
@@ -14,6 +16,45 @@ type Props = {
   intro: string;
   query?: string;
 };
+
+function groupByFamily(
+  categories: CategorySummary[]
+): [string, CategorySummary[]][] {
+  const groups = new Map<string, CategorySummary[]>();
+  for (const cat of categories) {
+    const family = hardwareFamily(cat.name);
+    const list = groups.get(family) ?? [];
+    list.push(cat);
+    groups.set(family, list);
+  }
+  // categories arrive pre-sorted by family rank, so map order is correct
+  return [...groups.entries()];
+}
+
+function CategoryCard({
+  cat,
+  basePath,
+  stripPrefix,
+}: {
+  cat: CategorySummary;
+  basePath: string;
+  stripPrefix?: string;
+}) {
+  const title =
+    stripPrefix && cat.name.startsWith(stripPrefix)
+      ? cat.name.slice(stripPrefix.length)
+      : cat.name;
+  return (
+    <Link href={`${basePath}/${cat.slug}`} className="cat-card">
+      <div className="cat-count">
+        {cat.count} part{cat.count === 1 ? "" : "s"}
+      </div>
+      <h3>{title}</h3>
+      <p className="cat-sample">{cat.subtitle}</p>
+      <span className="cat-arrow">Browse →</span>
+    </Link>
+  );
+}
 
 function SourcingCta() {
   return (
@@ -114,22 +155,29 @@ export default async function CatalogSection({
             </>
           ) : categories && categories.length > 0 ? (
             <>
-              <div className="cat-grid" data-reveal-group>
-                {categories.map((cat) => (
-                  <Link
-                    key={cat.slug}
-                    href={`${basePath}/${cat.slug}`}
-                    className="cat-card"
-                  >
-                    <div className="cat-count">
-                      {cat.count} part{cat.count === 1 ? "" : "s"}
+              {section === "hardware" ? (
+                groupByFamily(categories).map(([family, cats]) => (
+                  <div key={family} className="hw-family" data-reveal>
+                    <h2 className="hw-family-title">{family}</h2>
+                    <div className="cat-grid">
+                      {cats.map((cat) => (
+                        <CategoryCard
+                          key={cat.slug}
+                          cat={cat}
+                          basePath={basePath}
+                          stripPrefix={`${family} - `}
+                        />
+                      ))}
                     </div>
-                    <h3>{cat.name}</h3>
-                    <p className="cat-sample">{cat.subtitle}</p>
-                    <span className="cat-arrow">Browse →</span>
-                  </Link>
-                ))}
-              </div>
+                  </div>
+                ))
+              ) : (
+                <div className="cat-grid" data-reveal-group>
+                  {categories.map((cat) => (
+                    <CategoryCard key={cat.slug} cat={cat} basePath={basePath} />
+                  ))}
+                </div>
+              )}
               <SourcingCta />
             </>
           ) : (

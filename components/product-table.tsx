@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Product } from "@/lib/catalog";
+import { canDrawProduct } from "@/lib/drawings";
 
 function specsLine(specs: Record<string, string>) {
   const entries = Object.entries(specs ?? {});
@@ -41,6 +42,16 @@ export default function ProductTable({ products }: { products: Product[] }) {
                     className="catalog-datasheet"
                   >
                     Datasheet ↗
+                  </a>
+                ) : null}
+                {canDrawProduct(p) ? (
+                  <a
+                    href={`/api/drawing/${p.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="catalog-datasheet"
+                  >
+                    Drawing ⤓
                   </a>
                 ) : null}
               </td>

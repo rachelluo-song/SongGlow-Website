@@ -62,6 +62,8 @@ def parse_specs(text, warnings, pn):
         elif token.upper().startswith("AEC-Q"):
             specs["Qualification"] = token
             warnings.append(f"{pn}: spec '{token}' had no value — stored as Qualification: {token}")
+        elif token in ("Metric Size", "Inch Size"):
+            specs["Sizing"] = token.split()[0]
         else:
             warnings.append(f"{pn}: spec '{token}' has no 'Key: Value' form — skipped")
     return specs
