@@ -218,6 +218,53 @@ function sizeCompare(a: string, b: string): number {
   return specValueCompare(a, b);
 }
 
+/**
+ * Subcategory grouping within a hardware family, derived from the product-line
+ * name. Currently defined for Screws; returns null for ungrouped families.
+ * Extend SUBFAMILY_ORDER/rules as new families grow (Set Screws, Thumb
+ * Screws, …).
+ */
+const SCREW_SUBFAMILY_ORDER = [
+  "Machine Screws",
+  "Socket Head Screws",
+  "Sheet Metal & Self-Tapping Screws",
+  "Set Screws",
+  "Other Screws",
+];
+
+export function hardwareSubfamily(
+  family: string,
+  categoryName: string
+): string | null {
+  if (family !== "Screws") return null;
+  const c = categoryName.toLowerCase();
+  if (c.includes("set screw")) return "Set Screws";
+  if (c.includes("sheet metal") || c.includes("self-tapping"))
+    return "Sheet Metal & Self-Tapping Screws";
+  if (
+    c.includes("socket head") ||
+    c.includes("button") ||
+    c.includes("low-profile")
+  )
+    return "Socket Head Screws";
+  if (
+    c.includes("pan head") ||
+    c.includes("cheese") ||
+    c.includes("truss") ||
+    c.includes("round head") ||
+    c.includes("flat head") ||
+    c.includes("slotted")
+  )
+    return "Machine Screws";
+  // no head keyword in the name: these lines are socket head cap screws
+  return "Socket Head Screws";
+}
+
+export function subfamilyRank(subfamily: string): number {
+  const i = SCREW_SUBFAMILY_ORDER.indexOf(subfamily);
+  return i === -1 ? SCREW_SUBFAMILY_ORDER.length : i;
+}
+
 /** The spec key whose values best describe a hardware family's size range. */
 function primarySizeKey(family: string): string | null {
   if (family === "Screws" || family === "Bolts") return "Thread Size";

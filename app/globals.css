@@ -874,6 +874,42 @@ textarea {
   overflow-wrap: anywhere;
 }
 
+/* Subcategory groups on family pages (Machine Screws, Socket Head, …) */
+.family-group {
+  margin-bottom: 44px;
+}
+
+.family-group-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 23px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.family-group-count {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-faint);
+  letter-spacing: 0.02em;
+}
+
+/* One spec per line in catalog tables */
+.spec-line {
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.spec-line .spec-k {
+  color: var(--ink-faint);
+}
+
 /* Breadcrumb on category pages */
 .breadcrumb {
   font-size: 14.5px;

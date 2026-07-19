@@ -35,7 +35,11 @@ styles.css, globe.js). The site is a faithful Next.js recreation of those design
   commonality (`HARDWARE_FAMILY_ORDER`), each with an auto-generated subtitle
   (top materials + size range, size-aware sorting for #N/metric/fractions)
 - `/hardware/[family]` (e.g. /hardware/screws) — the family's product-line
-  cards (prefix-stripped titles, material + size-range subtitles)
+  cards (prefix-stripped titles, material + size-range subtitles); families
+  with subfamily rules (Screws → Machine / Socket Head / Sheet Metal &
+  Self-Tapping / Set) render grouped sections with per-group counts
+- Catalog tables show specs one per line in a fixed decision-relevant order
+  (SPEC_DISPLAY_ORDER in product-table.tsx), not the DB's length-sorted order
 - `/hardware/[category]` — full category slug falls through to the parts
   table with filters, pagination, and drawings
 - `/api/drawing/[id]` — parametric 2D dimension drawing (SVG) generated from
