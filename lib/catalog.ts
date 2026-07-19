@@ -275,33 +275,53 @@ function primarySizeKey(family: string): string | null {
   return null;
 }
 
-export type FamilySummary = {
+export type HardwareTreeItem = {
+  label: string;
+  href: string;
+  count: number;
+  lines?: number;
+};
+
+export type HardwareTreeFamily = {
   family: string;
   slug: string;
   count: number;
   lines: number;
   subtitle: string;
+  /** subfamilies (linking to anchors on the family page) or product lines */
+  items: HardwareTreeItem[];
 };
 
-/** Major-family cards for the hardware directory (Screws, Washers, …). */
-export async function getHardwareFamilies(): Promise<FamilySummary[]> {
+/**
+ * The hardware directory tree: families ordered by commonality, each with
+ * either its subfamilies (Screws → Machine/Socket Head/…) or, for families
+ * without subfamily rules, its product lines.
+ */
+export async function getHardwareTree(): Promise<HardwareTreeFamily[]> {
   const products = await fetchProducts("hardware");
   type FB = {
     count: number;
-    cats: Set<string>;
+    cats: Map<string, number>;
     materials: Map<string, number>;
     sizes: Set<string>;
+    subs: Map<string, { count: number; lines: Set<string> }>;
   };
   const map = new Map<string, FB>();
   for (const p of products) {
     const fam = hardwareFamily(p.category);
     let b = map.get(fam);
     if (!b) {
-      b = { count: 0, cats: new Set(), materials: new Map(), sizes: new Set() };
+      b = {
+        count: 0,
+        cats: new Map(),
+        materials: new Map(),
+        sizes: new Set(),
+        subs: new Map(),
+      };
       map.set(fam, b);
     }
     b.count += 1;
-    b.cats.add(p.category);
+    b.cats.set(p.category, (b.cats.get(p.category) ?? 0) + 1);
     const specs = p.specs ?? {};
     if (specs["Material"]) {
       b.materials.set(
@@ -311,6 +331,13 @@ export async function getHardwareFamilies(): Promise<FamilySummary[]> {
     }
     const sizeKey = primarySizeKey(fam);
     if (sizeKey && specs[sizeKey]) b.sizes.add(specs[sizeKey]);
+    const sub = hardwareSubfamily(fam, p.category);
+    if (sub) {
+      const sb = b.subs.get(sub) ?? { count: 0, lines: new Set<string>() };
+      sb.count += 1;
+      sb.lines.add(p.category);
+      b.subs.set(sub, sb);
+    }
   }
   return [...map.entries()]
     .map(([family, b]) => {
@@ -327,12 +354,35 @@ export async function getHardwareFamilies(): Promise<FamilySummary[]> {
       }
       if (sizes.length > 1)
         parts.push(`${sizes[0]} – ${sizes[sizes.length - 1]}`);
+
+      const slug = slugifyCategory(family);
+      const items: HardwareTreeItem[] =
+        b.subs.size > 0
+          ? [...b.subs.entries()]
+              .sort((x, y) => subfamilyRank(x[0]) - subfamilyRank(y[0]))
+              .map(([sub, sb]) => ({
+                label: sub,
+                href: `/hardware/${slug}#${slugifyCategory(sub)}`,
+                count: sb.count,
+                lines: sb.lines.size,
+              }))
+          : [...b.cats.entries()]
+              .sort((x, y) => y[1] - x[1])
+              .map(([name, count]) => ({
+                label: name.startsWith(`${family} - `)
+                  ? name.slice(family.length + 3)
+                  : name,
+                href: `/hardware/${slugifyCategory(name)}`,
+                count,
+              }));
+
       return {
         family,
-        slug: slugifyCategory(family),
+        slug,
         count: b.count,
         lines: b.cats.size,
         subtitle: parts.join(" · "),
+        items,
       };
     })
     .sort((a, b) => {
@@ -385,6 +435,15 @@ export type SpecFacet = {
 // Which spec keys make good filters, in preference order. A key qualifies if
 // ≥80% of the category's parts carry it and it has 2–30 distinct values.
 const SPEC_PRIORITY = [
+  // hardware dimensions (only present on hardware parts)
+  "Thread Size",
+  "For Screw Size",
+  "Length",
+  "Cross Section",
+  "Thickness",
+  "ID",
+  "OD",
+  // electronics
   "Package",
   "Voltage",
   "Frequency",
@@ -397,6 +456,11 @@ const SPEC_PRIORITY = [
   "Mounting",
   "Tolerance",
   "Temperature",
+  // shared/secondary
+  "Hardness",
+  "Threading",
+  "Drive Type",
+  "Finish",
 ];
 const SPEC_MIN_COVERAGE = 0.8;
 const SPEC_MAX_DISTINCT = 30;

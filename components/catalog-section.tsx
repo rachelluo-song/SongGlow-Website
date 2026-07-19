@@ -5,7 +5,7 @@ import ProductTable from "@/components/product-table";
 import {
   getCatalog,
   getCategorySummaries,
-  getHardwareFamilies,
+  getHardwareTree,
   SEARCH_LIMIT,
   type CatalogSection as Section,
 } from "@/lib/catalog";
@@ -45,7 +45,7 @@ export default async function CatalogSection({
   // cards for hardware, category cards for components.
   const results = query ? await getCatalog(section, query) : null;
   const families =
-    !query && section === "hardware" ? await getHardwareFamilies() : null;
+    !query && section === "hardware" ? await getHardwareTree() : null;
   const categories =
     !query && section === "components" ? await getCategorySummaries(section) : null;
 
@@ -120,21 +120,44 @@ export default async function CatalogSection({
             </>
           ) : families && families.length > 0 ? (
             <>
-              <div className="cat-grid" data-reveal-group>
+              <div className="hw-accordion" data-reveal>
                 {families.map((fam) => (
-                  <Link
-                    key={fam.slug}
-                    href={`${basePath}/${fam.slug}`}
-                    className="cat-card"
-                  >
-                    <div className="cat-count">
-                      {fam.count} part{fam.count === 1 ? "" : "s"} ·{" "}
-                      {fam.lines} line{fam.lines === 1 ? "" : "s"}
+                  <details key={fam.slug} className="hw-acc">
+                    <summary>
+                      <span className="hw-acc-chev" aria-hidden>
+                        ▸
+                      </span>
+                      <span className="hw-acc-head">
+                        <span className="hw-acc-name">{fam.family}</span>
+                        <span className="hw-acc-sub">{fam.subtitle}</span>
+                      </span>
+                      <span className="hw-acc-count">
+                        {fam.count} parts · {fam.lines} line
+                        {fam.lines === 1 ? "" : "s"}
+                      </span>
+                    </summary>
+                    <div className="hw-acc-body">
+                      {fam.items.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="hw-acc-item"
+                        >
+                          <span>{item.label}</span>
+                          <span className="hw-acc-item-count">
+                            {item.count} parts
+                            {item.lines ? ` · ${item.lines} lines` : ""}
+                          </span>
+                        </Link>
+                      ))}
+                      <Link
+                        href={`${basePath}/${fam.slug}`}
+                        className="hw-acc-all"
+                      >
+                        View all {fam.family} →
+                      </Link>
                     </div>
-                    <h3>{fam.family}</h3>
-                    <p className="cat-sample">{fam.subtitle}</p>
-                    <span className="cat-arrow">Browse →</span>
-                  </Link>
+                  </details>
                 ))}
               </div>
               <SourcingCta />

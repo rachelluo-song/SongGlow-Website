@@ -874,9 +874,117 @@ textarea {
   overflow-wrap: anywhere;
 }
 
+/* Collapsible hardware directory */
+.hw-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hw-acc {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.hw-acc summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  transition: background 0.15s ease;
+}
+.hw-acc summary::-webkit-details-marker {
+  display: none;
+}
+.hw-acc summary:hover {
+  background: var(--cream);
+}
+
+.hw-acc-chev {
+  color: var(--clay-dark);
+  font-size: 14px;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+.hw-acc[open] .hw-acc-chev {
+  transform: rotate(90deg);
+}
+
+.hw-acc-head {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.hw-acc-name {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.hw-acc-sub {
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+
+.hw-acc-count {
+  margin-left: auto;
+  white-space: nowrap;
+  color: var(--clay-dark);
+  font-weight: 600;
+  font-size: 13.5px;
+  flex-shrink: 0;
+}
+
+.hw-acc-body {
+  border-top: 1px solid var(--line);
+  padding: 10px 14px 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hw-acc-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.hw-acc-item:hover {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.hw-acc-item-count {
+  color: var(--ink-faint);
+  font-size: 13px;
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+.hw-acc-all {
+  margin-top: 4px;
+  padding: 10px 12px;
+  color: var(--clay-dark);
+  font-weight: 600;
+  font-size: 14px;
+}
+
 /* Subcategory groups on family pages (Machine Screws, Socket Head, …) */
 .family-group {
   margin-bottom: 44px;
+  scroll-margin-top: 90px;
 }
 
 .family-group-title {

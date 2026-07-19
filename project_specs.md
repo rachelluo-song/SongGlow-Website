@@ -31,9 +31,11 @@ styles.css, globe.js). The site is a faithful Next.js recreation of those design
   `?q=` shows search results; no-match state offers "Request this part".
 - `/components/[category]` — one category's parts table (breadcrumb back,
   "don't see the exact part?" CTA). Slug = lowercased-hyphenated category name.
-- `/hardware` — major-family cards (Screws, Washers, O-Rings, …) ordered by
-  commonality (`HARDWARE_FAMILY_ORDER`), each with an auto-generated subtitle
-  (top materials + size range, size-aware sorting for #N/metric/fractions)
+- `/hardware` — collapsible accordion (native `<details>`, no JS): families
+  ordered by commonality, each row expanding to subfamilies (Screws →
+  Machine/Socket Head/Sheet Metal, linking to family-page anchors) or product
+  lines (small families), plus "View all". Subtitles auto-generated (top
+  materials + size range, size-aware sorting for #N/metric/fractions)
 - `/hardware/[family]` (e.g. /hardware/screws) — the family's product-line
   cards (prefix-stripped titles, material + size-range subtitles); families
   with subfamily rules (Screws → Machine / Socket Head / Sheet Metal &

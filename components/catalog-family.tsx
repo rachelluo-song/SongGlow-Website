@@ -3,6 +3,7 @@ import Animate from "@/components/animate";
 import CategoryCard from "@/components/category-card";
 import {
   hardwareSubfamily,
+  slugifyCategory,
   subfamilyRank,
   type CategorySummary,
 } from "@/lib/catalog";
@@ -56,7 +57,12 @@ export default function CatalogFamily({ family, lines }: Props) {
         <div className="wrap">
           {grouped ? (
             orderedGroups.map(([sub, subLines]) => (
-              <div key={sub || "other"} className="family-group" data-reveal>
+              <div
+                key={sub || "other"}
+                id={slugifyCategory(sub || `other-${family}`)}
+                className="family-group"
+                data-reveal
+              >
                 <h2 className="family-group-title">
                   {sub || `Other ${family}`}
                   <span className="family-group-count">
