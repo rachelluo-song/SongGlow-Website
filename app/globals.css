@@ -778,6 +778,55 @@ input[type="file"]::file-selector-button:hover {
   margin-top: 6px;
 }
 
+/* ---------- Long-form guides ---------- */
+
+.article {
+  max-width: 780px;
+}
+.article h2 {
+  font-size: 26px;
+  margin: 44px 0 14px;
+}
+.article h3 {
+  font-size: 19px;
+  margin: 28px 0 10px;
+}
+.article p {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+}
+.article ul {
+  margin: 0 0 16px 22px;
+}
+.article li {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+.article strong {
+  color: var(--ink);
+}
+.article a {
+  color: var(--clay-dark);
+  font-weight: 600;
+}
+
+/* Callout card inside an article (red-flag lists, key takeaways) */
+.article-callout {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--clay);
+  border-radius: 10px;
+  padding: 22px 26px;
+  margin: 28px 0;
+}
+.article-callout h3 {
+  margin-top: 0;
+}
+
 /* ---------- Sales team cards ---------- */
 
 .sales-card {

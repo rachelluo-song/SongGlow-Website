@@ -18,6 +18,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/components`, changeFrequency: "daily", priority: 0.9 },
     { url: `${SITE_URL}/hardware`, changeFrequency: "daily", priority: 0.9 },
     { url: `${SITE_URL}/contact`, changeFrequency: "yearly", priority: 0.7 },
+    {
+      url: `${SITE_URL}/guides/how-to-verify-authentic-electronic-components`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 
   const summaries = await getCategorySummaries();

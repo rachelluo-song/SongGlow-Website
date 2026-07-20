@@ -12,6 +12,9 @@ export default function SiteFooter() {
             <Link href="/components">Components</Link>
             <Link href="/hardware">Hardware</Link>
             <Link href="/services">Services</Link>
+            <Link href="/guides/how-to-verify-authentic-electronic-components">
+              Guides
+            </Link>
             <Link href="/contact">Contact</Link>
           </div>
           <div className="footer-meta">
