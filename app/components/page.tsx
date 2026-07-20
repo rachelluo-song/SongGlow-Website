@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Electronic Components — SongGlow",
   description:
     "Browse SongGlow's electronic component catalog — semiconductors, passives, and more. Every part 100% authentic with full traceability.",
+  alternates: { canonical: "/components" },
 };
 
 // Always render fresh so new rows added in Supabase appear immediately

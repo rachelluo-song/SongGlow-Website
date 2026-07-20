@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
 import HomeContent from "./home-content";
 import { getCategorySummaries } from "@/lib/catalog";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 // Refresh the home page's catalog block every 5 minutes
 export const revalidate = 300;

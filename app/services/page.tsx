@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Services — SongGlow",
   description:
     "Sourcing coverage for every stage of the BOM — complete BOM sourcing, alternates, cost optimization, multi-supplier sourcing, obsolete parts, and supply risk management.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {

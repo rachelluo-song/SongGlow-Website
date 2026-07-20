@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Hardware — SongGlow",
   description:
     "Browse SongGlow's hardware catalog — fasteners, enclosures, thermal and mechanical parts to complete your BOM alongside the electronics.",
+  alternates: { canonical: "/hardware" },
 };
 
 // Always render fresh so new rows added in Supabase appear immediately
