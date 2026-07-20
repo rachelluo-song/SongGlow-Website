@@ -99,9 +99,14 @@ export default function ContactContent() {
                       >
                         <MailIcon /> {person.email}
                       </a>
-                      <div className="sales-contact-row">
+                      <a
+                        className="sales-contact-row"
+                        href={`https://wa.me/${person.whatsapp.replace(/\D/g, "")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <ChatIcon /> WhatsApp: {person.whatsapp}
-                      </div>
+                      </a>
                     </div>
                   </div>
                 </div>
