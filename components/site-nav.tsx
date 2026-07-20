@@ -19,6 +19,34 @@ function isActive(pathname: string, href: string): boolean {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
+function SearchIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <circle cx="11" cy="11" r="6.5" stroke="currentColor" strokeWidth="2" />
+      <path
+        d="M15.8 15.8L20.5 20.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function NavSearch() {
+  return (
+    <form action="/search" className="nav-search" role="search">
+      <SearchIcon />
+      <input
+        type="search"
+        name="q"
+        placeholder="Search part number…"
+        aria-label="Search the catalog"
+      />
+    </form>
+  );
+}
+
 export default function SiteNav() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,6 +67,7 @@ export default function SiteNav() {
           ))}
         </div>
         <div className="nav-cta">
+          <NavSearch />
           <Link href="/contact" className="btn btn-navy">
             Contact Us
           </Link>
@@ -59,6 +88,7 @@ export default function SiteNav() {
         </div>
       </div>
       <div className="nav-menu">
+        <NavSearch />
         {LINKS.map((link) => (
           <Link
             key={link.href}

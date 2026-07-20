@@ -788,3 +788,36 @@ export async function getProductBySlug(
 export async function getAllProducts(): Promise<Product[]> {
   return fetchProducts();
 }
+
+export type SearchResultCategory = {
+  section: CatalogSection;
+  name: string;
+  slug: string;
+  products: Product[];
+};
+
+/**
+ * Global search across both sections (header search box), grouped by
+ * category. Rows arrive sorted by section/category/part, so grouping is a
+ * single pass.
+ */
+export async function searchCatalog(
+  query: string
+): Promise<SearchResultCategory[]> {
+  const products = await fetchProducts(undefined, query);
+  const out: SearchResultCategory[] = [];
+  for (const p of products) {
+    const last = out[out.length - 1];
+    if (last && last.section === p.section && last.name === p.category) {
+      last.products.push(p);
+    } else {
+      out.push({
+        section: p.section,
+        name: p.category,
+        slug: slugifyCategory(p.category),
+        products: [p],
+      });
+    }
+  }
+  return out;
+}
