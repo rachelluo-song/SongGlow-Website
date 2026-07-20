@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import LogoMark from "./logo-mark";
+import Logo from "./logo";
 
 const LINKS = [
   { href: "/", label: "Home" },
@@ -20,10 +20,7 @@ export default function SiteNav() {
   return (
     <nav className={`nav ${menuOpen ? "menu-open" : ""}`}>
       <div className="nav-inner">
-        <Link href="/" className="logo">
-          <LogoMark />
-          SongGlow
-        </Link>
+        <Logo size="nav" />
         <div className="nav-links">
           {LINKS.map((link) => (
             <Link

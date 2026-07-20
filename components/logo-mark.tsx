@@ -1,24 +1,34 @@
-export default function LogoMark({ size }: { size?: number }) {
-  // Only non-default sizes (the footer's 26px) are pinned inline; the nav's
-  // default size stays CSS-controlled so responsive rules can adjust it.
+export default function LogoMark({ size = 30 }: { size?: number }) {
+  // SongGlow stacked-layers mark (2026 rebrand): diamond over two chevrons
   return (
-    <span
+    <svg
       className="logo-mark"
-      style={size ? { width: size, height: size } : undefined}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden
     >
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        style={size && size < 30 ? { width: 14, height: 14 } : undefined}
-      >
-        <path
-          d="M4 16L10 6L14 13L20 6"
-          stroke="#FBF9F4"
-          strokeWidth="2.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </span>
+      <path
+        d="M12 1.5 L21 7 L12 12.5 L3 7 Z"
+        stroke="var(--logo-blue)"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M3 11.5 L12 17 L21 11.5"
+        stroke="var(--logo-blue)"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M3 16.5 L12 22 L21 16.5"
+        stroke="var(--logo-blue)"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }

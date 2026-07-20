@@ -20,6 +20,7 @@
   --dark-2: #121a3e;
   --lightblue: #afcbfb;
   --navy-cta: #0b00a0;
+  --logo-blue: #4874a8;
 
   /* --serif now points at the heading sans (IBM Plex) — name kept to avoid
      touching every usage; treat it as "display font" */
@@ -94,29 +95,48 @@ img {
   justify-content: space-between;
 }
 
+/* SongGlow logo (2026 rebrand): layers mark + two-tone wordmark + tagline */
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-family: var(--serif);
-  font-size: 21px;
-  font-weight: 600;
-  color: var(--ink);
+  gap: 11px;
 }
 
 .logo-mark {
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
-  background: linear-gradient(150deg, var(--clay) 0%, var(--clay-dark) 100%);
-  display: grid;
-  place-items: center;
   flex-shrink: 0;
 }
 
-.logo-mark svg {
-  width: 16px;
-  height: 16px;
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 3px;
+}
+
+.logo-word {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: 0.005em;
+  color: #1a1a1a;
+}
+
+.logo-word .logo-glow {
+  color: var(--logo-blue);
+}
+
+.logo-tag {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.27em;
+  color: #6d747f;
+}
+
+.logo-footer .logo-word {
+  font-size: 15.5px;
+}
+.logo-footer .logo-tag {
+  font-size: 6.5px;
 }
 
 .nav-links {
@@ -644,7 +664,7 @@ footer {
   gap: 32px;
 }
 .footer-links a {
-  font-size: 14.5px;
+  font-size: 15px;
   color: var(--ink-soft);
 }
 .footer-links a:hover {
@@ -652,7 +672,7 @@ footer {
 }
 
 .footer-meta {
-  font-size: 13.5px;
+  font-size: 14px;
   color: var(--ink-faint);
 }
 
@@ -790,7 +810,7 @@ textarea {
 }
 
 .catalog-search-label {
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--ink-faint);
@@ -841,7 +861,7 @@ textarea {
 }
 
 .cat-count {
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -855,7 +875,7 @@ textarea {
 }
 
 .cat-sample {
-  font-size: 13.5px;
+  font-size: 14px;
   color: var(--ink-faint);
   line-height: 1.5;
   margin-bottom: 18px;
@@ -929,7 +949,7 @@ textarea {
 }
 
 .hw-acc-sub {
-  font-size: 13px;
+  font-size: 13.5px;
   color: var(--ink-faint);
 }
 
@@ -956,7 +976,7 @@ textarea {
   gap: 12px;
   padding: 10px 12px;
   border-radius: 8px;
-  font-size: 14.5px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--ink-soft);
   transition: background 0.15s ease, color 0.15s ease;
@@ -968,7 +988,7 @@ textarea {
 
 .hw-acc-item-count {
   color: var(--ink-faint);
-  font-size: 13px;
+  font-size: 13.5px;
   white-space: nowrap;
   font-weight: 400;
 }
@@ -1009,7 +1029,7 @@ textarea {
 
 /* One spec per line in catalog tables */
 .spec-line {
-  font-size: 13px;
+  font-size: 13.5px;
   line-height: 1.5;
   white-space: nowrap;
 }
@@ -1020,7 +1040,7 @@ textarea {
 
 /* Breadcrumb on category pages */
 .breadcrumb {
-  font-size: 14.5px;
+  font-size: 15px;
   color: var(--ink-faint);
   margin-bottom: 16px;
 }
@@ -1045,7 +1065,7 @@ textarea {
   border-radius: 6px;
   border: 1px solid var(--line);
   background: var(--paper);
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--ink-soft);
   transition:
@@ -1156,12 +1176,12 @@ textarea {
 .catalog-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 14.5px;
 }
 
 .catalog-table th {
   text-align: left;
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1194,7 +1214,7 @@ textarea {
 
 .catalog-desc {
   display: block;
-  font-size: 13.5px;
+  font-size: 14px;
   color: var(--ink-faint);
   margin-top: 4px;
 }
@@ -1202,7 +1222,7 @@ textarea {
 /* Branded hardware: maker shown under the name instead of a column */
 .catalog-brand-line {
   display: block;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 600;
   color: var(--clay-dark);
   margin-top: 4px;
@@ -1232,7 +1252,7 @@ textarea {
   border-radius: 6px;
   color: var(--clay-dark);
   font-weight: 600;
-  font-size: 13px;
+  font-size: 13.5px;
   width: fit-content;
   transition: border-color 0.15s ease, background 0.15s ease;
 }
@@ -1309,16 +1329,17 @@ textarea {
     gap: 10px;
   }
   .logo {
-    font-size: 17px;
     gap: 7px;
   }
-  .logo-mark {
-    width: 25px;
-    height: 25px;
+  .logo-word {
+    font-size: 16px;
   }
-  .logo-mark svg {
-    width: 13px;
-    height: 13px;
+  .logo-tag {
+    font-size: 6.5px;
+  }
+  .logo-mark {
+    width: 26px;
+    height: 26px;
   }
   .nav-cta {
     gap: 10px;

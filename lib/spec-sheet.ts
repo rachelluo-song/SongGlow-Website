@@ -132,35 +132,40 @@ export async function generateSpecSheet(p: Product): Promise<Uint8Array> {
   const fontB = await doc.embedFont(StandardFonts.HelveticaBold);
   let y = A4.h - M;
 
-  // --- header: logo + document label ---
-  const mark = 26;
-  page.drawRectangle({
-    x: M,
-    y: y - mark,
-    width: mark,
-    height: mark,
-    color: BLUE,
-    borderColor: BLUE,
-    borderWidth: 0,
+  // --- header: banner logo (layers mark + two-tone wordmark + tagline) ---
+  const STEEL = rgb(0x48 / 255, 0x74 / 255, 0xa8 / 255);
+  const BLACK = rgb(0x1a / 255, 0x1a / 255, 0x1a / 255);
+  const mark = 30;
+  const markOpts = { x: M, y, scale: mark / 24, borderColor: STEEL, borderWidth: 1.7 };
+  page.drawSvgPath("M12 1.5 L21 7 L12 12.5 L3 7 Z", markOpts);
+  page.drawSvgPath("M3 11.5 L12 17 L21 11.5", markOpts);
+  page.drawSvgPath("M3 16.5 L12 22 L21 16.5", markOpts);
+  const wx = M + mark + 12;
+  const wordSize = 19;
+  page.drawText("SONG", { x: wx, y: y - 16, size: wordSize, font: fontB, color: BLACK });
+  page.drawText("GLOW", {
+    x: wx + fontB.widthOfTextAtSize("SONG", wordSize),
+    y: y - 16,
+    size: wordSize,
+    font: fontB,
+    color: STEEL,
   });
-  // zigzag mark (from the site logo), scaled into the square
-  page.drawSvgPath("M4 16 L10 6 L14 13 L20 6", {
-    x: M + 1,
-    y: y - 1,
-    scale: mark / 24,
-    borderColor: rgb(1, 1, 1),
-    borderWidth: 2.2,
+  page.drawText("P A R T S ,   S O U R C E D .", {
+    x: wx + 1,
+    y: y - 27,
+    size: 6.5,
+    font: fontB,
+    color: GRAY,
   });
-  page.drawText("SongGlow", { x: M + mark + 10, y: y - mark + 6, size: 19, font: fontB, color: NAVY });
   const label = "PRODUCT SPEC SHEET";
   page.drawText(label, {
     x: A4.w - M - fontR.widthOfTextAtSize(label, 9.5),
-    y: y - mark + 8,
+    y: y - 20,
     size: 9.5,
     font: fontR,
     color: GRAY,
   });
-  y -= mark + 14;
+  y -= mark + 12;
   page.drawLine({ start: { x: M, y }, end: { x: A4.w - M, y }, thickness: 1.1, color: NAVY });
   y -= 24;
 

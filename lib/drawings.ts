@@ -708,7 +708,7 @@ function frameOps(p: Product): DrawOp[] {
     { t: "line", x1: 12, y1: H - 92, x2: W - 12, y2: H - 92, w: 1.2, color: INK },
     { t: "text", x: 24, y: H - 71, s: p.part_number, size: 15, color: INK, bold: true, anchor: "start" },
     { t: "text", x: 24, y: H - 56, s: subtitle, size: 11.5, color: FAINT, anchor: "start" },
-    { t: "text", x: W - 24, y: H - 71, s: "SongGlow", size: 16, color: INK, bold: true, anchor: "end" },
+    { t: "text", x: W - 24, y: H - 71, s: "SONGGLOW", size: 15, color: INK, bold: true, anchor: "end" },
     { t: "text", x: W - 24, y: H - 55, s: "songglow.com", size: 10.5, color: FAINT, anchor: "end" },
     { t: "text", x: W - 24, y: H - 28, s: "Dual dimensions inch (mm) · Not to scale beyond stated dims", size: 9.5, color: FAINT, anchor: "end" },
   ];

@@ -1,15 +1,12 @@
 import Link from "next/link";
-import LogoMark from "./logo-mark";
+import Logo from "./logo";
 
 export default function SiteFooter() {
   return (
     <footer>
       <div className="wrap">
         <div className="footer-inner">
-          <Link href="/" className="logo" style={{ fontSize: 18 }}>
-            <LogoMark size={26} />
-            SongGlow
-          </Link>
+          <Logo size="footer" />
           <div className="footer-links">
             <Link href="/">Home</Link>
             <Link href="/components">Components</Link>
