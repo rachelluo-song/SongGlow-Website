@@ -15,8 +15,21 @@ import csv
 import json
 import os
 import sys
+import time
 import urllib.request
 import urllib.parse
+
+def open_with_retry(req, attempts=3):
+    """A large run makes 50+ requests; ride out transient network errors."""
+    for attempt in range(attempts):
+        try:
+            return urllib.request.urlopen(req)
+        except urllib.error.HTTPError:
+            raise  # real API errors shouldn't be retried blindly
+        except Exception:
+            if attempt == attempts - 1:
+                raise
+            time.sleep(2 * (attempt + 1))
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ENV_PATH = os.path.join(REPO, ".env.local")
@@ -141,7 +154,7 @@ for i in range(0, len(all_pns), 150):
         f"{URL}/rest/v1/products?select={EXISTING_COLS}&part_number=in.({urllib.parse.quote(chunk)})",
         headers=HEADERS,
     )
-    for r in json.load(urllib.request.urlopen(req)):
+    for r in json.load(open_with_retry(req)):
         existing[(r["section"], r["part_number"])] = r
 
 to_insert = [rows[k] for k in order if k not in existing]
@@ -170,7 +183,7 @@ for i in range(0, len(to_insert), 500):
         headers={**HEADERS, "Prefer": "return=minimal"},
         method="POST",
     )
-    resp = urllib.request.urlopen(req)
+    resp = open_with_retry(req)
     if resp.status not in (200, 201):
         print(f"INSERT FAILED at batch {i // 500 + 1}: HTTP {resp.status}")
         sys.exit(1)
@@ -192,7 +205,7 @@ for r in to_update:
         method="PATCH",
     )
     try:
-        resp = urllib.request.urlopen(req)
+        resp = open_with_retry(req)
         if resp.status in (200, 204):
             updated += 1
         else:
