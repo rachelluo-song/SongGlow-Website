@@ -64,48 +64,57 @@ export const SEARCH_LIMIT = 200;
  * Server-side only (service_role key). Returns [] on any error — e.g. the
  * table not existing yet — so pages render their "being stocked" states.
  */
-async function fetchProducts(
+function buildQuery(
+  supabase: NonNullable<ReturnType<typeof getClient>>,
+  from: number,
+  to: number,
   section?: CatalogSection,
   query?: string
+) {
+  let request = supabase
+    .from("products")
+    .select(COLUMNS)
+    .order("section", { ascending: true })
+    .order("category", { ascending: true })
+    .order("part_number", { ascending: true })
+    .range(from, to);
+  if (section) {
+    request = request.eq("section", section);
+  }
+  const term = query?.trim();
+  if (term) {
+    const like = `%${term.replaceAll("%", "").replaceAll(",", " ")}%`;
+    request = request.or(
+      `part_number.ilike.${like},name.ilike.${like},manufacturer.ilike.${like},category.ilike.${like}`
+    );
+  }
+  return request;
+}
+
+/**
+ * Full-section reads page through the whole table (several Supabase round
+ * trips) and back every catalog page, so they're cached in-process for
+ * 5 minutes. CSV uploads therefore go live within ~5 minutes rather than
+ * instantly. A module-level cache (not Next's data cache) because a section
+ * can exceed the 2 MB per-item limit of the platform cache; on serverless
+ * each warm instance keeps its own copy, and a cold start pays one fetch.
+ */
+const CATALOG_TTL_MS = 5 * 60 * 1000;
+const catalogCache = new Map<string, { at: number; data: Product[] }>();
+
+async function fetchSectionUncached(
+  section: CatalogSection
 ): Promise<Product[]> {
   const supabase = getClient();
   if (!supabase) return [];
-
-  const build = (from: number, to: number) => {
-    let request = supabase
-      .from("products")
-      .select(COLUMNS)
-      .order("section", { ascending: true })
-      .order("category", { ascending: true })
-      .order("part_number", { ascending: true })
-      .range(from, to);
-    if (section) {
-      request = request.eq("section", section);
-    }
-    const term = query?.trim();
-    if (term) {
-      const like = `%${term.replaceAll("%", "").replaceAll(",", " ")}%`;
-      request = request.or(
-        `part_number.ilike.${like},name.ilike.${like},manufacturer.ilike.${like},category.ilike.${like}`
-      );
-    }
-    return request;
-  };
-
-  // Searches: one capped request.
-  if (query?.trim()) {
-    const { data, error } = await build(0, SEARCH_LIMIT - 1);
-    if (error) {
-      console.error("[catalog] search failed:", error.message);
-      return [];
-    }
-    return (data ?? []) as Product[];
-  }
-
-  // Full reads: page through until a short page.
   const all: Product[] = [];
   for (let from = 0; ; from += PAGE_SIZE) {
-    const { data, error } = await build(from, from + PAGE_SIZE - 1);
+    const { data, error } = await buildQuery(
+      supabase,
+      from,
+      from + PAGE_SIZE - 1,
+      section
+    );
     if (error) {
       console.error("[catalog] fetch failed:", error.message);
       return all;
@@ -115,6 +124,59 @@ async function fetchProducts(
     if (rows.length < PAGE_SIZE) break;
   }
   return all;
+}
+
+async function fetchSection(section: CatalogSection): Promise<Product[]> {
+  const hit = catalogCache.get(section);
+  if (hit && Date.now() - hit.at < CATALOG_TTL_MS) return hit.data;
+  const data = await fetchSectionUncached(section);
+  // An empty result usually means Supabase was unreachable; don't cache it,
+  // so the next request retries instead of serving "no parts" for 5 minutes.
+  if (data.length > 0) {
+    catalogCache.set(section, { at: Date.now(), data });
+  }
+  return data;
+}
+
+/**
+ * "All products" (home page block, sitemap) is composed from the two section
+ * caches. Concatenation preserves the global ordering because rows sort by
+ * section first and "components" < "hardware".
+ */
+async function fetchAllProducts(
+  section?: CatalogSection
+): Promise<Product[]> {
+  if (section) return fetchSection(section);
+  const [components, hardware] = await Promise.all([
+    fetchSection("components"),
+    fetchSection("hardware"),
+  ]);
+  return [...components, ...hardware];
+}
+
+async function fetchProducts(
+  section?: CatalogSection,
+  query?: string
+): Promise<Product[]> {
+  // Searches stay live: one capped request, and every term is a new key.
+  if (query?.trim()) {
+    const supabase = getClient();
+    if (!supabase) return [];
+    const { data, error } = await buildQuery(
+      supabase,
+      0,
+      SEARCH_LIMIT - 1,
+      section,
+      query
+    );
+    if (error) {
+      console.error("[catalog] search failed:", error.message);
+      return [];
+    }
+    return (data ?? []) as Product[];
+  }
+
+  return fetchAllProducts(section);
 }
 
 function groupByCategory(products: Product[]): CatalogCategory[] {
