@@ -1,8 +1,10 @@
 import type { MetadataRoute } from "next";
 import {
+  getAllProducts,
   getCategorySummaries,
   hardwareFamily,
   slugifyCategory,
+  slugifyPart,
 } from "@/lib/catalog";
 import { SITE_URL } from "@/lib/site";
 
@@ -46,5 +48,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     }));
 
-  return [...staticPages, ...familyPages, ...categoryPages];
+  const productPages: MetadataRoute.Sitemap = (await getAllProducts()).map(
+    (p) => ({
+      url: `${SITE_URL}/${p.section}/${slugifyCategory(
+        p.category
+      )}/${slugifyPart(p.part_number)}`,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    })
+  );
+
+  return [...staticPages, ...familyPages, ...categoryPages, ...productPages];
 }

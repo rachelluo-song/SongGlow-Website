@@ -1,5 +1,10 @@
 import Link from "next/link";
-import { orderedSpecs, type Product } from "@/lib/catalog";
+import {
+  orderedSpecs,
+  slugifyCategory,
+  slugifyPart,
+  type Product,
+} from "@/lib/catalog";
 import { canDrawProduct } from "@/lib/drawings";
 
 function DatasheetIcon() {
@@ -52,7 +57,15 @@ export default function ProductTable({ products }: { products: Product[] }) {
         <tbody>
           {products.map((p) => (
             <tr key={p.id}>
-              <td className="catalog-pn">{p.part_number}</td>
+              <td className="catalog-pn">
+                <Link
+                  href={`/${p.section}/${slugifyCategory(
+                    p.category
+                  )}/${slugifyPart(p.part_number)}`}
+                >
+                  {p.part_number}
+                </Link>
+              </td>
               <td className="catalog-name">
                 {p.name}
                 {isHardware && p.manufacturer ? (
@@ -100,7 +113,7 @@ export default function ProductTable({ products }: { products: Product[] }) {
               <td>
                 <Link
                   href={`/contact?part=${encodeURIComponent(p.part_number)}`}
-                  className="btn btn-clay catalog-quote"
+                  className="btn btn-navy catalog-quote"
                 >
                   Request quote
                 </Link>

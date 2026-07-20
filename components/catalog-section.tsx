@@ -26,7 +26,7 @@ function SourcingCta() {
         customers never appears on a public list. Send us a part number or your
         whole BOM and we&apos;ll quote it within 24 hours.
       </p>
-      <Link href="/contact" className="btn btn-clay btn-lg">
+      <Link href="/contact" className="btn btn-navy btn-lg">
         Request a quote
       </Link>
     </div>
@@ -111,7 +111,7 @@ export default async function CatalogSection({
                   </p>
                   <Link
                     href={`/contact?part=${encodeURIComponent(query ?? "")}`}
-                    className="btn btn-clay btn-lg"
+                    className="btn btn-navy btn-lg"
                   >
                     Request this part
                   </Link>
@@ -179,7 +179,7 @@ export default async function CatalogSection({
                 source far more than we list - send us the part number or your
                 whole BOM and we&apos;ll quote it within 24 hours.
               </p>
-              <Link href="/contact" className="btn btn-clay btn-lg">
+              <Link href="/contact" className="btn btn-navy btn-lg">
                 Request a quote
               </Link>
             </div>

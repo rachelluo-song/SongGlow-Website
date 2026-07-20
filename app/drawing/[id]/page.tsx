@@ -1,17 +1,33 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { cache } from "react";
 import { createClient } from "@supabase/supabase-js";
 import PngDownloadButton from "@/components/png-download-button";
-import { slugifyCategory, type Product } from "@/lib/catalog";
+import { slugifyCategory, slugifyPart, type Product } from "@/lib/catalog";
 import { canDrawProduct } from "@/lib/drawings";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Dimension Drawing — SongGlow",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const product = await getProduct(id);
+  if (!product) return { title: "Dimension Drawing — SongGlow" };
+  return {
+    title: `${product.part_number} Dimension Drawing — SongGlow`,
+    // The product page is the canonical home for this part
+    alternates: {
+      canonical: `/${product.section}/${slugifyCategory(
+        product.category
+      )}/${slugifyPart(product.part_number)}`,
+    },
+  };
+}
 
-async function getProduct(id: string): Promise<Product | null> {
+const getProduct = cache(async (id: string): Promise<Product | null> => {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !serviceKey) return null;
@@ -24,7 +40,7 @@ async function getProduct(id: string): Promise<Product | null> {
     .eq("id", id)
     .maybeSingle();
   return (data as Product) ?? null;
-}
+});
 
 export default async function DrawingPage({
   params,

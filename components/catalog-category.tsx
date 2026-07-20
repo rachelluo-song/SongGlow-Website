@@ -247,7 +247,7 @@ export default async function CatalogCategory({
               whole BOM and we&apos;ll quote it within 24 hours.
             </p>
             <div className="catalog-cta-row">
-              <Link href="/contact" className="btn btn-clay btn-lg">
+              <Link href="/contact" className="btn btn-navy btn-lg">
                 Request a quote
               </Link>
               <Link href={basePath} className="btn btn-ghost btn-lg">

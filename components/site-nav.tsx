@@ -13,6 +13,12 @@ const LINKS = [
   { href: "/contact", label: "Contact" },
 ];
 
+/** Section-aware: /hardware/screws/… still highlights "Hardware". */
+function isActive(pathname: string, href: string): boolean {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export default function SiteNav() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,7 +32,7 @@ export default function SiteNav() {
             <Link
               key={link.href}
               href={link.href}
-              className={pathname === link.href ? "active" : ""}
+              className={isActive(pathname, link.href) ? "active" : ""}
             >
               {link.label}
             </Link>
@@ -57,7 +63,7 @@ export default function SiteNav() {
           <Link
             key={link.href}
             href={link.href}
-            className={pathname === link.href ? "active" : ""}
+            className={isActive(pathname, link.href) ? "active" : ""}
             onClick={() => setMenuOpen(false)}
           >
             {link.label}

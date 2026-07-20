@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 export type CatalogSection = "components" | "hardware";
@@ -130,13 +131,19 @@ function groupByCategory(products: Product[]): CatalogCategory[] {
   }));
 }
 
-/** One section's products grouped by category, optionally search-filtered. */
-export async function getCatalog(
-  section: CatalogSection,
-  query?: string
-): Promise<CatalogCategory[]> {
-  return groupByCategory(await fetchProducts(section, query));
-}
+/**
+ * One section's products grouped by category, optionally search-filtered.
+ * cache() dedupes within a request — generateMetadata and the page body can
+ * both call this without a second Supabase read.
+ */
+export const getCatalog = cache(
+  async (
+    section: CatalogSection,
+    query?: string
+  ): Promise<CatalogCategory[]> => {
+    return groupByCategory(await fetchProducts(section, query));
+  }
+);
 
 /**
  * Category cards for the directory pages (and the home page block when no
@@ -687,4 +694,35 @@ export async function getCategoryBySlug(
 ): Promise<CatalogCategory | null> {
   const categories = await getCatalog(section);
   return categories.find((c) => c.slug === slug) ?? null;
+}
+
+/**
+ * URL-safe slug for a part number, keeping case so the URL still reads as
+ * the part number ("RC0402FR-0710KL" stays intact; "1/4\" x 20" becomes
+ * "1-4-x-20"). Lookup compares slugs, so the mapping only has to be stable,
+ * not reversible.
+ */
+export function slugifyPart(partNumber: string): string {
+  return partNumber
+    .replace(/[^A-Za-z0-9._~]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/** A single product by category + part slug, with its category for context. */
+export async function getProductBySlug(
+  section: CatalogSection,
+  categorySlug: string,
+  partSlug: string
+): Promise<{ category: CatalogCategory; product: Product } | null> {
+  const category = await getCategoryBySlug(section, categorySlug);
+  if (!category) return null;
+  const product = category.products.find(
+    (p) => slugifyPart(p.part_number) === partSlug
+  );
+  return product ? { category, product } : null;
+}
+
+/** Every product in the catalog — sitemap generation. */
+export async function getAllProducts(): Promise<Product[]> {
+  return fetchProducts();
 }

@@ -103,7 +103,7 @@ export default function CatalogFamily({ family, lines }: Props) {
               within 24 hours.
             </p>
             <div className="catalog-cta-row">
-              <Link href="/contact" className="btn btn-clay btn-lg">
+              <Link href="/contact" className="btn btn-navy btn-lg">
                 Request a quote
               </Link>
               <Link href="/hardware" className="btn btn-ghost btn-lg">
