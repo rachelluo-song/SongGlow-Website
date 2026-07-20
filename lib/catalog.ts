@@ -160,6 +160,58 @@ function splitBrands(raw: string): string[] {
     .filter(Boolean);
 }
 
+// Most decision-relevant specs first for display; unlisted keys follow
+// alphabetically. (The DB stores spec keys sorted by length — meaningless.)
+const SPEC_DISPLAY_ORDER = [
+  "Thread Size",
+  "For Screw Size",
+  "Length",
+  "Diameter",
+  "ID",
+  "OD",
+  "Inside Diameter",
+  "Outside Diameter",
+  "Cross Section",
+  "Thickness",
+  "Wire Dia.",
+  "Wire Diameter",
+  "Head Type",
+  "Head Diameter",
+  "Head Height",
+  "Drive Type",
+  "Threading",
+  "Thread Style",
+  "Package",
+  "Capacitance",
+  "Resistance",
+  "Inductance",
+  "Impedance",
+  "Frequency",
+  "Voltage",
+  "Current",
+  "Power",
+  "Load Capacitance",
+  "Tolerance",
+  "Material",
+  "Finish",
+  "Hardness",
+  "Color",
+  "Grade/Class",
+  "Tensile Strength",
+  "Temperature",
+  "Temp Range",
+];
+
+export function orderedSpecs(specs: Record<string, string>): [string, string][] {
+  const rank = (k: string) => {
+    const i = SPEC_DISPLAY_ORDER.indexOf(k);
+    return i === -1 ? SPEC_DISPLAY_ORDER.length : i;
+  };
+  return Object.entries(specs ?? {}).sort(
+    (a, b) => rank(a[0]) - rank(b[0]) || a[0].localeCompare(b[0])
+  );
+}
+
 // Hardware directory ordering: most commonly used families first
 // (user decision 2026-07-19); unknown families sort to the end.
 const HARDWARE_FAMILY_ORDER = [

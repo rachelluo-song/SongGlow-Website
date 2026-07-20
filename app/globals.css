@@ -1076,6 +1076,23 @@ textarea {
   min-width: 64px;
 }
 
+/* Drawing viewer page */
+.drawing-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.drawing-frame {
+  padding: 12px;
+}
+
+.drawing-frame img {
+  width: 100%;
+  height: auto;
+}
+
 /* Pagination on category pages */
 .catalog-pagination {
   display: flex;

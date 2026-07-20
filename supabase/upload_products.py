@@ -55,6 +55,9 @@ def parse_specs(text, warnings, pn):
         if ":" in token:
             k, _, v = token.partition(":")
             k, v = k.strip(), v.strip()
+            if k.lower() in ("mcmaster part number", "mcmaster-carr part number", "mcmaster"):
+                warnings.append(f"{pn}: competitor part number spec removed")
+                continue
             if k and v:
                 specs[k] = v
             else:

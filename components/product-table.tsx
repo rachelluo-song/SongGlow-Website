@@ -1,53 +1,6 @@
 import Link from "next/link";
-import type { Product } from "@/lib/catalog";
+import { orderedSpecs, type Product } from "@/lib/catalog";
 import { canDrawProduct } from "@/lib/drawings";
-
-// Most decision-relevant specs first; anything unlisted follows alphabetically.
-// (The database stores spec keys sorted by length, which is meaningless.)
-const SPEC_DISPLAY_ORDER = [
-  "Thread Size",
-  "For Screw Size",
-  "Length",
-  "ID",
-  "OD",
-  "Cross Section",
-  "Thickness",
-  "Head Type",
-  "Head Diameter",
-  "Head Height",
-  "Drive Type",
-  "Threading",
-  "Thread Style",
-  "Package",
-  "Capacitance",
-  "Resistance",
-  "Inductance",
-  "Impedance",
-  "Frequency",
-  "Voltage",
-  "Current",
-  "Power",
-  "Load Capacitance",
-  "Tolerance",
-  "Material",
-  "Finish",
-  "Hardness",
-  "Color",
-  "Grade/Class",
-  "Tensile Strength",
-  "Temperature",
-  "Temp Range",
-];
-
-function orderedSpecs(specs: Record<string, string>): [string, string][] {
-  const rank = (k: string) => {
-    const i = SPEC_DISPLAY_ORDER.indexOf(k);
-    return i === -1 ? SPEC_DISPLAY_ORDER.length : i;
-  };
-  return Object.entries(specs ?? {}).sort(
-    (a, b) => rank(a[0]) - rank(b[0]) || a[0].localeCompare(b[0])
-  );
-}
 
 function DatasheetIcon() {
   return (
@@ -131,16 +84,18 @@ export default function ProductTable({ products }: { products: Product[] }) {
                   </a>
                 ) : null}
                 {canDrawProduct(p) ? (
-                  <a
-                    href={`/api/drawing/${p.id}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="doc-link"
-                  >
+                  <Link href={`/drawing/${p.id}`} className="doc-link">
                     <DrawingIcon /> Drawing
-                  </a>
+                  </Link>
                 ) : null}
-                {!p.datasheet_url && !canDrawProduct(p) ? "—" : null}
+                <a
+                  href={`/api/spec-sheet/${p.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="doc-link"
+                >
+                  <DatasheetIcon /> Spec Sheet
+                </a>
               </td>
               <td>
                 <Link

@@ -44,11 +44,18 @@ styles.css, globe.js). The site is a faithful Next.js recreation of those design
   (SPEC_DISPLAY_ORDER in product-table.tsx), not the DB's length-sorted order
 - `/hardware/[category]` — full category slug falls through to the parts
   table with filters, pagination, and drawings
-- `/api/drawing/[id]` — parametric 2D dimension drawing (SVG) generated from
-  the part's specs (lib/drawings.ts): screws (head style from category name),
-  flat washers, O-rings. "Drawing ⤓" link appears on drawable rows. Geometry
-  parses inch fractions/decimals, metric mm, ranges, and thread designations
-  (#N, M-metric, fractional).
+- Drawing engine v2 (lib/drawings.ts): templates emit backend-neutral ops
+  rendered to SVG (site) and PDF (spec sheets). Nine templates: screws
+  (side + drive end view, simplified thread convention), washers, gaskets
+  (with bolt-hole circles), O-rings, dowel pins, threaded rods, hex nuts,
+  compression/die springs (smoothed coils), torsion springs. All dims are
+  dual-labeled inch (mm). Parses fractions/decimals/mm/ft/ranges/threads.
+- `/api/drawing/[id]` — framed SVG drawing; `/drawing/[id]` — viewer page
+  with Download SVG / PNG (client-side canvas) / Spec Sheet / quote buttons
+- `/api/spec-sheet/[id]` — branded one-page PDF (pdf-lib): logo header,
+  vector drawing, zebra spec table, footer. Works for ALL parts (components
+  get a table-only sheet). "Spec Sheet" button on every table row.
+- Upload script strips competitor part-number specs automatically.
 - Home page shows a "Browse the catalog" block (top 6 categories across both
   sections, revalidated every 5 min) when the catalog has data
 - `/services` — six service cards, 3-step process, CTA band
