@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { formatBytes } from "@/lib/attachments";
 
 export type ContactMessage = {
   name: string;
@@ -26,6 +27,58 @@ export async function saveContactMessage(msg: ContactMessage) {
   if (error) {
     throw new Error(`Supabase insert failed: ${error.message}`);
   }
+}
+
+const ATTACHMENTS_BUCKET = "inquiry-attachments";
+// Signed download links in the stored message / notification email stay
+// valid this long; the file itself stays in the private bucket regardless.
+const SIGNED_URL_TTL_SECONDS = 60 * 60 * 24 * 365;
+
+/**
+ * Store inquiry attachments in a private Supabase Storage bucket and return
+ * one "name (size): signed-url" line per file, for appending to the message.
+ * The bucket is created on first use.
+ */
+export async function uploadAttachments(files: File[]): Promise<string[]> {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !serviceKey) {
+    throw new NotConfiguredError("Supabase is not configured.");
+  }
+  const supabase = createClient(url, serviceKey);
+
+  const { error: bucketError } = await supabase.storage.createBucket(
+    ATTACHMENTS_BUCKET,
+    { public: false }
+  );
+  if (bucketError && !/already exists/i.test(bucketError.message)) {
+    throw new Error(`Bucket setup failed: ${bucketError.message}`);
+  }
+
+  const folder = `${new Date().toISOString().slice(0, 10)}-${crypto
+    .randomUUID()
+    .slice(0, 8)}`;
+  const lines: string[] = [];
+  for (const file of files) {
+    const safeName = file.name.replace(/[^\w.\- ]+/g, "_").slice(-120);
+    const path = `${folder}/${safeName}`;
+    const { error } = await supabase.storage
+      .from(ATTACHMENTS_BUCKET)
+      .upload(path, await file.arrayBuffer(), {
+        contentType: file.type || "application/octet-stream",
+      });
+    if (error) {
+      throw new Error(`Upload of ${safeName} failed: ${error.message}`);
+    }
+    const { data: signed, error: signError } = await supabase.storage
+      .from(ATTACHMENTS_BUCKET)
+      .createSignedUrl(path, SIGNED_URL_TTL_SECONDS);
+    if (signError || !signed) {
+      throw new Error(`Signing ${safeName} failed: ${signError?.message}`);
+    }
+    lines.push(`${file.name} (${formatBytes(file.size)}): ${signed.signedUrl}`);
+  }
+  return lines;
 }
 
 /**

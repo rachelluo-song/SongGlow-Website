@@ -751,6 +751,33 @@ textarea {
   font-family: var(--sans);
 }
 
+input[type="file"] {
+  padding: 10px 12px;
+  cursor: pointer;
+}
+input[type="file"]::file-selector-button {
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 7px 14px;
+  margin-right: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+input[type="file"]::file-selector-button:hover {
+  background: var(--cream-dim);
+}
+
+.field-hint {
+  font-size: 13px;
+  color: var(--ink-faint);
+  margin-top: 6px;
+}
+
 /* ---------- Sales team cards ---------- */
 
 .sales-card {

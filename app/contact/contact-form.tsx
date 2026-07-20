@@ -3,6 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import gsap from "gsap";
+import {
+  ATTACHMENT_ACCEPT,
+  attachmentExtensionAllowed,
+  MAX_ATTACHMENT_TOTAL_BYTES,
+  MAX_ATTACHMENTS,
+} from "@/lib/attachments";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
@@ -30,13 +36,32 @@ export default function ContactForm() {
     setError(null);
     setStatus("sending");
 
-    const data = Object.fromEntries(new FormData(event.currentTarget));
+    // Multipart so optional attachments ride along; server validates again.
+    const formData = new FormData(event.currentTarget);
+    const files = formData
+      .getAll("attachments")
+      .filter((f): f is File => f instanceof File && f.size > 0);
+    if (files.length > MAX_ATTACHMENTS) {
+      setStatus("idle");
+      setError(`Please attach at most ${MAX_ATTACHMENTS} files.`);
+      return;
+    }
+    if (files.reduce((sum, f) => sum + f.size, 0) > MAX_ATTACHMENT_TOTAL_BYTES) {
+      setStatus("idle");
+      setError("Attachments are too large — please keep the total under 4 MB.");
+      return;
+    }
+    const badFile = files.find((f) => !attachmentExtensionAllowed(f.name));
+    if (badFile) {
+      setStatus("idle");
+      setError(`File type of "${badFile.name}" isn't supported.`);
+      return;
+    }
 
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: formData,
       });
       const json = await response.json().catch(() => ({}));
       if (!response.ok) {
@@ -146,6 +171,20 @@ export default function ContactForm() {
           defaultValue={prefilledMessage}
           required
         />
+      </div>
+      <div className="full">
+        <label htmlFor="attachments">Attachments (optional)</label>
+        <input
+          id="attachments"
+          name="attachments"
+          type="file"
+          multiple
+          accept={ATTACHMENT_ACCEPT}
+        />
+        <p className="field-hint">
+          BOM lists, drawings, spec sheets — up to {MAX_ATTACHMENTS} files, 4 MB
+          total.
+        </p>
       </div>
       {error && (
         <div
