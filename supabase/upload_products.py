@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 """Validate products-template.csv and upload new rows to Supabase.
 
-Usage: python3 supabase/upload_products.py [path/to/file.csv]
+Usage: python3 supabase/upload_products.py [--update] [path/to/file.csv]
 Reads credentials from .env.local. Skips part numbers already in the
 database, dedupes rows (last occurrence wins), converts "Key: Value; ..."
 specs to JSON, and prints a report of everything added/skipped/fixed.
+
+With --update, rows whose part number already exists are UPDATED to match
+the CSV (name, category, manufacturer, description, specs, datasheet_url)
+instead of skipped; unchanged rows are left alone. Use this after editing
+existing parts in the master spreadsheet (e.g. trimming names).
 """
 import csv
 import json
@@ -15,7 +20,9 @@ import urllib.parse
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ENV_PATH = os.path.join(REPO, ".env.local")
-CSV_PATH = sys.argv[1] if len(sys.argv) > 1 else os.path.join(
+UPDATE_MODE = "--update" in sys.argv[1:]
+_paths = [a for a in sys.argv[1:] if not a.startswith("--")]
+CSV_PATH = _paths[0] if _paths else os.path.join(
     REPO, "supabase", "products-template.csv"
 )
 
@@ -120,18 +127,38 @@ with open(CSV_PATH, newline="", encoding="utf-8-sig") as f:
         }
 
 # Which part numbers already exist in the database? (chunked — URL length limits)
-existing = set()
+# In --update mode, fetch the full rows so unchanged parts can be left alone.
+EXISTING_COLS = (
+    "section,part_number,category,name,manufacturer,description,specs,datasheet_url"
+    if UPDATE_MODE
+    else "section,part_number"
+)
+existing = {}
 all_pns = [k[1] for k in rows]
 for i in range(0, len(all_pns), 150):
     chunk = ",".join(f'"{p}"' for p in all_pns[i : i + 150])
     req = urllib.request.Request(
-        f"{URL}/rest/v1/products?select=section,part_number&part_number=in.({urllib.parse.quote(chunk)})",
+        f"{URL}/rest/v1/products?select={EXISTING_COLS}&part_number=in.({urllib.parse.quote(chunk)})",
         headers=HEADERS,
     )
-    existing |= {(r["section"], r["part_number"]) for r in json.load(urllib.request.urlopen(req))}
+    for r in json.load(urllib.request.urlopen(req)):
+        existing[(r["section"], r["part_number"])] = r
 
 to_insert = [rows[k] for k in order if k not in existing]
-skipped = [k[1] for k in order if k in existing]
+
+UPDATABLE = ["category", "name", "manufacturer", "description", "specs", "datasheet_url"]
+
+def differs(csv_row, db_row):
+    return any(csv_row[f] != db_row.get(f) for f in UPDATABLE)
+
+if UPDATE_MODE:
+    to_update = [rows[k] for k in order if k in existing and differs(rows[k], existing[k])]
+    unchanged = [k[1] for k in order if k in existing and not differs(rows[k], existing[k])]
+    skipped = []
+else:
+    to_update = []
+    unchanged = []
+    skipped = [k[1] for k in order if k in existing]
 
 # Insert in batches so no single request gets too large
 inserted = 0
@@ -150,14 +177,45 @@ for i in range(0, len(to_insert), 500):
     inserted += len(batch)
     print(f"  batch {i // 500 + 1}: {len(batch)} rows inserted")
 
+# Updates: one PATCH per changed row, keyed by section + part number
+updated = 0
+update_failures = []
+for r in to_update:
+    qs = (
+        f"section=eq.{urllib.parse.quote(r['section'])}"
+        f"&part_number=eq.{urllib.parse.quote(r['part_number'], safe='')}"
+    )
+    req = urllib.request.Request(
+        f"{URL}/rest/v1/products?{qs}",
+        data=json.dumps({f: r[f] for f in UPDATABLE}).encode(),
+        headers={**HEADERS, "Prefer": "return=minimal"},
+        method="PATCH",
+    )
+    try:
+        resp = urllib.request.urlopen(req)
+        if resp.status in (200, 204):
+            updated += 1
+        else:
+            update_failures.append(f"{r['part_number']}: HTTP {resp.status}")
+    except Exception as e:  # keep going; report at the end
+        update_failures.append(f"{r['part_number']}: {e}")
+
 import collections
 by_cat = collections.Counter(f"{r['section']}/{r['category']}" for r in to_insert)
 print(f"\nadded: {inserted}")
 for cat, n in by_cat.most_common():
     print(f"  + {cat}: {n}")
-print(f"skipped (already in database): {len(skipped)}")
-if skipped[:10]:
-    print(f"  e.g. {', '.join(skipped[:10])}{'…' if len(skipped) > 10 else ''}")
+if UPDATE_MODE:
+    print(f"updated (differed from CSV): {updated}")
+    print(f"unchanged (already match CSV): {len(unchanged)}")
+    if update_failures:
+        print(f"UPDATE FAILURES ({len(update_failures)}):")
+        for f_ in update_failures[:15]:
+            print(f"  x {f_}")
+else:
+    print(f"skipped (already in database): {len(skipped)}")
+    if skipped[:10]:
+        print(f"  e.g. {', '.join(skipped[:10])}{'…' if len(skipped) > 10 else ''}")
 if warnings:
     print(f"warnings ({len(warnings)}):")
     for w in warnings[:15]:
