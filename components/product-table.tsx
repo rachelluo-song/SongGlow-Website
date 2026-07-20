@@ -43,7 +43,7 @@ export default function ProductTable({ products }: { products: Product[] }) {
   const isHardware = products[0]?.section === "hardware";
   return (
     <div className="catalog-scroll">
-      <table className="catalog-table">
+      <table className="catalog-table catalog-parts">
         <thead>
           <tr>
             <th>Part number</th>

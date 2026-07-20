@@ -1467,6 +1467,60 @@ input[type="file"]::file-selector-button:hover {
   }
 }
 
+/* Phones: parts tables become stacked cards — no sideways scrolling.
+   Only .catalog-parts (the listing tables); the product-page spec table
+   keeps its two short columns, which fit. */
+@media (max-width: 720px) {
+  .catalog-parts,
+  .catalog-parts tbody,
+  .catalog-parts tr,
+  .catalog-parts td {
+    display: block;
+    width: 100%;
+  }
+  .catalog-parts thead {
+    display: none;
+  }
+  .catalog-parts tr {
+    padding: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .catalog-parts tbody tr:last-child {
+    border-bottom: none;
+  }
+  .catalog-parts td {
+    padding: 0 0 10px;
+    border-bottom: none;
+  }
+  .catalog-parts td:last-child {
+    padding-bottom: 0;
+  }
+  .catalog-parts .catalog-pn {
+    font-size: 16.5px;
+    white-space: normal;
+  }
+  .catalog-parts .catalog-name {
+    max-width: none;
+  }
+  .catalog-parts .catalog-specs {
+    min-width: 0;
+  }
+  .catalog-parts .catalog-docs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    white-space: normal;
+  }
+  .catalog-parts .doc-link {
+    margin: 0;
+  }
+  .catalog-parts .catalog-quote {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
 /* Very narrow phones: keep the logo and nav CTA from touching.
    Larger screens are untouched — this only kicks in under 380px. */
 @media (max-width: 380px) {
