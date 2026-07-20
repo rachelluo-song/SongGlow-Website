@@ -48,7 +48,7 @@ export default function ContactForm() {
     }
     if (files.reduce((sum, f) => sum + f.size, 0) > MAX_ATTACHMENT_TOTAL_BYTES) {
       setStatus("idle");
-      setError("Attachments are too large — please keep the total under 4 MB.");
+      setError("Attachments are too large. Please keep the total under 4 MB.");
       return;
     }
     const badFile = files.find((f) => !attachmentExtensionAllowed(f.name));
@@ -182,7 +182,7 @@ export default function ContactForm() {
           accept={ATTACHMENT_ACCEPT}
         />
         <p className="field-hint">
-          BOM lists, drawings, spec sheets — up to {MAX_ATTACHMENTS} files, 4 MB
+          BOM lists, drawings, spec sheets. Up to {MAX_ATTACHMENTS} files, 4 MB
           total.
         </p>
       </div>

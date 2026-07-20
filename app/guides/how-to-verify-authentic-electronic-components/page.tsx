@@ -8,7 +8,7 @@ const PAGE_PATH = "/guides/how-to-verify-authentic-electronic-components";
 const PAGE_TITLE = "How to Verify Electronic Components Are Authentic";
 
 export const metadata: Metadata = {
-  title: `${PAGE_TITLE} — SongGlow`,
+  title: `${PAGE_TITLE} - SongGlow`,
   description:
     "A practical counterfeit-detection guide for buyers and engineers: sourcing rules, documentation to demand, package and marking inspection, lab tests, and the red flags that should stop a purchase.",
   alternates: { canonical: PAGE_PATH },

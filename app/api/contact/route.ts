@@ -58,7 +58,7 @@ export async function POST(request: Request) {
   const totalBytes = files.reduce((sum, f) => sum + f.size, 0);
   if (totalBytes > MAX_ATTACHMENT_TOTAL_BYTES) {
     return NextResponse.json(
-      { error: "Attachments are too large — please keep the total under 4 MB." },
+      { error: "Attachments are too large. Please keep the total under 4 MB." },
       { status: 400 }
     );
   }
@@ -78,7 +78,7 @@ export async function POST(request: Request) {
       msg.message += `\n\n--- Attachments ---\n${lines.join("\n")}`;
     } catch (err) {
       console.error("[api/contact] attachment upload failed:", err);
-      msg.message += `\n\n[${files.length} attachment(s) were included but failed to upload — follow up with the customer.]`;
+      msg.message += `\n\n[${files.length} attachment(s) were included but failed to upload. Follow up with the customer.]`;
     }
   }
 

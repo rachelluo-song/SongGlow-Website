@@ -40,7 +40,7 @@ export default async function ProductDetail({
             </div>
             <h1 data-hero-item>Part not found</h1>
             <p data-hero-item>
-              This part isn&apos;t listed (or its number changed) — but we can
+              This part isn&apos;t listed (or its number changed), but we can
               almost certainly still source it.
             </p>
           </div>
@@ -50,7 +50,7 @@ export default async function ProductDetail({
             <div className="catalog-cta" data-reveal>
               <h2>Send us the part number anyway</h2>
               <p>
-                We source far more than we list — we&apos;ll quote it within 24
+                We source far more than we list. We&apos;ll quote it within 24
                 hours.
               </p>
               <div className="catalog-cta-row">
@@ -138,7 +138,7 @@ export default async function ProductDetail({
           <h1 data-hero-item>{product.part_number}</h1>
           <p data-hero-item>
             {product.name}
-            {product.manufacturer ? ` — ${product.manufacturer}` : ""}
+            {product.manufacturer ? ` · ${product.manufacturer}` : ""}
           </p>
         </div>
       </header>
@@ -253,7 +253,7 @@ export default async function ProductDetail({
           <div className="catalog-cta" data-reveal>
             <h2>Need {product.part_number} in production quantities?</h2>
             <p>
-              Send us your target quantity and date — we&apos;ll quote it within
+              Send us your target quantity and date. We&apos;ll quote it within
               24 hours, 100% authentic with full traceability.
             </p>
             <div className="catalog-cta-row">

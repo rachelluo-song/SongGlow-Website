@@ -42,8 +42,8 @@ export async function generateMetadata({
   const { category } = await params;
   const title = titleFromSlug(category);
   return {
-    title: `${title} — Hardware — SongGlow`,
-    description: `${title} from SongGlow — part numbers, sizes, materials and dimension drawings. Request a quote for production quantities.`,
+    title: `${title} - Hardware - SongGlow`,
+    description: `${title} from SongGlow: part numbers, sizes, materials and dimension drawings. Request a quote for production quantities.`,
     alternates: { canonical: `/hardware/${category}` },
   };
 }

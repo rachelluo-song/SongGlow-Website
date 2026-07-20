@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import CatalogSection from "@/components/catalog-section";
 
 export const metadata: Metadata = {
-  title: "Hardware — SongGlow",
+  title: "Hardware - SongGlow",
   description:
-    "Browse SongGlow's hardware catalog — fasteners, enclosures, thermal and mechanical parts to complete your BOM alongside the electronics.",
+    "Browse SongGlow's hardware catalog: fasteners, enclosures, thermal and mechanical parts to complete your BOM alongside the electronics.",
   alternates: { canonical: "/hardware" },
 };
 
