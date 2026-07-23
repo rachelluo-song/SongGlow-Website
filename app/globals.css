@@ -572,6 +572,33 @@ section.block.tight {
   align-items: flex-start;
 }
 
+/* Trust items link to the guide / services; keep the card look, add a
+   quiet hover affordance and a chevron that slides in. */
+a.trust-item {
+  color: inherit;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+a.trust-item:hover {
+  background: var(--cream);
+}
+a.trust-item:hover h4 {
+  color: var(--clay-dark);
+}
+.trust-arrow {
+  margin-left: auto;
+  align-self: center;
+  color: var(--clay-dark);
+  font-size: 18px;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+a.trust-item:hover .trust-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .trust-icon {
   width: 42px;
   height: 42px;

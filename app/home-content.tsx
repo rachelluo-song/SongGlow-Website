@@ -12,6 +12,7 @@ const TRUST_ITEMS = [
   {
     title: "100% Authentic",
     body: "Original, genuine components - every time, with zero exceptions.",
+    href: "/guides/how-to-verify-authentic-electronic-components",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
         <path
@@ -33,6 +34,7 @@ const TRUST_ITEMS = [
   {
     title: "Full Traceability",
     body: "Lot and date-code tracking across the entire supply chain.",
+    href: "/services",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
         <path
@@ -49,6 +51,7 @@ const TRUST_ITEMS = [
   {
     title: "Qualified Suppliers",
     body: "Strict vetting standards protect you from counterfeit risk.",
+    href: "/services",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
         <circle cx="12" cy="9" r="3.2" stroke="currentColor" strokeWidth="1.8" />
@@ -193,13 +196,16 @@ export default function HomeContent({
         <div className="wrap">
           <div className="trust-strip" data-reveal>
             {TRUST_ITEMS.map((item) => (
-              <div key={item.title} className="trust-item">
+              <Link key={item.title} href={item.href} className="trust-item">
                 <div className="trust-icon">{item.icon}</div>
                 <div>
                   <h4>{item.title}</h4>
                   <p>{item.body}</p>
                 </div>
-              </div>
+                <span className="trust-arrow" aria-hidden>
+                  →
+                </span>
+              </Link>
             ))}
           </div>
         </div>
