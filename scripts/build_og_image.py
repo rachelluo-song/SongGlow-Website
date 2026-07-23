@@ -88,11 +88,11 @@ def build_html(css):
     rows = ""
     for ref, name, mpn, qty in BOM:
         rows += (
-            '<div style="display:flex;align-items:center;gap:10px;padding:10px 18px;border-bottom:1px solid #16283f">'
-            f'<div style="width:34px;font:400 11px ui-monospace,Menlo,monospace;color:#5980a6">{ref}</div>'
-            f'<div style="flex:1;min-width:0;font-size:13px;color:#e2e9ef;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{name}</div>'
-            f'<div style="width:96px;font:400 10.5px ui-monospace,Menlo,monospace;color:#7a9cbc;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{mpn}</div>'
-            f'<div style="width:36px;text-align:right;font:400 11px ui-monospace,Menlo,monospace;color:#c5d5e3">{qty}</div>'
+            '<div style="display:flex;align-items:center;gap:12px;padding:12px 20px;border-bottom:1px solid #16283f">'
+            f'<div style="width:44px;font:400 13px ui-monospace,Menlo,monospace;color:#5980a6">{ref}</div>'
+            f'<div style="flex:1;min-width:0;font-size:15.5px;color:#e2e9ef;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{name}</div>'
+            f'<div style="width:112px;font:400 12px ui-monospace,Menlo,monospace;color:#7a9cbc;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{mpn}</div>'
+            f'<div style="width:42px;text-align:right;font:400 13px ui-monospace,Menlo,monospace;color:#c5d5e3">{qty}</div>'
             "</div>"
         )
     c = COPY
@@ -104,40 +104,40 @@ body{{margin:0;background:#0d1b2e}}
 <div style="position:absolute;inset:0;background-image:linear-gradient(#16283f 1px,transparent 1px),linear-gradient(90deg,#16283f 1px,transparent 1px);background-size:48px 48px;opacity:0.55"></div>
 <div style="position:absolute;left:0;top:0;width:560px;height:100%;border-right:1px solid #1f3a5c"></div>
 {corner('top:40px;left:40px')}{corner('top:40px;right:40px')}{corner('bottom:40px;left:40px')}{corner('bottom:40px;right:40px')}
-<div style="position:absolute;top:40px;left:72px;font:400 11px ui-monospace,Menlo,monospace;letter-spacing:.1em;color:#4a6f96">{c['badgeId']}</div>
-<div style="position:absolute;top:40px;right:72px;font:400 11px ui-monospace,Menlo,monospace;letter-spacing:.1em;color:#4a6f96;text-align:right">{c['badgeRev']}</div>
+<div style="position:absolute;top:40px;left:72px;font:400 13px ui-monospace,Menlo,monospace;letter-spacing:.1em;color:#4a6f96">{c['badgeId']}</div>
+<div style="position:absolute;top:40px;right:72px;font:400 13px ui-monospace,Menlo,monospace;letter-spacing:.1em;color:#4a6f96;text-align:right">{c['badgeRev']}</div>
 <div style="position:absolute;left:0;top:0;width:560px;height:100%;display:flex;flex-direction:column;justify-content:center;padding-left:72px">
-<svg width="88" height="88" viewBox="0 0 56 56" fill="none" style="margin-bottom:18px">
+<svg width="96" height="96" viewBox="0 0 56 56" fill="none" style="margin-bottom:18px">
 <path d="M28 8 L46 18 L28 28 L10 18 Z" stroke="#7a9cbc" stroke-width="1.6" stroke-linejoin="round"></path>
 <path d="M10 28 L28 38 L46 28" stroke="#7a9cbc" stroke-width="1.6" stroke-linejoin="round" fill="none"></path>
 <path d="M10 38 L28 48 L46 38" stroke="#7a9cbc" stroke-width="1.6" stroke-linejoin="round" fill="none"></path>
 </svg>
-<div style="font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:.01em;font-size:76px;line-height:1;color:#f2f2f3">SONG<span style="color:#7a9cbc">GLOW</span></div>
-<div style="font-size:18px;letter-spacing:.28em;text-transform:uppercase;color:#9fb3c8;margin-top:14px">{c['tagline']}</div>
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:.01em;font-size:88px;line-height:1;color:#f2f2f3">SONG<span style="color:#7a9cbc">GLOW</span></div>
+<div style="font-size:24px;letter-spacing:.28em;text-transform:uppercase;color:#9fb3c8;margin-top:16px">{c['tagline']}</div>
 <div style="width:64px;height:1px;background:#3d5c78;margin:26px 0"></div>
-<div style="font-size:19px;line-height:1.5;color:#c5d5e3;max-width:400px">{c['description']}</div>
+<div style="font-size:28px;line-height:1.45;color:#c5d5e3;max-width:430px">{c['description']}</div>
 </div>
 <div style="position:absolute;left:560px;top:0;width:640px;height:100%;display:flex;align-items:center;justify-content:center">
-<div style="width:460px;border:1px solid #3d5c78;background:#0f223a">
-<div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid #3d5c78">
-<div style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#c5d5e3">Bill of Materials</div>
-<div style="font:400 10px ui-monospace,Menlo,monospace;letter-spacing:.08em;color:#5980a6">REV. C</div>
+<div style="width:540px;border:1px solid #3d5c78;background:#0f223a">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:15px 20px;border-bottom:1px solid #3d5c78">
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#c5d5e3">Bill of Materials</div>
+<div style="font:400 12px ui-monospace,Menlo,monospace;letter-spacing:.08em;color:#5980a6">REV. C</div>
 </div>
-<div style="display:flex;align-items:center;gap:10px;padding:8px 18px;border-bottom:1px solid #1f3a5c;font:400 10px ui-monospace,Menlo,monospace;letter-spacing:.06em;color:#3d5c78">
-<div style="width:34px">REF</div><div style="flex:1">DESCRIPTION</div><div style="width:96px">MFR P/N</div><div style="width:36px;text-align:right">QTY</div>
+<div style="display:flex;align-items:center;gap:12px;padding:9px 20px;border-bottom:1px solid #1f3a5c;font:400 11.5px ui-monospace,Menlo,monospace;letter-spacing:.06em;color:#3d5c78">
+<div style="width:44px">REF</div><div style="flex:1">DESCRIPTION</div><div style="width:112px">MFR P/N</div><div style="width:42px;text-align:right">QTY</div>
 </div>
 {rows}
-<div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px">
-<div style="font:400 11px ui-monospace,Menlo,monospace;letter-spacing:.06em;color:#4a6f96">{c['catalogFooter']}</div>
-<div style="display:flex;align-items:center;gap:6px">
-<svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 4" stroke="#5cb37a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-<div style="font:400 10px ui-monospace,Menlo,monospace;letter-spacing:.06em;color:#5cb37a">ALL SOURCED</div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:13px 20px">
+<div style="font:400 13px ui-monospace,Menlo,monospace;letter-spacing:.06em;color:#4a6f96">{c['catalogFooter']}</div>
+<div style="display:flex;align-items:center;gap:7px">
+<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 L6.5 12 L13 4" stroke="#5cb37a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<div style="font:400 12px ui-monospace,Menlo,monospace;letter-spacing:.06em;color:#5cb37a">ALL SOURCED</div>
 </div></div>
 </div></div>
 <div style="position:absolute;left:560px;top:0;bottom:0;width:1px;background:#1f3a5c"></div>
 <div style="position:absolute;bottom:40px;left:72px;right:72px;display:flex;align-items:center;justify-content:space-between">
-<div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#5980a6">{c['footerTag']}</div>
-<div style="font:400 11px ui-monospace,Menlo,monospace;color:#4a6f96;letter-spacing:.1em">{c['siteUrl']}</div>
+<div style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#5980a6">{c['footerTag']}</div>
+<div style="font:400 13px ui-monospace,Menlo,monospace;color:#4a6f96;letter-spacing:.1em">{c['siteUrl']}</div>
 </div>
 </div></body></html>"""
 
