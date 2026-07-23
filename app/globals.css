@@ -878,6 +878,41 @@ input[type="file"]::file-selector-button:hover {
   font-weight: 600;
 }
 
+/* Guides index: stacked cards linking to each guide */
+.guide-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 780px;
+}
+.guide-card {
+  display: block;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 30px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.guide-card:hover {
+  border-color: #c7d4ee;
+  box-shadow: 0 8px 24px rgba(15, 20, 48, 0.06);
+}
+.guide-card h2 {
+  font-size: 21px;
+  margin: 0 0 8px;
+}
+.guide-card p {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+}
+.guide-readmore {
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--clay-dark);
+}
+
 /* Callout card inside an article (red-flag lists, key takeaways) */
 .article-callout {
   background: var(--paper);

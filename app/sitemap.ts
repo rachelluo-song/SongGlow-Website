@@ -6,6 +6,7 @@ import {
   slugifyCategory,
   slugifyPart,
 } from "@/lib/catalog";
+import { GUIDES } from "@/lib/guides";
 import { SITE_URL } from "@/lib/site";
 
 // Catalog changes go live instantly (CSV upload), so the sitemap must too.
@@ -18,11 +19,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/components`, changeFrequency: "daily", priority: 0.9 },
     { url: `${SITE_URL}/hardware`, changeFrequency: "daily", priority: 0.9 },
     { url: `${SITE_URL}/contact`, changeFrequency: "yearly", priority: 0.7 },
-    {
-      url: `${SITE_URL}/guides/how-to-verify-authentic-electronic-components`,
-      changeFrequency: "monthly",
+    { url: `${SITE_URL}/guides`, changeFrequency: "monthly", priority: 0.7 },
+    ...GUIDES.map((g) => ({
+      url: `${SITE_URL}/guides/${g.slug}`,
+      changeFrequency: "monthly" as const,
       priority: 0.8,
-    },
+    })),
   ];
 
   const summaries = await getCategorySummaries();
