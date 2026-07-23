@@ -12,6 +12,13 @@ export type GuideMeta = {
 
 export const GUIDES: GuideMeta[] = [
   {
+    slug: "how-to-find-component-alternates",
+    title: "How to Find Alternates & Cross-References for Components",
+    blurb:
+      "Finding a substitute you can trust: form-fit-function alternates, cross-referencing without getting burned, the datasheet parameters that actually bite, and how to second-source before you need to.",
+    datePublished: "2026-07-22",
+  },
+  {
     slug: "how-to-source-obsolete-electronic-components",
     title: "How to Source Obsolete & End-of-Life Components",
     blurb:
