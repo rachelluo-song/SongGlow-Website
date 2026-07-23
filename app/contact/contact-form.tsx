@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { track } from "@vercel/analytics";
 import gsap from "gsap";
 import {
   ATTACHMENT_ACCEPT,
@@ -72,6 +73,12 @@ export default function ContactForm() {
         );
       }
       setStatus("sent");
+      // Conversion event: which parts drive RFQs, and whether files ride along.
+      // No personal data - just the prefilled part number and attachment count.
+      track("Inquiry Submitted", {
+        part: part ?? "direct",
+        attachments: files.length,
+      });
     } catch (err) {
       setStatus("idle");
       setError(

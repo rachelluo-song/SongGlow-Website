@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { IBM_Plex_Sans, Public_Sans } from "next/font/google";
 import "./globals.css";
 import SiteNav from "@/components/site-nav";
@@ -71,6 +72,7 @@ export default function RootLayout({
         <SiteNav />
         {children}
         <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );
