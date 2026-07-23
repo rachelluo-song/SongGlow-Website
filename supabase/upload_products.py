@@ -9,7 +9,9 @@ specs to JSON, and prints a report of everything added/skipped/fixed.
 With --update, rows whose part number already exists are UPDATED to match
 the CSV (name, category, manufacturer, description, specs, datasheet_url)
 instead of skipped; unchanged rows are left alone. Use this after editing
-existing parts in the master spreadsheet (e.g. trimming names).
+existing parts in the master spreadsheet (e.g. trimming names). Updates
+are written as batched upserts on the row id (500 per request), so even
+thousands of changed rows complete in seconds.
 """
 import csv
 import json
@@ -142,7 +144,7 @@ with open(CSV_PATH, newline="", encoding="utf-8-sig") as f:
 # Which part numbers already exist in the database? (chunked — URL length limits)
 # In --update mode, fetch the full rows so unchanged parts can be left alone.
 EXISTING_COLS = (
-    "section,part_number,category,name,manufacturer,description,specs,datasheet_url"
+    "id,section,part_number,category,name,manufacturer,description,specs,datasheet_url"
     if UPDATE_MODE
     else "section,part_number"
 )
@@ -190,28 +192,32 @@ for i in range(0, len(to_insert), 500):
     inserted += len(batch)
     print(f"  batch {i // 500 + 1}: {len(batch)} rows inserted")
 
-# Updates: one PATCH per changed row, keyed by section + part number
+# Updates: batched upserts keyed on the row id fetched during comparison.
+# merge-duplicates makes POST update the matching rows, 500 per round trip;
+# full rows are sent so the write is valid even in edge cases.
 updated = 0
 update_failures = []
-for r in to_update:
-    qs = (
-        f"section=eq.{urllib.parse.quote(r['section'])}"
-        f"&part_number=eq.{urllib.parse.quote(r['part_number'], safe='')}"
-    )
+for i in range(0, len(to_update), 500):
+    batch = to_update[i : i + 500]
+    payload = [
+        {"id": existing[(r["section"], r["part_number"])]["id"], **r}
+        for r in batch
+    ]
     req = urllib.request.Request(
-        f"{URL}/rest/v1/products?{qs}",
-        data=json.dumps({f: r[f] for f in UPDATABLE}).encode(),
-        headers={**HEADERS, "Prefer": "return=minimal"},
-        method="PATCH",
+        f"{URL}/rest/v1/products?on_conflict=id",
+        data=json.dumps(payload).encode(),
+        headers={**HEADERS, "Prefer": "resolution=merge-duplicates,return=minimal"},
+        method="POST",
     )
     try:
         resp = open_with_retry(req)
-        if resp.status in (200, 204):
-            updated += 1
+        if resp.status in (200, 201, 204):
+            updated += len(batch)
+            print(f"  update batch {i // 500 + 1}: {len(batch)} rows")
         else:
-            update_failures.append(f"{r['part_number']}: HTTP {resp.status}")
+            update_failures.append(f"update batch {i // 500 + 1}: HTTP {resp.status}")
     except Exception as e:  # keep going; report at the end
-        update_failures.append(f"{r['part_number']}: {e}")
+        update_failures.append(f"update batch {i // 500 + 1}: {e}")
 
 import collections
 by_cat = collections.Counter(f"{r['section']}/{r['category']}" for r in to_insert)
