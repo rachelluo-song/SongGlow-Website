@@ -8,7 +8,7 @@ import {
   type CatalogSection as Section,
 } from "@/lib/catalog";
 import { canDrawProduct } from "@/lib/drawings";
-import { SITE_URL } from "@/lib/site";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 type Props = {
   section: Section;
@@ -94,6 +94,17 @@ export default async function ProductDetail({
       name,
       value,
     })),
+    // Quote-to-order: satisfies Google's "needs offers" requirement and
+    // signals availability + currency, but carries no public price (pricing
+    // is per-RFQ). Omitting price is intentional, not an oversight.
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      itemCondition: "https://schema.org/NewCondition",
+      priceCurrency: "USD",
+      url: `${SITE_URL}/contact?part=${encodeURIComponent(product.part_number)}`,
+      seller: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+    },
   };
 
   const breadcrumbSchema = {
