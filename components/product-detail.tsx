@@ -99,7 +99,7 @@ export default async function ProductDetail({
     // is per-RFQ). Omitting price is intentional, not an oversight.
     offers: {
       "@type": "Offer",
-      availability: "https://schema.org/InStock",
+      availability: "https://schema.org/BackOrder",
       itemCondition: "https://schema.org/NewCondition",
       priceCurrency: "USD",
       url: `${SITE_URL}/contact?part=${encodeURIComponent(product.part_number)}`,
