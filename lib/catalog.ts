@@ -13,6 +13,8 @@ export type Product = {
   description: string | null;
   specs: Record<string, string>;
   datasheet_url: string | null;
+  /** ISO insert timestamp; used for sitemap lastmod. */
+  created_at?: string | null;
 };
 
 export type CatalogCategory = {
@@ -53,7 +55,7 @@ function getClient() {
 }
 
 const COLUMNS =
-  "id, section, category, part_number, name, manufacturer, description, specs, datasheet_url";
+  "id, section, category, part_number, name, manufacturer, description, specs, datasheet_url, created_at";
 
 // Supabase returns at most 1000 rows per request, so full reads are paged.
 const PAGE_SIZE = 1000;
