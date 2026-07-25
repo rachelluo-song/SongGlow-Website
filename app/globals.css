@@ -1027,6 +1027,12 @@ input[type="file"]::file-selector-button:hover {
   gap: 20px;
 }
 
+/* Homepage shows 4 curated cards in a single row (collapses to 1 column
+   via the .cat-grid mobile rule below). Directory pages keep 3 columns. */
+.cat-grid-home {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .cat-card {
   display: flex;
   flex-direction: column;

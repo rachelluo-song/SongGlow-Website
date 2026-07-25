@@ -10,6 +10,6 @@ export const metadata: Metadata = {
 export const revalidate = 300;
 
 export default async function HomePage() {
-  const catalogCategories = (await getCategorySummaries()).slice(0, 6);
+  const catalogCategories = (await getCategorySummaries()).slice(0, 4);
   return <HomeContent catalogCategories={catalogCategories} />;
 }

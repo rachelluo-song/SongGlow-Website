@@ -221,7 +221,7 @@ export default function HomeContent({
                 far more than we list.
               </p>
             </div>
-            <div className="cat-grid" data-reveal-group>
+            <div className="cat-grid cat-grid-home" data-reveal-group>
               {catalogCategories.map((cat) => (
                 <Link
                   key={`${cat.section}-${cat.slug}`}
