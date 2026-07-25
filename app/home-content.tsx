@@ -168,9 +168,8 @@ export default function HomeContent({
               </Link>
             </div>
             <p className="hero-sub" style={{ fontFamily: "var(--serif)" }} data-hero-item>
-              SongGlow supplies electronic components and semiconductors with
-              full supply-chain traceability - sourcing, procurement, logistics
-              and inventory management for OEM and EMS teams.
+              Electronic components and hardware for OEM and EMS teams, with
+              full supply-chain traceability.
             </p>
             <div className="hero-cta-row" data-hero-item>
               <Link href="/contact" className="btn btn-navy btn-lg">
@@ -207,35 +206,6 @@ export default function HomeContent({
                 </span>
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="block">
-        <div className="wrap">
-          <div className="section-head" data-reveal>
-            <div className="eyebrow" style={{ color: "var(--navy-cta)" }}>
-              What We Do
-            </div>
-            <h2>Sourcing support built for OEM &amp; EMS teams</h2>
-            <p>
-              From full BOM fulfillment to hard-to-find allocations, SongGlow
-              keeps your production line supplied.
-            </p>
-          </div>
-          <div className="grid-3" data-reveal-group>
-            {SERVICE_PREVIEWS.map((service) => (
-              <div key={service.title} className="service-card">
-                <div className="service-icon">{service.icon}</div>
-                <h3>{service.title}</h3>
-                <p>{service.body}</p>
-              </div>
-            ))}
-          </div>
-          <div style={{ marginTop: 36, textAlign: "center" }} data-reveal>
-            <Link href="/services" className="btn btn-ghost">
-              See All Services →
-            </Link>
           </div>
         </div>
       </section>
@@ -288,6 +258,35 @@ export default function HomeContent({
           </div>
         </section>
       )}
+
+      <section className="block">
+        <div className="wrap">
+          <div className="section-head" data-reveal>
+            <div className="eyebrow" style={{ color: "var(--navy-cta)" }}>
+              What We Do
+            </div>
+            <h2>Sourcing support built for OEM &amp; EMS teams</h2>
+            <p>
+              From full BOM fulfillment to hard-to-find allocations, SongGlow
+              keeps your production line supplied.
+            </p>
+          </div>
+          <div className="grid-3" data-reveal-group>
+            {SERVICE_PREVIEWS.map((service) => (
+              <div key={service.title} className="service-card">
+                <div className="service-icon">{service.icon}</div>
+                <h3>{service.title}</h3>
+                <p>{service.body}</p>
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: 36, textAlign: "center" }} data-reveal>
+            <Link href="/services" className="btn btn-ghost">
+              See All Services →
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <section className="block tight">
         <div className="wrap">
