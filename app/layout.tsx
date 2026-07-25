@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { IBM_Plex_Sans, Public_Sans } from "next/font/google";
 import "./globals.css";
@@ -73,6 +74,13 @@ export default function RootLayout({
         {children}
         <SiteFooter />
         <Analytics />
+        {/* Tawk.to live chat. IDs are public (visible client-side on any
+            Tawk site). lazyOnload keeps it off the critical path. */}
+        <Script
+          id="tawk-to"
+          src="https://embed.tawk.to/6a64d3a185c9821d4774c059/1juctlcm5"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
