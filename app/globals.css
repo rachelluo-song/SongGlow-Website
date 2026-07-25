@@ -1496,8 +1496,15 @@ input[type="file"]::file-selector-button:hover {
   .nav-menu .nav-search input {
     width: 100%;
   }
+  .hero-content {
+    /* Globe is a background on mobile, so let the text use the full width
+       instead of the desktop 50% split that squeezed it. */
+    max-width: 100%;
+  }
   .hero-content h1 {
-    font-size: 40px;
+    /* Fluid so each line ("Your entire BOM," / "sourced and verified.")
+       stays on one line down to narrow phones instead of wrapping to five. */
+    font-size: clamp(24px, 6.8vw, 40px);
   }
   .hero-card {
     padding: 40px 28px 48px;
