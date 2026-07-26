@@ -214,13 +214,13 @@ img {
   height: 30px;
   border: none;
   border-radius: 6px;
-  background: var(--clay);
-  color: #fff;
+  background: var(--clay-tint);
+  color: var(--navy-cta);
   cursor: pointer;
   transition: background 0.15s ease;
 }
 .nav-search-btn:hover {
-  background: var(--clay-dark);
+  background: #c7d4ee;
 }
 .nav-menu .nav-search {
   margin: 4px 0 8px;
