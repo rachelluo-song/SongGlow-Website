@@ -36,13 +36,15 @@ function SearchIcon() {
 function NavSearch() {
   return (
     <form action="/search" className="nav-search" role="search">
-      <SearchIcon />
       <input
         type="search"
         name="q"
         placeholder="Search part number…"
         aria-label="Search the catalog"
       />
+      <button type="submit" className="nav-search-btn" aria-label="Search">
+        <SearchIcon />
+      </button>
     </form>
   );
 }

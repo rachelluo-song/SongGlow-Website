@@ -181,30 +181,46 @@ img {
 .nav-search {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 9px 12px;
+  gap: 6px;
+  padding: 4px 5px 4px 14px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--paper);
-  color: var(--ink-faint);
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 .nav-search:focus-within {
   border-color: var(--clay);
   box-shadow: 0 0 0 3px var(--clay-tint);
-  color: var(--ink-soft);
 }
 .nav-search input {
-  width: 170px;
+  width: 160px;
   padding: 0;
   border: none;
   border-radius: 0;
   background: none;
   font-size: 14px;
+  color: var(--ink);
 }
 .nav-search input:focus {
   border: none;
   box-shadow: none;
+}
+/* Explicit search action so visitors don't mistake "Contact Us" for it */
+.nav-search-btn {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 30px;
+  border: none;
+  border-radius: 6px;
+  background: var(--clay);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.nav-search-btn:hover {
+  background: var(--clay-dark);
 }
 .nav-menu .nav-search {
   margin: 4px 0 8px;
