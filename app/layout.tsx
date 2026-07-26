@@ -6,6 +6,7 @@ import "./globals.css";
 import SiteNav from "@/components/site-nav";
 import SiteFooter from "@/components/site-footer";
 import JsonLd from "@/components/json-ld";
+import TawkTitleGuard from "@/components/tawk-title-guard";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const plexSans = IBM_Plex_Sans({
@@ -81,6 +82,7 @@ export default function RootLayout({
           src="https://embed.tawk.to/6a64d3a185c9821d4774c059/1juctlcm5"
           strategy="lazyOnload"
         />
+        <TawkTitleGuard />
       </body>
     </html>
   );
