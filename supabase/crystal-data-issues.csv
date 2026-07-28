@@ -1,0 +1,309 @@
+part_number,name,spec_frequency,name_contains_part_number,url
+ECS-320-10-37B-CKY-TR,ECS Inc. ECS-240-12-37B-CKY-TR 24MHz 12pF 2016 SMD Crystal,24MHz,NO,https://songglow.com/components/crystals/ECS-320-10-37B-CKY-TR
+ECS-240-12-37B-CKY-TR,ECS Inc. ECS-400-10-37B2-CKY-TR 40MHz 10pF 2016 SMD Crystal,40MHz,NO,https://songglow.com/components/crystals/ECS-240-12-37B-CKY-TR
+ECS-400-10-37B2-CKY-TR,"Jauch Q 0,032768-SMQ32SL-12,5-20-T1-LF 32.768kHz 12.5pF 3215 SMD Crystal",32.768kHz,NO,https://songglow.com/components/crystals/ECS-400-10-37B2-CKY-TR
+TSX-3225 24.0000MF15X-AC6,Epson TSX-3225 16.0000MF18X-AC0 16MHz 18pF 3225 SMD Crystal,16MHz,NO,https://songglow.com/components/crystals/TSX-3225-24.0000MF15X-AC6
+TSX-3225 16.0000MF18X-AC0,Epson TSX-3225 24.0000MF15X-AC0 24MHz 15pF 3225 SMD Crystal,24MHz,NO,https://songglow.com/components/crystals/TSX-3225-16.0000MF18X-AC0
+TSX-3225 24.0000MF15X-AC0,Epson TSX-3225 25.0000MF18X-G0 25MHz 18pF 3225 SMD Crystal,25MHz,NO,https://songglow.com/components/crystals/TSX-3225-24.0000MF15X-AC0
+TSX-3225 25.0000MF18X-G0,Epson TSX-3225 26.0000MF10Z-B6 26MHz 10pF 3225 SMD Crystal,26MHz,NO,https://songglow.com/components/crystals/TSX-3225-25.0000MF18X-G0
+ABM8-24.000MHZ-12-B1U-T,Abracon ABM8-25.000MHZ-D1X-T 25MHz 18pF 3225 SMD Crystal,25MHz,NO,https://songglow.com/components/crystals/ABM8-24.000MHZ-12-B1U-T
+ABM8-25.000MHZ-D1X-T,Abracon ABM8-16.000MHZ-D1X-T 16MHz 18pF 3225 SMD Crystal,16MHz,NO,https://songglow.com/components/crystals/ABM8-25.000MHZ-D1X-T
+CM8V-T1A-32.768KHZ-6PF-20PPM-TA-QC,Micro Crystal CM8V-T1A-32.768KHZ-6PF-20PPM-TA-QC 12MHz 18pF 3225 SMD Crystal,12MHz,yes,https://songglow.com/components/crystals/CM8V-T1A-32.768KHZ-6PF-20PPM-TA-QC
+ABM8G-12.000MHZ-18-D2Y-T,Abracon ABM8G-12.000MHZ-18-D2Y-T 32.768KHZ-7PF-20PPM-TA-QC 32.768kHz 7pF 3215 SMD Crystal,32.768kHz,yes,https://songglow.com/components/crystals/ABM8G-12.000MHZ-18-D2Y-T
+CM7V-T1A-32.768KHZ-7PF-20PPM-TA-QC,Micro Crystal CM7V-T1A-32.768KHZ-12.5PF-20PPM-TA-QC 32.768kHz 12.5pF 3215 SMD Crystal,32.768kHz,NO,https://songglow.com/components/crystals/CM7V-T1A-32.768KHZ-7PF-20PPM-TA-QC
+HCM4916000000ABJT,Citizen HCM4910000000ABJT 10MHz 12pF HC-49S SMD Crystal,10MHz,NO,https://songglow.com/components/crystals/HCM4916000000ABJT
+ABM8G-25.000MHZ-18-D2Y-T,Abracon ABM8G-25.000MHZ-18-D2Y-T 24MHz 30pF 3225 SMD Crystal,24MHz,yes,https://songglow.com/components/crystals/ABM8G-25.000MHZ-18-D2Y-T
+ABM8G-24.000MHZ-18-D2Y-T,Citizen HCM494000000ABJT 4MHz 12pF HC-49S SMD Crystal,4MHz,NO,https://songglow.com/components/crystals/ABM8G-24.000MHZ-18-D2Y-T
+ABM8G-16.000MHZ-18-D2Y-T,Abracon ABM8G-16.000MHZ-18-D2Y-T 24MHz 8pF 3225 SMD Crystal,24MHz,yes,https://songglow.com/components/crystals/ABM8G-16.000MHZ-18-D2Y-T
+ABM8-25.000MHZ-D2Y-T,Abracon ABM8-25.000MHZ-D2Y-T 32.768KHZ-6PF-20PPM-TA-QC 32.768kHz 6pF 3215 SMD Crystal,32.768kHz,yes,https://songglow.com/components/crystals/ABM8-25.000MHZ-D2Y-T
+CM7V-T1A-32.768KHZ-6PF-20PPM-TA-QC,Micro Crystal CM7V-T1A-32.768KHZ-6PF-20PPM-TA-QC 25MHz 18pF 3225 SMD Crystal,25MHz,yes,https://songglow.com/components/crystals/CM7V-T1A-32.768KHZ-6PF-20PPM-TA-QC
+ABM3-10.000MHZ-D2Y-T,Abracon ABM3-10.000MHZ-D2Y-T 25MHz 20pF HC-49US SMD Crystal,25MHz,yes,https://songglow.com/components/crystals/ABM3-10.000MHZ-D2Y-T
+ABM10W-40.0000MHZ-8-B1U-T3,Abracon ABM10W-40.0000MHZ-8-B1U-T3 32.768kHz 12.5pF 3215 SMD Crystal,32.768kHz,yes,https://songglow.com/components/crystals/ABM10W-40.0000MHZ-8-B1U-T3
+ABM8W-16.0000MHZ-8-K1Z-T3,Abracon ABM8W-16.0000MHZ-8-K1Z-T3 32MHz 10pF 3225 SMD Crystal,32MHz,yes,https://songglow.com/components/crystals/ABM8W-16.0000MHZ-8-K1Z-T3
+ABM3-24.000MHZ-D2Y-T,Abracon ABM3-24.000MHZ-D2Y-T 32.768kHz 7pF 3215 SMD Crystal,32.768kHz,yes,https://songglow.com/components/crystals/ABM3-24.000MHZ-D2Y-T
+CM9V-T1A-32.768KHZ-7PF-20PPM-TA-QC,Micro Crystal CM9V-T1A-32.768KHZ-7PF-20PPM-TA-QC 32MHz 12pF 3225 SMD Crystal,32MHz,yes,https://songglow.com/components/crystals/CM9V-T1A-32.768KHZ-7PF-20PPM-TA-QC
+CS01188-27.12M,NDK LFXTAL055299 24MHz 12pF 3225 SMD Crystal,24MHz,NO,https://songglow.com/components/crystals/CS01188-27.12M
+LFXTAL055299,CSR (Qualcomm) CS01188-27.12M 27.12MHz 10pF 3225 SMD Crystal,27.12MHz,NO,https://songglow.com/components/crystals/LFXTAL055299
+CM7V-T1A-32.768KHZ-7PF-20PPM-TB-QA,Micro Crystal CM7V-T1A-32.768KHZ-7PF-20PPM-TB-QA 25MHz 8pF 3225 SMD Crystal,25MHz,yes,https://songglow.com/components/crystals/CM7V-T1A-32.768KHZ-7PF-20PPM-TB-QA
+ABM8-16.000MHZ-B2-T,CSR (Qualcomm) CS11337-27.12M 27.12MHz 10pF 3225 SMD Crystal,27.12MHz,NO,https://songglow.com/components/crystals/ABM8-16.000MHZ-B2-T
+ECS-80-12-33-JGN-TR,ECS Inc. ECS-.327-12.5-34R-C-TR 32.768kHz 12.5pF 3215 SMD Crystal,32.768kHz,NO,https://songglow.com/components/crystals/ECS-80-12-33-JGN-TR
+ECS-.327-12.5-34R-C-TR,ECS Inc. ECS-80-18-33-JGN-TR 8MHz 18pF 3225 SMD Crystal,8MHz,NO,https://songglow.com/components/crystals/ECS-.327-12.5-34R-C-TR
+FL2400022,Diode FL2500316Z 25MHz 16pF 3225 SMD Crystal,25MHz,NO,https://songglow.com/components/crystals/FL2400022
+FL2500316Z,Diode FL2500133 25MHz 12pF 3225 SMD Crystal,25MHz,NO,https://songglow.com/components/crystals/FL2500316Z
+ABM8G-12.000MHZ-4Y-T3,Abracon ABM3-12.000MHZ-D2Y-T 12MHz 18pF HC-49S SMD Crystal,12MHz,NO,https://songglow.com/components/crystals/ABM8G-12.000MHZ-4Y-T3
+ABM3-25.000MHZ-D2Y-T,Abracon ABM3-25.000MHZ-D2Y-T 32.768kHz 7pF 3215 SMD Crystal,32.768kHz,yes,https://songglow.com/components/crystals/ABM3-25.000MHZ-D2Y-T
+"Q 0,032768-JTX310-12,5-20-T1-LF","Jauch Quartz 0,032768-JTX310-12,5-20-T1-LF 32.768kHz 12.5pF 3215 SMD Crystal",32.768kHz,NO,https://songglow.com/components/crystals/Q-0-032768-JTX310-12-5-20-T1-LF
+ECS-240-8-37B-CKY-TR,ECS Inc. ECS-320-8-37B2-CTN-TR 32MHz 8pF 2016 SMD Crystal,32MHz,NO,https://songglow.com/components/crystals/ECS-240-8-37B-CKY-TR
+ATS080BSM-1E,CTS ATS080BSM-1 8MHz 20pF HC-49S SMD Crystal,8MHz,NO,https://songglow.com/components/crystals/ATS080BSM-1E
+ABM8-27.120MHZ-10-D1G-T,Abracon ABM8-27.120MHZ-10-D1G-T 32.768kHz 7pF 3215 SMD Crystal,32.768kHz,yes,https://songglow.com/components/crystals/ABM8-27.120MHZ-10-D1G-T
+CM8V-T1A-32.768KHZ-7PF-20PPM-TA-QC,Micro Crystal CM8V-T1A-32.768KHZ-9PF-20PPM-TA-QC 32.768kHz 9pF 3215 SMD Crystal,32.768kHz,NO,https://songglow.com/components/crystals/CM8V-T1A-32.768KHZ-7PF-20PPM-TA-QC
+CM8V-T1A-32.768KHZ-9PF-20PPM-TA-QC,Micro Crystal CM8V-T1A-32.768KHZ-12.5PF-20PPM-TA-QC 32.768kHz 12.5pF 3215 SMD Crystal,32.768kHz,NO,https://songglow.com/components/crystals/CM8V-T1A-32.768KHZ-9PF-20PPM-TA-QC
+LFXTAL003000,Jauch Quartz Epson FA-128 32.0000MF10Z-AJ0 32MHz 10pF 2016 SMD Crystal,32MHz,NO,https://songglow.com/components/crystals/LFXTAL003000
+ABM8W-25.0000MHZ-8-D1X-T3,Abracon ABM8W-25.0000MHZ-8-D1X-T3 32MHz 10pF 2016 SMD Crystal,32MHz,yes,https://songglow.com/components/crystals/ABM8W-25.0000MHZ-8-D1X-T3
+FA-128 32.0000MF20X-K5,Epson ECS-.327-9-34B-TR 32.768kHz 9pF 3215 SMD Crystal,32.768kHz,NO,https://songglow.com/components/crystals/FA-128-32.0000MF20X-K5
+FA-128 32.0000MF10Z-AJ5,Epson FA-128 32.0000MF20X-K5 32MHz 20pF 2016 SMD Crystal,32MHz,NO,https://songglow.com/components/crystals/FA-128-32.0000MF10Z-AJ5
+ECS-.327-9-34B-TR,Citizen CM13032768DZFT 32.768kHz 12.5pF 3215 SMD Crystal,32.768kHz,NO,https://songglow.com/components/crystals/ECS-.327-9-34B-TR
+ABS25-32.768KHZ-T,Abracon ABS25-32.768KHZ-T 25MHz 18pF 3225 SMD Crystal,25MHz,yes,https://songglow.com/components/crystals/ABS25-32.768KHZ-T
+ABM8-25.000MHZ-B2-T,Abracon ABM8-25.000MHZ-B2-T 12MHz 12pF HC-49S SMD Crystal,12MHz,yes,https://songglow.com/components/crystals/ABM8-25.000MHZ-B2-T
+HCM4912000000ABJT,Citizen HCM498000000ABJT 8MHz 12pF HC-49S SMD Crystal,8MHz,NO,https://songglow.com/components/crystals/HCM4912000000ABJT
+CM8V-T1A-32.768KHZ-12.5PF-20PPM-TB-QA,Micro Crystal CM8V-T1A-32.768KHZ-12.5PF-20PPM-TB-QA 25MHz 12pF HC-49S SMD Crystal,25MHz,yes,https://songglow.com/components/crystals/CM8V-T1A-32.768KHZ-12.5PF-20PPM-TB-QA
+CM8V-T1A-32.768KHZ-9PF-20PPM-TB-QA,Micro Crystal CM8V-T1A-32.768KHZ-12.5PF-20PPM-TB-QA 32.768kHz 12.5pF 3215 SMD Crystal,32.768kHz,NO,https://songglow.com/components/crystals/CM8V-T1A-32.768KHZ-9PF-20PPM-TB-QA
+HCM4925000000ABJT,Citizen HCM497372800ABJT 7.3728MHz 12pF HC-49S SMD Crystal,7.3728MHz,NO,https://songglow.com/components/crystals/HCM4925000000ABJT
+HCM497372800ABJT,Citizen HCM4920000000ABJT 20MHz 12pF HC-49S SMD Crystal,20MHz,NO,https://songglow.com/components/crystals/HCM497372800ABJT
+CM7V-T1A-32.768KHZ-12.5PF-20PPM-TB-QA,Micro Crystal CM7V-T1A-32.768KHZ-12.5PF-20PPM-TB-QA 18pF HC-49S SMD Crystal,20MHz,yes,https://songglow.com/components/crystals/CM7V-T1A-32.768KHZ-12.5PF-20PPM-TB-QA
+ECS-.327-12.5-34B-C-TR,ECS Inc. ECS-80-20-5G3XDS-TR 8MHz 20pF HC-49US SMD Crystal,8MHz,NO,https://songglow.com/components/crystals/ECS-.327-12.5-34B-C-TR
+ECS-80-20-5G3XDS-TR,ECS Inc. ECS-384-CDX-1983 38.4MHz 7pF 2016 SMD Crystal,38.4MHz,NO,https://songglow.com/components/crystals/ECS-80-20-5G3XDS-TR
+CM9V-T1A-32.768KHZ-9PF-20PPM-TA-QC,Micro Crystal CM9V-T1A-32.768KHZ-9PF-20PPM-TA-QC 16MHz 10pF 2016 SMD Crystal,16MHz,yes,https://songglow.com/components/crystals/CM9V-T1A-32.768KHZ-9PF-20PPM-TA-QC
+ABM11-16.000MHZ-D2X-T3,Abracon ABM11-16.000MHZ-D2X-T3 32.768kHz 12.5pF 3215 SMD Crystal,32.768kHz,yes,https://songglow.com/components/crystals/ABM11-16.000MHZ-D2X-T3
+ABM3-16.000MHZ-D2Y-T,Abracon ABM3-16.000MHZ-D2Y-T 12MHz 12pF 2520 SMD Crystal,12MHz,yes,https://songglow.com/components/crystals/ABM3-16.000MHZ-D2Y-T
+CM315D32768DZFT,Citizen CM315D32768DZCT 32.768kHz 12.5pF 3215 SMD Crystal,32.768kHz,NO,https://songglow.com/components/crystals/CM315D32768DZFT
+ABM3-8.000MHZ-D2Y-T,Abracon ABM3-8.000MHZ-D2Y-T 24MHz 10pF 3225 SMD Crystal,24MHz,yes,https://songglow.com/components/crystals/ABM3-8.000MHZ-D2Y-T
+ECS-320-8-37B2-CTN-TR,ECS Inc. ECS-320-10-37B-CKY-TR 32MHz 10pF 2016 SMD Crystal,32MHz,NO,https://songglow.com/components/crystals/ECS-320-8-37B2-CTN-TR
+ABM10-166-12.000MHZ-T3,Abracon ABM10-166-12.000MHZ-T3 25MHz 12.5pF 3225 SMD Crystal,25MHz,yes,https://songglow.com/components/crystals/ABM10-166-12.000MHZ-T3
+SG-210STF 50.0000ML0,EPSON XTAL OSC XO 50.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/SG-210STF-50.0000ML0
+SG-210STF 24.0000ML0,EPSON XTAL OSC XO 24.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/SG-210STF-24.0000ML0
+SG-210STF 12.2880ML0,EPSON XTAL OSC XO 12.2880MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/SG-210STF-12.2880ML0
+SG-210STF 25.0000ML0,EPSON XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/SG-210STF-25.0000ML0
+"O 25,0-JO32-B-1V3-1-T1-LF",Jauch Quartz XTAL OSC XO 25.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/O-25-0-JO32-B-1V3-1-T1-LF
+COM1305-50.000-EXT-T-TR,Raltron Electronics XTAL OSC XO 50MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/COM1305-50.000-EXT-T-TR
+ECS-2333-160-BN-TR,ECS Inc. XTAL OSC XO 16.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2333-160-BN-TR
+ECS-2333-500-BN-TR,ECS Inc. XTAL OSC XO 50.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2333-500-BN-TR
+ASDDV-25.000MHZ-LC-T,Abracon LLC OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASDDV-25.000MHZ-LC-T
+ASDDV-50.000MHZ-LR-T,Abracon LLC OSC XO 50.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASDDV-50.000MHZ-LR-T
+ASE-1.8432MHZ-L-C-T,Abracon LLC XTAL OSC XO 1.8432MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASE-1.8432MHZ-L-C-T
+ECS-2033-240-BN,ECS Inc. XTAL OSC XO 24.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2033-240-BN
+ASE3-27.000MHZ-K-T,Abracon LLC XTAL OSC XO 27.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASE3-27.000MHZ-K-T
+ECS-2033-500-BN,ECS Inc. XTAL OSC XO 50.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2033-500-BN
+ECS-2333-250-BN-TR,ECS Inc. OSC XO 25.000MHZ 3.3V CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2333-250-BN-TR
+ECS-327MVATX-1-CN-TR,ECS Inc. XTAL OSC XO 32.768KHZ SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-327MVATX-1-CN-TR
+ECS-3963-240-BN-TR,ECS Inc. XTAL OSC XO 24.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3963-240-BN-TR
+ECS-2018-240-BN,ECS Inc. XTAL OSC XO 24.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2018-240-BN
+ECS-2033-120-BN,ECS Inc. XTAL OSC XO 12.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2033-120-BN
+ECS-327MVATX-3-CN-TR,ECS Inc. XTAL OSC XO 32.768KHZ SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-327MVATX-3-CN-TR
+ECS-327MVATX-3-CN-TR3,ECS Inc. XTAL OSC XO 32.7680KHZ SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-327MVATX-3-CN-TR3
+ECS-327MVATX-2-CN-TR3,ECS Inc. XTAL OSC XO 32.7680KHZ SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-327MVATX-2-CN-TR3
+ECS-3225MV-080-BN-TR,ECS Inc. XTAL OSC XO 8.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3225MV-080-BN-TR
+ECS-3225MV-160-CN-TR,ECS Inc. XTAL OSC XO 16.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3225MV-160-CN-TR
+ECS-327MVATX-2-CN-TR,ECS Inc. XTAL OSC XO 32.7680KHZ SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-327MVATX-2-CN-TR
+ECS-3225MV-250-CN-TR,ECS Inc. XTAL OSC XO 25.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3225MV-250-CN-TR
+ECS-3225MV-240-BN-TR,ECS Inc. XTAL OSC XO 24.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3225MV-240-BN-TR
+ECS-3225MV-120-BN-TR,ECS Inc. XTAL OSC XO 12.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3225MV-120-BN-TR
+ECS-3225MV-250-BN-TR,ECS Inc. XTAL OSC XO 25.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3225MV-250-BN-TR
+ECS-3225MV-160-BN-TR,ECS Inc. XTAL OSC XO 16.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3225MV-160-BN-TR
+ECS-3225MV-250-CN-TR3,ECS Inc. XTAL OSC XO 25.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3225MV-250-CN-TR3
+ECS-3225MV-500-CN-TR,ECS Inc. XTAL OSC XO 50.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3225MV-500-CN-TR
+ECS-2520MV-160-CN-TR,ECS Inc. OSC XO 16.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MV-160-CN-TR
+KC2016Z25.0000C1KX00,KYOCERA AVX XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/KC2016Z25.0000C1KX00
+ECS-2520MV-333.3-BN-TR,ECS Inc. XTAL OSC XO 33.3333MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MV-333.3-BN-TR
+ECS-2520MV-250-BN-TR,ECS Inc. XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MV-250-BN-TR
+ECS-2520MV-240-BN-TR,ECS Inc. XTAL OSC XO 24.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MV-240-BN-TR
+ECS-2520MV-250-CN-TR,ECS Inc. XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MV-250-CN-TR
+ECS-2520MV-080-CN-TR,ECS Inc. OSC XO 8.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MV-080-CN-TR
+ECS-2520MV-480-CN-TR,ECS Inc. XTAL OSC XO 48.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MV-480-CN-TR
+ASV-12.000MHZ-EJ-T,Abracon LLC XTAL OSC XO 12.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASV-12.000MHZ-EJ-T
+ECS-2520MV-500-BN-TR,ECS Inc. XTAL OSC XO 50.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MV-500-BN-TR
+ECS-2520MVLC-250-BP-TR,ECS Inc. XTAL OSC XO 25MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MVLC-250-BP-TR
+ECS-2033-250-BN,ECS Inc. XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2033-250-BN
+FK2500067,Diodes Incorporated XTAL OSC XO 25.0000MHZ LVCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/FK2500067
+ECS-2033-080-BN,ECS Inc. XTAL OSC XO 8.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2033-080-BN
+636L3I025M00000,CTS-Frequency Controls XTAL OSC XO 25.0000MHZ HCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/636L3I025M00000
+ECS-2033-040-BN,ECS Inc. XTAL OSC XO 4.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2033-040-BN
+KC3225K25.0000C1GE00,KYOCERA AVX XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/KC3225K25.0000C1GE00
+CB3-3I-16M000000,CTS-Frequency Controls XTAL OSC XO 16.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3-3I-16M000000
+ECS-2520MVQ-240-BP-TR,ECS Inc. XTAL OSC XO 24.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MVQ-240-BP-TR
+KC3225K50.0000C1GE00,KYOCERA AVX XTAL OSC XO 50.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/KC3225K50.0000C1GE00
+ECS-2520MVLC-080-BN-TR,ECS Inc. XTAL OSC XO 8.0MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MVLC-080-BN-TR
+ASE-25.000MHZ-L-C-T,Abracon LLC XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASE-25.000MHZ-L-C-T
+CB3LV-3C-50M000000,CTS-Frequency Controls XTAL OSC XO 50.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3C-50M000000
+ASE-50.000MHZ-L-C-T,Abracon LLC XTAL OSC XO 50.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASE-50.000MHZ-L-C-T
+KC2016Z27.0000C15XXK,"KYOCERA AVX CLOCK OSCILLATOR,2.0X1.6X0.8MM S",,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/KC2016Z27.0000C15XXK
+CB3-3C-8M000000,CTS-Frequency Controls XTAL OSC XO 8.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3-3C-8M000000
+CB3LV-3C-25M000000,CTS-Frequency Controls XTAL OSC XO 25.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3C-25M000000
+ASE-8.000MHZ-L-C-T,Abracon LLC XTAL OSC XO 8.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASE-8.000MHZ-L-C-T
+ASE-48.000MHZ-L-C-T,Abracon LLC XTAL OSC XO 48.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASE-48.000MHZ-L-C-T
+ECS-2520MVQ-080-CN-TR,ECS Inc. XTAL OSC XO 8.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MVQ-080-CN-TR
+ASE-25.000MHZ-L-R-T,Abracon LLC XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASE-25.000MHZ-L-R-T
+ECS-2520MVLC-081.92-BN-TR,ECS Inc. XTAL OSC XO 8.1920MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MVLC-081.92-BN-TR
+CB3LV-3I-25M000000,CTS-Frequency Controls XTAL OSC XO 25.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3I-25M000000
+ASE-24.576MHZ-L-C-T,Abracon LLC XTAL OSC XO 24.5760MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASE-24.576MHZ-L-C-T
+ECS-2520MVQ-250-BP-TR,ECS Inc. XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MVQ-250-BP-TR
+ASE-24.000MHZ-L-C-T,Abracon LLC XTAL OSC XO 24.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASE-24.000MHZ-L-C-T
+CB3-3I-40M000000,CTS-Frequency Controls XTAL OSC XO 40.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3-3I-40M000000
+CB3LV-3C-20M000000,CTS-Frequency Controls XTAL OSC XO 20.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3C-20M000000
+CB3-3C-40M000000,CTS-Frequency Controls XTAL OSC XO 40.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3-3C-40M000000
+FKSSD1025,Diodes Incorporated XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/FKSSD1025
+ECS-2520MV-500-CN-TR,ECS Inc. XTAL OSC XO 50.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MV-500-CN-TR
+CB3LV-3C-16M000000,CTS-Frequency Controls XTAL OSC XO 16.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3C-16M000000
+ECS-2520MVLC-250-BN-TR,ECS Inc. XTAL OSC XO 25MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MVLC-250-BN-TR
+ASE-14.7456MHZ-L-C-T,Abracon LLC XTAL OSC XO 14.7456MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASE-14.7456MHZ-L-C-T
+ECS-2520MVLC-100-BN-TR,ECS Inc. XTAL OSC XO 10MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MVLC-100-BN-TR
+632L3I024M00000,CTS-Frequency Controls XTAL OSC XO 24.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/632L3I024M00000
+OM-7604-C7-32.768KHZ-20PPM-TA-QC,Micro Crystal AG OSC XO 32.7680KHZ SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/OM-7604-C7-32.768KHZ-20PPM-TA-QC
+CB3LV-3C-10M000000,CTS-Frequency Controls XTAL OSC XO 10.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3C-10M000000
+CB3LV-3I-50M000000,CTS-Frequency Controls XTAL OSC XO 50.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3I-50M000000
+ECS-327MVATX-7-CN-TR,ECS Inc. XTAL OSC XO 32.7680KHZ SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-327MVATX-7-CN-TR
+ASE-24.000MHZ-L-R-T,Abracon LLC XTAL OSC XO 24.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASE-24.000MHZ-L-R-T
+ASE-50.000MHZ-L-R-T,Abracon LLC XTAL OSC XO 50.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASE-50.000MHZ-L-R-T
+NSC5136D-32.768K,"NDK (NIHON DEMPA KOGYO CO., LTD) XTAL OSC XO 32.7680KHZ CMOS SMD",,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/NSC5136D-32.768K
+CB3LV-3C-30M000000,CTS-Frequency Controls XTAL OSC XO 30.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3C-30M000000
+ASE-10.000MHZ-L-C-T,Abracon LLC XTAL OSC XO 10.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASE-10.000MHZ-L-C-T
+CB3LV-3C-8M000000,CTS-Frequency Controls XTAL OSC XO 8.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3C-8M000000
+CB3-3C-10M000000,CTS-Frequency Controls XTAL OSC XO 10.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3-3C-10M000000
+CB3-3C-16M000000,CTS-Frequency Controls XTAL OSC XO 16.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3-3C-16M000000
+ASE-12.000MHZ-L-C-T,Abracon LLC XTAL OSC XO 12.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASE-12.000MHZ-L-C-T
+KC2016K25.0000C1GE00,KYOCERA AVX XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/KC2016K25.0000C1GE00
+KC2016K80.0000C1GE00,KYOCERA AVX XTAL OSC XO 80.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/KC2016K80.0000C1GE00
+KC2016K24.0000C1GE00,KYOCERA AVX XTAL OSC XO 24.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/KC2016K24.0000C1GE00
+ASV-25.000MHZ-EJ-T,Abracon LLC XTAL OSC XO 25.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASV-25.000MHZ-EJ-T
+ASV-10.000MHZ-EJ-T,Abracon LLC XTAL OSC XO 10.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASV-10.000MHZ-EJ-T
+ECS-2520MVLC-160-BN-TR,ECS Inc. XTAL OSC XO 16MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MVLC-160-BN-TR
+ASE-33.333MHZ-L-C-T,Abracon LLC XTAL OSC XO 33.3330MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASE-33.333MHZ-L-C-T
+CB3LV-3I-10M000000,CTS-Frequency Controls XTAL OSC XO 10.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3I-10M000000
+632L3I025M00000,CTS-Frequency Controls XTAL OSC XO 25.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/632L3I025M00000
+CB3LV-3C-18M432000,CTS-Frequency Controls XTAL OSC XO 18.4320MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3C-18M432000
+CB3LV-5I-25M000000,CTS-Frequency Controls XTAL OSC XO 25.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-5I-25M000000
+CB3LV-3I-12M000000,CTS-Frequency Controls XTAL OSC XO 12.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3I-12M000000
+CB3LV-5I-20M000000,CTS-Frequency Controls XTAL OSC XO 20.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-5I-20M000000
+CB3LV-3I-40M000000,CTS-Frequency Controls XTAL OSC XO 40.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3I-40M000000
+CB3LV-3I-20M000000,CTS-Frequency Controls XTAL OSC XO 20.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3I-20M000000
+ECS-2033-080-AU,ECS Inc. XTAL OSC XO 8.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2033-080-AU
+ECS-3963-500-BN-TR,ECS Inc. XTAL OSC XO 50.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3963-500-BN-TR
+ECS-327ATQMV-AS-TR,ECS Inc. XTAL OSC XO 32.7680KHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-327ATQMV-AS-TR
+LFSPXO025165,IQD Frequency Products XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/LFSPXO025165
+ECS-3963-250-BN-TR,ECS Inc. XTAL OSC XO 25.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3963-250-BN-TR
+ECS-3225MVQ-1000-CN-TR,ECS Inc. XTAL OSC XO 100.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3225MVQ-1000-CN-TR
+ASE-20.000MHZ-L-C-T,Abracon LLC XTAL OSC XO 20.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASE-20.000MHZ-L-C-T
+CB3LV-3I-24M000000,CTS-Frequency Controls XTAL OSC XO 24.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3I-24M000000
+ECS-3963-480-BN-TR,ECS Inc. XTAL OSC XO 48.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3963-480-BN-TR
+MC2520Z25.0000C19XSH,KYOCERA AVX XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/MC2520Z25.0000C19XSH
+MC2520Z12.0000C19XSH,KYOCERA AVX XTAL OSC XO 12.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/MC2520Z12.0000C19XSH
+MC2016Z25.0000C19XSH,KYOCERA AVX XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/MC2016Z25.0000C19XSH
+MC2016Z24.0000C19XSH,KYOCERA AVX XTAL OSC XO 24.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/MC2016Z24.0000C19XSH
+MC2520Z33.3333C19XSH,KYOCERA AVX XTAL OSC XO 33.3333MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/MC2520Z33.3333C19XSH
+MC2016Z20.0000C19XSH,KYOCERA AVX XTAL OSC XO 20.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/MC2016Z20.0000C19XSH
+ASAK-32.768KHZ-LRS-T,Abracon LLC XTAL OSC XO 32.7680KHZ LVCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASAK-32.768KHZ-LRS-T
+ECS-3225MVQ-1250-CN-TR,ECS Inc. XTAL OSC XO 125.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3225MVQ-1250-CN-TR
+636L3C025M00000,CTS-Frequency Controls XTAL OSC XO 25.0000MHZ HCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/636L3C025M00000
+ECS-3953M-500-B-TR,ECS Inc. XTAL OSC XO 50.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3953M-500-B-TR
+LFSPXO072801,IQD Frequency Products XTAL OSC XO 8.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/LFSPXO072801
+CB3-3C-4M000000,CTS-Frequency Controls XTAL OSC XO 4.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3-3C-4M000000
+ECS-3953M-400-BN-TR,ECS Inc. XTAL OSC XO 40.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3953M-400-BN-TR
+ASDK-32.768KHZ-LRT,Abracon LLC XTAL OSC XO 32.7680KHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASDK-32.768KHZ-LRT
+CB3LV-3I-66M000000,CTS-Frequency Controls XTAL OSC XO 66.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3I-66M000000
+ECS-3961-160-AU-TR,ECS Inc. XTAL OSC XO 16.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3961-160-AU-TR
+636L3C024M00000,CTS-Frequency Controls XTAL OSC XO 24.0000MHZ HCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/636L3C024M00000
+CB3-3C-20M000000,CTS-Frequency Controls XTAL OSC XO 20.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3-3C-20M000000
+TC25L5I32K7680,CTS-Frequency Controls XTAL OSC XO 32.7680KHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/TC25L5I32K7680
+625L3C040M00000,CTS-Frequency Controls XTAL OSC XO 40.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/625L3C040M00000
+831055678,Würth Elektronik XTAL OSC XO 25.0000MHZ CMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/831055678
+ECS-3953M-500-BN-TR,ECS Inc. XTAL OSC XO 50.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3953M-500-BN-TR
+CB3LV-3I-64M000000,CTS-Frequency Controls XTAL OSC XO 64.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3I-64M000000
+ASV-50.000MHZ-EJ-T,Abracon LLC XTAL OSC XO 50.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASV-50.000MHZ-EJ-T
+ECS-2520MVLC-600-BN-TR,ECS Inc. XTAL OSC XO 60.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520MVLC-600-BN-TR
+ECS-3951M-040-BN-TR,ECS Inc. XTAL OSC XO 4.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3951M-040-BN-TR
+ECS-2016MV-250-CN-TR,ECS Inc. XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2016MV-250-CN-TR
+ECS-TXO-20CSMV4-320-AY-TR,ECS Inc. XTAL OSC TCXO 32.0000MHZ CLPSW,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-20CSMV4-320-AY-TR
+ECS-TXO-20CSMV4-260-AN-TR,ECS Inc. XTAL OSC TCXO 26.0000MHZ CLPSW,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-20CSMV4-260-AN-TR
+ECS-1612MV-240-CN-TR,ECS Inc. XTAL OSC XO 24.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-1612MV-240-CN-TR
+ECS-2033-200-AU,ECS Inc. XTAL OSC XO 20.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2033-200-AU
+7XZ-32.768KBE-T,TXC CORPORATION XTAL OSC XO 32.7680KHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/7XZ-32.768KBE-T
+ECS-2016MVQ-240-BS-TR,ECS Inc. OSC XO 24MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2016MVQ-240-BS-TR
+ECS-2018-250-BN,ECS Inc. XTAL OSC XO 25.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2018-250-BN
+ECS-1612MV-250-CN-TR,ECS Inc. XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-1612MV-250-CN-TR
+ECS-1612MV-192-CN-TR,ECS Inc. XTAL OSC XO 19.2000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-1612MV-192-CN-TR
+ECS-3953M-480-B-TR,ECS Inc. XTAL OSC XO 48.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3953M-480-B-TR
+ECS-1612MV-500-CN-TR,ECS Inc. XTAL OSC XO 50.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-1612MV-500-CN-TR
+ECS-3953M-100-AU-TR,ECS Inc. XTAL OSC XO 10.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3953M-100-AU-TR
+OV-7604-C7-32.768KHZ-20PPM-TA-QC,Micro Crystal AG XTAL OSC XO 32.7680KHZ SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/OV-7604-C7-32.768KHZ-20PPM-TA-QC
+ECS-2016MVQ-250-BS-TR,ECS Inc. OSC XO 25MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2016MVQ-250-BS-TR
+ASFL1-25.000MHZ-L-T,Abracon LLC XTAL OSC XO 25.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASFL1-25.000MHZ-L-T
+ECS-3953M-250-BN-TR,ECS Inc. XTAL OSC XO 25.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3953M-250-BN-TR
+ECS-3518-500-B-TR,ECS Inc. XTAL OSC XO 50.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3518-500-B-TR
+LFSPXO019987,IQD Frequency Products XTAL OSC XO 50.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/LFSPXO019987
+LFSPXO018044,IQD Frequency Products XTAL OSC XO 50.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/LFSPXO018044
+LFSPXO018042,IQD Frequency Products XTAL OSC XO 40.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/LFSPXO018042
+ASE-7.3728MHZ-L-C-T,Abracon LLC XTAL OSC XO 7.3728MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASE-7.3728MHZ-L-C-T
+CB3LV-3C-80M000000,CTS-Frequency Controls XTAL OSC XO 80.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CB3LV-3C-80M000000
+ASEK-32.768KHZ-L-R-T,Abracon LLC XTAL OSC XO 32.7680KHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASEK-32.768KHZ-L-R-T
+LFSPXO073707,IQD Frequency Products XTAL OSC XO 32.7680KHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/LFSPXO073707
+ASEAIG-16.000MHZ-C-S-T,Abracon LLC OSC XO 16.000MHZ 3.3V CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASEAIG-16.000MHZ-C-S-T
+ECS-1612MV-080-CN-TR,ECS Inc. XTAL OSC XO 8.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-1612MV-080-CN-TR
+ASFL1-24.000MHZ-EC-T,Abracon LLC XTAL OSC XO 24.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASFL1-24.000MHZ-EC-T
+ECS-3961-200-AU-TR,ECS Inc. XTAL OSC XO 20.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3961-200-AU-TR
+ASFL1-25.000MHZ-EC-T,Abracon LLC XTAL OSC XO 25.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASFL1-25.000MHZ-EC-T
+ECS-3953M-240-BN-TR,ECS Inc. XTAL OSC XO 24.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3953M-240-BN-TR
+ECS-TXO-20CSMV-320-EY-TR,ECS Inc. XTAL OSC TCXO 32.0000MHZ CLP SNW,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-20CSMV-320-EY-TR
+ECS-3953M-100-BN-TR,ECS Inc. XTAL OSC XO 10.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3953M-100-BN-TR
+END4263D-32M,"NDK (NIHON DEMPA KOGYO CO., LTD) XTAL OSC TCXO 32.0000MHZ SMD",,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/END4263D-32M
+ASFL1-8.000MHZ-EC-T,Abracon LLC XTAL OSC XO 8.0000MHZ HCMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASFL1-8.000MHZ-EC-T
+ECS-327MV-CN-TR,ECS Inc. XTAL OSC XO 32.7680KHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-327MV-CN-TR
+ECS-3953M-200-BN-TR,ECS Inc. XTAL OSC XO 20.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3953M-200-BN-TR
+ECS-TXO-25CSMV-320-DY-TR,ECS Inc. XTAL OSC TCXO 32.0000MHZ CLPSNW,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-25CSMV-320-DY-TR
+ECS-3963-160-AU-TR,ECS Inc. XTAL OSC XO 16.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3963-160-AU-TR
+ECS-3961-040-AU-TR,ECS Inc. XTAL OSC XO 4.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3961-040-AU-TR
+ASDK2-32.768KHZ-LR-T3,Abracon LLC XTAL OSC XO 32.7680KHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASDK2-32.768KHZ-LR-T3
+OV-7604-C7-32.768KHZ-20PPM-TB-QA,Micro Crystal AG XTAL OSC XO 32.7680KHZ SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/OV-7604-C7-32.768KHZ-20PPM-TB-QA
+ECS-TXO-2016-33-250-TR,ECS Inc. XTAL OSC TCXO 25MHZ 3.3V SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-2016-33-250-TR
+CSX-750FBC8000000T,Citizen Finedevice Co Ltd XTAL OSC XO 8.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CSX-750FBC8000000T
+CSX-750FCC10000000T,Citizen Finedevice Co Ltd XTAL OSC XO 10.0000MHZ CMOS TTL,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CSX-750FCC10000000T
+CSX-750FBC12000000T,Citizen Finedevice Co Ltd XTAL OSC XO 12.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CSX-750FBC12000000T
+CSX-750FBC25000000T,Citizen Finedevice Co Ltd XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/CSX-750FBC25000000T
+ECS-TXO-2520MV-500-AN-TR,ECS Inc. XTAL OSC TCXO 50MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-2520MV-500-AN-TR
+ECS-TXO-2520MV-120-AN-TR,ECS Inc. XTAL OSC TCXO 12MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-2520MV-120-AN-TR
+ASV-125.000MHZ-EC-T,Abracon LLC XTAL OSC XO 125.0000MHZ HCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASV-125.000MHZ-EC-T
+ECS-3963-250-AU-TR,ECS Inc. XTAL OSC XO 25.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3963-250-AU-TR
+ECS-TXO-32CSMV-400-BN-TR,ECS Inc. XTAL OSC TCXO 40.0000MHZ CLPSNW,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-32CSMV-400-BN-TR
+ECS-TXO-25CSMV-320-BM-TR,ECS Inc. XTAL OSC TCXO 32MHZ CLPSNW SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-25CSMV-320-BM-TR
+ECS-TXO-3225MV-122.8-TR,ECS Inc. XTAL OSC TCXO 12.288MHZ HCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-3225MV-122.8-TR
+ECS-327KE-TR,ECS Inc. XTAL OSC XO 32.7680KHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-327KE-TR
+ECS-TXO-2016-33-320-TR,ECS Inc. XTAL OSC TCXO 32MHZ 3.3V SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-2016-33-320-TR
+ECS-2520S33-160-FN-TR,ECS Inc. XTAL OSC XO 16.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520S33-160-FN-TR
+ECS-2520S33-240-FN-TR,ECS Inc. XTAL OSC XO 24.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520S33-240-FN-TR
+ECS-2520SMV-080-FN-TR,ECS Inc. XTAL OSC XO 8MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520SMV-080-FN-TR
+ECS-2520S33-500-FN-TR,ECS Inc. XTAL OSC XO 50.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520S33-500-FN-TR
+ECS-2520S33-250-EN-TR,ECS Inc. XTAL OSC XO 25.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520S33-250-EN-TR
+ECS-2520S33-120-FN-TR,ECS Inc. XTAL OSC XO 12.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520S33-120-FN-TR
+ECS-TXO-2016MV-500-TR,ECS Inc. XTAL OSC TCXO 50 MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-2016MV-500-TR
+ECS-TXO-2016MV-200-TR,ECS Inc. XTAL OSC TCXO 20 MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-2016MV-200-TR
+TXEABLSANF-24.000000,Taitien XTAL OSC VCTCXO 24.0000MHZ SNWV,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/TXEABLSANF-24.000000
+ECS-TXO-2016-33-500-TR,ECS Inc. XTAL OSC TCXO 50MHZ 3.3V SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-2016-33-500-TR
+ECS-TXO-2520-33-320-AN-TR,ECS Inc. XTAL OSC TCXO 32.0000MHZ HCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-2520-33-320-AN-TR
+ASCO2-24.000MHZ-EK-T3,Abracon LLC XTAL OSC XO 24.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASCO2-24.000MHZ-EK-T3
+ASCO-25.000MHZ-EK-T3,Abracon LLC XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASCO-25.000MHZ-EK-T3
+MC2016K24.0000C16ESH,KYOCERA AVX XTAL OSC XO 24.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/MC2016K24.0000C16ESH
+ASCO-24.000MHZ-EK-T3,Abracon LLC XTAL OSC XO 24.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASCO-24.000MHZ-EK-T3
+ASCO-8.000MHZ-EK-T3,Abracon LLC XTAL OSC XO 8.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASCO-8.000MHZ-EK-T3
+TXETDDSANF-30.000000,Taitien XTAL OSC TCXO 30.0000MHZ SNWV,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/TXETDDSANF-30.000000
+MC2016K25.0000C16ESH,KYOCERA AVX XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/MC2016K25.0000C16ESH
+TXETBLSANF-40.000000,Taitien XTAL OSC TCXO 40.0000MHZ SNWV,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/TXETBLSANF-40.000000
+TXEABLSANF-26.000000,Taitien XTAL OSC VCTCXO 26.0000MHZ SNWV,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/TXEABLSANF-26.000000
+ECS-2520SMV-192-FP-TR,ECS Inc. XTAL OSC XO 19.2000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520SMV-192-FP-TR
+ECS-2520SMV-250-FP-TR,ECS Inc. XTAL OSC XO 25.0000MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-2520SMV-250-FP-TR
+SG5032CAN 25.000000M-TJGA3,EPSON XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/SG5032CAN-25.000000M-TJGA3
+SG5032CAN 50.000000M-TJGA3,EPSON XTAL OSC XO 50.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/SG5032CAN-50.000000M-TJGA3
+SG5032CAN 24.000000M-TJGA3,EPSON XTAL OSC XO 24.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/SG5032CAN-24.000000M-TJGA3
+ECS-TXO-3225-250-TR,ECS Inc. XTAL OSC TCXO 25.0000MHZ HCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-3225-250-TR
+357LB3I027M0000,CTS-Frequency Controls XTAL OSC VCXO 27.0000MHZ HCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/357LB3I027M0000
+SG-210STF 25.0000ML3,EPSON XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/SG-210STF-25.0000ML3
+SG-210STF 16.0000ML,EPSON XTAL OSC XO 16.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/SG-210STF-16.0000ML
+SG-210STF 27.0000ML,EPSON XTAL OSC XO 27.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/SG-210STF-27.0000ML
+ECS-TXO-3225-122.8-TR,ECS Inc. XTAL OSC TCXO 12.2880MHZ HCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-3225-122.8-TR
+MAX7375AXR105+T,Analog Devices Inc./Maxim Integrated MEMS OSC XO 1.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/MAX7375AXR105-T
+MAX7375AXR805+T,Analog Devices Inc./Maxim Integrated MEMS OSC XO 8.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/MAX7375AXR805-T
+ASDDV-25.000MHZ-LR-T,Abracon LLC OSC XO 25.000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASDDV-25.000MHZ-LR-T
+SG-210STF 25.0000MS3,EPSON XTAL OSC XO 25.0000MHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/SG-210STF-25.0000MS3
+ECS-TXO-3225-160-TR,ECS Inc. XTAL OSC TCXO 16.0000MHZ HCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-3225-160-TR
+ECS-TXO-2520-33-240-AN-TR,ECS Inc. XTAL OSC TCXO 24.0000MHZ HCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-2520-33-240-AN-TR
+ASDMB-24.000MHZ-LC-T,Abracon LLC MEMS OSC XO 24.0000MHZ LVCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASDMB-24.000MHZ-LC-T
+ECS-TXO-2520-33-250-AN-TR,ECS Inc. XTAL OSC TCXO 25.0000MHZ HCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-TXO-2520-33-250-AN-TR
+ASDMB-33.333MHZ-LC-T,Abracon LLC MEMS OSC XO 33.3330MHZ LVCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASDMB-33.333MHZ-LC-T
+ASH7KW-32.768KHZ-L-T,Abracon LLC XTAL OSC XO 32.7680KHZ CMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ASH7KW-32.768KHZ-L-T
+TYETBLSANF-40.000000,Taitien XTAL OSC TCXO 40.0000MHZ SNWV,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/TYETBLSANF-40.000000
+FT5HNBPK25.0-T1,Fox Electronics XTAL OSC TCXO 25.0000MHZ HCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/FT5HNBPK25.0-T1
+FT5HNBPK20.0-T1,Fox Electronics XTAL OSC TCXO 20.0000MHZ HCMOS,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/FT5HNBPK20.0-T1
+TYETBCSANF-32.000000,Taitien XTAL OSC TCXO 32.0000MHZ SNWV,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/TYETBCSANF-32.000000
+TYETBLSANF-38.400000,Taitien XTAL OSC TCXO 38.4000MHZ SNWV,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/TYETBLSANF-38.400000
+ECS-3225SMV-120-FP-TR,ECS Inc. XTAL OSC XO 12MHZ HCMOS SMD,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/ECS-3225SMV-120-FP-TR
+TXETALSANF-26.000000,Taitien XTAL OSC TCXO 26.0000MHZ SNWV,,NO,https://songglow.com/components/crystals-oscillators-resonators-oscillators/TXETALSANF-26.000000
+ABM8-16.000MHZ-D1X-T,Abracon ABM8-16.000MHZ-D1X-T 32MHz 8pF 2016 SMD Crystal,32MHz,yes,https://songglow.com/components/crystals/ABM8-16.000MHZ-D1X-T
+ABM3-20.000MHZ-D2Y-T,Abracon ABM3-20.000MHZ-D2Y-T 12MHz 18pF 3225 SMD Crystal,12MHz,yes,https://songglow.com/components/crystals/ABM3-20.000MHZ-D2Y-T
