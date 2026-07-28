@@ -51,6 +51,7 @@ const organizationSchema = {
   url: SITE_URL,
   logo: `${SITE_URL}/icon.png`,
   description: SITE_DESCRIPTION,
+  sameAs: ["https://www.linkedin.com/company/songglow"],
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",

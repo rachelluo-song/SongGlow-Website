@@ -283,6 +283,36 @@ export function orderedSpecs(specs: Record<string, string>): [string, string][] 
   );
 }
 
+/**
+ * A short, human-readable summary built from a product's structured data.
+ * Gives each product page some unique prose (helps thin pages and human
+ * readers, and feeds the Product schema description). House style: no em
+ * dashes. Avoids repeating the manufacturer or part number when the name
+ * already contains them.
+ */
+export function productSummary(p: Product): string {
+  const specs = orderedSpecs(p.specs);
+  const nameLower = p.name.toLowerCase();
+  const makerWord = (p.manufacturer ?? "").toLowerCase().split(/[\s,(]/)[0];
+  const maker =
+    p.manufacturer && makerWord && !nameLower.includes(makerWord)
+      ? ` from ${p.manufacturer}`
+      : "";
+  const pn = nameLower.includes(p.part_number.toLowerCase())
+    ? ""
+    : ` (part number ${p.part_number})`;
+
+  const sentences = [`${p.name}${maker}${pn}.`];
+  if (specs.length > 0) {
+    const top = specs.slice(0, 4).map(([k, v]) => `${v} ${k.toLowerCase()}`);
+    sentences.push(`Key specifications: ${top.join(", ")}.`);
+  }
+  sentences.push(
+    "SongGlow supplies this part with full supply-chain traceability, 100% authentic. Request a quote for OEM and EMS production quantities."
+  );
+  return sentences.join(" ");
+}
+
 // Hardware directory ordering: most commonly used families first
 // (user decision 2026-07-19); unknown families sort to the end.
 const HARDWARE_FAMILY_ORDER = [

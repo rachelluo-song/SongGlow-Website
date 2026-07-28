@@ -125,6 +125,7 @@ export default async function CatalogCategory({
               <span className="spec-filter-label">Brand</span>
               <Link
                 href={urlWith({ brand: null, page: 0 })}
+                rel="nofollow"
                 className={`brand-chip ${activeBrand ? "" : "active"}`}
               >
                 All ({baseProducts.length})
@@ -133,6 +134,7 @@ export default async function CatalogCategory({
                 <Link
                   key={f.key}
                   href={urlWith({ brand: f.key, page: 0 })}
+                  rel="nofollow"
                   className={`brand-chip ${
                     activeBrand?.key === f.key ? "active" : ""
                   }`}
@@ -161,6 +163,7 @@ export default async function CatalogCategory({
                   <span className="spec-filter-label">{facet.key}</span>
                   <Link
                     href={urlWith({ spec: [facet.key, null], page: 0 })}
+                    rel="nofollow"
                     className={`brand-chip ${
                       activeSpecs[facet.key] ? "" : "active"
                     }`}
@@ -174,6 +177,7 @@ export default async function CatalogCategory({
                       <Link
                         key={value}
                         href={urlWith({ spec: [facet.key, value], page: 0 })}
+                        rel="nofollow"
                         className={`brand-chip ${
                           activeSpecs[facet.key] === value ? "active" : ""
                         }`}

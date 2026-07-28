@@ -4,6 +4,7 @@ import JsonLd from "@/components/json-ld";
 import {
   getProductBySlug,
   orderedSpecs,
+  productSummary,
   slugifyPart,
   type CatalogSection as Section,
 } from "@/lib/catalog";
@@ -71,6 +72,7 @@ export default async function ProductDetail({
   const { category, product } = hit;
   const drawable = canDrawProduct(product);
   const specs = orderedSpecs(product.specs);
+  const summary = productSummary(product);
   const pageUrl = `${SITE_URL}${basePath}/${categorySlug}/${partSlug}`;
   const related = category.products
     .filter((p) => p.id !== product.id)
@@ -84,7 +86,7 @@ export default async function ProductDetail({
     mpn: product.part_number,
     url: pageUrl,
     category: category.name,
-    ...(product.description ? { description: product.description } : {}),
+    description: summary,
     ...(product.manufacturer
       ? { brand: { "@type": "Brand", name: product.manufacturer } }
       : {}),
@@ -198,11 +200,9 @@ export default async function ProductDetail({
             </div>
           ) : null}
 
-          {product.description ? (
-            <p className="catalog-results-note" data-reveal>
-              {product.description}
-            </p>
-          ) : null}
+          <p className="product-summary" data-reveal>
+            {summary}
+          </p>
 
           {specs.length > 0 ? (
             <div className="card catalog-card" data-reveal>
