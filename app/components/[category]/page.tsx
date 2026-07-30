@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import CatalogCategory from "@/components/catalog-category";
 import JsonLd from "@/components/json-ld";
-import { titleFromSlug } from "@/lib/catalog";
+import { getBrandFacets, getCategoryBySlug, titleFromSlug } from "@/lib/catalog";
 import { SITE_URL } from "@/lib/site";
 
 function breadcrumbSchema(category: string) {
@@ -35,9 +35,25 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { category } = await params;
   const title = titleFromSlug(category);
+  // Enrich the description with this category's real part count and top brands
+  // (the terms buyers actually search) so each category page is unique. The
+  // read is deduped with the page body by getCatalog's request cache.
+  const cat = await getCategoryBySlug("components", category);
+  const count = cat?.products.length ?? 0;
+  const brands = cat
+    ? getBrandFacets(cat.products)
+        .slice(0, 4)
+        .map((b) => b.label)
+    : [];
+  const brandStr = brands.length ? ` Brands include ${brands.join(", ")}.` : "";
+  const lead = count
+    ? `${title} from SongGlow: ${count.toLocaleString("en-US")} part${
+        count === 1 ? "" : "s"
+      } with specs and datasheets, 100% authentic and fully traceable.`
+    : `${title} from SongGlow: part numbers, specs and datasheets, 100% authentic with full traceability.`;
   return {
     title: `${title} - Electronic Components - SongGlow`,
-    description: `${title} from SongGlow: part numbers, specs and datasheets, 100% authentic with full traceability. Request a quote for OEM and EMS production quantities.`,
+    description: `${lead}${brandStr} Request a quote for OEM and EMS production quantities.`,
     alternates: { canonical: `/components/${category}` },
   };
 }

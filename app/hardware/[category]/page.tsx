@@ -3,6 +3,8 @@ import CatalogCategory from "@/components/catalog-category";
 import CatalogFamily from "@/components/catalog-family";
 import JsonLd from "@/components/json-ld";
 import {
+  getBrandFacets,
+  getCategoryBySlug,
   getCategorySummaries,
   hardwareFamily,
   slugifyCategory,
@@ -41,9 +43,24 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { category } = await params;
   const title = titleFromSlug(category);
+  // Real part count + top brands per category page (family pages resolve to no
+  // category and keep the generic copy). Deduped with the page body's read.
+  const cat = await getCategoryBySlug("hardware", category);
+  const count = cat?.products.length ?? 0;
+  const brands = cat
+    ? getBrandFacets(cat.products)
+        .slice(0, 4)
+        .map((b) => b.label)
+    : [];
+  const brandStr = brands.length ? ` Brands include ${brands.join(", ")}.` : "";
+  const lead = count
+    ? `${title} from SongGlow: ${count.toLocaleString("en-US")} part${
+        count === 1 ? "" : "s"
+      } with sizes, materials and dimension drawings.`
+    : `${title} from SongGlow: part numbers, sizes, materials and dimension drawings.`;
   return {
     title: `${title} - Hardware - SongGlow`,
-    description: `${title} from SongGlow: part numbers, sizes, materials and dimension drawings. Request a quote for production quantities.`,
+    description: `${lead}${brandStr} Request a quote for production quantities.`,
     alternates: { canonical: `/hardware/${category}` },
   };
 }
