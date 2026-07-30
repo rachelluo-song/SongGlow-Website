@@ -43,3 +43,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# marketing / outreach ops tooling (kept local — not part of the website;
+# outreach/sender.json holds personal contact details)
+/outreach/
+/prospecting/
