@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
+import Faq, { type FaqItem } from "@/components/faq";
 import { SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/guides/how-to-find-component-alternates";
@@ -48,6 +49,24 @@ const breadcrumbSchema = {
     },
   ],
 };
+
+const FAQ_ITEMS: FaqItem[] = [
+  {
+    question: "What is a form-fit-function alternate?",
+    answer:
+      "A part that matches the original in physical form, footprint, and function closely enough to drop into the same design without changes. A true form-fit-function alternate meets the electrical and mechanical parameters your board depends on, not just the headline specs, which is why the datasheet details matter more than a marketing category.",
+  },
+  {
+    question: "How do I cross-reference a component without getting burned?",
+    answer:
+      "Compare against the datasheet, not the part number alone. Manufacturer cross-reference tools are a starting point, but you still have to check the parameters that actually bite: voltage and current ratings, tolerance, temperature range, package and pinout, and timing. Anything safety-critical or tightly toleranced should be qualified by your engineering team before it goes into production.",
+  },
+  {
+    question: "When should I second-source a component?",
+    answer:
+      "Before you need to. Qualifying a second source while the primary part is still available means you already have an approved alternate the day a shortage, price spike, or obsolescence notice hits. Second-sourcing under pressure, after the line is already down, is where teams get pushed into the open market and toward counterfeit risk.",
+  },
+];
 
 export default function AlternatesGuidePage() {
   return (
@@ -258,6 +277,8 @@ export default function AlternatesGuidePage() {
               the part number or your whole BOM, and we&apos;ll come back with
               sourced alternates and pricing within 24 hours.
             </p>
+
+            <Faq items={FAQ_ITEMS} />
           </div>
 
           <div className="catalog-cta" data-reveal>

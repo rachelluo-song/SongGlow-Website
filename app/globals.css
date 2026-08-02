@@ -942,6 +942,40 @@ input[type="file"]::file-selector-button:hover {
   margin-top: 0;
 }
 
+/* FAQ block (question/answer list + FAQPage schema) inside an article */
+.faq {
+  margin-top: 8px;
+}
+.faq-list {
+  margin: 0;
+}
+.faq-item {
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+.faq-item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.faq-item dt {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 600;
+  font-size: 17.5px;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.faq-item dd {
+  margin: 0;
+}
+.faq-item dd p {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+.faq-item dd p:last-child {
+  margin-bottom: 0;
+}
+
 /* ---------- Sales team cards ---------- */
 
 .sales-card {

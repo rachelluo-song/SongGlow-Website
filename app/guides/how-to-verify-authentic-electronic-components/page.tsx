@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
+import Faq, { type FaqItem } from "@/components/faq";
 import { SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/guides/how-to-verify-authentic-electronic-components";
@@ -39,6 +40,29 @@ const breadcrumbSchema = {
     },
   ],
 };
+
+const FAQ_ITEMS: FaqItem[] = [
+  {
+    question: "How can I tell if an electronic component is counterfeit?",
+    answer:
+      "Start with provenance, not the part. A component with an unbroken paper trail back to the manufacturer rarely needs a lab, while a part with no history can pass a visual check and still fail in the field. From there, inspect the packaging and labels, check that date and lot codes agree across paperwork and markings, look for resurfaced or blacktopped surfaces, and confirm the markings survive a solvent wipe. Escalate to X-ray or decapsulation only when the value or risk justifies it.",
+  },
+  {
+    question: "What documentation should I demand before parts ship?",
+    answer:
+      "A Certificate of Conformance naming the manufacturer, part number, quantity, and date and lot codes, plus a traceability chain listing every company the parts passed through. Date and lot codes should match across the paperwork, labels, and part markings. A supplier who will not name their source is showing you a red flag, not protecting a trade secret.",
+  },
+  {
+    question: "Is it safe to buy from independent distributors?",
+    answer:
+      "Yes, when the part is obsolete, allocated, or long-lead and the independent can document who they bought from and works to a counterfeit-avoidance standard such as AS6081. For anything safety-critical, an authorized distributor is the only channel worth using, because parts flow directly from the manufacturer with full warranty.",
+  },
+  {
+    question: "What are the biggest red flags of a counterfeit part?",
+    answer:
+      "A price far below every other quote for a scarce part, no traceability or a supplier who will not name their source, mixed or implausible date codes within one lot, refusal to allow inspection or testing before payment, and photos that do not match the actual stock. Any one of these should stop the purchase.",
+  },
+];
 
 export default function AuthenticityGuidePage() {
   return (
@@ -209,6 +233,8 @@ export default function AuthenticityGuidePage() {
               on your BOM can only be found on the open market, we&apos;d
               rather tell you the risk honestly than ship you a question mark.
             </p>
+
+            <Faq items={FAQ_ITEMS} />
           </div>
 
           <div className="catalog-cta" data-reveal>

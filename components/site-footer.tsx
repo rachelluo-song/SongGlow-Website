@@ -13,6 +13,7 @@ export default function SiteFooter() {
             <Link href="/hardware">Hardware</Link>
             <Link href="/services">Services</Link>
             <Link href="/guides">Guides</Link>
+            <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
           </div>
           <div className="footer-meta">

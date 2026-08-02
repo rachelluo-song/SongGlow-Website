@@ -12,6 +12,13 @@ export type GuideMeta = {
 
 export const GUIDES: GuideMeta[] = [
   {
+    slug: "how-to-choose-a-sourcing-partner",
+    title: "How to Choose an Electronic Components Sourcing Partner",
+    blurb:
+      "The criteria that separate a real sourcing partner from a broker: traceability, channels, counterfeit avoidance, coverage, and the exact questions to ask before you commit an order.",
+    datePublished: "2026-08-01",
+  },
+  {
     slug: "how-to-find-component-alternates",
     title: "How to Find Alternates & Cross-References for Components",
     blurb:

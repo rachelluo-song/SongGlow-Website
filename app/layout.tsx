@@ -51,7 +51,43 @@ const organizationSchema = {
   url: SITE_URL,
   logo: `${SITE_URL}/icon.png`,
   description: SITE_DESCRIPTION,
+  foundingDate: "2026",
   sameAs: ["https://www.linkedin.com/company/songglow"],
+  // Offices across the Shenzhen / Hong Kong sourcing corridor.
+  address: [
+    {
+      "@type": "PostalAddress",
+      streetAddress: "Futian District",
+      addressLocality: "Shenzhen",
+      addressRegion: "Guangdong",
+      addressCountry: "CN",
+    },
+    {
+      "@type": "PostalAddress",
+      streetAddress: "Longhua District",
+      addressLocality: "Shenzhen",
+      addressRegion: "Guangdong",
+      addressCountry: "CN",
+    },
+    {
+      "@type": "PostalAddress",
+      streetAddress: "Tuen Mun",
+      addressLocality: "Hong Kong",
+      addressRegion: "Hong Kong",
+      addressCountry: "HK",
+    },
+  ],
+  areaServed: "Worldwide",
+  // Topical signals: what AI assistants should associate SongGlow with.
+  knowsAbout: [
+    "Electronic component sourcing",
+    "Semiconductor procurement",
+    "Bill of materials (BOM) fulfillment",
+    "Obsolete and end-of-life components",
+    "Capacitor sourcing",
+    "Supply chain traceability",
+    "Counterfeit component avoidance",
+  ],
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",

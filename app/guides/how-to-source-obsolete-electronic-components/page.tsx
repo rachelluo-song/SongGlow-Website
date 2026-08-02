@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
+import Faq, { type FaqItem } from "@/components/faq";
 import { SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/guides/how-to-source-obsolete-electronic-components";
@@ -46,6 +47,24 @@ const breadcrumbSchema = {
     },
   ],
 };
+
+const FAQ_ITEMS: FaqItem[] = [
+  {
+    question: "What should I do first when a component goes end-of-life?",
+    answer:
+      "Work the problem from cheapest fix to last resort. Check for a last-time-buy window and cover your remaining demand while the manufacturer is still shipping. In parallel, look for an approved form-fit-function alternate. Only when neither is available do you move to the authorized aftermarket and then the vetted open market, where documentation and counterfeit avoidance become critical.",
+  },
+  {
+    question: "What is a last-time buy, and how do I size it?",
+    answer:
+      "A last-time buy is a final purchase of a part before the manufacturer stops production, sized to cover your expected demand through end of life or until a redesign lands. Base the quantity on your production forecast plus service and spares, and account for shelf life and storage conditions. A sourcing partner can hold a last-time buy and release it against your schedule so you are not warehousing the whole quantity at once.",
+  },
+  {
+    question: "How do I buy obsolete parts on the open market safely?",
+    answer:
+      "Only through suppliers who can document their source and work to a counterfeit-avoidance standard. Demand a Certificate of Conformance and a full traceability chain, verify date and lot codes against the paperwork, and inspect packaging and markings. If a price sits far below every other quote for a scarce part, treat it as a warning rather than a win.",
+  },
+];
 
 export default function ObsoleteSourcingGuidePage() {
   return (
@@ -256,6 +275,8 @@ export default function ObsoleteSourcingGuidePage() {
               number and your remaining demand, and we&apos;ll come back with a
               sourcing plan within 24 hours.
             </p>
+
+            <Faq items={FAQ_ITEMS} />
           </div>
 
           <div className="catalog-cta" data-reveal>
