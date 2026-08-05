@@ -11,6 +11,15 @@ create table if not exists public.messages (
   created_at timestamptz not null default now()
 );
 
+-- Inquiry attribution. These columns also make it possible to identify
+-- inquiries referred by AI search tools, search engines, and campaigns.
+alter table public.messages add column if not exists source_type text;
+alter table public.messages add column if not exists source text;
+alter table public.messages add column if not exists medium text;
+alter table public.messages add column if not exists campaign text;
+alter table public.messages add column if not exists referrer_host text;
+alter table public.messages add column if not exists landing_page text;
+
 -- RLS stays ON with no public policies: the anon (browser) key can neither
 -- read nor write this table. Inserts happen only through the app's API route,
 -- which uses the server-side service_role key.

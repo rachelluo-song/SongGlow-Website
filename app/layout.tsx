@@ -7,6 +7,7 @@ import SiteNav from "@/components/site-nav";
 import SiteFooter from "@/components/site-footer";
 import JsonLd from "@/components/json-ld";
 import TawkTitleGuard from "@/components/tawk-title-guard";
+import InquiryAttribution from "@/components/inquiry-attribution";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const plexSans = IBM_Plex_Sans({
@@ -111,6 +112,7 @@ export default function RootLayout({
         <SiteNav />
         {children}
         <SiteFooter />
+        <InquiryAttribution />
         <Analytics />
         {/* Tawk.to live chat. IDs are public (visible client-side on any
             Tawk site). lazyOnload keeps it off the critical path. */}

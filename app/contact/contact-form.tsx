@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { track } from "@vercel/analytics";
+import { getInquiryAttribution } from "@/lib/attribution";
 import gsap from "gsap";
 import {
   ATTACHMENT_ACCEPT,
@@ -39,6 +40,8 @@ export default function ContactForm() {
 
     // Multipart so optional attachments ride along; server validates again.
     const formData = new FormData(event.currentTarget);
+    const attribution = getInquiryAttribution();
+    formData.set("attribution", JSON.stringify(attribution));
     const files = formData
       .getAll("attachments")
       .filter((f): f is File => f instanceof File && f.size > 0);
@@ -78,6 +81,9 @@ export default function ContactForm() {
       track("Inquiry Submitted", {
         part: part ?? "direct",
         attachments: files.length,
+        source_type: attribution.source_type,
+        source: attribution.source ?? "direct",
+        landing_page: attribution.landing_page,
       });
     } catch (err) {
       setStatus("idle");

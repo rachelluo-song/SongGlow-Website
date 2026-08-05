@@ -7,6 +7,12 @@ export type ContactMessage = {
   email: string;
   phone: string;
   message: string;
+  source_type?: "ai" | "search" | "referral" | "direct";
+  source?: string;
+  medium?: string;
+  campaign?: string;
+  referrer_host?: string;
+  landing_page?: string;
 };
 
 export class NotConfiguredError extends Error {}
@@ -25,6 +31,21 @@ export async function saveContactMessage(msg: ContactMessage) {
   const supabase = createClient(url, serviceKey);
   const { error } = await supabase.from("messages").insert(msg);
   if (error) {
+    // Keep inquiries working until the optional attribution columns are added.
+    if (error.code === "42703") {
+      const baseMessage = {
+        name: msg.name,
+        company: msg.company,
+        email: msg.email,
+        phone: msg.phone,
+        message: msg.message,
+      };
+      const { error: fallbackError } = await supabase
+        .from("messages")
+        .insert(baseMessage);
+      if (!fallbackError) return;
+      throw new Error(`Supabase insert failed: ${fallbackError.message}`);
+    }
     throw new Error(`Supabase insert failed: ${error.message}`);
   }
 }
@@ -115,6 +136,14 @@ export async function sendNotificationEmail(msg: ContactMessage) {
         `Company: ${msg.company}`,
         `Email: ${msg.email}`,
         `Phone / WhatsApp: ${msg.phone}`,
+        "",
+        "Attribution:",
+        `Source type: ${msg.source_type ?? "unknown"}`,
+        `Source: ${msg.source ?? "unknown"}`,
+        `UTM medium: ${msg.medium ?? "unknown"}`,
+        `UTM campaign: ${msg.campaign ?? "unknown"}`,
+        `Referrer host: ${msg.referrer_host ?? "unknown"}`,
+        `First landing page: ${msg.landing_page ?? "unknown"}`,
         "",
         msg.message,
       ].join("\n"),

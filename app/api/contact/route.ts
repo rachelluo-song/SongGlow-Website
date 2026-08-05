@@ -13,6 +13,34 @@ import {
 } from "@/lib/attachments";
 
 const FIELDS = ["name", "company", "email", "phone", "message"] as const;
+const ATTRIBUTION_FIELDS = [
+  "source_type",
+  "source",
+  "medium",
+  "campaign",
+  "referrer_host",
+  "landing_page",
+] as const;
+
+function parseAttribution(value: unknown) {
+  if (typeof value !== "string") return {};
+  try {
+    const parsed = JSON.parse(value) as Record<string, unknown>;
+    const attribution: Record<string, string> = {};
+    for (const field of ATTRIBUTION_FIELDS) {
+      const item = parsed[field];
+      if (typeof item === "string" && item.trim()) {
+        attribution[field] = item.trim().slice(0, 250);
+      }
+    }
+    if (!["ai", "search", "referral", "direct"].includes(attribution.source_type)) {
+      delete attribution.source_type;
+    }
+    return attribution;
+  } catch {
+    return {};
+  }
+}
 
 export async function POST(request: Request) {
   console.log("[api/contact] request received");
@@ -27,6 +55,7 @@ export async function POST(request: Request) {
       for (const field of FIELDS) {
         body[field] = formData.get(field);
       }
+      body.attribution = formData.get("attribution");
       files = formData
         .getAll("attachments")
         .filter((f): f is File => f instanceof File && f.size > 0);
@@ -48,6 +77,7 @@ export async function POST(request: Request) {
     }
     msg[field] = value.trim().slice(0, 5000);
   }
+  Object.assign(msg, parseAttribution(body.attribution));
 
   if (files.length > MAX_ATTACHMENTS) {
     return NextResponse.json(
