@@ -34,7 +34,7 @@ const TRUST_ITEMS = [
   {
     title: "Full Traceability",
     body: "Lot and date-code tracking across the entire supply chain.",
-    href: "/services",
+    href: "/quality",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
         <path
