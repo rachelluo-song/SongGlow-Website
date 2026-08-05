@@ -18,6 +18,7 @@ export async function generateMetadata({
   if (!product) return { title: "Dimension Drawing - SongGlow" };
   return {
     title: `${product.part_number} Dimension Drawing - SongGlow`,
+    robots: { index: false, follow: true },
     // The product page is the canonical home for this part
     alternates: {
       canonical: `/${product.section}/${slugifyCategory(
