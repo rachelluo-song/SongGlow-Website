@@ -6,11 +6,9 @@ import { useState } from "react";
 import Logo from "./logo";
 
 const LINKS = [
-  { href: "/", label: "Home" },
   { href: "/components", label: "Components" },
   { href: "/hardware", label: "Hardware" },
   { href: "/services", label: "Services" },
-  { href: "/quality", label: "Quality" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
