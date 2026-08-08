@@ -182,6 +182,15 @@ img {
   font-weight: 600;
 }
 
+/* Keep the first active navigation pill clear of the SongGlow wordmark when
+   the desktop header is using all of its available width. */
+@media (min-width: 981px) {
+  .logo-nav {
+    flex-shrink: 0;
+    margin-right: 24px;
+  }
+}
+
 .nav-cta {
   display: flex;
   align-items: center;
