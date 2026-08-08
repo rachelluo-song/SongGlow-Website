@@ -3,6 +3,7 @@ import Link from "next/link";
 import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
 import Faq, { type FaqItem } from "@/components/faq";
+import GuideReview, { GUIDE_REVIEW_DATE, reviewedBySchema } from "@/components/guide-review";
 import { SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/guides/how-to-verify-authentic-electronic-components";
@@ -23,7 +24,9 @@ const articleSchema = {
     "A practical counterfeit-detection guide for electronics buyers and engineers.",
   url: `${SITE_URL}${PAGE_PATH}`,
   datePublished: "2026-07-20",
+  dateModified: GUIDE_REVIEW_DATE,
   author: { "@type": "Organization", name: "SongGlow", url: SITE_URL },
+  reviewedBy: reviewedBySchema,
   publisher: { "@type": "Organization", name: "SongGlow", url: SITE_URL },
 };
 
@@ -82,6 +85,7 @@ export default function AuthenticityGuidePage() {
             buyers keep them off the line, and how to check the parts already
             on your bench.
           </p>
+          <GuideReview />
         </div>
       </header>
 

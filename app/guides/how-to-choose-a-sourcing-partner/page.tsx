@@ -3,6 +3,7 @@ import Link from "next/link";
 import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
 import Faq, { type FaqItem } from "@/components/faq";
+import GuideReview, { GUIDE_REVIEW_DATE, reviewedBySchema } from "@/components/guide-review";
 import { SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/guides/how-to-choose-a-sourcing-partner";
@@ -23,7 +24,9 @@ const articleSchema = {
     "How to evaluate and choose a reliable electronic components sourcing partner, with the questions to ask before you commit an order.",
   url: `${SITE_URL}${PAGE_PATH}`,
   datePublished: "2026-08-01",
+  dateModified: GUIDE_REVIEW_DATE,
   author: { "@type": "Organization", name: "SongGlow", url: SITE_URL },
+  reviewedBy: reviewedBySchema,
   publisher: { "@type": "Organization", name: "SongGlow", url: SITE_URL },
 };
 
@@ -91,6 +94,7 @@ export default function ChoosePartnerGuidePage() {
             whether your line keeps running. Here is how to tell a real partner
             from a broker with a spreadsheet.
           </p>
+          <GuideReview />
         </div>
       </header>
 

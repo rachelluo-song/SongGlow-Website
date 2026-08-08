@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
+import Faq, { type FaqItem } from "@/components/faq";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -56,6 +57,29 @@ const FITS = [
   "Obsolete, allocated, or long-lead components",
   "Electronics and mechanical hardware in one request",
   "Overflow sourcing support for busy procurement teams",
+];
+
+const FAQ_ITEMS: FaqItem[] = [
+  {
+    question: "What file format can I send for a BOM quote?",
+    answer:
+      "Send Excel, CSV, PDF, or an export from your ERP. Drawings and specification sheets can be attached with the list. No fixed template is required, although manufacturer part number, quantity, and target date help us return a more complete quote.",
+  },
+  {
+    question: "How quickly will I receive a BOM quote?",
+    answer:
+      "SongGlow responds to BOM inquiries within 24 hours, Monday through Friday. Quote timing depends on the number of lines and how many parts require alternate, lifecycle, or open-market research; we will confirm the expected turnaround after the initial review.",
+  },
+  {
+    question: "Can SongGlow source both electronics and mechanical hardware?",
+    answer:
+      "Yes. We can source semiconductors, passives, electromechanical components, and mechanical hardware such as fasteners, springs, gaskets, and enclosures within the same BOM request. The final quote keeps every line organized under one point of contact.",
+  },
+  {
+    question: "Can you recommend alternates for unavailable parts?",
+    answer:
+      "Yes. When an original part is constrained, obsolete, or overpriced, we can identify form-fit-function candidates and clearly separate them from the requested part. Your engineering team reviews and approves any alternate before it is ordered; SongGlow never makes a silent substitution.",
+  },
 ];
 
 const serviceSchema = {
@@ -181,6 +205,14 @@ export default function BomSourcingPage() {
           <ul className="bom-checklist" data-reveal-group>
             {FITS.map((item) => <li key={item}><span>✓</span>{item}</li>)}
           </ul>
+        </div>
+      </section>
+
+      <section className="block bom-faq-section">
+        <div className="wrap">
+          <div className="article" data-reveal>
+            <Faq items={FAQ_ITEMS} heading="BOM sourcing questions" />
+          </div>
         </div>
       </section>
 

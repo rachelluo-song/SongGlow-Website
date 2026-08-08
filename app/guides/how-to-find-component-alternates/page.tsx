@@ -3,6 +3,7 @@ import Link from "next/link";
 import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
 import Faq, { type FaqItem } from "@/components/faq";
+import GuideReview, { GUIDE_REVIEW_DATE, reviewedBySchema } from "@/components/guide-review";
 import { SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/guides/how-to-find-component-alternates";
@@ -26,7 +27,9 @@ const articleSchema = {
     "A practical guide to finding and qualifying alternate and cross-reference electronic components.",
   url: `${SITE_URL}${PAGE_PATH}`,
   datePublished: "2026-07-22",
+  dateModified: GUIDE_REVIEW_DATE,
   author: { "@type": "Organization", name: "SongGlow", url: SITE_URL },
+  reviewedBy: reviewedBySchema,
   publisher: { "@type": "Organization", name: "SongGlow", url: SITE_URL },
 };
 
@@ -86,6 +89,7 @@ export default function AlternatesGuidePage() {
             keeps the line moving. Here&apos;s how to find one you can actually
             trust to drop in.
           </p>
+          <GuideReview />
         </div>
       </header>
 

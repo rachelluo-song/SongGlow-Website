@@ -3,6 +3,7 @@ import Link from "next/link";
 import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
 import Faq, { type FaqItem } from "@/components/faq";
+import GuideReview, { GUIDE_REVIEW_DATE, reviewedBySchema } from "@/components/guide-review";
 import { SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/guides/how-to-source-obsolete-electronic-components";
@@ -24,7 +25,9 @@ const articleSchema = {
     "A practical guide to sourcing obsolete and end-of-life electronic components without stopping the line.",
   url: `${SITE_URL}${PAGE_PATH}`,
   datePublished: "2026-07-22",
+  dateModified: GUIDE_REVIEW_DATE,
   author: { "@type": "Organization", name: "SongGlow", url: SITE_URL },
+  reviewedBy: reviewedBySchema,
   publisher: { "@type": "Organization", name: "SongGlow", url: SITE_URL },
 };
 
@@ -84,6 +87,7 @@ export default function ObsoleteSourcingGuidePage() {
             work the problem in, from the cheapest fix to the last resort, and
             how to keep counterfeits out along the way.
           </p>
+          <GuideReview />
         </div>
       </header>
 

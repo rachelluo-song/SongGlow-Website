@@ -37,6 +37,9 @@ export default function GuidesIndexPage() {
               >
                 <h2>{guide.title}</h2>
                 <p>{guide.blurb}</p>
+                <time className="guide-card-date" dateTime={guide.dateModified}>
+                  Last reviewed August 8, 2026
+                </time>
                 <span className="guide-readmore">Read the guide →</span>
               </Link>
             ))}

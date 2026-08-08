@@ -66,7 +66,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${SITE_URL}/guides/${g.slug}`,
       changeFrequency: "monthly" as const,
       priority: 0.8,
-      lastModified: g.datePublished,
+      lastModified: g.dateModified,
     })),
   ];
 
