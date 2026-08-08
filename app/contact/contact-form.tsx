@@ -16,6 +16,7 @@ export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
   const [error, setError] = useState<string | null>(null);
   const successRef = useRef<HTMLDivElement>(null);
+  const formStartedRef = useRef(false);
 
   // "Request quote" buttons in the catalog link here with ?part=<part number>
   const part = useSearchParams().get("part");
@@ -36,6 +37,24 @@ export default function ContactForm() {
     }
   }, [status]);
 
+  const inquiryType = part ? "part" : isBomInquiry ? "bom" : "general";
+
+  function handleFormFocus() {
+    if (formStartedRef.current) return;
+    formStartedRef.current = true;
+    track("Inquiry Form Started", { inquiry_type: inquiryType });
+  }
+
+  function handleAttachments(event: React.ChangeEvent<HTMLInputElement>) {
+    const count = event.currentTarget.files?.length ?? 0;
+    if (count > 0) {
+      track("Inquiry Attachment Added", {
+        inquiry_type: inquiryType,
+        attachments: count,
+      });
+    }
+  }
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError(null);
@@ -48,18 +67,25 @@ export default function ContactForm() {
     const files = formData
       .getAll("attachments")
       .filter((f): f is File => f instanceof File && f.size > 0);
+    track("Inquiry Submit Started", {
+      inquiry_type: inquiryType,
+      attachments: files.length,
+    });
     if (files.length > MAX_ATTACHMENTS) {
+      track("Inquiry Validation Failed", { reason: "too_many_attachments" });
       setStatus("idle");
       setError(`Please attach at most ${MAX_ATTACHMENTS} files.`);
       return;
     }
     if (files.reduce((sum, f) => sum + f.size, 0) > MAX_ATTACHMENT_TOTAL_BYTES) {
+      track("Inquiry Validation Failed", { reason: "attachments_too_large" });
       setStatus("idle");
       setError("Attachments are too large. Please keep the total under 4 MB.");
       return;
     }
     const badFile = files.find((f) => !attachmentExtensionAllowed(f.name));
     if (badFile) {
+      track("Inquiry Validation Failed", { reason: "unsupported_file_type" });
       setStatus("idle");
       setError(`File type of "${badFile.name}" isn't supported.`);
       return;
@@ -82,13 +108,15 @@ export default function ContactForm() {
       // Conversion event: which parts drive RFQs, and whether files ride along.
       // No personal data - just the prefilled part number and attachment count.
       track("Inquiry Submitted", {
-        part: part ?? "direct",
+        inquiry_type: inquiryType,
+        part: (part ?? "direct").slice(0, 120),
         attachments: files.length,
         source_type: attribution.source_type,
         source: attribution.source ?? "direct",
         landing_page: attribution.landing_page,
       });
     } catch (err) {
+      track("Inquiry Submit Failed", { inquiry_type: inquiryType });
       setStatus("idle");
       setError(
         err instanceof Error && err.message
@@ -143,7 +171,11 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="form-grid" onSubmit={handleSubmit}>
+    <form
+      className="form-grid"
+      onSubmit={handleSubmit}
+      onFocusCapture={handleFormFocus}
+    >
       <div>
         <label htmlFor="name">Name *</label>
         <input id="name" name="name" type="text" placeholder="Jane Doe" required />
@@ -194,6 +226,7 @@ export default function ContactForm() {
           type="file"
           multiple
           accept={ATTACHMENT_ACCEPT}
+          onChange={handleAttachments}
         />
         <p className="field-hint">
           BOM lists, drawings, spec sheets. Up to {MAX_ATTACHMENTS} files, 4 MB
