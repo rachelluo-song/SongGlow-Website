@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import CatalogCategory from "@/components/catalog-category";
 import JsonLd from "@/components/json-ld";
 import { getBrandFacets, getCategoryBySlug, titleFromSlug } from "@/lib/catalog";
@@ -67,6 +68,9 @@ export default async function ComponentsCategoryPage({
 }) {
   const { category } = await params;
   const sp = await searchParams;
+  const cat = await getCategoryBySlug("components", category);
+  if (!cat) notFound();
+
   return (
     <>
       <JsonLd data={breadcrumbSchema(category)} />

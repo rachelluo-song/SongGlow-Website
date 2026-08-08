@@ -29,7 +29,7 @@ const articleSchema = {
   url: `${SITE_URL}${PAGE_PATH}`,
   mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${PAGE_PATH}` },
   image: [SITE_BRAND_IMAGE],
-  datePublished: "2026-07-22",
+  datePublished: "2026-07-22T00:00:00Z",
   dateModified: GUIDE_REVIEW_DATE,
   author: { "@id": `${SITE_URL}/#organization` },
   reviewedBy: reviewedBySchema,

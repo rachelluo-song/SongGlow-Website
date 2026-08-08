@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { SITE_URL } from "@/lib/site";
 
-export const GUIDE_REVIEW_DATE = "2026-08-08";
+export const GUIDE_REVIEW_DATE = "2026-08-08T00:00:00Z";
 
 export const reviewedBySchema = {
   "@type": "Person",

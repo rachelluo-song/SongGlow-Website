@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import CatalogCategory from "@/components/catalog-category";
 import CatalogFamily from "@/components/catalog-family";
 import JsonLd from "@/components/json-ld";
@@ -95,6 +96,8 @@ export default async function HardwareCategoryPage({
       </>
     );
   }
+
+  if (!summaries.some((s) => s.slug === category)) notFound();
 
   return (
     <>

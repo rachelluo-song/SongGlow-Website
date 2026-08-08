@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import ProductDetail from "@/components/product-detail";
 import { getProductBySlug, orderedSpecs } from "@/lib/catalog";
 
@@ -32,6 +33,9 @@ export default async function HardwareProductPage({
   params: Promise<{ category: string; part: string }>;
 }) {
   const { category, part } = await params;
+  const hit = await getProductBySlug("hardware", category, part);
+  if (!hit) notFound();
+
   return (
     <ProductDetail
       section="hardware"
