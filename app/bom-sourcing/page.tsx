@@ -8,14 +8,14 @@ import { SITE_NAME, SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "BOM Sourcing & Fulfillment for OEM and EMS Teams - SongGlow",
   description:
-    "Send SongGlow your electronic bill of materials for a line-by-line sourcing review, supplier qualification, alternates, cost optimization, and consolidated delivery.",
+    "Send SongGlow your electronic bill of materials or download our free BOM RFQ template for line-by-line sourcing, alternates, cost review, and consolidated delivery.",
   alternates: { canonical: "/bom-sourcing" },
 };
 
 const OUTCOMES = [
   { value: "24h", label: "Initial response", detail: "Monday–Friday" },
   { value: "1", label: "Point of contact", detail: "Across the full BOM" },
-  { value: "100%", label: "Source visibility", detail: "No hidden substitutions" },
+  { value: "100%", label: "Line-item visibility", detail: "No silent substitutions" },
 ];
 
 const STEPS = [
@@ -43,11 +43,11 @@ const STEPS = [
 
 const DELIVERABLES = [
   ["Normalized BOM", "Clean manufacturer and part-number data, with questions called out instead of guessed."],
-  ["Line-level quote", "Quantity, unit price, lead time, manufacturer, condition, and sourcing route by item."],
+  ["Line-level quote", "Quantity, unit price, lead time, manufacturer, condition, and relevant channel notes by item."],
   ["Risk flags", "Lifecycle, allocation, date-code, documentation, and open-market risks made visible before approval."],
   ["Alternate options", "Form-fit-function candidates presented separately for engineering review—never substituted silently."],
   ["Consolidated plan", "Multiple suppliers coordinated into one purchasing and delivery plan for easier execution."],
-  ["Traceability pack", "Available source documents, lot and date-code details, and inspection records kept with the order."],
+  ["Traceability pack", "Available packaging, label, lot and date-code details, and review records kept with the order."],
 ];
 
 const FITS = [
@@ -63,7 +63,7 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What file format can I send for a BOM quote?",
     answer:
-      "Send Excel, CSV, PDF, or an export from your ERP. Drawings and specification sheets can be attached with the list. No fixed template is required, although manufacturer part number, quantity, and target date help us return a more complete quote.",
+      "Use the downloadable Excel template on this page or send your existing Excel, CSV, PDF, or ERP export. Drawings and specification sheets can be attached with the list. No fixed template is required, although manufacturer part number, quantity, and target date help us return a more complete quote.",
   },
   {
     question: "How quickly will I receive a BOM quote?",
@@ -109,10 +109,17 @@ export default function BomSourcingPage() {
               <Link href="/contact?project=bom" className="btn btn-navy btn-lg">
                 Send Your BOM
               </Link>
-              <a href="#process" className="btn btn-ghost btn-lg">See How It Works</a>
+              <a
+                href="/SongGlow-BOM-RFQ-Template.xlsx"
+                className="btn btn-ghost btn-lg"
+                download="SongGlow-BOM-RFQ-Template.xlsx"
+              >
+                Download BOM Template
+              </a>
             </div>
             <p className="bom-file-note" data-hero-item>
-              Excel, CSV, PDF, drawings, and spec sheets accepted.
+              Use our Excel template—or send your existing CSV, PDF, drawings,
+              spec sheets, or ERP export.
             </p>
           </div>
 
