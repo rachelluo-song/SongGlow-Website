@@ -169,7 +169,7 @@ export default function HomeContent({
             </div>
             <p className="hero-sub" style={{ fontFamily: "var(--serif)" }} data-hero-item data-hero-priority>
               Electronic components and hardware for OEM and EMS teams, with
-              full supply-chain traceability.
+              order-level traceability.
             </p>
             <div className="hero-cta-row" data-hero-item>
               <Link href="/contact" className="btn btn-navy btn-lg">

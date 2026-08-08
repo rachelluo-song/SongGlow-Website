@@ -308,7 +308,7 @@ export function productSummary(p: Product): string {
     sentences.push(`Key specifications: ${top.join(", ")}.`);
   }
   sentences.push(
-    "SongGlow supplies this part with full supply-chain traceability, 100% authentic. Request a quote for OEM and EMS production quantities."
+    "SongGlow supplies this part with order-level traceability, 100% authentic. Request a quote for OEM and EMS production quantities."
   );
   return sentences.join(" ");
 }

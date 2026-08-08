@@ -240,11 +240,13 @@ export default function AuthenticityGuidePage() {
             <h2>How SongGlow handles authenticity</h2>
             <p>
               Every part we supply is sourced through qualified suppliers with
-              full supply-chain traceability. Documentation follows the parts,
-              date and lot codes are verified against the paperwork, and
-              suspect stock never re-enters the market through us. If a line
-              on your BOM can only be found on the open market, we&apos;d
-              rather tell you the risk honestly than ship you a question mark.
+              an organized order-level record. We review available packaging,
+              labels, markings, and, when applicable, accessible dimensions.
+              Available lot or date-code details stay with the order while
+              confidential supplier identities and commercial terms remain
+              protected. If a line carries additional sourcing risk, we&apos;d
+              rather explain the relevant considerations than overstate the
+              review performed.
             </p>
 
             <GuideResources currentSlug="how-to-verify-authentic-electronic-components" />

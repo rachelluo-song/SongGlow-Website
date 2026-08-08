@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Animate from "@/components/animate";
 import Faq, { type FaqItem } from "@/components/faq";
@@ -11,49 +12,44 @@ const PAGE_TITLE = "Quality & Traceability";
 export const metadata: Metadata = {
   title: "Quality & Traceability - SongGlow",
   description:
-    "Learn how SongGlow supports traceable electronic component sourcing: source documentation, actual-stock photos, qualified suppliers, and transparent open-market risk communication.",
+    "Learn how SongGlow reviews electronic component packaging, labels, markings, dimensions, and order-level traceability before release.",
   alternates: { canonical: PAGE_PATH },
 };
 
 const PRINCIPLES = [
   {
-    title: "Source documentation",
-    body: "When available, we can provide purchase orders and invoices from original manufacturers and their authorized distributors, so the paper trail leads back to where the parts were made.",
+    title: "Packaging inspection",
+    body: "We review packaging condition and the consistency of available labels, part numbers, quantities, and visible lot or date-code information before release.",
   },
   {
-    title: "Actual-stock proof",
-    body: "On request, we share real photos of the stock being offered, including packaging, box labels, and part markings, so you can review the evidence before parts ship.",
+    title: "Marking review",
+    body: "We compare visible manufacturer and part markings for consistency with the ordered component and flag obvious discrepancies for clarification.",
   },
   {
-    title: "Qualified supply routes",
-    body: "We source through original manufacturers, authorized distributors, and vetted open-market partners. The route matters, and we explain it clearly before you place an order.",
+    title: "Dimensional checks",
+    body: "When applicable, accessible package dimensions can be checked against the ordered specification or manufacturer drawing before shipment.",
   },
   {
-    title: "Honest risk communication",
-    body: "When a part can only be found on the open market, we explain the supply risk and available documentation rather than treating every source as equivalent.",
+    title: "Traceability release",
+    body: "We keep the order record, review notes, and available lot or date-code details organized while protecting confidential supplier identities and commercial terms.",
   },
 ];
 
 const PROCESS = [
   {
     step: "01",
-    title: "Set the requirements",
-    body: "Share the part number or BOM, quantity, target date, date-code preference, and documentation requirements before sourcing begins.",
+    title: "Inspect packaging",
+    body: "Review packaging condition and available label details for consistency with the ordered part and quantity.",
   },
   {
     step: "02",
-    title: "Assess the supply route",
-    body: "We review available sources and communicate the route, availability, and any open-market considerations with the quotation.",
+    title: "Review markings and dimensions",
+    body: "Check visible part markings and, when applicable, accessible package dimensions against the order requirements.",
   },
   {
     step: "03",
-    title: "Review the evidence",
-    body: "For applicable orders, you can request supporting documentation and actual-stock photos of packaging, labels, and part markings before shipment.",
-  },
-  {
-    step: "04",
-    title: "Keep the record clear",
-    body: "We keep the sourcing conversation, available documents, and order details organized so your team can make an informed buying decision.",
+    title: "Release with a clear record",
+    body: "Keep the order record and available lot or date-code information organized for the shipment without exposing confidential commercial details.",
   },
 ];
 
@@ -61,17 +57,17 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How does SongGlow support component traceability?",
     answer:
-      "When available, SongGlow can provide purchase orders and invoices from original manufacturers and their authorized distributors. We can also share real photos of the actual stock, including packaging, box labels, and part markings, before shipment on request.",
+      "SongGlow keeps order-level records together with available packaging, label, lot, and date-code information. The scope depends on the component and order. Confidential supplier identities, purchase prices, invoices, and other commercial terms are not part of the standard customer deliverables.",
   },
   {
     question: "Can SongGlow source parts from the open market?",
     answer:
-      "Yes. For obsolete, allocation-constrained, or hard-to-find components, open-market sourcing may be necessary. We explain the source route, available documentation, and risk factors clearly so you can decide whether the option fits your requirements.",
+      "Yes. For obsolete, allocation-constrained, or hard-to-find components, open-market sourcing may be necessary. We communicate relevant channel risk and the review scope without disclosing confidential supplier identities or commercial terms.",
   },
   {
     question: "What documentation can I request before ordering?",
     answer:
-      "Documentation availability depends on the source and the specific part. Tell us your documentation requirements with the RFQ, and we will confirm what can be provided before you place an order.",
+      "Available order-level documentation depends on the component and transaction. Tell us your requirements with the RFQ and we will confirm what can be included. Supplier identities, upstream invoices, purchase prices, and confidential commercial records are not provided as standard deliverables.",
   },
   {
     question: "Is SongGlow ISO 9001 or AS9120 certified?",
@@ -119,7 +115,7 @@ export default function QualityPage() {
           <h1 data-hero-item>Evidence you can review before you buy</h1>
           <p data-hero-item>
             SongGlow helps OEM and EMS teams make informed sourcing decisions
-            with clear supply routes, available documentation, and actual-stock proof.
+            with packaging, marking, dimensional, and order-level traceability reviews.
           </p>
         </div>
       </header>
@@ -128,17 +124,42 @@ export default function QualityPage() {
         <div className="wrap">
           <div className="article" data-reveal>
             <p>
-              Traceability is more than a claim. It means knowing where a part
-              comes from, what evidence is available, and where supply risk may
-              remain. We make that information clear before an order is placed.
+              Traceability is more than a claim. It means keeping the order,
+              available lot or date-code details, and review notes connected so
+              the shipment record remains clear.
             </p>
             <p>
-              We do not present every supply route as the same. When a part is
-              sourced through an original manufacturer or authorized distributor,
-              we explain the available documentation. When an open-market option
-              is necessary, we explain the risk and supporting evidence honestly.
+              Our standard review does not disclose confidential supplier
+              identities, upstream invoices, purchase prices, or other commercial
+              terms. We confirm the review scope and available order-level records
+              before you place an order.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="block tight">
+        <div className="wrap">
+          <figure className="quality-workflow" data-reveal>
+            <div
+              className="quality-workflow-scroll"
+              tabIndex={0}
+              aria-label="Scrollable component verification workflow diagram"
+            >
+              <Image
+                src="/component-verification-traceability.png"
+                width={1774}
+                height={887}
+                sizes="(max-width: 700px) 760px, (max-width: 1240px) 92vw, 1144px"
+                alt="Three-step electronic component verification workflow: packaging inspection, marking and dimensional checks, and traceability release."
+              />
+            </div>
+            <figcaption>
+              AI-generated illustration of SongGlow&apos;s packaging, marking,
+              dimensional, and traceability review. The review scope depends on
+              the component and order requirements.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -172,7 +193,7 @@ export default function QualityPage() {
         <div className="wrap">
           <div className="section-head" style={{ marginBottom: 40 }} data-reveal>
             <div className="eyebrow">How it works</div>
-            <h2>Traceability starts before the quote</h2>
+            <h2>A practical three-step review</h2>
           </div>
           <div className="grid-3" data-reveal-group>
             {PROCESS.map((item) => (

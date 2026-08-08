@@ -277,11 +277,10 @@ export default function ObsoleteSourcingGuidePage() {
               Hard-to-find and end-of-life parts are core to what we do. We reach
               across authorized stock, last-time-buy inventory, the authorized
               aftermarket, and a vetted independent network to place parts other
-              suppliers can&apos;t. Every shipment is visually inspected and its
-              condition documented before dispatch, and for high-value or
-              critical lots we can arrange independent lab testing on your
-              behalf. Our core guarantee on every part we deliver is traceability
-              and authenticity. We can also hold a last-time buy and release it
+              suppliers can&apos;t. We review available packaging, labels, markings,
+              and order details before dispatch; the agreed review scope does not
+              imply laboratory testing. Our core focus on every part we deliver is
+              authenticity and an organized order-level record. We can also hold a last-time buy and release it
               against your schedule, so you aren&apos;t warehousing it all at
               once. If a line on your BOM is going obsolete, send us the part
               number and your remaining demand, and we&apos;ll come back with a

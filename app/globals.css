@@ -1064,6 +1064,44 @@ input[type="file"]::file-selector-button:hover {
   font-size: 14.5px;
 }
 
+/* Quality workflow: full-width on desktop; horizontally scrollable on small
+   screens so the three labels remain readable instead of being shrunk. */
+.quality-workflow {
+  margin: 0;
+}
+.quality-workflow-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  scrollbar-width: thin;
+}
+.quality-workflow-scroll:focus-visible {
+  outline: 3px solid var(--clay-tint);
+  outline-offset: 3px;
+}
+.quality-workflow-scroll img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.quality-workflow figcaption {
+  margin-top: 12px;
+  color: var(--ink-faint);
+  font-size: 13.5px;
+  line-height: 1.55;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .quality-workflow-scroll img {
+    min-width: 760px;
+  }
+  .quality-workflow figcaption {
+    text-align: left;
+  }
+}
+
 /* Guides index: stacked cards linking to each guide */
 .guide-list {
   display: flex;

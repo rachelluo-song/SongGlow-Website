@@ -201,12 +201,11 @@ export default function ChoosePartnerGuidePage() {
             <h2>How SongGlow measures up</h2>
             <p>
               We built SongGlow around exactly these criteria. Every part is
-              sourced through qualified suppliers with a documented trail back to
-              the manufacturer, and we can provide purchase orders and invoices
-              from original manufacturers and their authorized distributors. On
-              request, we share real photos of the actual stock, including
-              packaging, box labels, and markings, so you can verify authenticity
-              before anything ships.
+              sourced through qualified suppliers and reviewed against the order
+              requirements. We check available packaging, labels, markings, and,
+              when applicable, accessible package dimensions. Order records and
+              available lot or date-code details stay organized without exposing
+              confidential supplier identities, purchase prices, or commercial terms.
             </p>
             <p>
               Behind the quotes is an experienced team: a semiconductor

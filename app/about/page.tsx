@@ -11,7 +11,7 @@ const PAGE_TITLE = "About SongGlow";
 export const metadata: Metadata = {
   title: "About SongGlow - Electronic Component Sourcing Partner",
   description:
-    "SongGlow is an electronic component sourcing partner based in Shenzhen and Hong Kong, with a team spanning semiconductor, capacitor, and US supply-chain experience. Full traceability, honest sourcing, direct factory access.",
+    "SongGlow is an electronic component sourcing partner based in Shenzhen and Hong Kong, with a team spanning semiconductor, capacitor, and US supply-chain experience. Order-level traceability and honest sourcing.",
   alternates: { canonical: PAGE_PATH },
 };
 
@@ -40,8 +40,8 @@ const TEAM = [
 
 const PROOF = [
   {
-    title: "Documentation that traces to the source",
-    body: "We can provide purchase orders and invoices from original manufacturers and their authorized distributors, so the paper trail leads back to where the parts were actually made.",
+    title: "A clear order-level record",
+    body: "We keep the order, review notes, and available lot or date-code details organized while protecting confidential supplier identities, purchase prices, and commercial terms.",
   },
   {
     title: "Physical proof before parts ship",
@@ -63,7 +63,7 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How does SongGlow prove that parts are authentic?",
     answer:
-      "Two ways. First, we can provide purchase orders and invoices from original manufacturers and their authorized distributors, so the documentation traces back to the source. Second, on request we share real photos of the actual stock, including packaging, box labels, and markings, so you can verify authenticity before anything ships.",
+      "We review available packaging, labels, part markings, and, when applicable, accessible package dimensions against the order requirements. We keep available lot or date-code information with the order record. Confidential supplier identities, upstream invoices, purchase prices, and commercial terms are not standard customer deliverables.",
   },
   {
     question: "Who does SongGlow work with?",
@@ -73,7 +73,7 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What makes SongGlow different from a typical broker?",
     answer:
-      "Traceability and specialists. Every part is backed by documentation that leads to the source, and our team includes a semiconductor specialist with over ten years of experience and a dedicated capacitor specialist. Through our supply-chain lead's network we have direct access to source factories that meet US and EU quality standards. When a part can only be found on the open market, we tell you the risk honestly instead of shipping you a question mark.",
+      "Order-level traceability and specialists. Our team includes a semiconductor specialist with over ten years of experience and a dedicated capacitor specialist. We review available packaging, labels, markings, and order details while protecting confidential commercial information. When a part carries additional sourcing risk, we communicate the relevant considerations honestly.",
   },
 ];
 
@@ -114,7 +114,7 @@ export default function AboutPage() {
           <p data-hero-item>
             SongGlow is an electronic component sourcing partner in Shenzhen and
             Hong Kong. We help manufacturers and hardware teams get genuine
-            parts, with the documentation to prove it.
+            parts with a clear, organized order record.
           </p>
         </div>
       </header>
@@ -132,7 +132,7 @@ export default function AboutPage() {
             <p>
               What we sell is not just parts. It is the confidence that the part
               on your bench is the part on your BOM, sourced through qualified
-              suppliers with a documented trail back to the manufacturer. Our
+              suppliers and reviewed against the order requirements. Our
               goal on every order is to help customers reduce costs, improve
               efficiency, and increase profitability.
             </p>
