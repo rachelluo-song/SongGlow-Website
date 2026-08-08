@@ -4,6 +4,7 @@ import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
 import Faq, { type FaqItem } from "@/components/faq";
 import GuideReview, { GUIDE_REVIEW_DATE, reviewedBySchema } from "@/components/guide-review";
+import { GuideResources, QuickAnswer } from "@/components/guide-support";
 import { SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/guides/how-to-choose-a-sourcing-partner";
@@ -101,6 +102,12 @@ export default function ChoosePartnerGuidePage() {
       <section className="block tight">
         <div className="wrap">
           <div className="article" data-reveal>
+            <QuickAnswer>
+              Choose a partner that names the sourcing channel, provides
+              traceability and actual-stock evidence, explains open-market
+              risk, and remains accountable after delivery—not simply the
+              supplier with the lowest line-item price.
+            </QuickAnswer>
             <p>
               Two suppliers can quote the same part number at very different
               prices, and the cheaper one can still be the more expensive
@@ -208,6 +215,7 @@ export default function ChoosePartnerGuidePage() {
               honestly rather than ship you a question mark.
             </p>
 
+            <GuideResources />
             <Faq items={FAQ_ITEMS} />
           </div>
 

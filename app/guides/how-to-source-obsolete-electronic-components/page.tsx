@@ -4,6 +4,7 @@ import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
 import Faq, { type FaqItem } from "@/components/faq";
 import GuideReview, { GUIDE_REVIEW_DATE, reviewedBySchema } from "@/components/guide-review";
+import { GuideResources, QuickAnswer } from "@/components/guide-support";
 import { SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/guides/how-to-source-obsolete-electronic-components";
@@ -94,6 +95,11 @@ export default function ObsoleteSourcingGuidePage() {
       <section className="block tight">
         <div className="wrap">
           <div className="article" data-reveal>
+            <QuickAnswer>
+              Confirm the lifecycle notice, secure any last-time-buy window,
+              and qualify an approved alternate before moving to authorized
+              aftermarket or vetted open-market stock.
+            </QuickAnswer>
             <p>
               Every semiconductor has a life cycle, and eventually the
               manufacturer stops making it. A fab retires an old process node, a
@@ -280,6 +286,7 @@ export default function ObsoleteSourcingGuidePage() {
               sourcing plan within 24 hours.
             </p>
 
+            <GuideResources />
             <Faq items={FAQ_ITEMS} />
           </div>
 

@@ -4,6 +4,7 @@ import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
 import Faq, { type FaqItem } from "@/components/faq";
 import GuideReview, { GUIDE_REVIEW_DATE, reviewedBySchema } from "@/components/guide-review";
+import { GuideResources, QuickAnswer } from "@/components/guide-support";
 import { SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/guides/how-to-find-component-alternates";
@@ -96,6 +97,12 @@ export default function AlternatesGuidePage() {
       <section className="block tight">
         <div className="wrap">
           <div className="article" data-reveal>
+            <QuickAnswer>
+              Start with manufacturer-recommended replacements, then compare
+              form, fit, function, package, pinout, electrical limits, and
+              environmental ratings against the original datasheet. Engineering
+              approval should always come before substitution.
+            </QuickAnswer>
             <p>
               Sooner or later a part on your BOM becomes a problem. It lands on
               allocation with a 40-week lead time, the price doubles, it goes{" "}
@@ -282,6 +289,7 @@ export default function AlternatesGuidePage() {
               sourced alternates and pricing within 24 hours.
             </p>
 
+            <GuideResources />
             <Faq items={FAQ_ITEMS} />
           </div>
 

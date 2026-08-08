@@ -4,6 +4,7 @@ import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
 import Faq, { type FaqItem } from "@/components/faq";
 import GuideReview, { GUIDE_REVIEW_DATE, reviewedBySchema } from "@/components/guide-review";
+import { GuideResources, QuickAnswer } from "@/components/guide-support";
 import { SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/guides/how-to-verify-authentic-electronic-components";
@@ -92,6 +93,12 @@ export default function AuthenticityGuidePage() {
       <section className="block tight">
         <div className="wrap">
           <div className="article" data-reveal>
+            <QuickAnswer>
+              Verify provenance first, then compare documentation, packaging,
+              date and lot codes, and part markings. Escalate to electrical,
+              X-ray, or destructive testing only when the source risk or
+              application justifies it.
+            </QuickAnswer>
             <p>
               Counterfeit electronic components show up wherever demand outruns
               supply: allocation crunches, end-of-life parts, and long-lead
@@ -238,6 +245,7 @@ export default function AuthenticityGuidePage() {
               rather tell you the risk honestly than ship you a question mark.
             </p>
 
+            <GuideResources />
             <Faq items={FAQ_ITEMS} />
           </div>
 
