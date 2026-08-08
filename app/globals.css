@@ -783,6 +783,67 @@ footer {
   max-width: 620px;
 }
 
+/* ---------- BOM sourcing landing page ---------- */
+
+.bom-hero {
+  padding: 72px 0 84px;
+  background:
+    radial-gradient(circle at 78% 30%, rgba(111, 163, 245, 0.18), transparent 30%),
+    linear-gradient(180deg, #f7f9fb 0%, #eef3fb 100%);
+  border-bottom: 1px solid var(--line);
+}
+.bom-hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 80px; align-items: center; }
+.bom-hero-copy h1 { font-size: clamp(44px, 5.2vw, 70px); max-width: 760px; }
+.bom-hero-copy > p { max-width: 650px; margin-top: 24px; font-size: 19px; line-height: 1.65; color: var(--ink-soft); }
+.bom-hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+.bom-hero-copy .bom-file-note { margin-top: 16px; font-size: 13.5px; color: var(--ink-faint); }
+.bom-review-card { background: var(--paper); border: 1px solid #d6dfef; border-radius: 18px; padding: 30px; box-shadow: 0 30px 70px -38px rgba(15, 20, 48, .45); }
+.bom-review-head { display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; }
+.bom-review-kicker { display: block; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .08em; font-size: 11px; font-weight: 700; margin-bottom: 7px; }
+.bom-review-head h2 { font-size: 24px; }
+.bom-status { padding: 7px 11px; border-radius: 999px; background: var(--clay-tint); color: var(--clay-dark); font-size: 12px; font-weight: 700; }
+.bom-progress { height: 6px; border-radius: 99px; background: var(--cream-dim); margin: 26px 0 18px; overflow: hidden; }
+.bom-progress span { display: block; width: 82%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--clay-dark), var(--sage)); }
+.bom-review-rows { border-top: 1px solid var(--line); }
+.bom-review-rows div { display: flex; justify-content: space-between; gap: 20px; padding: 15px 2px; border-bottom: 1px solid var(--line); color: var(--ink-soft); font-size: 14.5px; }
+.bom-review-rows strong { color: var(--ink); }
+.bom-review-foot { display: flex; justify-content: space-between; gap: 20px; padding-top: 18px; color: var(--ink-faint); font-size: 12.5px; }
+.bom-metrics { background: var(--dark); color: white; }
+.bom-metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.bom-metric { display: flex; align-items: center; gap: 20px; padding: 30px 36px; border-left: 1px solid rgba(255,255,255,.12); }
+.bom-metric:first-child { border-left: 0; }
+.bom-metric > strong { font-family: var(--serif); font-size: 30px; color: var(--clay-tint); }
+.bom-metric span, .bom-metric small { display: block; }
+.bom-metric span { font-size: 14px; font-weight: 700; }
+.bom-metric small { color: rgba(255,255,255,.58); margin-top: 3px; }
+.bom-process { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+.bom-step { padding: 32px 28px 4px; border-left: 1px solid var(--line); }
+.bom-step:first-child { border-left: 0; padding-left: 0; }
+.bom-step-num { font-family: var(--serif); color: var(--clay-dark); font-weight: 700; font-size: 14px; }
+.bom-step h3 { font-size: 21px; margin: 26px 0 12px; }
+.bom-step p { color: var(--ink-soft); line-height: 1.65; font-size: 15px; }
+.bom-deliverables-section { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.bom-split { display: grid; grid-template-columns: .8fr 1.2fr; gap: 100px; align-items: start; }
+.bom-sticky-copy { position: sticky; top: 130px; }
+.bom-sticky-copy h2, .bom-fit-card h2 { font-size: 38px; }
+.bom-sticky-copy p, .bom-fit-card p { color: var(--ink-soft); font-size: 17px; line-height: 1.65; margin: 20px 0; }
+.text-link { color: var(--clay-dark); font-weight: 700; }
+.bom-deliverables { border-top: 1px solid var(--line); }
+.bom-deliverable { display: grid; grid-template-columns: 45px 1fr; gap: 20px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.bom-deliverable > span { color: var(--ink-faint); font-size: 12px; font-weight: 700; padding-top: 5px; }
+.bom-deliverable h3 { font-size: 20px; margin-bottom: 8px; }
+.bom-deliverable p { color: var(--ink-soft); line-height: 1.6; font-size: 15px; }
+.bom-fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center; }
+.bom-fit-card { background: var(--clay-tint); padding: 46px; border-radius: 16px; }
+.bom-checklist { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.bom-checklist li { display: flex; gap: 12px; align-items: flex-start; padding: 18px; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; color: var(--ink-soft); line-height: 1.45; font-size: 14.5px; }
+.bom-checklist span { display: grid; place-items: center; flex: 0 0 23px; height: 23px; border-radius: 50%; background: var(--clay-tint); color: var(--clay-dark); font-weight: 800; }
+.bom-final-cta { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+.bom-final-cta .eyebrow { color: var(--clay-tint); }
+.bom-final-cta h2 { font-size: 38px; }
+.bom-final-cta p { color: rgba(255,255,255,.65); margin-top: 12px; }
+.bom-final-cta > * { position: relative; z-index: 1; }
+
 /* ---------- Forms ---------- */
 
 .form-grid {
@@ -1590,6 +1651,16 @@ input[type="file"]::file-selector-button:hover {
   .band-dark {
     padding: 48px 28px;
   }
+  .bom-hero { padding: 52px 0 64px; }
+  .bom-hero-grid, .bom-split, .bom-fit-grid { grid-template-columns: 1fr; gap: 50px; }
+  .bom-hero-copy h1 { font-size: clamp(38px, 10vw, 56px); }
+  .bom-process { grid-template-columns: 1fr 1fr; }
+  .bom-step:nth-child(3) { border-left: 0; padding-left: 0; }
+  .bom-sticky-copy { position: static; }
+  .bom-metrics-grid { grid-template-columns: 1fr; }
+  .bom-metric { border-left: 0; border-top: 1px solid rgba(255,255,255,.12); padding-left: 0; }
+  .bom-metric:first-child { border-top: 0; }
+  .bom-final-cta { align-items: flex-start; flex-direction: column; }
   .catalog-search-row {
     flex-wrap: wrap;
   }
@@ -1599,6 +1670,16 @@ input[type="file"]::file-selector-button:hover {
   .cat-grid {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 600px) {
+  .bom-review-card { padding: 22px; }
+  .bom-review-foot { flex-direction: column; gap: 5px; }
+  .bom-process, .bom-checklist { grid-template-columns: 1fr; }
+  .bom-step { border-left: 0; border-top: 1px solid var(--line); padding: 26px 0; }
+  .bom-step:first-child { border-top: 0; }
+  .bom-fit-card { padding: 30px 24px; }
+  .bom-sticky-copy h2, .bom-fit-card h2, .bom-final-cta h2 { font-size: 30px; }
 }
 
 /* Phones: parts tables become stacked cards — no sideways scrolling.

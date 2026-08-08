@@ -132,6 +132,9 @@ export default function ServicesContent() {
             <Link href="/contact" className="btn btn-clay btn-lg">
               Contact Our Team
             </Link>
+            <Link href="/bom-sourcing" className="btn btn-ghost btn-lg" style={{ marginLeft: 12, color: "var(--cream)", borderColor: "rgba(255,255,255,.35)" }}>
+              Explore BOM Sourcing
+            </Link>
           </div>
         </div>
       </section>

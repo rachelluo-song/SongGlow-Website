@@ -19,9 +19,12 @@ export default function ContactForm() {
 
   // "Request quote" buttons in the catalog link here with ?part=<part number>
   const part = useSearchParams().get("part");
+  const isBomInquiry = useSearchParams().get("project") === "bom";
   const prefilledMessage = part
     ? `I'd like a quote for part number: ${part}\n\nQuantity: \nTarget date: `
-    : undefined;
+    : isBomInquiry
+      ? "I'd like a sourcing review for my BOM.\n\nTarget production date: \nAnnual / build quantity: \nImportant requirements: "
+      : undefined;
 
   useEffect(() => {
     if (status === "sent" && successRef.current) {

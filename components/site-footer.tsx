@@ -10,6 +10,7 @@ export default function SiteFooter() {
           <div className="footer-links">
             <Link href="/components">Components</Link>
             <Link href="/hardware">Hardware</Link>
+            <Link href="/bom-sourcing">BOM Sourcing</Link>
             <Link href="/services">Services</Link>
             <Link href="/quality">Quality &amp; Traceability</Link>
             <Link href="/guides">Guides</Link>
