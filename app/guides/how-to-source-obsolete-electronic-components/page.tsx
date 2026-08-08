@@ -288,7 +288,7 @@ export default function ObsoleteSourcingGuidePage() {
               sourcing plan within 24 hours.
             </p>
 
-            <GuideResources />
+            <GuideResources currentSlug="how-to-source-obsolete-electronic-components" />
             <Faq items={FAQ_ITEMS} />
           </div>
 

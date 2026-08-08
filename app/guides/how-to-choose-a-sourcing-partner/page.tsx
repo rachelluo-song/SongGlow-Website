@@ -217,7 +217,7 @@ export default function ChoosePartnerGuidePage() {
               honestly rather than ship you a question mark.
             </p>
 
-            <GuideResources />
+            <GuideResources currentSlug="how-to-choose-a-sourcing-partner" />
             <Faq items={FAQ_ITEMS} />
           </div>
 

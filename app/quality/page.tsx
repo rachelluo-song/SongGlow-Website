@@ -196,6 +196,11 @@ export default function QualityPage() {
             <p>
               Send your requirements with the part number, quantity, and target
               date. We will confirm the available sourcing route and documentation.
+              You can also review our guide to{" "}
+              <Link href="/guides/how-to-verify-authentic-electronic-components">
+                verifying authentic electronic components
+              </Link>{" "}
+              before evaluating a source.
             </p>
             <div className="catalog-cta-row">
               <Link href="/contact" className="btn btn-navy btn-lg">

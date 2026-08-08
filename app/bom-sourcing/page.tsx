@@ -212,6 +212,12 @@ export default function BomSourcingPage() {
         <div className="wrap">
           <div className="article" data-reveal>
             <Faq items={FAQ_ITEMS} heading="BOM sourcing questions" />
+            <p>
+              When an unavailable line needs a substitute, use our guide to{" "}
+              <Link href="/guides/how-to-find-component-alternates">
+                finding and qualifying electronic component alternates
+              </Link>.
+            </p>
           </div>
         </div>
       </section>

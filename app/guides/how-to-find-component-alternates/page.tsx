@@ -291,7 +291,7 @@ export default function AlternatesGuidePage() {
               sourced alternates and pricing within 24 hours.
             </p>
 
-            <GuideResources />
+            <GuideResources currentSlug="how-to-find-component-alternates" />
             <Faq items={FAQ_ITEMS} />
           </div>
 

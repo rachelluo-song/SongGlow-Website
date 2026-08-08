@@ -247,7 +247,7 @@ export default function AuthenticityGuidePage() {
               rather tell you the risk honestly than ship you a question mark.
             </p>
 
-            <GuideResources />
+            <GuideResources currentSlug="how-to-verify-authentic-electronic-components" />
             <Faq items={FAQ_ITEMS} />
           </div>
 
