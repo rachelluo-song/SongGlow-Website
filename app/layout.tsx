@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { IBM_Plex_Sans, Public_Sans } from "next/font/google";
 import "./globals.css";
@@ -8,6 +7,7 @@ import SiteFooter from "@/components/site-footer";
 import JsonLd from "@/components/json-ld";
 import TawkTitleGuard from "@/components/tawk-title-guard";
 import InquiryAttribution from "@/components/inquiry-attribution";
+import TawkChat from "@/components/tawk-chat";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const plexSans = IBM_Plex_Sans({
@@ -114,13 +114,7 @@ export default function RootLayout({
         <SiteFooter />
         <InquiryAttribution />
         <Analytics />
-        {/* Tawk.to live chat. IDs are public (visible client-side on any
-            Tawk site). lazyOnload keeps it off the critical path. */}
-        <Script
-          id="tawk-to"
-          src="https://embed.tawk.to/6a64d3a185c9821d4774c059/1juctlcm5"
-          strategy="lazyOnload"
-        />
+        <TawkChat />
         <TawkTitleGuard />
       </body>
     </html>

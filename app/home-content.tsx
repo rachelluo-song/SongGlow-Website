@@ -150,7 +150,7 @@ export default function HomeContent({
                 100% Authentic Components
               </span>
             </div>
-            <h1 data-hero-item>
+            <h1 data-hero-item data-hero-priority>
               Your entire BOM,
               <br />
               sourced and verified.
@@ -159,15 +159,15 @@ export default function HomeContent({
               <Link
                 href="/contact"
                 className="avatars"
-                aria-label="Contact our sales team"
               >
-                <div className="av">RL</div>
-                <div className="av">JT</div>
-                <div className="av">MK</div>
-                <div className="arrow">→</div>
+                <span className="sr-only">Contact our sales team</span>
+                <div className="av" aria-hidden>RL</div>
+                <div className="av" aria-hidden>JT</div>
+                <div className="av" aria-hidden>MK</div>
+                <div className="arrow" aria-hidden>→</div>
               </Link>
             </div>
-            <p className="hero-sub" style={{ fontFamily: "var(--serif)" }} data-hero-item>
+            <p className="hero-sub" style={{ fontFamily: "var(--serif)" }} data-hero-item data-hero-priority>
               Electronic components and hardware for OEM and EMS teams, with
               full supply-chain traceability.
             </p>

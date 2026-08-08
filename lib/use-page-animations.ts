@@ -20,11 +20,20 @@ export function usePageAnimations(rootRef: RefObject<HTMLElement | null>) {
       const mm = gsap.matchMedia();
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        gsap.from("[data-hero-item]", {
+        gsap.from("[data-hero-item]:not([data-hero-priority])", {
           y: 30,
           autoAlpha: 0,
           duration: 0.9,
           stagger: 0.12,
+          ease: "power3.out",
+          clearProps: "transform",
+        });
+
+        // Keep LCP text visible from the first paint. It still rises gently,
+        // but never waits for JavaScript to remove opacity: 0.
+        gsap.from("[data-hero-priority]", {
+          y: 18,
+          duration: 0.65,
           ease: "power3.out",
           clearProps: "transform",
         });
