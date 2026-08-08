@@ -4,7 +4,7 @@ import CatalogSection from "@/components/catalog-section";
 export const metadata: Metadata = {
   title: "Electronic Components - SongGlow",
   description:
-    "Browse SongGlow's electronic component catalog: semiconductors, passives, and more. Every part 100% authentic with full traceability.",
+    "Browse SongGlow's electronic component catalog: semiconductors, passives, and more. 100% authentic parts with order-level traceability confirmed per order.",
   alternates: { canonical: "/components" },
 };
 
@@ -21,7 +21,7 @@ export default async function ComponentsPage({
     <CatalogSection
       section="components"
       title="Electronic Components"
-      intro="Semiconductors, passives, connectors and more - every part sourced through qualified suppliers, 100% authentic, fully traceable."
+      intro="Semiconductors, passives, connectors and more - sourced through qualified channels, 100% authentic, with available order-level traceability confirmed per order."
       query={typeof q === "string" ? q : undefined}
     />
   );

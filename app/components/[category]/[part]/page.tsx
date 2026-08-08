@@ -24,7 +24,7 @@ export async function generateMetadata({
       product.manufacturer ? ` by ${product.manufacturer}` : ""
     } - ${product.name}${
       topSpecs ? ` (${topSpecs})` : ""
-    }. 100% authentic, full traceability. Request a quote from SongGlow.`,
+    }. 100% authentic, with available order-level traceability confirmed for the quote. Request a quote from SongGlow.`,
     alternates: { canonical: `/components/${category}/${part}` },
   };
 }

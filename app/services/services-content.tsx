@@ -51,7 +51,7 @@ const PROCESS_STEPS = [
   {
     step: "Step 3",
     title: "Traceable delivery",
-    body: "Manufacturer-compliant packaging with full lot and date-code documentation.",
+    body: "Appropriate component packaging with available lot and date-code details kept with the order.",
   },
 ];
 

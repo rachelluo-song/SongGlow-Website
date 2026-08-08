@@ -11,7 +11,7 @@ const GlobeSphere = dynamic(() => import("./globe-sphere"), { ssr: false });
 const TRUST_ITEMS = [
   {
     title: "100% Authentic",
-    body: "Original, genuine components - every time, with zero exceptions.",
+    body: "Original, genuine components sourced through qualified channels.",
     href: "/guides/how-to-verify-authentic-electronic-components",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -32,8 +32,8 @@ const TRUST_ITEMS = [
     ),
   },
   {
-    title: "Full Traceability",
-    body: "Lot and date-code tracking across the entire supply chain.",
+    title: "Order-Level Traceability",
+    body: "Available lot and date-code details kept with each order.",
     href: "/quality",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -50,7 +50,7 @@ const TRUST_ITEMS = [
   },
   {
     title: "Qualified Suppliers",
-    body: "Strict vetting standards protect you from counterfeit risk.",
+    body: "Qualified sourcing channels help reduce counterfeit risk.",
     href: "/services",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -98,7 +98,7 @@ const SERVICE_PREVIEWS = [
   },
   {
     title: "Cost Optimization",
-    body: "Multi-supplier bidding and alternative recommendations to bring landed cost down without risk.",
+    body: "Multi-supplier bidding and alternate recommendations to improve landed cost while keeping sourcing risk visible.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
         <path
@@ -115,10 +115,10 @@ const SERVICE_PREVIEWS = [
 
 const COMMITMENTS = [
   "100% authentic and original components",
-  "Full supply chain traceability",
-  "Strict supplier qualification",
-  "Counterfeit risk prevention",
-  "Manufacturer-compliant packaging",
+  "Order-level traceability when available",
+  "Qualified sourcing channels",
+  "Counterfeit-risk review",
+  "Packaging appropriate to the component",
   "Lot and date code traceability, when available",
 ];
 
@@ -304,7 +304,8 @@ export default function HomeContent({
                 }}
               >
                 Counterfeit risk is the biggest threat to a production line.
-                Our process is built to eliminate it at every step.
+                Our process is designed to reduce it through qualified sourcing
+                channels and practical order-level review.
               </p>
             </div>
             <div className="card" style={{ padding: 8 }} data-reveal>

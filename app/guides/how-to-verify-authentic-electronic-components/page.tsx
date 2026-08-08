@@ -56,17 +56,17 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What documentation should I demand before parts ship?",
     answer:
-      "A Certificate of Conformance naming the manufacturer, part number, quantity, and date and lot codes, plus a traceability chain listing every company the parts passed through. Date and lot codes should match across the paperwork, labels, and part markings. A supplier who will not name their source is showing you a red flag, not protecting a trade secret.",
+      "Ask what is available for the specific part and channel: a Certificate of Conformance where applicable, manufacturer and part-number details, quantities, lot or date codes, order-level records, and actual-stock photos when available. Date and lot codes should be consistent across the available paperwork, labels, and part markings. Confidential upstream identities and commercial terms may remain protected.",
   },
   {
     question: "Is it safe to buy from independent distributors?",
     answer:
-      "Yes, when the part is obsolete, allocated, or long-lead and the independent can document who they bought from and works to a counterfeit-avoidance standard such as AS6081. For anything safety-critical, an authorized distributor is the only channel worth using, because parts flow directly from the manufacturer with full warranty.",
+      "Yes, when the part is obsolete, allocated, or long-lead and the independent uses appropriate counterfeit-avoidance controls, maintains suitable order records, and communicates the channel risk. For safety-critical applications, an authorized or manufacturer-backed channel is strongly preferred.",
   },
   {
     question: "What are the biggest red flags of a counterfeit part?",
     answer:
-      "A price far below every other quote for a scarce part, no traceability or a supplier who will not name their source, mixed or implausible date codes within one lot, refusal to allow inspection or testing before payment, and photos that do not match the actual stock. Any one of these should stop the purchase.",
+      "A price far below every other quote for a scarce part, no explanation of the sourcing channel or appropriate order records, mixed or implausible date codes within one lot, refusal to discuss an appropriate inspection scope, and photos that do not match the actual stock. Any one of these deserves further review before purchase.",
   },
 ];
 
@@ -119,22 +119,24 @@ export default function AuthenticityGuidePage() {
 
             <h2>1. Control where the part comes from</h2>
             <p>
-              Provenance beats inspection. A part with an unbroken paper trail
-              back to the manufacturer rarely needs a lab; a part with no
-              history can pass every visual check and still fail in the field.
+              Provenance beats inspection. A documented manufacturer-backed
+              channel offers the clearest starting point. Open-market parts need
+              a review scope that reflects the component, channel, and
+              application risk because a visual check alone cannot prove every
+              internal characteristic.
             </p>
             <ul>
               <li>
                 <strong>Authorized (franchised) distributors first.</strong>{" "}
-                Parts flow directly from the manufacturer with full warranty.
-                For anything safety-critical, this is the only channel worth
-                using.
+                Parts flow through a manufacturer-backed channel with the
+                applicable channel documentation and warranty terms. This route
+                is strongly preferred for safety-critical applications.
               </li>
               <li>
                 <strong>Vetted independents for the rest.</strong> When a part
                 is obsolete or on allocation, the open market is legitimate,
-                but the supplier must be able to document who they bought from,
-                and should work to a counterfeit-avoidance standard such as{" "}
+                but the supplier should explain the channel type, keep suitable
+                order records, and work to a counterfeit-avoidance standard such as{" "}
                 <strong>AS6081</strong> (distributors) aligned with{" "}
                 <strong>AS5553</strong> (OEM programs).
               </li>
@@ -153,9 +155,9 @@ export default function AuthenticityGuidePage() {
                 manufacturer, part number, quantity, and date/lot codes.
               </li>
               <li>
-                <strong>Traceability chain</strong> listing every company the
-                parts passed through. &quot;We can&apos;t disclose our
-                source&quot; is a red flag, not a trade secret.
+                <strong>Order-level traceability</strong> appropriate to the
+                part and channel. Upstream supplier identities, invoices,
+                prices, and other commercial terms may remain confidential.
               </li>
               <li>
                 <strong>Consistent codes.</strong> Date and lot codes on the
@@ -230,9 +232,9 @@ export default function AuthenticityGuidePage() {
               <h3>Red flags that should stop a purchase</h3>
               <ul>
                 <li>A price far below every other quote for a scarce part</li>
-                <li>No traceability, or a supplier who won&apos;t name their source</li>
+                <li>No channel explanation or appropriate order-level records</li>
                 <li>Mixed or implausible date codes within one lot</li>
-                <li>Refusal to allow inspection or testing before payment</li>
+                <li>Refusal to discuss an appropriate inspection scope</li>
                 <li>Photos that don&apos;t match the actual stock, or reluctance to send any</li>
               </ul>
             </div>
@@ -257,7 +259,8 @@ export default function AuthenticityGuidePage() {
             <h2>Sourcing a hard-to-find part?</h2>
             <p>
               Send us the part number and we&apos;ll quote it within 24 hours,
-              100% authentic with full traceability.
+              with 100% authentic parts and the available order-level
+              traceability confirmed for the quote.
             </p>
             <div className="catalog-cta-row">
               <Link href="/contact" className="btn btn-navy btn-lg">

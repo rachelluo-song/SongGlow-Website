@@ -58,19 +58,19 @@ const FAQ_ITEMS: FaqItem[] = [
     question:
       "What is the difference between a broker and a sourcing partner?",
     answer:
-      "A broker finds a price. A sourcing partner takes responsibility for what arrives: they can trace the parts back to the manufacturer, work to a counterfeit-avoidance standard, and stand behind the documentation. The cheapest quote from an anonymous source is rarely the cheapest outcome once you count the risk of a line-down event.",
+      "A broker finds a price. A sourcing partner also manages channel selection, order records, review scope, and sourcing risk. The cheapest quote from an unexplained channel is rarely the cheapest outcome once you count the risk of a line-down event.",
   },
   {
     question:
       "What documentation should a sourcing partner provide?",
     answer:
-      "At minimum, a Certificate of Conformance naming the manufacturer, part number, quantity, and date and lot codes, plus a traceability chain showing every company the parts passed through. A partner should also be able to provide purchase orders or invoices from the original manufacturer or an authorized distributor, and real photos of the actual stock on request.",
+      "Ask what is available for the specific part and channel: a Certificate of Conformance where applicable, manufacturer and part-number details, quantities, lot or date codes, order-level records, and actual-stock photos when available. Upstream supplier identities, invoices, prices, and other commercial terms may remain confidential.",
   },
   {
     question:
       "Should I use an authorized distributor or an independent supplier?",
     answer:
-      "Use an authorized distributor whenever the part is available there, especially for anything safety-critical, because parts flow directly from the manufacturer with full warranty. Independents are legitimate and often necessary for obsolete, allocated, or long-lead parts, but only when they can document their source and work to a counterfeit-avoidance standard. A good partner uses both channels and tells you which one a given part came from.",
+      "Use an authorized distributor when the part is available there, especially for safety-critical applications. Independents are legitimate and often necessary for obsolete, allocated, or long-lead parts when they use appropriate counterfeit-avoidance controls and maintain suitable order records. A good partner explains the channel type and relevant risk without necessarily disclosing confidential upstream relationships.",
   },
   {
     question: "What questions should I ask before placing an order?",
@@ -123,23 +123,24 @@ export default function ChoosePartnerGuidePage() {
             <h2>1. Traceability and documentation</h2>
             <p>
               This is the first filter, and for good reason. A partner should be
-              able to trace a part back to the manufacturer and hand you the
-              paper to prove it: a Certificate of Conformance, a traceability
-              chain, and, where relevant, purchase orders or invoices from the
-              original manufacturer or an authorized distributor. If a supplier
-              treats their source as a secret, treat that as a red flag rather
-              than a trade secret.
+              able to explain the sourcing channel and confirm which records are
+              available for the specific order. Depending on the part and
+              channel, that may include a Certificate of Conformance, packaging
+              and label details, lot or date codes, and actual-stock photos.
+              Confidential upstream supplier identities, invoices, prices, and
+              commercial terms do not need to be standard customer deliverables.
             </p>
 
             <h2>2. Sourcing channels</h2>
             <p>
               Ask which channels they actually use. Authorized (franchised)
               distributors should come first, because parts flow directly from
-              the manufacturer with full warranty. For obsolete, allocated, or
-              long-lead parts, the open market is legitimate and often
-              unavoidable, but only through vetted independents who document
-              their sources. A partner who relies on a single channel has a
-              single point of failure.
+              the manufacturer through a manufacturer-backed channel. For
+              obsolete, allocated, or long-lead parts, the open market is
+              legitimate and often unavoidable, but it should be approached
+              through vetted independents who explain the channel type and keep
+              suitable order records. A partner who relies on a single channel
+              has a single point of failure.
             </p>
 
             <h2>3. Counterfeit-avoidance process</h2>
@@ -224,8 +225,8 @@ export default function ChoosePartnerGuidePage() {
             <h2>Ready to put a partner to the test?</h2>
             <p>
               Send us your BOM or a single hard-to-find part number. We will
-              quote it with full traceability, and flag any line that carries
-              real risk.
+              confirm the available order-level traceability with the quote and
+              flag any line that carries real risk.
             </p>
             <div className="catalog-cta-row">
               <Link href="/contact" className="btn btn-navy btn-lg">

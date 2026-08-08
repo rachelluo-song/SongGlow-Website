@@ -112,7 +112,7 @@ export default async function CatalogCategory({
             {category
               ? `${total} part${
                   total === 1 ? "" : "s"
-                } listed - every one sourced through qualified suppliers, 100% authentic, fully traceable.`
+                } listed - sourced through qualified channels, 100% authentic, with available order-level traceability confirmed per order.`
               : "This category doesn't exist (or was renamed)."}
           </p>
         </div>

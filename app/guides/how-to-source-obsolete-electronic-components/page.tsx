@@ -68,7 +68,7 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How do I buy obsolete parts on the open market safely?",
     answer:
-      "Only through suppliers who can document their source and work to a counterfeit-avoidance standard. Demand a Certificate of Conformance and a full traceability chain, verify date and lot codes against the paperwork, and inspect packaging and markings. If a price sits far below every other quote for a scarce part, treat it as a warning rather than a win.",
+      "Use suppliers who can explain their sourcing channel and work to a counterfeit-avoidance standard. Request the available Certificate of Conformance and traceability records, verify date and lot codes against the paperwork, and inspect packaging and markings. If a price sits far below every other quote for a scarce part, treat it as a warning rather than a win.",
   },
 ];
 
@@ -152,7 +152,8 @@ export default function ObsoleteSourcingGuidePage() {
               A last-time buy means purchasing enough inventory to cover
               production and service for the remaining life of your product.
               This is the cleanest outcome because the parts are still factory
-              fresh and fully traceable. The hard part is the quantity: buy too
+              fresh and usually carry clear manufacturer-channel records. The
+              hard part is the quantity: buy too
               few and you&apos;re back here in two years paying broker prices,
               buy too many and you&apos;re holding dead stock and tying up cash.
             </p>
@@ -205,9 +206,10 @@ export default function ObsoleteSourcingGuidePage() {
               safest source is the authorized aftermarket. These are companies
               the original manufacturer has licensed to continue production,
               often using the original tooling, wafers, and test programs.
-              Rochester Electronics is the best-known example. Parts from this
-              channel are guaranteed authentic and carry a clean traceability
-              chain, which is exactly what you want on a critical line.
+              Rochester Electronics is the best-known example. This type of
+              channel is valued for authentic parts and documented
+              manufacturer-channel traceability, which is exactly what you want
+              on a critical line.
             </p>
 
             <h2>5. Buy the open market carefully</h2>
@@ -220,8 +222,9 @@ export default function ObsoleteSourcingGuidePage() {
             </p>
             <ul>
               <li>
-                Buy through a supplier who can document the full traceability
-                chain and works to a counterfeit-avoidance standard.
+                Buy through a supplier who can provide appropriate channel and
+                order-level traceability records and works to a
+                counterfeit-avoidance standard.
               </li>
               <li>
                 Treat a price far below every other quote as a warning, not a
@@ -295,7 +298,8 @@ export default function ObsoleteSourcingGuidePage() {
             <h2>Chasing an obsolete or end-of-life part?</h2>
             <p>
               Send us the part number and your remaining demand. We&apos;ll come
-              back within 24 hours, 100% authentic with full traceability.
+              back within 24 hours with 100% authentic parts and confirm the
+              available order-level traceability for the quote.
             </p>
             <div className="catalog-cta-row">
               <Link href="/contact" className="btn btn-navy btn-lg">

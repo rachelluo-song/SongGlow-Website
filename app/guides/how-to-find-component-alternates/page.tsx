@@ -299,8 +299,8 @@ export default function AlternatesGuidePage() {
             <h2>Need an alternate for a constrained or discontinued part?</h2>
             <p>
               Send us the part number or your BOM. We&apos;ll come back within 24
-              hours with vetted alternates, 100% authentic with full
-              traceability.
+              hours with vetted alternates and 100% authentic parts. Available
+              order-level traceability is confirmed with the quote.
             </p>
             <div className="catalog-cta-row">
               <Link href="/contact" className="btn btn-navy btn-lg">

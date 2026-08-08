@@ -257,7 +257,8 @@ export default async function ProductDetail({
             <h2>Need {product.part_number} in production quantities?</h2>
             <p>
               Send us your target quantity and date. We&apos;ll quote it within
-              24 hours, 100% authentic with full traceability. Review our{" "}
+              24 hours. We supply 100% authentic parts and confirm the available
+              order-level traceability for each quote. Review our{" "}
               <Link href="/quality">quality and traceability process</Link> or{" "}
               <Link href="/guides/how-to-verify-authentic-electronic-components">
                 component authenticity guide
