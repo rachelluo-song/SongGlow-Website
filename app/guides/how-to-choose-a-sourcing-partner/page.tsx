@@ -5,7 +5,7 @@ import JsonLd from "@/components/json-ld";
 import Faq, { type FaqItem } from "@/components/faq";
 import GuideReview, { GUIDE_REVIEW_DATE, reviewedBySchema } from "@/components/guide-review";
 import { GuideResources, QuickAnswer } from "@/components/guide-support";
-import { SITE_URL } from "@/lib/site";
+import { SITE_BRAND_IMAGE, SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/guides/how-to-choose-a-sourcing-partner";
 const PAGE_TITLE = "How to Choose an Electronic Components Sourcing Partner";
@@ -24,11 +24,13 @@ const articleSchema = {
   description:
     "How to evaluate and choose a reliable electronic components sourcing partner, with the questions to ask before you commit an order.",
   url: `${SITE_URL}${PAGE_PATH}`,
+  mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${PAGE_PATH}` },
+  image: [SITE_BRAND_IMAGE],
   datePublished: "2026-08-01",
   dateModified: GUIDE_REVIEW_DATE,
-  author: { "@type": "Organization", name: "SongGlow", url: SITE_URL },
+  author: { "@id": `${SITE_URL}/#organization` },
   reviewedBy: reviewedBySchema,
-  publisher: { "@type": "Organization", name: "SongGlow", url: SITE_URL },
+  publisher: { "@id": `${SITE_URL}/#organization` },
 };
 
 const breadcrumbSchema = {

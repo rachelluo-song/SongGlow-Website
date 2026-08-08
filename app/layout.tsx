@@ -8,7 +8,12 @@ import JsonLd from "@/components/json-ld";
 import TawkTitleGuard from "@/components/tawk-title-guard";
 import InquiryAttribution from "@/components/inquiry-attribution";
 import TawkChat from "@/components/tawk-chat";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
+import {
+  SITE_BRAND_IMAGE,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/site";
 
 const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -48,9 +53,15 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
   url: SITE_URL,
-  logo: `${SITE_URL}/icon.png`,
+  logo: {
+    "@type": "ImageObject",
+    url: SITE_BRAND_IMAGE,
+    width: 2400,
+    height: 1260,
+  },
   description: SITE_DESCRIPTION,
   foundingDate: "2026",
   sameAs: ["https://www.linkedin.com/company/songglow"],

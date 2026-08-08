@@ -5,7 +5,7 @@ import JsonLd from "@/components/json-ld";
 import Faq, { type FaqItem } from "@/components/faq";
 import GuideReview, { GUIDE_REVIEW_DATE, reviewedBySchema } from "@/components/guide-review";
 import { GuideResources, QuickAnswer } from "@/components/guide-support";
-import { SITE_URL } from "@/lib/site";
+import { SITE_BRAND_IMAGE, SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/guides/how-to-verify-authentic-electronic-components";
 const PAGE_TITLE = "How to Verify Electronic Components Are Authentic";
@@ -24,11 +24,13 @@ const articleSchema = {
   description:
     "A practical counterfeit-detection guide for electronics buyers and engineers.",
   url: `${SITE_URL}${PAGE_PATH}`,
+  mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${PAGE_PATH}` },
+  image: [SITE_BRAND_IMAGE],
   datePublished: "2026-07-20",
   dateModified: GUIDE_REVIEW_DATE,
-  author: { "@type": "Organization", name: "SongGlow", url: SITE_URL },
+  author: { "@id": `${SITE_URL}/#organization` },
   reviewedBy: reviewedBySchema,
-  publisher: { "@type": "Organization", name: "SongGlow", url: SITE_URL },
+  publisher: { "@id": `${SITE_URL}/#organization` },
 };
 
 const breadcrumbSchema = {
