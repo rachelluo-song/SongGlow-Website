@@ -59,8 +59,9 @@ styles.css, globe.js). The site is a faithful Next.js recreation of those design
 - Home page shows a "Browse the catalog" block (top 6 categories across both
   sections, revalidated every 5 min) when the catalog has data
 - `/services` — six service cards, 3-step process, CTA band
-- `/contact` — page hero, contact form (name, company, email, phone/WhatsApp,
-  message; `?part=` prefills the message), sales team cards, response-time card
+- `/contact` — page hero, contact form (name, email, and message required;
+  company, phone/WhatsApp, and attachments optional; `?part=` prefills the
+  message), sales team cards, response-time card
 
 ## Catalog content workflow (no deploy needed)
 Rachel adds/edits rows in Supabase → Table Editor → `products`
@@ -90,7 +91,7 @@ policies on both tables; the browser never touches them directly.
 ## Known deviations from the handoff (intentional)
 - Emoji icons (✉️ 💬) on contact sales cards replaced with matching inline SVGs
   (CLAUDE.md rule: no emoji icons)
-- `required` added to Company and Phone fields (labels marked * in the design)
+- Company and Phone are optional to reduce inquiry-form friction
 - Form submit stores the message and shows a success panel (or a clear error)
 - Nav "Contact Us" button unified to deep navy (`--navy-cta`, #0B00A0) on all
   pages (user decision 2026-07-04; design originally had navy on home only)

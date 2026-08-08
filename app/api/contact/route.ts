@@ -13,6 +13,7 @@ import {
 } from "@/lib/attachments";
 
 const FIELDS = ["name", "company", "email", "phone", "message"] as const;
+const REQUIRED_FIELDS = ["name", "email", "message"] as const;
 const ATTRIBUTION_FIELDS = [
   "source_type",
   "source",
@@ -69,13 +70,16 @@ export async function POST(request: Request) {
   const msg = {} as ContactMessage;
   for (const field of FIELDS) {
     const value = body[field];
-    if (typeof value !== "string" || !value.trim()) {
+    if (
+      REQUIRED_FIELDS.includes(field as (typeof REQUIRED_FIELDS)[number]) &&
+      (typeof value !== "string" || !value.trim())
+    ) {
       return NextResponse.json(
-        { error: "All fields are required." },
+        { error: "Name, email, and message are required." },
         { status: 400 }
       );
     }
-    msg[field] = value.trim().slice(0, 5000);
+    msg[field] = typeof value === "string" ? value.trim().slice(0, 5000) : "";
   }
   Object.assign(msg, parseAttribution(body.attribution));
 

@@ -149,13 +149,12 @@ export default function ContactForm() {
         <input id="name" name="name" type="text" placeholder="Jane Doe" required />
       </div>
       <div>
-        <label htmlFor="company">Company *</label>
+        <label htmlFor="company">Company (optional)</label>
         <input
           id="company"
           name="company"
           type="text"
           placeholder="Acme Electronics"
-          required
         />
       </div>
       <div>
@@ -169,13 +168,12 @@ export default function ContactForm() {
         />
       </div>
       <div>
-        <label htmlFor="phone">Phone / WhatsApp *</label>
+        <label htmlFor="phone">Phone / WhatsApp (optional)</label>
         <input
           id="phone"
           name="phone"
           type="text"
           placeholder="+1 555 000 0000"
-          required
         />
       </div>
       <div className="full">
