@@ -4,7 +4,12 @@ import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
 import Faq, { type FaqItem } from "@/components/faq";
 import GuideReview, { GUIDE_REVIEW_DATE, reviewedBySchema } from "@/components/guide-review";
-import { GuideResources, QuickAnswer } from "@/components/guide-support";
+import {
+  GuideResources,
+  GuideSources,
+  QuickAnswer,
+  type GuideSource,
+} from "@/components/guide-support";
 import { SITE_BRAND_IMAGE, SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/guides/how-to-find-component-alternates";
@@ -12,6 +17,27 @@ const PAGE_TITLE =
   "How to Find Alternates and Cross-References for Electronic Components";
 const AUTH_GUIDE = "/guides/how-to-verify-authentic-electronic-components";
 const OBSOLETE_GUIDE = "/guides/how-to-source-obsolete-electronic-components";
+
+const SOURCES: GuideSource[] = [
+  {
+    title: "Finder and selection tools",
+    organization: "Infineon Technologies",
+    url: "https://www.infineon.com/design-resources/finder-selection-tools",
+    note: "Manufacturer tools for parametric selection, cross-referencing, and identifying possible replacement devices.",
+  },
+  {
+    title: "Cross Reference Search",
+    organization: "Infineon Technologies",
+    url: "https://www.infineon.com/cms/en/product/search/cross-reference/",
+    note: "The manufacturer explicitly treats cross-reference results as suggestions that still require detailed engineering review.",
+  },
+  {
+    title: "Product life cycle and status definitions",
+    organization: "Texas Instruments",
+    url: "https://www.ti.com/quality-reliability/quality/product-life-cycle.html",
+    note: "Original-manufacturer definitions for Active, NRND, Last Time Buy, and Obsolete status, with replacement and parametric-search resources.",
+  },
+];
 
 export const metadata: Metadata = {
   title: `${PAGE_TITLE} - SongGlow`,
@@ -34,6 +60,7 @@ const articleSchema = {
   author: { "@id": `${SITE_URL}/#organization` },
   reviewedBy: reviewedBySchema,
   publisher: { "@id": `${SITE_URL}/#organization` },
+  citation: SOURCES.map((source) => source.url),
 };
 
 const breadcrumbSchema = {
@@ -291,6 +318,7 @@ export default function AlternatesGuidePage() {
               sourced alternates and pricing within 24 hours.
             </p>
 
+            <GuideSources sources={SOURCES} />
             <GuideResources currentSlug="how-to-find-component-alternates" />
             <Faq items={FAQ_ITEMS} />
           </div>

@@ -1063,6 +1063,50 @@ input[type="file"]::file-selector-button:hover {
 .article .guide-resources a {
   font-size: 14.5px;
 }
+.guide-sources {
+  margin: 44px 0 12px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.article .guide-sources h2 {
+  margin: 0 0 8px;
+  font-size: 21px;
+}
+.article .guide-sources-note {
+  margin-bottom: 20px;
+  color: var(--ink-faint);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.article .guide-sources ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.article .guide-sources li {
+  margin: 0;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+.article .guide-sources li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.article .guide-sources a {
+  display: inline;
+  font-size: 15px;
+}
+.guide-sources li > span {
+  display: block;
+  margin-top: 3px;
+  color: var(--ink-faint);
+  font-size: 12.5px;
+}
+.article .guide-sources li > p {
+  margin: 6px 0 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.55;
+}
 
 /* Quality workflow: full-width on desktop; horizontally scrollable on small
    screens so the three labels remain readable instead of being shrunk. */

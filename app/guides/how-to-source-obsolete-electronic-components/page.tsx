@@ -4,12 +4,38 @@ import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
 import Faq, { type FaqItem } from "@/components/faq";
 import GuideReview, { GUIDE_REVIEW_DATE, reviewedBySchema } from "@/components/guide-review";
-import { GuideResources, QuickAnswer } from "@/components/guide-support";
+import {
+  GuideResources,
+  GuideSources,
+  QuickAnswer,
+  type GuideSource,
+} from "@/components/guide-support";
 import { SITE_BRAND_IMAGE, SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/guides/how-to-source-obsolete-electronic-components";
 const PAGE_TITLE = "How to Source Obsolete and End-of-Life Electronic Components";
 const AUTH_GUIDE = "/guides/how-to-verify-authentic-electronic-components";
+
+const SOURCES: GuideSource[] = [
+  {
+    title: "Product change notification and discontinuance process",
+    organization: "Texas Instruments",
+    url: "https://www.ti.com/quality-reliability/quality/product-change-notification.html",
+    note: "Original-manufacturer guidance on PCNs, product withdrawal, last-order dates, final delivery, and replacement products.",
+  },
+  {
+    title: "PCN and Product Discontinuance Notice policy",
+    organization: "Analog Devices",
+    url: "https://www.analog.com/en/support/quality-and-reliability/quality-management-systems.html",
+    note: "Manufacturer policy covering form-fit-function changes, Last Time Buy, Last Time Ship, and recommended replacements.",
+  },
+  {
+    title: "STD0016A: DMSMS Management Plan",
+    organization: "SAE International",
+    url: "https://saemobilus.sae.org/standards/std0016a-standard-preparing-a-dmsms-management-plan",
+    note: "Public scope of the industry framework for managing diminishing sources, material shortages, and obsolescence risk.",
+  },
+];
 
 export const metadata: Metadata = {
   title: `${PAGE_TITLE} - SongGlow`,
@@ -32,6 +58,7 @@ const articleSchema = {
   author: { "@id": `${SITE_URL}/#organization` },
   reviewedBy: reviewedBySchema,
   publisher: { "@id": `${SITE_URL}/#organization` },
+  citation: SOURCES.map((source) => source.url),
 };
 
 const breadcrumbSchema = {
@@ -290,6 +317,7 @@ export default function ObsoleteSourcingGuidePage() {
               sourcing plan within 24 hours.
             </p>
 
+            <GuideSources sources={SOURCES} />
             <GuideResources currentSlug="how-to-source-obsolete-electronic-components" />
             <Faq items={FAQ_ITEMS} />
           </div>

@@ -4,11 +4,37 @@ import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
 import Faq, { type FaqItem } from "@/components/faq";
 import GuideReview, { GUIDE_REVIEW_DATE, reviewedBySchema } from "@/components/guide-review";
-import { GuideResources, QuickAnswer } from "@/components/guide-support";
+import {
+  GuideResources,
+  GuideSources,
+  QuickAnswer,
+  type GuideSource,
+} from "@/components/guide-support";
 import { SITE_BRAND_IMAGE, SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/guides/how-to-verify-authentic-electronic-components";
 const PAGE_TITLE = "How to Verify Electronic Components Are Authentic";
+
+const SOURCES: GuideSource[] = [
+  {
+    title: "What We Do: the authorized electronic component channel",
+    organization: "Electronic Components Industry Association (ECIA)",
+    url: "https://www.ecianow.org/what-we-do/",
+    note: "Industry guidance on trusted sources, authorized distribution, and counterfeit-risk reduction.",
+  },
+  {
+    title: "AS5553: Counterfeit Electronic Parts",
+    organization: "SAE International",
+    url: "https://saemobilus.sae.org/standards/as5553-counterfeit-electronic-parts-avoidance-detection-mitigation-disposition",
+    note: "Public scope of the aerospace standard for counterfeit-part avoidance, detection, mitigation, and disposition.",
+  },
+  {
+    title: "MSFC-STD-3619 Counterfeit EEE Parts Requirements",
+    organization: "NASA Standards",
+    url: "https://standards.nasa.gov/standard/msfc/msfc-std-3619",
+    note: "A publicly accessible risk-based framework for keeping counterfeit electrical and electronic parts out of critical supply chains.",
+  },
+];
 
 export const metadata: Metadata = {
   title: `${PAGE_TITLE} - SongGlow`,
@@ -31,6 +57,7 @@ const articleSchema = {
   author: { "@id": `${SITE_URL}/#organization` },
   reviewedBy: reviewedBySchema,
   publisher: { "@id": `${SITE_URL}/#organization` },
+  citation: SOURCES.map((source) => source.url),
 };
 
 const breadcrumbSchema = {
@@ -251,6 +278,7 @@ export default function AuthenticityGuidePage() {
               review performed.
             </p>
 
+            <GuideSources sources={SOURCES} />
             <GuideResources currentSlug="how-to-verify-authentic-electronic-components" />
             <Faq items={FAQ_ITEMS} />
           </div>

@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { GUIDES } from "@/lib/guides";
 
+export type GuideSource = {
+  title: string;
+  organization: string;
+  url: string;
+  note: string;
+};
+
 export function QuickAnswer({ children }: { children: React.ReactNode }) {
   return (
     <aside className="quick-answer" aria-label="Quick answer">
@@ -26,6 +33,29 @@ export function GuideResources({ currentSlug }: { currentSlug: string }) {
           </Link>
         ))}
       </div>
+    </aside>
+  );
+}
+
+export function GuideSources({ sources }: { sources: GuideSource[] }) {
+  return (
+    <aside className="guide-sources" aria-labelledby="industry-references">
+      <h2 id="industry-references">Industry references</h2>
+      <p className="guide-sources-note">
+        These public sources inform the general guidance above. They do not
+        represent SongGlow certifications or testing accreditations.
+      </p>
+      <ul>
+        {sources.map((source) => (
+          <li key={source.url}>
+            <a href={source.url} target="_blank" rel="noopener noreferrer">
+              {source.title}
+            </a>
+            <span>{source.organization}</span>
+            <p>{source.note}</p>
+          </li>
+        ))}
+      </ul>
     </aside>
   );
 }

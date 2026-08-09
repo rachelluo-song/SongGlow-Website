@@ -4,11 +4,37 @@ import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
 import Faq, { type FaqItem } from "@/components/faq";
 import GuideReview, { GUIDE_REVIEW_DATE, reviewedBySchema } from "@/components/guide-review";
-import { GuideResources, QuickAnswer } from "@/components/guide-support";
+import {
+  GuideResources,
+  GuideSources,
+  QuickAnswer,
+  type GuideSource,
+} from "@/components/guide-support";
 import { SITE_BRAND_IMAGE, SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/guides/how-to-choose-a-sourcing-partner";
 const PAGE_TITLE = "How to Choose an Electronic Components Sourcing Partner";
+
+const SOURCES: GuideSource[] = [
+  {
+    title: "What We Do: the authorized electronic component channel",
+    organization: "Electronic Components Industry Association (ECIA)",
+    url: "https://www.ecianow.org/what-we-do/",
+    note: "Industry context for authorized distribution, trusted sources, and supply-chain integrity.",
+  },
+  {
+    title: "Electronic component quality resources",
+    organization: "Electronic Components Industry Association (ECIA)",
+    url: "https://www.ecianow.org/quality/",
+    note: "Public resources covering traceability, counterfeit mitigation, certificates, product changes, and distributor practices.",
+  },
+  {
+    title: "AS6496 Authorized Distributor Anti-Counterfeiting Standard",
+    organization: "Electronic Components Industry Association (ECIA)",
+    url: "https://www.ecianow.org/quality/sae-as6496-anti-counterfeiting-standard/",
+    note: "A public overview of channel definitions and controls for purchasing, records, traceability, suspect parts, and inventory.",
+  },
+];
 
 export const metadata: Metadata = {
   title: `${PAGE_TITLE} - SongGlow`,
@@ -31,6 +57,7 @@ const articleSchema = {
   author: { "@id": `${SITE_URL}/#organization` },
   reviewedBy: reviewedBySchema,
   publisher: { "@id": `${SITE_URL}/#organization` },
+  citation: SOURCES.map((source) => source.url),
 };
 
 const breadcrumbSchema = {
@@ -217,6 +244,7 @@ export default function ChoosePartnerGuidePage() {
               honestly rather than ship you a question mark.
             </p>
 
+            <GuideSources sources={SOURCES} />
             <GuideResources currentSlug="how-to-choose-a-sourcing-partner" />
             <Faq items={FAQ_ITEMS} />
           </div>

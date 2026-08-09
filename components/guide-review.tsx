@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { SITE_URL } from "@/lib/site";
 
-export const GUIDE_REVIEW_DATE = "2026-08-08T00:00:00Z";
+export const GUIDE_REVIEW_DATE = "2026-08-09T00:00:00Z";
 
 export const reviewedBySchema = {
   "@type": "Person",
@@ -24,7 +24,7 @@ export default function GuideReview() {
         Reviewed by <Link href="/about">Rachel Luo</Link>, Sales Manager
       </span>
       <span aria-hidden>•</span>
-      <time dateTime={GUIDE_REVIEW_DATE}>Last reviewed August 8, 2026</time>
+      <time dateTime={GUIDE_REVIEW_DATE}>Last reviewed August 9, 2026</time>
     </div>
   );
 }
