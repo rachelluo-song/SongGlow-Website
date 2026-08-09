@@ -162,8 +162,8 @@ export default function HomeContent({
               >
                 <span className="sr-only">Contact our sales team</span>
                 <div className="av" aria-hidden>RL</div>
-                <div className="av" aria-hidden>JT</div>
-                <div className="av" aria-hidden>MK</div>
+                <div className="av" aria-hidden>PK</div>
+                <div className="av" aria-hidden>CB</div>
                 <div className="arrow" aria-hidden>→</div>
               </Link>
             </div>
