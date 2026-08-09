@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ProductDetail from "@/components/product-detail";
-import { getProductBySlug, orderedSpecs } from "@/lib/catalog";
+import {
+  getProductBySlug,
+  productSeoDescription,
+  productSeoTitle,
+  slugifyCategory,
+  slugifyPart,
+} from "@/lib/catalog";
 
 export const dynamic = "force-dynamic";
 
@@ -13,19 +19,17 @@ export async function generateMetadata({
   const { category, part } = await params;
   const hit = await getProductBySlug("components", category, part);
   if (!hit) return { title: "Part not found - SongGlow" };
-  const { product } = hit;
-  const topSpecs = orderedSpecs(product.specs)
-    .slice(0, 4)
-    .map(([k, v]) => `${k} ${v}`)
-    .join(", ");
+  const { category: catalogCategory, product } = hit;
+  const canonical = `/components/${slugifyCategory(
+    catalogCategory.name
+  )}/${slugifyPart(product.part_number)}`;
+  const title = productSeoTitle(product, catalogCategory.name);
+  const description = productSeoDescription(product, catalogCategory.name);
   return {
-    title: `${product.part_number} - ${product.name} - SongGlow`,
-    description: `${product.part_number}${
-      product.manufacturer ? ` by ${product.manufacturer}` : ""
-    } - ${product.name}${
-      topSpecs ? ` (${topSpecs})` : ""
-    }. 100% authentic, with available order-level traceability confirmed for the quote. Request a quote from SongGlow.`,
-    alternates: { canonical: `/components/${category}/${part}` },
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: { title, description, url: canonical, type: "website" },
   };
 }
 

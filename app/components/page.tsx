@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import CatalogSection from "@/components/catalog-section";
 
 export const metadata: Metadata = {
-  title: "Electronic Components - SongGlow",
+  title: "Electronic Components Sourcing & RFQ - SongGlow",
   description:
-    "Browse SongGlow's electronic component catalog: semiconductors, passives, and more. 100% authentic parts with order-level traceability confirmed per order.",
+    "Search electronic component part numbers, specifications and datasheets. Request an RFQ from SongGlow for OEM and EMS sourcing, alternates and order-level traceability.",
   alternates: { canonical: "/components" },
 };
 

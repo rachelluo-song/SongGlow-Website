@@ -283,6 +283,75 @@ export function orderedSpecs(specs: Record<string, string>): [string, string][] 
   );
 }
 
+const SEO_TITLE_LIMIT = 65;
+const SEO_SPEC_ORDER = [
+  "Resistance",
+  "Capacitance",
+  "Inductance",
+  "Frequency",
+  "Thread Size",
+  "For Screw Size",
+  "Package",
+  "Length",
+  "Diameter",
+  "Voltage",
+  "Current",
+  "Power",
+  "Material",
+];
+
+function productSeoSpecs(product: Product): [string, string][] {
+  const entries = Object.entries(product.specs ?? {});
+  const byName = new Map(entries.map(([name, value]) => [name, value]));
+  const selected: [string, string][] = [];
+  for (const name of SEO_SPEC_ORDER) {
+    const value = byName.get(name);
+    if (value && !selected.some(([, used]) => used === value)) {
+      selected.push([name, value]);
+    }
+    if (selected.length === 2) break;
+  }
+  return selected.length === 2 ? selected : orderedSpecs(product.specs).slice(0, 2);
+}
+
+/** Compact, intent-led search title for exact part-number queries. */
+export function productSeoTitle(
+  product: Product,
+  categoryName: string
+): string {
+  const maker = product.manufacturer
+    ? splitBrands(product.manufacturer)[0]
+    : "";
+  const specValues = productSeoSpecs(product).map(([, value]) => value);
+  const candidates = [
+    [product.part_number, maker, ...specValues, categoryName, "| SongGlow RFQ"],
+    [product.part_number, maker, categoryName, "| SongGlow RFQ"],
+    [product.part_number, categoryName, "| SongGlow RFQ"],
+    [product.part_number, maker, "| SongGlow RFQ"],
+    [product.part_number, "| SongGlow RFQ"],
+  ].map((parts) => parts.filter(Boolean).join(" "));
+  return candidates.find((title) => title.length <= SEO_TITLE_LIMIT) ?? candidates.at(-1)!;
+}
+
+/** Search description that states specs and quote intent without stock claims. */
+export function productSeoDescription(
+  product: Product,
+  categoryName: string
+): string {
+  const maker = product.manufacturer
+    ? splitBrands(product.manufacturer)[0]
+    : "";
+  const identity = `${product.part_number}${maker ? ` by ${maker}` : ""}`;
+  const specText = productSeoSpecs(product)
+    .map(([name, value]) => `${value} ${name.toLowerCase()}`)
+    .join(", ");
+  const detailed = `${identity}: ${categoryName}${
+    specText ? `, ${specText}` : ""
+  }. SongGlow RFQ for OEM/EMS sourcing, alternates and available traceability.`;
+  if (detailed.length <= 160) return detailed;
+  return `${identity}: ${categoryName}. SongGlow RFQ for OEM/EMS sourcing, alternates and available traceability.`;
+}
+
 /**
  * A short, human-readable summary built from a product's structured data.
  * Gives each product page some unique prose (helps thin pages and human
