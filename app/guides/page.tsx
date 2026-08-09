@@ -3,6 +3,13 @@ import Link from "next/link";
 import Animate from "@/components/animate";
 import { GUIDES } from "@/lib/guides";
 
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
 export const metadata: Metadata = {
   title: "Sourcing Guides - SongGlow",
   description:
@@ -37,8 +44,8 @@ export default function GuidesIndexPage() {
               >
                 <h2>{guide.title}</h2>
                 <p>{guide.blurb}</p>
-                <time className="guide-card-date" dateTime={guide.dateModified}>
-                  Last reviewed August 8, 2026
+                <time className="guide-card-date" dateTime={guide.datePublished}>
+                  Published {dateFormatter.format(new Date(guide.datePublished))}
                 </time>
                 <span className="guide-readmore">Read the guide →</span>
               </Link>
