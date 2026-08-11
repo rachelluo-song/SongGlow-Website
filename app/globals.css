@@ -998,6 +998,16 @@ input[type="file"]::file-selector-button:hover {
   font-weight: 600;
 }
 
+.category-seo {
+  margin-top: 72px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.category-seo .article {
+  max-width: 860px;
+}
+
 .guide-review {
   display: flex;
   flex-wrap: wrap;

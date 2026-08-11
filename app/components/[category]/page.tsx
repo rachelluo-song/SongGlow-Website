@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import CatalogCategory from "@/components/catalog-category";
 import JsonLd from "@/components/json-ld";
 import { getBrandFacets, getCategoryBySlug, titleFromSlug } from "@/lib/catalog";
+import { getCategorySeo } from "@/lib/category-seo";
 import { SITE_URL } from "@/lib/site";
 
 function breadcrumbSchema(category: string) {
@@ -36,6 +37,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { category } = await params;
   const title = titleFromSlug(category);
+  const seo = getCategorySeo(category);
   // Enrich the description with this category's real part count and top brands
   // (the terms buyers actually search) so each category page is unique. The
   // read is deduped with the page body by getCatalog's request cache.
@@ -53,8 +55,10 @@ export async function generateMetadata({
       } with specs and datasheets for supplier search and RFQ. Availability and source documentation are confirmed with each quote.`
     : `${title} from SongGlow: part numbers, specs and datasheets for supplier search and RFQ. Availability and source documentation are confirmed with each quote.`;
   return {
-    title: `${title} - Electronic Components - SongGlow`,
-    description: `${lead}${brandStr} Request a quote for OEM and EMS production quantities.`,
+    title: seo?.title ?? `${title} - Electronic Components - SongGlow`,
+    description:
+      seo?.metaDescription ??
+      `${lead}${brandStr} Request a quote for OEM and EMS production quantities.`,
     alternates: { canonical: `/components/${category}` },
   };
 }

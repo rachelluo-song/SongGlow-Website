@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Animate from "@/components/animate";
+import Faq from "@/components/faq";
 import ProductTable from "@/components/product-table";
 import {
   getBrandFacets,
@@ -8,6 +9,7 @@ import {
   productHasBrand,
   type CatalogSection as Section,
 } from "@/lib/catalog";
+import { getCategorySeo } from "@/lib/category-seo";
 
 const PER_PAGE = 100;
 
@@ -31,6 +33,7 @@ export default async function CatalogCategory({
 }: Props) {
   const basePath = section === "components" ? "/components" : "/hardware";
   const category = await getCategoryBySlug(section, slug);
+  const seo = section === "components" ? getCategorySeo(slug) : undefined;
 
   const baseProducts = category?.products ?? [];
   const brandFacets = category ? getBrandFacets(baseProducts) : [];
@@ -105,7 +108,7 @@ export default async function CatalogCategory({
             {category
               ? activeBrand
                 ? `${activeBrand.label} ${category.name}`
-                : category.name
+                : seo?.h1 ?? category.name
               : "Category not found"}
           </h1>
           <p data-hero-item>
@@ -238,6 +241,24 @@ export default async function CatalogCategory({
                 </p>
               </div>
             )
+          ) : null}
+
+          {seo && current === 1 && !activeBrand && Object.keys(activeSpecs).length === 0 ? (
+            <section className="category-seo" data-reveal>
+              <div className="article">
+                <h2>{seo.heading}</h2>
+                {seo.intro.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+                <h2>Information to include with your RFQ</h2>
+                <ul>
+                  {seo.rfqDetails.map((detail) => (
+                    <li key={detail}>{detail}</li>
+                  ))}
+                </ul>
+                <Faq items={seo.faq} heading={`${category?.name ?? "Component"} sourcing questions`} />
+              </div>
+            </section>
           ) : null}
 
           <div className="catalog-cta" data-reveal>
