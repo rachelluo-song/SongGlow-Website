@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import CatalogSection from "@/components/catalog-section";
 
 export const metadata: Metadata = {
-  title: "Hardware - SongGlow",
+  title: "Electronic Hardware & Mechanical Components Sourcing | SongGlow",
   description:
-    "Browse SongGlow's hardware catalog: fasteners, enclosures, thermal and mechanical parts to complete your BOM alongside the electronics.",
+    "Source electronic hardware and mechanical components including fasteners, standoffs, enclosures, springs, gaskets, and thermal parts for your BOM.",
   alternates: { canonical: "/hardware" },
 };
 
@@ -20,8 +20,8 @@ export default async function HardwarePage({
   return (
     <CatalogSection
       section="hardware"
-      title="Hardware & Mechanical"
-      intro="Fasteners, standoffs, enclosures, thermal parts - the mechanical line items that complete your BOM, sourced alongside the electronics."
+      title="Electronic Hardware & Mechanical Components"
+      intro="Source fasteners, standoffs, enclosures, springs, gaskets, and thermal parts—the mechanical line items that complete your BOM alongside the electronics."
       query={typeof q === "string" ? q : undefined}
     />
   );

@@ -10,9 +10,9 @@ const PAGE_PATH = "/quality";
 const PAGE_TITLE = "Quality & Traceability";
 
 export const metadata: Metadata = {
-  title: "Quality & Traceability - SongGlow",
+  title: "Electronic Component Inspection & Traceability | SongGlow",
   description:
-    "Learn how SongGlow reviews electronic component packaging, labels, markings, dimensions, and order-level traceability before release.",
+    "Electronic component inspection and order-level traceability covering packaging, labels, markings, dimensions, lot details, and date codes before release.",
   alternates: { canonical: PAGE_PATH },
 };
 
@@ -112,7 +112,7 @@ export default function QualityPage() {
           <div className="eyebrow" data-hero-item>
             Quality &amp; Traceability
           </div>
-          <h1 data-hero-item>Evidence you can review before you buy</h1>
+          <h1 data-hero-item>Electronic component inspection and traceability</h1>
           <p data-hero-item>
             SongGlow helps OEM and EMS teams make informed sourcing decisions
             with packaging, marking, dimensional, and order-level traceability reviews.

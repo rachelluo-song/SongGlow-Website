@@ -151,9 +151,9 @@ export default function HomeContent({
               </span>
             </div>
             <h1 data-hero-item data-hero-priority>
-              Your entire BOM,
+              Electronic component sourcing
               <br />
-              sourced and verified.
+              for your entire BOM.
             </h1>
             <div className="hero-row" data-hero-item>
               <Link
@@ -168,8 +168,8 @@ export default function HomeContent({
               </Link>
             </div>
             <p className="hero-sub" style={{ fontFamily: "var(--serif)" }} data-hero-item data-hero-priority>
-              Electronic components and hardware for OEM and EMS teams, with
-              order-level traceability.
+              Source semiconductors, passives, electromechanical parts, and
+              hardware with one team and order-level traceability.
             </p>
             <div className="hero-cta-row" data-hero-item>
               <Link href="/contact" className="btn btn-navy btn-lg">
@@ -267,8 +267,8 @@ export default function HomeContent({
             </div>
             <h2>Sourcing support built for OEM &amp; EMS teams</h2>
             <p>
-              From full BOM fulfillment to hard-to-find allocations, SongGlow
-              keeps your production line supplied.
+              From electronic BOM sourcing to obsolete and hard-to-find
+              components, SongGlow keeps your production line supplied.
             </p>
           </div>
           <div className="grid-3" data-reveal-group>
@@ -283,6 +283,13 @@ export default function HomeContent({
           <div style={{ marginTop: 36, textAlign: "center" }} data-reveal>
             <Link href="/services" className="btn btn-ghost">
               See All Services →
+            </Link>
+            <Link
+              href="/obsolete-electronic-components"
+              className="btn btn-ghost"
+              style={{ marginLeft: 12 }}
+            >
+              Source Obsolete Parts →
             </Link>
           </div>
         </div>

@@ -66,7 +66,7 @@ export default function ServicesContent() {
           <div className="eyebrow" data-hero-item>
             Services
           </div>
-          <h1 data-hero-item>Sourcing coverage for every stage of the BOM</h1>
+          <h1 data-hero-item>Electronic component sourcing for every stage of the BOM</h1>
           <p data-hero-item>
             Whatever the constraint - cost, allocation, obsolescence, or risk -
             <br />
@@ -85,6 +85,11 @@ export default function ServicesContent() {
                 <p>{service.body}</p>
               </div>
             ))}
+          </div>
+          <div style={{ marginTop: 36, textAlign: "center" }} data-reveal>
+            <Link href="/obsolete-electronic-components" className="btn btn-ghost">
+              Explore Obsolete Component Sourcing →
+            </Link>
           </div>
         </div>
       </section>

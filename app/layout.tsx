@@ -29,7 +29,7 @@ const publicSans = Public_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "SongGlow - Electronic Components Sourcing & BOM Fulfillment",
+  title: "Electronic Component Sourcing & BOM Fulfillment | SongGlow",
   description: SITE_DESCRIPTION,
   openGraph: {
     siteName: SITE_NAME,

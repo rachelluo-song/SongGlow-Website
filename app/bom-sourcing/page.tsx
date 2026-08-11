@@ -6,9 +6,9 @@ import Faq, { type FaqItem } from "@/components/faq";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "BOM Sourcing & Fulfillment for OEM and EMS Teams - SongGlow",
+  title: "Electronic BOM Sourcing & Fulfillment Services | SongGlow",
   description:
-    "Send SongGlow your electronic bill of materials or download our free BOM RFQ template for line-by-line sourcing, alternates, cost review, and consolidated delivery.",
+    "Electronic BOM sourcing and fulfillment for OEM and EMS teams. Get line-by-line component quotes, alternates, risk review, and consolidated delivery.",
   alternates: { canonical: "/bom-sourcing" },
 };
 
@@ -100,7 +100,7 @@ export default function BomSourcingPage() {
         <div className="wrap bom-hero-grid">
           <div className="bom-hero-copy">
             <div className="eyebrow" data-hero-item>BOM Sourcing</div>
-            <h1 data-hero-item>Your BOM, turned into a clear sourcing plan.</h1>
+            <h1 data-hero-item>Electronic BOM sourcing, turned into a clear supply plan.</h1>
             <p data-hero-item>
               One team to review every line, qualify supply, surface risk, and
               coordinate delivery—without losing visibility along the way.
@@ -208,6 +208,9 @@ export default function BomSourcingPage() {
               SongGlow supports OEM, EMS, engineering, and procurement teams
               from Shenzhen and Hong Kong, with worldwide delivery.
             </p>
+            <Link href="/obsolete-electronic-components" className="text-link">
+              Sourcing an obsolete or hard-to-find line? →
+            </Link>
           </div>
           <ul className="bom-checklist" data-reveal-group>
             {FITS.map((item) => <li key={item}><span>✓</span>{item}</li>)}
