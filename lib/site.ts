@@ -7,4 +7,4 @@ export const SITE_NAME = "SongGlow";
 export const SITE_BRAND_IMAGE = `${SITE_URL}/og.png`;
 
 export const SITE_DESCRIPTION =
-  "SongGlow provides electronic component sourcing, BOM fulfillment, obsolete-part procurement, alternates, and order-level traceability for OEM and EMS teams.";
+  "SongGlow helps OEM and EMS teams source electronic BOMs, compare supplier quotes, coordinate requested quantities, and collect available channel documentation.";

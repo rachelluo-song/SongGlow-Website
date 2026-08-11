@@ -97,8 +97,9 @@ const organizationSchema = {
     "Bill of materials (BOM) fulfillment",
     "Obsolete and end-of-life components",
     "Capacitor sourcing",
-    "Supply chain traceability",
-    "Counterfeit component avoidance",
+    "Electronic component quote comparison",
+    "Supplier documentation coordination",
+    "Visual packaging receiving checks",
   ],
   contactPoint: {
     "@type": "ContactPoint",

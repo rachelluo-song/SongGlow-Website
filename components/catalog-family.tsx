@@ -48,7 +48,7 @@ export default function CatalogFamily({ family, lines }: Props) {
           <p data-hero-item>
             {total} part{total === 1 ? "" : "s"} across {lines.length} product
             line{lines.length === 1 ? "" : "s"} - branded and standard options,
-            every one spec-verified with a downloadable dimension drawing.
+            with catalog specifications and downloadable reference drawings where available.
           </p>
         </div>
       </header>
@@ -99,8 +99,8 @@ export default function CatalogFamily({ family, lines }: Props) {
             <h2>Don&apos;t see the exact line?</h2>
             <p>
               We source far more than we list - send us a part number, a
-              standard (DIN/ISO/GB), or your whole BOM and we&apos;ll quote it
-              within 24 hours.
+              standard (DIN/ISO/GB), or your whole BOM and we&apos;ll search
+              suitable sources and respond with the next steps.
             </p>
             <div className="catalog-cta-row">
               <Link href="/contact" className="btn btn-navy btn-lg">

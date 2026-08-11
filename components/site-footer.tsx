@@ -13,7 +13,7 @@ export default function SiteFooter() {
             <Link href="/bom-sourcing">BOM Sourcing</Link>
             <Link href="/obsolete-electronic-components">Obsolete Components</Link>
             <Link href="/services">Services</Link>
-            <Link href="/quality">Quality &amp; Traceability</Link>
+            <Link href="/quality">Receiving Checks</Link>
             <Link href="/guides">Guides</Link>
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>

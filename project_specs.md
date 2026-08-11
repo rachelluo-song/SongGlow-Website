@@ -5,6 +5,20 @@
 (BOM fulfillment for OEM/EMS teams). Visitors learn about services and contact
 the sales team.
 
+### Commercial-copy accuracy
+
+SongGlow carries no inventory; the catalog is a sourcing/RFQ reference, not an
+availability list. Customers send a BOM and requested quantities, SongGlow
+searches potential sources, compares suitable quotes for value and lead time,
+and coordinates the approved order. Source documentation is requested on a
+best-effort basis and confirmed per supplier and part. After receipt, SongGlow
+visually checks external packaging condition and visible order/label details,
+then photographs packaging and labels for the customer. This is not laboratory
+authentication: SongGlow does not perform X-ray, XRF, decapsulation, electrical,
+solderability, destructive, or other laboratory testing. Site copy must not
+promise that every BOM line can be sourced, claim `100% authentic`, imply owned
+stock, or imply certifications/authorized status not actually held.
+
 Source of truth for visuals: the Claude Design handoff bundle
 `SongGlow Agency Website-handoff.zip` (index.html, services.html, contact.html,
 styles.css, globe.js). The site is a faithful Next.js recreation of those designs.

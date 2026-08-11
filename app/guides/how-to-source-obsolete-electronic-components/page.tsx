@@ -90,7 +90,7 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What is a last-time buy, and how do I size it?",
     answer:
-      "A last-time buy is a final purchase of a part before the manufacturer stops production, sized to cover your expected demand through end of life or until a redesign lands. Base the quantity on your production forecast plus service and spares, and account for shelf life and storage conditions. A sourcing partner can hold a last-time buy and release it against your schedule so you are not warehousing the whole quantity at once.",
+      "A last-time buy is a final purchase of a part before the manufacturer stops production, sized to cover your expected demand through end of life or until a redesign lands. Base the quantity on your production forecast plus service and spares, and account for shelf life and storage conditions. Decide whether your company or a suitable third-party logistics provider will hold and release the material.",
   },
   {
     question: "How do I buy obsolete parts on the open market safely?",
@@ -196,9 +196,9 @@ export default function ObsoleteSourcingGuidePage() {
                 storage.
               </li>
               <li>
-                Decide who holds the inventory. A sourcing partner can warehouse
-                a last-time buy and release it against your schedule so you
-                aren&apos;t carrying it all at once.
+                Decide who holds the inventory. Your company or a suitable
+                third-party logistics provider may be able to receive and
+                release a last-time buy against the production schedule.
               </li>
             </ul>
 
@@ -304,17 +304,14 @@ export default function ObsoleteSourcingGuidePage() {
 
             <h2>How SongGlow helps with obsolete parts</h2>
             <p>
-              Hard-to-find and end-of-life parts are core to what we do. We reach
-              across authorized stock, last-time-buy inventory, the authorized
-              aftermarket, and a vetted independent network to place parts other
-              suppliers can&apos;t. We review available packaging, labels, markings,
-              and order details before dispatch; the agreed review scope does not
-              imply laboratory testing. Our core focus on every part we deliver is
-              authenticity and an organized order-level record. We can also hold a last-time buy and release it
-              against your schedule, so you aren&apos;t warehousing it all at
-              once. If a line on your BOM is going obsolete, send us the part
-              number and your remaining demand, and we&apos;ll come back with a
-              sourcing plan within 24 hours.
+              For a hard-to-find or end-of-life BOM line, we search potential
+              supplier routes for the specified part and quantity, compare
+              suitable quotations, and ask what source documentation is
+              available. After receipt, we visually check external packaging
+              condition and photograph the packaging and labels. This does not
+              include X-ray, decapsulation, electrical testing, or laboratory
+              authentication, and we do not promise that every requested line
+              can be sourced.
             </p>
 
             <GuideSources sources={SOURCES} />
@@ -326,8 +323,9 @@ export default function ObsoleteSourcingGuidePage() {
             <h2>Chasing an obsolete or end-of-life part?</h2>
             <p>
               Send us the part number and your remaining demand. We&apos;ll come
-              back within 24 hours with 100% authentic parts and confirm the
-              available order-level traceability for the quote.
+              back within 24 hours to confirm the requirement and next steps.
+              Suitable source options and available documentation are confirmed
+              separately for each quote.
             </p>
             <div className="catalog-cta-row">
               <Link href="/contact" className="btn btn-navy btn-lg">

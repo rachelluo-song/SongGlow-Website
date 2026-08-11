@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Animate from "@/components/animate";
 import Faq, { type FaqItem } from "@/components/faq";
@@ -7,72 +6,68 @@ import JsonLd from "@/components/json-ld";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/quality";
-const PAGE_TITLE = "Quality & Traceability";
+const PAGE_TITLE = "Receiving Checks & Documentation";
 
 export const metadata: Metadata = {
-  title: "Electronic Component Inspection & Traceability | SongGlow",
+  title: "Visual Receiving Checks & Source Documentation | SongGlow",
   description:
-    "Electronic component inspection and order-level traceability covering packaging, labels, markings, dimensions, lot details, and date codes before release.",
+    "Learn how SongGlow visually checks packaging after receipt, takes customer photos, and requests available channel documentation for electronic component orders.",
   alternates: { canonical: PAGE_PATH },
 };
 
 const PRINCIPLES = [
   {
-    title: "Packaging inspection",
-    body: "We review packaging condition and the consistency of available labels, part numbers, quantities, and visible lot or date-code information before release.",
+    title: "Visual packaging check",
+    body: "After receipt, we visually check the external packaging for obvious damage and compare visible part-number and quantity information with the order.",
   },
   {
-    title: "Marking review",
-    body: "We compare visible manufacturer and part markings for consistency with the ordered component and flag obvious discrepancies for clarification.",
+    title: "Customer photos",
+    body: "We photograph the received packaging and visible labels so the customer can review what arrived before onward delivery.",
   },
   {
-    title: "Dimensional checks",
-    body: "When applicable, accessible package dimensions can be checked against the ordered specification or manufacturer drawing before shipment.",
-  },
-  {
-    title: "Traceability release",
-    body: "We keep the order record, review notes, and available lot or date-code details organized while protecting confidential supplier identities and commercial terms.",
+    title: "Available documentation",
+    body: "We ask the source for available channel documents, lot details, or date codes and share what is provided for the specific quote or order.",
   },
 ];
 
 const PROCESS = [
   {
     step: "01",
-    title: "Inspect packaging",
-    body: "Review packaging condition and available label details for consistency with the ordered part and quantity.",
+    title: "Receive the order",
+    body: "We receive the parts ordered against the approved quotation and BOM requirements.",
   },
   {
     step: "02",
-    title: "Review markings and dimensions",
-    body: "Check visible part markings and, when applicable, accessible package dimensions against the order requirements.",
+    title: "Check the packaging visually",
+    body: "We look for obvious external packaging damage and compare visible packaging or label information with the order.",
   },
   {
     step: "03",
-    title: "Release with a clear record",
-    body: "Keep the order record and available lot or date-code information organized for the shipment without exposing confidential commercial details.",
+    title: "Photograph and report",
+    body: "We photograph the packaging and labels, report obvious issues, and prepare the order for onward delivery after customer review where required.",
   },
 ];
 
 const FAQ_ITEMS: FaqItem[] = [
   {
-    question: "How does SongGlow support component traceability?",
+    question: "What source documentation can SongGlow provide?",
     answer:
-      "SongGlow keeps order-level records together with available packaging, label, lot, and date-code information. The scope depends on the component and order. Confidential supplier identities, purchase prices, invoices, and other commercial terms are not part of the standard customer deliverables.",
+      "SongGlow requests available channel documentation from the supplier and keeps the customer order connected with the packaging and label photos taken after receipt. The documentation available varies by source and part, so it is confirmed for each quotation rather than guaranteed for every line.",
   },
   {
     question: "Can SongGlow source parts from the open market?",
     answer:
-      "Yes. For obsolete, allocation-constrained, or hard-to-find components, open-market sourcing may be necessary. We communicate relevant channel risk and the review scope without disclosing confidential supplier identities or commercial terms.",
+      "When requested parts are difficult to locate through regular channels, we may present other sourcing options. We describe the available documentation and relevant limitations so the customer can decide whether to proceed.",
   },
   {
     question: "What documentation can I request before ordering?",
     answer:
-      "Available order-level documentation depends on the component and transaction. Tell us your requirements with the RFQ and we will confirm what can be included. Supplier identities, upstream invoices, purchase prices, and confidential commercial records are not provided as standard deliverables.",
+      "Tell us the required channel, certificate, lot, or date-code information with the RFQ. We will ask the potential source and confirm what is available. We make a reasonable effort to obtain documentation, but cannot guarantee that every supplier will provide every requested record.",
   },
   {
-    question: "Is SongGlow ISO 9001 or AS9120 certified?",
+    question: "Does SongGlow perform X-ray or laboratory authentication?",
     answer:
-      "Not yet. SongGlow does not currently hold formal ISO 9001 or AS9120 certification. We are transparent about that status and focus on maintaining clear documentation, source communication, and evidence for each order.",
+      "No. SongGlow's standard receiving check is visual and does not include X-ray, XRF, decapsulation, electrical testing, solderability testing, or other laboratory authentication. Customers requiring those services should arrange an appropriately qualified third-party laboratory and tell us before ordering.",
   },
 ];
 
@@ -82,9 +77,9 @@ const pageSchema = {
   name: `${PAGE_TITLE} | ${SITE_NAME}`,
   url: `${SITE_URL}${PAGE_PATH}`,
   about: [
-    "Electronic component traceability",
+    "Electronic component receiving checks",
     "Electronic component sourcing",
-    "Supplier qualification",
+    "Supplier documentation",
   ],
 };
 
@@ -110,12 +105,12 @@ export default function QualityPage() {
       <header className="page-hero">
         <div className="wrap">
           <div className="eyebrow" data-hero-item>
-            Quality &amp; Traceability
+            Receiving Checks &amp; Documentation
           </div>
-          <h1 data-hero-item>Electronic component inspection and traceability</h1>
+          <h1 data-hero-item>Visual receiving checks and source documentation</h1>
           <p data-hero-item>
-            SongGlow helps OEM and EMS teams make informed sourcing decisions
-            with packaging, marking, dimensional, and order-level traceability reviews.
+            After parts reach us, we visually check packaging condition, take
+            photos for the customer, and organize available source documents.
           </p>
         </div>
       </header>
@@ -124,15 +119,15 @@ export default function QualityPage() {
         <div className="wrap">
           <div className="article" data-reveal>
             <p>
-              Traceability is more than a claim. It means keeping the order,
-              available lot or date-code details, and review notes connected so
-              the shipment record remains clear.
+              Our standard check is intentionally straightforward. We look for
+              obvious external packaging damage and compare visible packaging or
+              label information with the approved order.
             </p>
             <p>
-              Our standard review does not disclose confidential supplier
-              identities, upstream invoices, purchase prices, or other commercial
-              terms. We confirm the review scope and available order-level records
-              before you place an order.
+              This is not a determination of authenticity or electrical
+              performance. It does not include X-ray, decapsulation, electrical
+              testing, or other laboratory analysis. We confirm available source
+              documentation separately for each quotation.
             </p>
           </div>
         </div>
@@ -140,34 +135,9 @@ export default function QualityPage() {
 
       <section className="block tight">
         <div className="wrap">
-          <figure className="quality-workflow" data-reveal>
-            <div
-              className="quality-workflow-scroll"
-              tabIndex={0}
-              aria-label="Scrollable component verification workflow diagram"
-            >
-              <Image
-                src="/component-verification-traceability.png"
-                width={1774}
-                height={887}
-                sizes="(max-width: 700px) 760px, (max-width: 1240px) 92vw, 1144px"
-                alt="Three-step electronic component verification workflow: packaging inspection, marking and dimensional checks, and traceability release."
-              />
-            </div>
-            <figcaption>
-              AI-generated illustration of SongGlow&apos;s packaging, marking,
-              dimensional, and traceability review. The review scope depends on
-              the component and order requirements.
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section className="block tight">
-        <div className="wrap">
           <div className="section-head" style={{ marginBottom: 40 }} data-reveal>
             <div className="eyebrow">Our standard</div>
-            <h2>Clear information for every sourcing decision</h2>
+            <h2>What our standard receiving check includes</h2>
           </div>
           <div className="grid-3" data-reveal-group>
             {PRINCIPLES.map((item) => (
@@ -193,7 +163,7 @@ export default function QualityPage() {
         <div className="wrap">
           <div className="section-head" style={{ marginBottom: 40 }} data-reveal>
             <div className="eyebrow">How it works</div>
-            <h2>A practical three-step review</h2>
+            <h2>A practical three-step receiving process</h2>
           </div>
           <div className="grid-3" data-reveal-group>
             {PROCESS.map((item) => (
@@ -210,7 +180,7 @@ export default function QualityPage() {
       <section className="block tight">
         <div className="wrap">
           <div className="article" data-reveal>
-            <Faq items={FAQ_ITEMS} heading="Quality and traceability questions" />
+            <Faq items={FAQ_ITEMS} heading="Receiving and documentation questions" />
           </div>
           <div className="catalog-cta" data-reveal>
             <h2>Need documentation for a BOM or hard-to-find part?</h2>

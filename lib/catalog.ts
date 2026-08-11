@@ -347,9 +347,9 @@ export function productSeoDescription(
     .join(", ");
   const detailed = `${identity}: ${categoryName}${
     specText ? `, ${specText}` : ""
-  }. SongGlow RFQ for OEM/EMS sourcing, alternates and available traceability.`;
+  }. SongGlow RFQ for OEM/EMS sourcing, alternates, and available source documentation.`;
   if (detailed.length <= 160) return detailed;
-  return `${identity}: ${categoryName}. SongGlow RFQ for OEM/EMS sourcing, alternates and available traceability.`;
+  return `${identity}: ${categoryName}. SongGlow RFQ for OEM/EMS sourcing, alternates, and available source documentation.`;
 }
 
 /**
@@ -377,7 +377,7 @@ export function productSummary(p: Product): string {
     sentences.push(`Key specifications: ${top.join(", ")}.`);
   }
   sentences.push(
-    "SongGlow supplies this part with order-level traceability, 100% authentic. Request a quote for OEM and EMS production quantities."
+    "Send SongGlow the requested quantity and target date for supplier search, quote comparison, and confirmation of available source documentation."
   );
   return sentences.join(" ");
 }

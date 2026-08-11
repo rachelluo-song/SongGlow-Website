@@ -25,7 +25,7 @@ export function GuideResources({ currentSlug }: { currentSlug: string }) {
       <h2>Related SongGlow resources</h2>
       <div>
         <Link href="/bom-sourcing">BOM sourcing &amp; fulfillment →</Link>
-        <Link href="/quality">Quality &amp; traceability →</Link>
+        <Link href="/quality">Receiving checks &amp; documentation →</Link>
         <Link href="/components">Browse electronic components →</Link>
         {relatedGuides.map((guide) => (
           <Link key={guide.slug} href={`/guides/${guide.slug}`}>

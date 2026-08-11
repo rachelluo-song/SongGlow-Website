@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const OUTCOMES = [
   { value: "24h", label: "Initial response", detail: "Monday–Friday" },
   { value: "1", label: "Point of contact", detail: "Across the full BOM" },
-  { value: "100%", label: "Line-item visibility", detail: "No silent substitutions" },
+  { value: "Line by line", label: "Quote visibility", detail: "No silent substitutions" },
 ];
 
 const STEPS = [
@@ -32,12 +32,12 @@ const STEPS = [
   {
     num: "03",
     title: "Source and compare",
-    body: "We check qualified channels, compare lead time and landed cost, and identify alternates only where your team permits them.",
+    body: "We search supplier channels, compare requested quantity, lead time, and total cost, and identify alternates only where your team permits them.",
   },
   {
     num: "04",
     title: "Approve and deliver",
-    body: "You receive one organized quote. After approval, we coordinate suppliers, inspection, documentation, and consolidated delivery.",
+    body: "You receive one organized quote. After approval, we coordinate suppliers, visually check packaging after receipt, take photos, and arrange delivery.",
   },
 ];
 
@@ -47,7 +47,7 @@ const DELIVERABLES = [
   ["Risk flags", "Lifecycle, allocation, date-code, documentation, and open-market risks made visible before approval."],
   ["Alternate options", "Form-fit-function candidates presented separately for engineering review—never substituted silently."],
   ["Consolidated plan", "Multiple suppliers coordinated into one purchasing and delivery plan for easier execution."],
-  ["Traceability pack", "Available packaging, label, lot and date-code details, and review records kept with the order."],
+  ["Receiving record", "Packaging and label photos taken after receipt, plus available channel documents, lot details, or date codes when the supplier provides them."],
 ];
 
 const FITS = [
@@ -102,7 +102,7 @@ export default function BomSourcingPage() {
             <div className="eyebrow" data-hero-item>BOM Sourcing</div>
             <h1 data-hero-item>Electronic BOM sourcing, turned into a clear supply plan.</h1>
             <p data-hero-item>
-              One team to review every line, qualify supply, surface risk, and
+              One team to review every line, search suitable sources, surface risk, and
               coordinate delivery—without losing visibility along the way.
             </p>
             <div className="bom-hero-actions" data-hero-item>

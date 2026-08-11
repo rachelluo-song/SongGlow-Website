@@ -10,8 +10,8 @@ const GlobeSphere = dynamic(() => import("./globe-sphere"), { ssr: false });
 
 const TRUST_ITEMS = [
   {
-    title: "100% Authentic",
-    body: "Original, genuine components sourced through qualified channels.",
+    title: "Source Documentation",
+    body: "Available channel documents requested and shared when suppliers provide them.",
     href: "/guides/how-to-verify-authentic-electronic-components",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -32,8 +32,8 @@ const TRUST_ITEMS = [
     ),
   },
   {
-    title: "Order-Level Traceability",
-    body: "Available lot and date-code details kept with each order.",
+    title: "Receiving Photos",
+    body: "Packaging and labels photographed after the parts reach us.",
     href: "/quality",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -49,8 +49,8 @@ const TRUST_ITEMS = [
     ),
   },
   {
-    title: "Qualified Suppliers",
-    body: "Qualified sourcing channels help reduce counterfeit risk.",
+    title: "Quote Comparison",
+    body: "Sources compared for the requested quantity, lead time, and total value.",
     href: "/services",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -114,12 +114,12 @@ const SERVICE_PREVIEWS = [
 ];
 
 const COMMITMENTS = [
-  "100% authentic and original components",
-  "Order-level traceability when available",
-  "Qualified sourcing channels",
-  "Counterfeit-risk review",
-  "Packaging appropriate to the component",
-  "Lot and date code traceability, when available",
+  "Part numbers and requested quantities checked against the BOM",
+  "Supplier options compared for cost and lead time",
+  "Available channel documentation requested from the source",
+  "Visual receiving check for packaging condition",
+  "Packaging and label photos shared after receipt",
+  "No substitution without customer approval",
 ];
 
 export default function HomeContent({
@@ -147,7 +147,7 @@ export default function HomeContent({
             <div className="hero-row" data-hero-item>
               <span className="pill">
                 <span className="pill-dot" />
-                100% Authentic Components
+                BOM Sourcing Support
               </span>
             </div>
             <h1 data-hero-item data-hero-priority>
@@ -169,7 +169,7 @@ export default function HomeContent({
             </div>
             <p className="hero-sub" style={{ fontFamily: "var(--serif)" }} data-hero-item data-hero-priority>
               Source semiconductors, passives, electromechanical parts, and
-              hardware with one team and order-level traceability.
+              hardware with one team and available source documentation.
             </p>
             <div className="hero-cta-row" data-hero-item>
               <Link href="/contact" className="btn btn-navy btn-lg">
@@ -310,9 +310,9 @@ export default function HomeContent({
                   marginBottom: 8,
                 }}
               >
-                Counterfeit risk is the biggest threat to a production line.
-                Our process is designed to reduce it through qualified sourcing
-                channels and practical order-level review.
+                We keep the sourcing process practical and visible: match the
+                BOM, compare suitable quotes, request available source
+                documentation, and photograph the packaging after receipt.
               </p>
             </div>
             <div className="card" style={{ padding: 8 }} data-reveal>
@@ -356,7 +356,7 @@ export default function HomeContent({
                 Ready When You Are
               </div>
               <h2 style={{ fontSize: 38, maxWidth: 560 }}>
-                Send us your BOM - get sourcing back within 24 hours
+                Send us your BOM for a line-by-line sourcing review
               </h2>
             </div>
             <Link href="/contact" className="btn btn-navy btn-lg">

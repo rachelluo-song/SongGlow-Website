@@ -110,9 +110,9 @@ export default async function CatalogCategory({
           </h1>
           <p data-hero-item>
             {category
-              ? `${total} part${
+                ? `${total} part${
                   total === 1 ? "" : "s"
-                } listed - sourced through qualified channels, 100% authentic, with available order-level traceability confirmed per order.`
+                } listed for specification reference and RFQ. Availability, requested quantity, pricing, lead time, and source documentation are confirmed with each quote.`
               : "This category doesn't exist (or was renamed)."}
           </p>
         </div>
@@ -248,7 +248,8 @@ export default async function CatalogCategory({
             </h2>
             <p>
               We source far more than we list - send us a part number or your
-              whole BOM and we&apos;ll quote it within 24 hours.
+              whole BOM and we&apos;ll search suitable sources and respond with
+              the next steps.
             </p>
             <div className="catalog-cta-row">
               <Link href="/contact" className="btn btn-navy btn-lg">

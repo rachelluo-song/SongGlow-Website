@@ -18,12 +18,12 @@ const SERVICES = [
   {
     num: "03",
     title: "Cost Optimization",
-    body: "Competitive multi-supplier bidding and volume strategy to bring landed cost down without compromising authenticity.",
+    body: "Competitive multi-supplier bidding and quantity comparison to improve total value without changing the approved part requirements.",
   },
   {
     num: "04",
     title: "Multi-Supplier Sourcing",
-    body: "A qualified network spanning authorized distributors and vetted open-market partners, so no single point of failure holds up your line.",
+    body: "We search multiple supplier routes and compare quantity, lead time, pricing, and available documentation for each BOM line.",
   },
   {
     num: "05",
@@ -33,7 +33,7 @@ const SERVICES = [
   {
     num: "06",
     title: "Supply Risk Management",
-    body: "Inventory strategy, dual-sourcing, and lead-time monitoring built to keep your production schedule protected.",
+    body: "Second-source research, lead-time comparison, and clear sourcing notes to help your team evaluate supply risk.",
   },
 ];
 
@@ -45,13 +45,13 @@ const PROCESS_STEPS = [
   },
   {
     step: "Step 2",
-    title: "We source & verify",
-    body: "Every part is quoted, cross-checked against qualified suppliers, and authenticated.",
+    title: "We source & compare",
+    body: "We look for correctly specified parts in the requested quantities and compare suitable quotations.",
   },
   {
     step: "Step 3",
-    title: "Traceable delivery",
-    body: "Appropriate component packaging with available lot and date-code details kept with the order.",
+    title: "We receive & document",
+    body: "After receipt, we visually check packaging condition and share photos. Available channel documents are passed along when provided.",
   },
 ];
 

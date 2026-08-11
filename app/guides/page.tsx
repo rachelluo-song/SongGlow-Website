@@ -28,7 +28,7 @@ export default function GuidesIndexPage() {
           <h1 data-hero-item>Sourcing guides</h1>
           <p data-hero-item>
             Practical, no-fluff guidance for buyers and engineers on keeping a
-            production line supplied with genuine parts.
+            production team make better-documented sourcing decisions.
           </p>
         </div>
       </header>

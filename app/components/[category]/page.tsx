@@ -50,8 +50,8 @@ export async function generateMetadata({
   const lead = count
     ? `${title} from SongGlow: ${count.toLocaleString("en-US")} part${
         count === 1 ? "" : "s"
-      } with specs and datasheets, 100% authentic, with available order-level traceability confirmed per order.`
-    : `${title} from SongGlow: part numbers, specs and datasheets, 100% authentic, with available order-level traceability confirmed per order.`;
+      } with specs and datasheets for supplier search and RFQ. Availability and source documentation are confirmed with each quote.`
+    : `${title} from SongGlow: part numbers, specs and datasheets for supplier search and RFQ. Availability and source documentation are confirmed with each quote.`;
   return {
     title: `${title} - Electronic Components - SongGlow`,
     description: `${lead}${brandStr} Request a quote for OEM and EMS production quantities.`,

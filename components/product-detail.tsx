@@ -41,8 +41,8 @@ export default async function ProductDetail({
             </div>
             <h1 data-hero-item>Part not found</h1>
             <p data-hero-item>
-              This part isn&apos;t listed (or its number changed), but we can
-              almost certainly still source it.
+              This part isn&apos;t listed, or its number may have changed. Send us
+              the requirement and we can search potential sources.
             </p>
           </div>
         </header>
@@ -51,8 +51,8 @@ export default async function ProductDetail({
             <div className="catalog-cta" data-reveal>
               <h2>Send us the part number anyway</h2>
               <p>
-                We source far more than we list. We&apos;ll quote it within 24
-                hours.
+                We source far more than we list. Send the requested quantity and
+                target date so we can review the requirement.
               </p>
               <div className="catalog-cta-row">
                 <Link href="/contact" className="btn btn-navy btn-lg">
@@ -256,10 +256,10 @@ export default async function ProductDetail({
           <div className="catalog-cta" data-reveal>
             <h2>Need {product.part_number} in production quantities?</h2>
             <p>
-              Send us your target quantity and date. We&apos;ll quote it within
-              24 hours. We supply 100% authentic parts and confirm the available
-              order-level traceability for each quote. Review our{" "}
-              <Link href="/quality">quality and traceability process</Link> or{" "}
+              Send us your target quantity and date. We&apos;ll search our
+              supplier network and compare suitable quote options. We will also
+              confirm what source documentation is available. Review our{" "}
+              <Link href="/quality">receiving-check process</Link> or{" "}
               <Link href="/guides/how-to-verify-authentic-electronic-components">
                 component authenticity guide
               </Link>.

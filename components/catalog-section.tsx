@@ -24,7 +24,8 @@ function SourcingCta() {
       <p>
         The catalog shows a curated selection - most of what we place for
         customers never appears on a public list. Send us a part number or your
-        whole BOM and we&apos;ll quote it within 24 hours.
+        whole BOM and we&apos;ll search suitable sources and respond with the next
+        steps.
       </p>
       <Link href="/contact" className="btn btn-navy btn-lg">
         Request a quote
@@ -105,9 +106,9 @@ export default async function CatalogSection({
                 <div className="catalog-cta" data-reveal>
                   <h2>No matches for &ldquo;{query}&rdquo;</h2>
                   <p>
-                    Not listed doesn&apos;t mean not available - most of what we
-                    source never appears on a public list. Send us the part
-                    number and we&apos;ll quote it within 24 hours.
+                    The public catalog is not an availability list. Send us the
+                    part number and requested quantity and we&apos;ll search
+                    suitable sources.
                   </p>
                   <Link
                     href={`/contact?part=${encodeURIComponent(query ?? "")}`}
@@ -173,11 +174,11 @@ export default async function CatalogSection({
             </>
           ) : (
             <div className="catalog-cta" data-reveal>
-              <h2>This catalog is being stocked</h2>
+              <h2>This catalog is being expanded</h2>
               <p>
                 We&apos;re adding parts section by section. In the meantime, we
                 source far more than we list - send us the part number or your
-                whole BOM and we&apos;ll quote it within 24 hours.
+                whole BOM and we&apos;ll search suitable sources.
               </p>
               <Link href="/contact" className="btn btn-navy btn-lg">
                 Request a quote

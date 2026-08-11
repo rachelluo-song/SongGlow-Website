@@ -314,8 +314,8 @@ export default function AlternatesGuidePage() {
               put them in front of you. We handle the sourcing and the
               cross-referencing; final qualification for your design stays with
               your engineering team, which is exactly where it should be. Send us
-              the part number or your whole BOM, and we&apos;ll come back with
-              sourced alternates and pricing within 24 hours.
+              the part number or your whole BOM, and we&apos;ll research potential
+              alternates and suitable quote options.
             </p>
 
             <GuideSources sources={SOURCES} />
@@ -327,8 +327,9 @@ export default function AlternatesGuidePage() {
             <h2>Need an alternate for a constrained or discontinued part?</h2>
             <p>
               Send us the part number or your BOM. We&apos;ll come back within 24
-              hours with vetted alternates and 100% authentic parts. Available
-              order-level traceability is confirmed with the quote.
+              hours to confirm the requirement and next steps. Alternate
+              candidates require your engineering team&apos;s approval, and source
+              documentation is confirmed separately for each quote.
             </p>
             <div className="catalog-cta-row">
               <Link href="/contact" className="btn btn-navy btn-lg">

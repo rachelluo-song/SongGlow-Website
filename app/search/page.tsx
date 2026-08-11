@@ -103,9 +103,9 @@ export default async function SearchPage({
               <div className="catalog-cta" data-reveal>
                 <h2>No matches for &ldquo;{query}&rdquo;</h2>
                 <p>
-                  Not listed doesn&apos;t mean not available - most of what we
-                  source never appears on a public list. Send us the part
-                  number and we&apos;ll quote it within 24 hours.
+                  The public catalog is not an availability list. Send us the
+                  part number and requested quantity and we&apos;ll search
+                  suitable sources.
                 </p>
                 <Link
                   href={`/contact?part=${encodeURIComponent(query)}`}

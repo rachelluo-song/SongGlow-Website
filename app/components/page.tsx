@@ -4,7 +4,7 @@ import CatalogSection from "@/components/catalog-section";
 export const metadata: Metadata = {
   title: "Electronic Components Sourcing & RFQ - SongGlow",
   description:
-    "Search electronic component part numbers, specifications and datasheets. Request an RFQ from SongGlow for OEM and EMS sourcing, alternates and order-level traceability.",
+    "Search electronic component part numbers, specifications, and datasheets. Request an RFQ for supplier search, quote comparison, alternates, and available source documentation.",
   alternates: { canonical: "/components" },
 };
 
@@ -21,7 +21,7 @@ export default async function ComponentsPage({
     <CatalogSection
       section="components"
       title="Electronic Components"
-      intro="Semiconductors, passives, connectors and more - sourced through qualified channels, 100% authentic, with available order-level traceability confirmed per order."
+      intro="Semiconductors, passives, connectors, and more. Send the required part numbers and quantities for supplier search, quote comparison, and confirmation of available source documentation."
       query={typeof q === "string" ? q : undefined}
     />
   );

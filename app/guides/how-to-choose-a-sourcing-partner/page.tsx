@@ -91,7 +91,7 @@ const FAQ_ITEMS: FaqItem[] = [
     question:
       "What documentation should a sourcing partner provide?",
     answer:
-      "Ask what is available for the specific part and channel: a Certificate of Conformance where applicable, manufacturer and part-number details, quantities, lot or date codes, order-level records, and actual-stock photos when available. Upstream supplier identities, invoices, prices, and other commercial terms may remain confidential.",
+      "Ask what is available for the specific part and channel: a Certificate of Conformance where applicable, manufacturer and part-number details, quantities, lot or date codes, order-level records, and photos of the goods or packaging when the source can provide them. Upstream supplier identities, invoices, prices, and other commercial terms may remain confidential.",
   },
   {
     question:
@@ -102,7 +102,7 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What questions should I ask before placing an order?",
     answer:
-      "Ask where the parts come from, what documentation ships with them, how the supplier handles suspect or counterfeit parts, how fast they quote, and whether they can show you photos of the actual stock. Honest, specific answers are the signal you are looking for. Vague answers or a refusal to name the channel are a reason to walk away.",
+      "Ask where the parts come from, what documentation is available, how the supplier handles suspect or counterfeit parts, how fast they quote, and what receiving photos or checks they provide. Honest, specific answers are the signal you are looking for. Vague answers or a refusal to explain the channel are a reason to walk away.",
   },
 ];
 
@@ -133,7 +133,7 @@ export default function ChoosePartnerGuidePage() {
           <div className="article" data-reveal>
             <QuickAnswer>
               Choose a partner that names the sourcing channel, provides
-              traceability and actual-stock evidence, explains open-market
+              available documentation and receiving evidence, explains open-market
               risk, and remains accountable after delivery—not simply the
               supplier with the lowest line-item price.
             </QuickAnswer>
@@ -141,10 +141,9 @@ export default function ChoosePartnerGuidePage() {
               Two suppliers can quote the same part number at very different
               prices, and the cheaper one can still be the more expensive
               decision. What you are really buying from a sourcing partner is
-              certainty: that the parts are genuine, that they arrive on
-              schedule, and that someone can prove where they came from if a
-              board fails. Use the criteria below to evaluate anyone before you
-              hand them a BOM.
+              a clear explanation of the source, requirements, documentation,
+              delivery plan, and limitations. Use the criteria below to evaluate
+              anyone before you hand them a BOM.
             </p>
 
             <h2>1. Traceability and documentation</h2>
@@ -153,7 +152,7 @@ export default function ChoosePartnerGuidePage() {
               able to explain the sourcing channel and confirm which records are
               available for the specific order. Depending on the part and
               channel, that may include a Certificate of Conformance, packaging
-              and label details, lot or date codes, and actual-stock photos.
+              and label details, lot or date codes, and photos when available.
               Confidential upstream supplier identities, invoices, prices, and
               commercial terms do not need to be standard customer deliverables.
             </p>
@@ -221,19 +220,19 @@ export default function ChoosePartnerGuidePage() {
                 <li>Where do these parts come from, and can you document it?</li>
                 <li>What paperwork ships with the order?</li>
                 <li>How do you handle a part that fails incoming inspection?</li>
-                <li>Can you send photos of the actual stock before I pay?</li>
+                <li>What photos or receiving checks do you provide?</li>
                 <li>How fast do you quote, and who is my point of contact?</li>
               </ul>
             </div>
 
             <h2>How SongGlow measures up</h2>
             <p>
-              We built SongGlow around exactly these criteria. Every part is
-              sourced through qualified suppliers and reviewed against the order
-              requirements. We check available packaging, labels, markings, and,
-              when applicable, accessible package dimensions. Order records and
-              available lot or date-code details stay organized without exposing
-              confidential supplier identities, purchase prices, or commercial terms.
+              SongGlow works through the BOM line by line. We search for the
+              specified parts and quantities, compare suitable quotations, and
+              ask what source documentation is available. After receipt, we
+              visually check external packaging condition and photograph the
+              packaging and labels. We do not claim that this visual check proves
+              authenticity or replaces laboratory testing.
             </p>
             <p>
               Behind the quotes is an experienced team: a semiconductor
@@ -253,8 +252,8 @@ export default function ChoosePartnerGuidePage() {
             <h2>Ready to put a partner to the test?</h2>
             <p>
               Send us your BOM or a single hard-to-find part number. We will
-              confirm the available order-level traceability with the quote and
-              flag any line that carries real risk.
+              confirm the requirement, compare suitable quote options, and state
+              what source documentation is available.
             </p>
             <div className="catalog-cta-row">
               <Link href="/contact" className="btn btn-navy btn-lg">

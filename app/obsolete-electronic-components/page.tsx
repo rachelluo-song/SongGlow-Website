@@ -10,14 +10,14 @@ const PAGE_PATH = "/obsolete-electronic-components";
 export const metadata: Metadata = {
   title: "Obsolete & Hard-to-Find Electronic Components | SongGlow",
   description:
-    "Source obsolete, end-of-life, allocated, and hard-to-find electronic components with channel review, alternate options, and order-level traceability.",
+    "SongGlow searches for obsolete, end-of-life, allocated, and hard-to-find electronic components and compares available source, quantity, lead-time, and quote options.",
   alternates: { canonical: PAGE_PATH },
 };
 
 const CHALLENGES = [
   {
     title: "Obsolete and end-of-life parts",
-    body: "Search for discontinued semiconductors, passives, connectors, and electromechanical components after regular distribution inventory is exhausted.",
+    body: "Search for discontinued semiconductors, passives, connectors, and electromechanical components when regular channels cannot meet the requirement.",
   },
   {
     title: "Allocation and long lead times",
@@ -41,13 +41,13 @@ const PROCESS = [
   },
   {
     num: "02",
-    title: "Search qualified channels",
-    body: "We compare authorized distribution, vetted independent supply, and other appropriate routes while making relevant channel risk visible.",
+    title: "Search supplier routes",
+    body: "We compare potential sources for the correct part, requested quantity, lead time, pricing, and available documentation.",
   },
   {
     num: "03",
-    title: "Review supply and evidence",
-    body: "Available packaging, labels, markings, dimensions, lot information, and date codes are reviewed according to the component and order scope.",
+    title: "Receive and document",
+    body: "After receipt, we visually check external packaging condition and photograph the packaging and labels. Available source documents are organized with the order.",
   },
   {
     num: "04",
@@ -72,9 +72,9 @@ const FAQ_ITEMS: FaqItem[] = [
       "Yes. SongGlow searches appropriate supply channels for obsolete and discontinued components. Availability, source type, review scope, and documentation vary by part and are confirmed with the quote.",
   },
   {
-    question: "How do you reduce counterfeit risk for hard-to-find parts?",
+    question: "What checks do you perform for hard-to-find parts?",
     answer:
-      "We use qualified sourcing channels and review available packaging, labels, markings, dimensions, lot details, and date codes according to the part and order. We also communicate relevant open-market risk before an order is approved.",
+      "We compare potential sources and request available channel documentation before ordering. After receipt, we visually check external packaging condition and take photos of the packaging and labels. This is not laboratory authentication and does not include X-ray, decapsulation, or electrical testing.",
   },
   {
     question: "Can you recommend a replacement for an obsolete part?",
@@ -93,7 +93,7 @@ const serviceSchema = {
   "@type": "Service",
   name: "Obsolete and Hard-to-Find Electronic Component Sourcing",
   description:
-    "Sourcing for obsolete, end-of-life, allocated, and hard-to-find electronic components, including alternate research and order-level traceability.",
+    "Sourcing for obsolete, end-of-life, allocated, and hard-to-find electronic components, including quote comparison, alternate research, and available source documentation.",
   provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
   areaServed: "Worldwide",
   serviceType: "Obsolete electronic component sourcing",
@@ -131,7 +131,7 @@ export default function ObsoleteElectronicComponentsPage() {
             </h1>
             <p data-hero-item>
               Find end-of-life, allocated, and long-lead parts with clear supply
-              options, relevant risk visibility, and order-level traceability.
+              options, relevant limitations, and available source documentation.
             </p>
             <div className="bom-hero-actions" data-hero-item>
               <Link href="/contact?project=obsolete-part" className="btn btn-navy btn-lg">
@@ -156,7 +156,8 @@ export default function ObsoleteElectronicComponentsPage() {
             <p>
               Depending on the part, we review authorized distribution, vetted
               independent supply, alternate manufacturers, and lifecycle options.
-              The source type and review scope are made clear before approval.
+              The available source information and documentation are made clear
+              before approval.
             </p>
             <Link href="/quality" className="text-link">
               Review our quality approach →
@@ -210,7 +211,7 @@ export default function ObsoleteElectronicComponentsPage() {
             <div className="eyebrow">A Better RFQ</div>
             <h2>Details that help us search accurately</h2>
             <p>
-              Clear constraints prevent unsuitable inventory from being treated
+              Clear constraints prevent unsuitable offers from being treated
               as a match and help us return a more useful quote.
             </p>
           </div>

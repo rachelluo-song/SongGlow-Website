@@ -83,7 +83,7 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What documentation should I demand before parts ship?",
     answer:
-      "Ask what is available for the specific part and channel: a Certificate of Conformance where applicable, manufacturer and part-number details, quantities, lot or date codes, order-level records, and actual-stock photos when available. Date and lot codes should be consistent across the available paperwork, labels, and part markings. Confidential upstream identities and commercial terms may remain protected.",
+      "Ask what is available for the specific part and channel: a Certificate of Conformance where applicable, manufacturer and part-number details, quantities, lot or date codes, order-level records, and photos of the goods or packaging when the source can provide them. Date and lot codes should be consistent across the available paperwork, labels, and part markings. Confidential upstream identities and commercial terms may remain protected.",
   },
   {
     question: "Is it safe to buy from independent distributors?",
@@ -93,7 +93,7 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What are the biggest red flags of a counterfeit part?",
     answer:
-      "A price far below every other quote for a scarce part, no explanation of the sourcing channel or appropriate order records, mixed or implausible date codes within one lot, refusal to discuss an appropriate inspection scope, and photos that do not match the actual stock. Any one of these deserves further review before purchase.",
+      "A price far below every other quote for a scarce part, no explanation of the sourcing channel or appropriate order records, mixed or implausible date codes within one lot, refusal to discuss an appropriate inspection scope, and photos that do not match the goods delivered. Any one of these deserves further review before purchase.",
   },
 ];
 
@@ -251,8 +251,10 @@ export default function AuthenticityGuidePage() {
               finish and RoHS claims, <strong>decapsulation</strong> to read
               the die markings directly, plus solderability and electrical
               curve-trace testing against a known-good golden sample. None of
-              this is exotic. A reputable independent distributor will either
-              provide it or arrange it before you commit.
+              this is exotic. These services require appropriate equipment and
+              trained personnel; SongGlow&apos;s standard service does not perform
+              or include them. Customers who require laboratory testing should
+              arrange a qualified third party before ordering.
             </p>
 
             <div className="article-callout">
@@ -262,20 +264,19 @@ export default function AuthenticityGuidePage() {
                 <li>No channel explanation or appropriate order-level records</li>
                 <li>Mixed or implausible date codes within one lot</li>
                 <li>Refusal to discuss an appropriate inspection scope</li>
-                <li>Photos that don&apos;t match the actual stock, or reluctance to send any</li>
+                <li>Photos that do not match the goods delivered</li>
               </ul>
             </div>
 
-            <h2>How SongGlow handles authenticity</h2>
+            <h2>The scope of SongGlow&apos;s receiving check</h2>
             <p>
-              Every part we supply is sourced through qualified suppliers with
-              an organized order-level record. We review available packaging,
-              labels, markings, and, when applicable, accessible dimensions.
-              Available lot or date-code details stay with the order while
-              confidential supplier identities and commercial terms remain
-              protected. If a line carries additional sourcing risk, we&apos;d
-              rather explain the relevant considerations than overstate the
-              review performed.
+              We search potential sources, compare suitable quotations, and ask
+              what channel documentation is available. After receipt, we
+              visually check external packaging condition and photograph the
+              packaging and labels for the customer. This visual check cannot
+              establish authenticity or electrical performance and does not
+              include X-ray, XRF, decapsulation, electrical testing, or other
+              laboratory analysis.
             </p>
 
             <GuideSources sources={SOURCES} />
@@ -286,9 +287,9 @@ export default function AuthenticityGuidePage() {
           <div className="catalog-cta" data-reveal>
             <h2>Sourcing a hard-to-find part?</h2>
             <p>
-              Send us the part number and we&apos;ll quote it within 24 hours,
-              with 100% authentic parts and the available order-level
-              traceability confirmed for the quote.
+              Send us the part number, requested quantity, and target date. We
+              will search suitable sources, compare quote options, and state
+              what source documentation is available.
             </p>
             <div className="catalog-cta-row">
               <Link href="/contact" className="btn btn-navy btn-lg">
