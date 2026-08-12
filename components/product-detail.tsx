@@ -78,27 +78,25 @@ export default async function ProductDetail({
     .filter((p) => p.id !== product.id)
     .slice(0, RELATED_LIMIT);
 
-  const productSchema = {
+  const pageSchema = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "WebPage",
     name: product.name,
-    sku: product.part_number,
-    mpn: product.part_number,
     url: pageUrl,
-    category: category.name,
     description: summary,
-    ...(product.manufacturer
-      ? { brand: { "@type": "Brand", name: product.manufacturer } }
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    about: {
+      "@type": "Thing",
+      name: product.name,
+      identifier: product.part_number,
+      description: `${product.part_number} specification reference in ${category.name}`,
+    },
+    ...(drawable
+      ? { primaryImageOfPage: `${SITE_URL}/api/drawing/${product.id}` }
       : {}),
-    ...(drawable ? { image: `${SITE_URL}/api/drawing/${product.id}` } : {}),
-    additionalProperty: specs.map(([name, value]) => ({
-      "@type": "PropertyValue",
-      name,
-      value,
-    })),
-    // SongGlow is quote-to-order: there is no public price or guaranteed
-    // inventory. Product markup describes the item truthfully without an
-    // Offer that could imply direct checkout or a confirmed stock position.
+    // These are specification and RFQ reference pages, not ecommerce offers.
+    // Product/Offer markup would require a public price or availability claim
+    // that does not match SongGlow's quote-to-order model.
   };
 
   const breadcrumbSchema = {
@@ -129,7 +127,7 @@ export default async function ProductDetail({
 
   return (
     <Animate>
-      <JsonLd data={productSchema} />
+      <JsonLd data={pageSchema} />
       <JsonLd data={breadcrumbSchema} />
       <header className="page-hero">
         <div className="wrap wrap-wide">
