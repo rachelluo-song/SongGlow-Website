@@ -9,6 +9,8 @@ import {
 import { GUIDES } from "@/lib/guides";
 import { SITE_URL } from "@/lib/site";
 
+const CONTENT_UPDATE = "2026-08-12";
+
 // Catalog changes go live instantly (CSV upload), so the sitemap must too.
 export const dynamic = "force-dynamic";
 
@@ -38,17 +40,44 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const newestGuide = GUIDES.map((g) => g.datePublished).sort().at(-1);
 
   const staticPages: MetadataRoute.Sitemap = [
-    { url: SITE_URL, changeFrequency: "weekly", priority: 1, ...at(overall) },
-    { url: `${SITE_URL}/services`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/bom-sourcing`, changeFrequency: "monthly", priority: 0.9 },
+    {
+      url: SITE_URL,
+      changeFrequency: "weekly",
+      priority: 1,
+      lastModified: overall > CONTENT_UPDATE ? overall : CONTENT_UPDATE,
+    },
+    {
+      url: `${SITE_URL}/services`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      lastModified: CONTENT_UPDATE,
+    },
+    {
+      url: `${SITE_URL}/bom-sourcing`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+      lastModified: CONTENT_UPDATE,
+    },
     { url: `${SITE_URL}/bom-rfq-template`, changeFrequency: "monthly", priority: 0.9 },
+    {
+      url: `${SITE_URL}/electronic-component-sourcing-china`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+      lastModified: CONTENT_UPDATE,
+    },
     {
       url: `${SITE_URL}/obsolete-electronic-components`,
       changeFrequency: "monthly",
       priority: 0.9,
+      lastModified: CONTENT_UPDATE,
     },
     { url: `${SITE_URL}/quality`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/about`, changeFrequency: "monthly", priority: 0.7 },
+    {
+      url: `${SITE_URL}/about`,
+      changeFrequency: "monthly",
+      priority: 0.7,
+      lastModified: CONTENT_UPDATE,
+    },
     {
       url: `${SITE_URL}/components`,
       changeFrequency: "daily",
@@ -61,7 +90,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
       ...at(sectionDate.get("hardware")),
     },
-    { url: `${SITE_URL}/contact`, changeFrequency: "yearly", priority: 0.7 },
+    {
+      url: `${SITE_URL}/contact`,
+      changeFrequency: "yearly",
+      priority: 0.7,
+      lastModified: CONTENT_UPDATE,
+    },
     {
       url: `${SITE_URL}/guides`,
       changeFrequency: "monthly",

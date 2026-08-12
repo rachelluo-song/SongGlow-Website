@@ -26,6 +26,9 @@ export function GuideResources({ currentSlug }: { currentSlug: string }) {
       <div>
         <Link href="/bom-sourcing">BOM sourcing &amp; fulfillment →</Link>
         <Link href="/bom-rfq-template">Free BOM RFQ template →</Link>
+        <Link href="/electronic-component-sourcing-china">
+          Electronic component sourcing in China →
+        </Link>
         <Link href="/quality">Receiving checks &amp; documentation →</Link>
         <Link href="/components">Browse electronic components →</Link>
         {relatedGuides.map((guide) => (

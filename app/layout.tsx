@@ -98,6 +98,7 @@ const organizationSchema = {
     "Obsolete and end-of-life components",
     "Capacitor sourcing",
     "Electronic component quote comparison",
+    "China electronic component sourcing",
     "Supplier documentation coordination",
     "Visual packaging receiving checks",
   ],

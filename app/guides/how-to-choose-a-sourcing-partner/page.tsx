@@ -181,11 +181,11 @@ export default function ChoosePartnerGuidePage() {
             <h2>4. Coverage and reach</h2>
             <p>
               A partner worth keeping can handle more than the easy lines. Look
-              for the ability to quote a full bill of materials, find
-              form-fit-function alternates when a part is constrained, and reach
-              obsolete or hard-to-find parts other suppliers cannot place. The
-              value is having one point of contact for the whole list, not five
-              vendors for five problems.
+              for a clear process for multi-line bills of materials, potential
+              alternate research when a part is constrained, and wider
+              supplier-route searches for obsolete or hard-to-find parts. The
+              value is having one point of contact who reports suitable options
+              and unresolved lines honestly.
             </p>
 
             <h2>5. Responsiveness and communication</h2>

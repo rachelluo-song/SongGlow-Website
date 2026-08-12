@@ -20,12 +20,11 @@ type Props = {
 function SourcingCta() {
   return (
     <div className="catalog-cta" data-reveal>
-      <h2>We source far more than we list</h2>
+      <h2>Need a part that is not listed?</h2>
       <p>
-        The catalog shows a curated selection - most of what we place for
-        customers never appears on a public list. Send us a part number or your
-        whole BOM and we&apos;ll search suitable sources and respond with the next
-        steps.
+        The public catalog is a specification and RFQ reference, not an
+        availability list. Send the part number, requested quantity, and target
+        date and we&apos;ll search potential sources and confirm the next steps.
       </p>
       <Link href="/contact" className="btn btn-navy btn-lg">
         Request a quote
@@ -177,8 +176,8 @@ export default async function CatalogSection({
               <h2>This catalog is being expanded</h2>
               <p>
                 We&apos;re adding parts section by section. In the meantime, we
-                source far more than we list - send us the part number or your
-                whole BOM and we&apos;ll search suitable sources.
+                can search potential sources for parts that are not listed.
+                Send the part number, requested quantity, and target date.
               </p>
               <Link href="/contact" className="btn btn-navy btn-lg">
                 Request a quote

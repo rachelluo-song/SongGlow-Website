@@ -214,6 +214,12 @@ export default function AboutPage() {
               <Link href="/services" className="btn btn-ghost btn-lg">
                 Our sourcing services
               </Link>
+              <Link
+                href="/electronic-component-sourcing-china"
+                className="btn btn-ghost btn-lg"
+              >
+                China sourcing support
+              </Link>
             </div>
           </div>
         </div>

@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 };
 
 const OUTCOMES = [
-  { value: "24h", label: "Initial response", detail: "Monday–Friday" },
-  { value: "1", label: "Point of contact", detail: "Across the full BOM" },
+  { value: "1 day", label: "Initial reply target", detail: "Business days" },
+  { value: "1", label: "Point of contact", detail: "Across the submitted BOM" },
   { value: "Line by line", label: "Quote visibility", detail: "No silent substitutions" },
 ];
 
@@ -68,12 +68,12 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How quickly will I receive a BOM quote?",
     answer:
-      "SongGlow responds to BOM inquiries within 24 hours, Monday through Friday. Quote timing depends on the number of lines and how many parts require alternate, lifecycle, or open-market research; we will confirm the expected turnaround after the initial review.",
+      "SongGlow aims to acknowledge BOM inquiries within one business day. Quote timing depends on the number of lines and how many parts require alternate, lifecycle, or open-market research; we will confirm the expected turnaround after the initial review.",
   },
   {
     question: "Can SongGlow source both electronics and mechanical hardware?",
     answer:
-      "Yes. We can source semiconductors, passives, electromechanical components, and mechanical hardware such as fasteners, springs, gaskets, and enclosures within the same BOM request. The final quote keeps every line organized under one point of contact.",
+      "We can search potential sources for semiconductors, passives, electromechanical components, and mechanical hardware such as fasteners, springs, gaskets, and enclosures within the same BOM request. Suitable quote options and open questions are reported line by line.",
   },
   {
     question: "Can you recommend alternates for unavailable parts?",
@@ -102,8 +102,9 @@ export default function BomSourcingPage() {
             <div className="eyebrow" data-hero-item>BOM Sourcing</div>
             <h1 data-hero-item>Electronic BOM sourcing, turned into a clear supply plan.</h1>
             <p data-hero-item>
-              One team to review every line, search suitable sources, surface risk, and
-              coordinate delivery—without losing visibility along the way.
+              One team to review the submitted lines, search suitable sources,
+              surface risk, and coordinate delivery—without losing visibility
+              along the way.
             </p>
             <div className="bom-hero-actions" data-hero-item>
               <Link href="/contact?project=bom" className="btn btn-navy btn-lg">
@@ -199,13 +200,17 @@ export default function BomSourcingPage() {
         <div className="wrap bom-fit-grid">
           <div className="bom-fit-card" data-reveal>
             <div className="eyebrow">Built For Real BOMs</div>
-            <h2>Use us for one difficult line—or the entire list.</h2>
+            <h2>Use us for one difficult line—or a multi-line request.</h2>
             <p>
               SongGlow supports OEM, EMS, engineering, and procurement teams
               from Shenzhen and Hong Kong, with worldwide delivery.
             </p>
             <Link href="/obsolete-electronic-components" className="text-link">
               Sourcing an obsolete or hard-to-find line? →
+            </Link>
+            <br />
+            <Link href="/electronic-component-sourcing-china" className="text-link">
+              Electronic component sourcing support in China →
             </Link>
           </div>
           <ul className="bom-checklist" data-reveal-group>

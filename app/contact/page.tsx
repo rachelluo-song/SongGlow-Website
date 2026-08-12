@@ -4,7 +4,7 @@ import ContactContent from "./contact-content";
 export const metadata: Metadata = {
   title: "Contact - SongGlow",
   description:
-    "Have a BOM to source? Send SongGlow a message or reach a sales contact directly. We reply within 24 hours.",
+    "Have a BOM to source? Send SongGlow the part numbers, requested quantities, target dates, and sourcing requirements for an initial review.",
   alternates: { canonical: "/contact" },
 };
 

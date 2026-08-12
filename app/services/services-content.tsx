@@ -7,13 +7,13 @@ import { usePageAnimations } from "@/lib/use-page-animations";
 const SERVICES = [
   {
     num: "01",
-    title: "Complete BOM Sourcing",
-    body: "Send your full bill of materials and we quote, source, and manage every line item end to end - one point of contact for the whole list.",
+    title: "Multi-Line BOM Sourcing",
+    body: "Send your bill of materials and requested quantities for line-by-line review, potential-source search, and suitable quote comparison.",
   },
   {
     num: "02",
     title: "Alternative Component Recommendations",
-    body: "Cross-referenced, form-fit-function alternates for parts that are constrained, discontinued, or overpriced - vetted before we ever suggest them.",
+    body: "Potential form-fit-function candidates presented separately for customer engineering review when alternate research is requested.",
   },
   {
     num: "03",
@@ -28,7 +28,7 @@ const SERVICES = [
   {
     num: "05",
     title: "Obsolete & Hard-to-Find Components",
-    body: "Deep-reach sourcing for end-of-life, long-lead, and allocation-constrained parts other suppliers can't place.",
+    body: "Wider supplier-route research for end-of-life, long-lead, and allocation-constrained requirements.",
   },
   {
     num: "06",
@@ -89,6 +89,13 @@ export default function ServicesContent() {
           <div style={{ marginTop: 36, textAlign: "center" }} data-reveal>
             <Link href="/obsolete-electronic-components" className="btn btn-ghost">
               Explore Obsolete Component Sourcing →
+            </Link>
+            <Link
+              href="/electronic-component-sourcing-china"
+              className="btn btn-ghost"
+              style={{ marginLeft: 12 }}
+            >
+              Electronic Component Sourcing in China →
             </Link>
           </div>
         </div>

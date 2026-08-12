@@ -323,8 +323,8 @@ export default function ObsoleteSourcingGuidePage() {
             <h2>Chasing an obsolete or end-of-life part?</h2>
             <p>
               Send us the part number and your remaining demand. We&apos;ll come
-              back within 24 hours to confirm the requirement and next steps.
-              Suitable source options and available documentation are confirmed
+              back with an initial review and the next questions. Suitable
+              source options, timing, and available documentation are confirmed
               separately for each quote.
             </p>
             <div className="catalog-cta-row">

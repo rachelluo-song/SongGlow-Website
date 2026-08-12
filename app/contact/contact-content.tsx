@@ -60,8 +60,8 @@ export default function ContactContent() {
           </div>
           <h1 data-hero-item>Have a BOM to source?</h1>
           <p data-hero-item>
-            Fill out the form below and our team will get back to you within 24
-            hours - or reach out to a sales contact directly.
+            Fill out the form below and our team will aim to reply within one
+            business day—or reach out to a sales contact directly.
           </p>
         </div>
       </header>
@@ -138,8 +138,9 @@ export default function ContactContent() {
                     lineHeight: 1.6,
                   }}
                 >
-                  Our team replies to every inquiry within 24 hours, Monday
-                  through Friday.
+                  Our team aims to acknowledge inquiries within one business
+                  day, Monday through Friday. Detailed quote timing depends on
+                  the BOM and supplier research required.
                 </p>
               </div>
             </div>

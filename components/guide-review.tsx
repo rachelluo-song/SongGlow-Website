@@ -1,6 +1,6 @@
 import { SITE_URL } from "@/lib/site";
 
-export const GUIDE_REVIEW_DATE = "2026-08-11T00:00:00Z";
+export const GUIDE_REVIEW_DATE = "2026-08-12T00:00:00Z";
 const RACHEL_LINKEDIN = "https://www.linkedin.com/in/rachel-y-lo-6499a0387/";
 
 export const reviewedBySchema = {
@@ -33,7 +33,7 @@ export default function GuideReview() {
         , Sales Manager
       </span>
       <span aria-hidden>•</span>
-      <time dateTime={GUIDE_REVIEW_DATE}>Last reviewed August 11, 2026</time>
+      <time dateTime={GUIDE_REVIEW_DATE}>Last reviewed August 12, 2026</time>
     </div>
   );
 }

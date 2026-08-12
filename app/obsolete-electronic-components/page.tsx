@@ -248,7 +248,10 @@ export default function ObsoleteElectronicComponentsPage() {
             <div>
               <div className="eyebrow">Start With the Part Number</div>
               <h2>Let us map the available sourcing routes.</h2>
-              <p>We respond to RFQs within 24 hours, Monday through Friday.</p>
+              <p>
+                We aim to acknowledge RFQs within one business day, Monday
+                through Friday. Research and quote timing varies by part.
+              </p>
             </div>
             <Link href="/contact?project=obsolete-part" className="btn btn-clay btn-lg">
               Request a Quote

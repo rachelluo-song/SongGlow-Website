@@ -68,8 +68,8 @@ const TRUST_ITEMS = [
 
 const SERVICE_PREVIEWS = [
   {
-    title: "Complete BOM Sourcing",
-    body: "Upload your full bill of materials and we quote, source and manage every line item end to end.",
+    title: "Multi-Line BOM Sourcing",
+    body: "Send your bill of materials and requested quantities for line-by-line review, supplier search, and suitable quote comparison.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
         <path
@@ -83,7 +83,7 @@ const SERVICE_PREVIEWS = [
   },
   {
     title: "Obsolete & Hard-to-Find",
-    body: "Deep supplier network reach for end-of-life and allocation-constrained parts others can't place.",
+    body: "Wider supplier-route research for end-of-life, allocation-constrained, and difficult BOM lines.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
         <path
@@ -153,7 +153,7 @@ export default function HomeContent({
             <h1 data-hero-item data-hero-priority>
               Electronic component sourcing
               <br />
-              for your entire BOM.
+              for multi-line BOMs.
             </h1>
             <div className="hero-row" data-hero-item>
               <Link
@@ -215,10 +215,10 @@ export default function HomeContent({
           <div className="wrap">
             <div className="section-head" data-reveal>
               <div className="eyebrow">Browse The Catalog</div>
-              <h2>Components &amp; hardware, ready to quote</h2>
+              <h2>Components &amp; hardware, organized for RFQ</h2>
               <p>
-                A curated selection from our sourcing network - and we place
-                far more than we list.
+                A specification reference for preparing sourcing requests.
+                Catalog listings do not represent current availability.
               </p>
             </div>
             <div className="cat-grid cat-grid-home" data-reveal-group>
@@ -268,7 +268,7 @@ export default function HomeContent({
             <h2>Sourcing support built for OEM &amp; EMS teams</h2>
             <p>
               From electronic BOM sourcing to obsolete and hard-to-find
-              components, SongGlow keeps your production line supplied.
+              components, SongGlow supports production sourcing teams.
             </p>
           </div>
           <div className="grid-3" data-reveal-group>
@@ -290,6 +290,13 @@ export default function HomeContent({
               style={{ marginLeft: 12 }}
             >
               Source Obsolete Parts →
+            </Link>
+            <Link
+              href="/electronic-component-sourcing-china"
+              className="btn btn-ghost"
+              style={{ marginLeft: 12 }}
+            >
+              China Sourcing Support →
             </Link>
           </div>
         </div>

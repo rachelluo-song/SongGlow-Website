@@ -64,7 +64,7 @@ export const SEARCH_LIMIT = 200;
 
 /**
  * Server-side only (service_role key). Returns [] on any error — e.g. the
- * table not existing yet — so pages render their "being stocked" states.
+ * table not existing yet — so pages render their empty-catalog states.
  */
 function buildQuery(
   supabase: NonNullable<ReturnType<typeof getClient>>,
