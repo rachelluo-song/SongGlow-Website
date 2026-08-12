@@ -13,12 +13,20 @@ export type GuideMeta = {
 
 export const GUIDES: GuideMeta[] = [
   {
+    slug: "how-to-prepare-a-bom-for-electronic-component-sourcing",
+    title: "How to Prepare a BOM for Electronic Component Sourcing",
+    blurb:
+      "A line-by-line guide to manufacturer part numbers, quantities, approved alternates, target dates, documentation requirements, and the fields that make supplier quotes easier to compare.",
+    datePublished: "2026-08-11",
+    dateModified: "2026-08-11",
+  },
+  {
     slug: "how-to-choose-a-sourcing-partner",
     title: "How to Choose an Electronic Components Sourcing Partner",
     blurb:
       "The criteria that separate a real sourcing partner from a broker: traceability, channels, counterfeit avoidance, coverage, and the exact questions to ask before you commit an order.",
     datePublished: "2026-08-01",
-    dateModified: "2026-08-09",
+    dateModified: "2026-08-11",
   },
   {
     slug: "how-to-find-component-alternates",
@@ -26,7 +34,7 @@ export const GUIDES: GuideMeta[] = [
     blurb:
       "Finding a substitute you can trust: form-fit-function alternates, cross-referencing without getting burned, the datasheet parameters that actually bite, and how to second-source before you need to.",
     datePublished: "2026-07-22",
-    dateModified: "2026-08-09",
+    dateModified: "2026-08-11",
   },
   {
     slug: "how-to-source-obsolete-electronic-components",
@@ -34,7 +42,7 @@ export const GUIDES: GuideMeta[] = [
     blurb:
       "What to do when a part goes end-of-life: last-time buys, approved alternates, authorized aftermarket, and how to buy on the open market without getting burned.",
     datePublished: "2026-07-22",
-    dateModified: "2026-08-09",
+    dateModified: "2026-08-11",
   },
   {
     slug: "how-to-verify-authentic-electronic-components",
@@ -42,6 +50,6 @@ export const GUIDES: GuideMeta[] = [
     blurb:
       "A practical counterfeit-detection guide: sourcing rules, the documentation to demand, package and marking inspection, lab tests, and the red flags that should stop a purchase.",
     datePublished: "2026-07-20",
-    dateModified: "2026-08-09",
+    dateModified: "2026-08-11",
   },
 ];

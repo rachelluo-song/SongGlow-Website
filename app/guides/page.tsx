@@ -27,8 +27,8 @@ export default function GuidesIndexPage() {
           </div>
           <h1 data-hero-item>Sourcing guides</h1>
           <p data-hero-item>
-            Practical, no-fluff guidance for buyers and engineers on keeping a
-            production team make better-documented sourcing decisions.
+            Practical, no-fluff guidance that helps buyers and engineers make
+            better-documented sourcing decisions.
           </p>
         </div>
       </header>

@@ -257,6 +257,14 @@ export default async function CatalogCategory({
                   ))}
                 </ul>
                 <Faq items={seo.faq} heading={`${category?.name ?? "Component"} sourcing questions`} />
+                <p>
+                  Sourcing several lines at once? Use the{" "}
+                  <Link href="/bom-rfq-template">free BOM RFQ template</Link>{" "}
+                  and our guide to{" "}
+                  <Link href="/guides/how-to-prepare-a-bom-for-electronic-component-sourcing">
+                    preparing an electronic BOM for sourcing
+                  </Link>.
+                </p>
               </div>
             </section>
           ) : null}

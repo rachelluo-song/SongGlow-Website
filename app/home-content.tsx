@@ -362,6 +362,13 @@ export default function HomeContent({
             <Link href="/contact" className="btn btn-navy btn-lg">
               Contact Our Team
             </Link>
+            <Link
+              href="/bom-rfq-template"
+              className="btn btn-ghost btn-lg"
+              style={{ marginLeft: 12, color: "var(--cream)", borderColor: "rgba(255,255,255,.35)" }}
+            >
+              Free BOM Template
+            </Link>
           </div>
         </div>
       </section>

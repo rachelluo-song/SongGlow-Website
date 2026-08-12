@@ -25,6 +25,7 @@ export function GuideResources({ currentSlug }: { currentSlug: string }) {
       <h2>Related SongGlow resources</h2>
       <div>
         <Link href="/bom-sourcing">BOM sourcing &amp; fulfillment →</Link>
+        <Link href="/bom-rfq-template">Free BOM RFQ template →</Link>
         <Link href="/quality">Receiving checks &amp; documentation →</Link>
         <Link href="/components">Browse electronic components →</Link>
         {relatedGuides.map((guide) => (

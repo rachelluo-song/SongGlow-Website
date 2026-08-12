@@ -11,6 +11,7 @@ export default function SiteFooter() {
             <Link href="/components">Components</Link>
             <Link href="/hardware">Hardware</Link>
             <Link href="/bom-sourcing">BOM Sourcing</Link>
+            <Link href="/bom-rfq-template">BOM RFQ Template</Link>
             <Link href="/obsolete-electronic-components">Obsolete Components</Link>
             <Link href="/services">Services</Link>
             <Link href="/quality">Receiving Checks</Link>

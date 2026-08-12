@@ -41,6 +41,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: SITE_URL, changeFrequency: "weekly", priority: 1, ...at(overall) },
     { url: `${SITE_URL}/services`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/bom-sourcing`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${SITE_URL}/bom-rfq-template`, changeFrequency: "monthly", priority: 0.9 },
     {
       url: `${SITE_URL}/obsolete-electronic-components`,
       changeFrequency: "monthly",

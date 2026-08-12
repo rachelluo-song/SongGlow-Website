@@ -109,13 +109,9 @@ export default function BomSourcingPage() {
               <Link href="/contact?project=bom" className="btn btn-navy btn-lg">
                 Send Your BOM
               </Link>
-              <a
-                href="/SongGlow-BOM-RFQ-Template.xlsx"
-                className="btn btn-ghost btn-lg"
-                download="SongGlow-BOM-RFQ-Template.xlsx"
-              >
-                Download BOM Template
-              </a>
+              <Link href="/bom-rfq-template" className="btn btn-ghost btn-lg">
+                Free BOM RFQ Template
+              </Link>
             </div>
             <p className="bom-file-note" data-hero-item>
               Use our Excel template—or send your existing CSV, PDF, drawings,
@@ -226,6 +222,14 @@ export default function BomSourcingPage() {
               When an unavailable line needs a substitute, use our guide to{" "}
               <Link href="/guides/how-to-find-component-alternates">
                 finding and qualifying electronic component alternates
+              </Link>.
+            </p>
+            <p>
+              Preparing a new sourcing file? Download the{" "}
+              <Link href="/bom-rfq-template">free electronic BOM RFQ template</Link>{" "}
+              or follow our guide to{" "}
+              <Link href="/guides/how-to-prepare-a-bom-for-electronic-component-sourcing">
+                preparing a BOM for component sourcing
               </Link>.
             </p>
           </div>
