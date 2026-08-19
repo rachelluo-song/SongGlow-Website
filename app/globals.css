@@ -836,7 +836,7 @@ footer {
   border-bottom: 1px solid var(--line);
 }
 .bom-hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 80px; align-items: center; }
-.bom-hero-copy h1 { font-size: clamp(44px, 5.2vw, 70px); max-width: 760px; }
+.bom-hero-copy h1 { font-size: clamp(40px, 4.3vw, 60px); max-width: 760px; }
 .bom-hero-copy > p { max-width: 650px; margin-top: 24px; font-size: 19px; line-height: 1.65; color: var(--ink-soft); }
 .bom-hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
 .bom-hero-copy .bom-file-note { margin-top: 16px; font-size: 13.5px; color: var(--ink-faint); }
@@ -1912,7 +1912,7 @@ input[type="file"]::file-selector-button:hover {
   }
   .bom-hero { padding: 52px 0 64px; }
   .bom-hero-grid, .bom-split, .bom-fit-grid { grid-template-columns: 1fr; gap: 50px; }
-  .bom-hero-copy h1 { font-size: clamp(38px, 10vw, 56px); }
+  .bom-hero-copy h1 { font-size: clamp(34px, 8.5vw, 46px); }
   .bom-process { grid-template-columns: 1fr 1fr; }
   .bom-step:nth-child(3) { border-left: 0; padding-left: 0; }
   .bom-sticky-copy { position: static; }
