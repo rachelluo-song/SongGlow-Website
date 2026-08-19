@@ -913,19 +913,93 @@ export function slugifyPart(partNumber: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
-/** A single product by category + part slug, with its category for context. */
-export async function getProductBySlug(
+type ProductHit = { category: CatalogCategory; product: Product };
+
+/**
+ * Fast path for the overwhelmingly common case where a part number is already
+ * URL-safe. One exact lookup plus one category lookup replaces paging through
+ * the entire Components or Hardware section for every exact-part request.
+ */
+async function getProductByExactPartNumber(
   section: CatalogSection,
   categorySlug: string,
   partSlug: string
-): Promise<{ category: CatalogCategory; product: Product } | null> {
-  const category = await getCategoryBySlug(section, categorySlug);
-  if (!category) return null;
-  const product = category.products.find(
-    (p) => slugifyPart(p.part_number) === partSlug
+): Promise<ProductHit | null> {
+  const supabase = getClient();
+  if (!supabase) return null;
+
+  const { data: matches, error: productError } = await supabase
+    .from("products")
+    .select(COLUMNS)
+    .eq("section", section)
+    .eq("part_number", partSlug);
+  if (productError) {
+    console.error("[catalog] exact product fetch failed:", productError.message);
+    return null;
+  }
+
+  const product = ((matches ?? []) as Product[]).find(
+    (candidate) =>
+      slugifyCategory(candidate.category) === categorySlug &&
+      slugifyPart(candidate.part_number) === partSlug
   );
-  return product ? { category, product } : null;
+  if (!product) return null;
+
+  const products: Product[] = [];
+  for (let from = 0; ; from += PAGE_SIZE) {
+    const { data, error } = await supabase
+      .from("products")
+      .select(COLUMNS)
+      .eq("section", section)
+      .eq("category", product.category)
+      .order("part_number", { ascending: true })
+      .range(from, from + PAGE_SIZE - 1);
+    if (error) {
+      console.error("[catalog] product category fetch failed:", error.message);
+      return null;
+    }
+    const rows = (data ?? []) as Product[];
+    products.push(...rows);
+    if (rows.length < PAGE_SIZE) break;
+  }
+
+  return {
+    category: {
+      name: product.category,
+      slug: categorySlug,
+      products,
+    },
+    product,
+  };
 }
+
+/**
+ * A single product by category + part slug, with its category for context.
+ * React cache deduplicates the metadata, page guard and page-body lookups made
+ * while rendering one request. Part numbers containing characters normalized
+ * out of their URL retain the existing full-catalog fallback for correctness.
+ */
+export const getProductBySlug = cache(
+  async (
+    section: CatalogSection,
+    categorySlug: string,
+    partSlug: string
+  ): Promise<ProductHit | null> => {
+    const exact = await getProductByExactPartNumber(
+      section,
+      categorySlug,
+      partSlug
+    );
+    if (exact) return exact;
+
+    const category = await getCategoryBySlug(section, categorySlug);
+    if (!category) return null;
+    const product = category.products.find(
+      (candidate) => slugifyPart(candidate.part_number) === partSlug
+    );
+    return product ? { category, product } : null;
+  }
+);
 
 /** Every product in the catalog — sitemap generation. */
 export async function getAllProducts(
