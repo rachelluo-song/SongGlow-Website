@@ -6,6 +6,8 @@ export type CategorySeoContent = {
   intro: string[];
   rfqDetails: string[];
   faq: Array<{ question: string; answer: string }>;
+  /** Exact part pages surfaced from real Search Console demand. */
+  featuredPartNumbers?: string[];
 };
 
 const DOCUMENTATION_ANSWER =
@@ -202,6 +204,13 @@ const CATEGORY_SEO: Record<string, CategorySeoContent> = {
       "Power rating, maximum voltage, and package size",
       "Pulse, automotive, or other qualification requirements",
       "Requested quantity, target date, and approved alternates",
+    ],
+    featuredPartNumbers: [
+      "RC0402FR-07100RL",
+      "RC0402FR-0710KL",
+      "RC0402FR-074K7L",
+      "RC0603FR-073K3L",
+      "RC0603FR-0710KL",
     ],
     faq: [
       {

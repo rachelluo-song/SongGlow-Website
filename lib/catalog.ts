@@ -928,8 +928,10 @@ export async function getProductBySlug(
 }
 
 /** Every product in the catalog — sitemap generation. */
-export async function getAllProducts(): Promise<Product[]> {
-  return fetchProducts();
+export async function getAllProducts(
+  section?: CatalogSection
+): Promise<Product[]> {
+  return fetchProducts(section);
 }
 
 export type SearchResultCategory = {

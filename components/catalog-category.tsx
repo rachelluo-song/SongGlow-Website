@@ -7,6 +7,7 @@ import {
   getCategoryBySlug,
   getSpecFacets,
   productHasBrand,
+  slugifyPart,
   type CatalogSection as Section,
 } from "@/lib/catalog";
 import { getCategorySeo } from "@/lib/category-seo";
@@ -68,6 +69,11 @@ export default async function CatalogCategory({
   const current = Math.min(Math.max(1, page), totalPages);
   const start = (current - 1) * PER_PAGE;
   const visible = products.slice(start, start + PER_PAGE);
+  const featuredProducts = (seo?.featuredPartNumbers ?? [])
+    .map((partNumber) =>
+      baseProducts.find((product) => product.part_number === partNumber)
+    )
+    .filter((product): product is (typeof baseProducts)[number] => Boolean(product));
 
   const urlWith = (over: {
     brand?: string | null;
@@ -192,6 +198,34 @@ export default async function CatalogCategory({
                 </nav>
               );
             })}
+
+          {featuredProducts.length > 0 &&
+          current === 1 &&
+          !activeBrand &&
+          Object.keys(activeSpecs).length === 0 ? (
+            <section className="featured-parts" data-reveal>
+              <div>
+                <div className="eyebrow">Search Demand</div>
+                <h2>Frequently searched {category?.name.toLowerCase()} part numbers</h2>
+                <p>
+                  Direct specification references for part numbers currently
+                  appearing in search. Catalog listings do not represent
+                  current availability.
+                </p>
+              </div>
+              <nav aria-label={`Frequently searched ${category?.name} part numbers`}>
+                {featuredProducts.map((product) => (
+                  <Link
+                    key={product.id}
+                    href={`${basePath}/${slug}/${slugifyPart(product.part_number)}`}
+                    className="brand-chip"
+                  >
+                    {product.part_number}
+                  </Link>
+                ))}
+              </nav>
+            </section>
+          ) : null}
 
           {category ? (
             total > 0 ? (

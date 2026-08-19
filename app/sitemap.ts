@@ -4,7 +4,6 @@ import {
   getCategorySummaries,
   hardwareFamily,
   slugifyCategory,
-  slugifyPart,
 } from "@/lib/catalog";
 import { GUIDES } from "@/lib/guides";
 import { SITE_URL } from "@/lib/site";
@@ -140,14 +139,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       ...at(famDate.get(`hardware/${slug}`)),
     }));
 
-  const productPages: MetadataRoute.Sitemap = products.map((p) => ({
-    url: `${SITE_URL}/${p.section}/${slugifyCategory(
-      p.category
-    )}/${slugifyPart(p.part_number)}`,
-    changeFrequency: "monthly",
-    priority: 0.6,
-    ...at(p.created_at ?? undefined),
-  }));
-
-  return [...staticPages, ...familyPages, ...categoryPages, ...productPages];
+  // Exact product pages live in section-specific sitemaps. Keeping this root
+  // sitemap focused on the main content and category hubs makes crawl progress
+  // measurable without changing which canonical pages are eligible to index.
+  return [...staticPages, ...familyPages, ...categoryPages];
 }
