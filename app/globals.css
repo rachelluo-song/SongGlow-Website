@@ -1341,6 +1341,27 @@ input[type="file"]::file-selector-button:hover {
   color: var(--ink-soft);
 }
 
+.product-reference-copy {
+  max-width: 860px;
+  margin: 30px 0 24px;
+}
+.product-reference-copy h2,
+.product-related h2 {
+  margin-bottom: 10px;
+  font-size: clamp(22px, 2.4vw, 30px);
+}
+.product-reference-copy p {
+  max-width: 780px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+.product-related {
+  margin-top: 34px;
+}
+.product-related .brand-filters {
+  margin-top: 14px;
+}
+
 /* Category directory cards */
 .cat-grid {
   display: grid;

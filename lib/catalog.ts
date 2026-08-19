@@ -324,11 +324,11 @@ export function productSeoTitle(
     : "";
   const specValues = productSeoSpecs(product).map(([, value]) => value);
   const candidates = [
-    [product.part_number, maker, ...specValues, categoryName, "| SongGlow RFQ"],
-    [product.part_number, maker, categoryName, "| SongGlow RFQ"],
-    [product.part_number, categoryName, "| SongGlow RFQ"],
-    [product.part_number, maker, "| SongGlow RFQ"],
-    [product.part_number, "| SongGlow RFQ"],
+    [product.part_number, maker, ...specValues, categoryName, "| SongGlow"],
+    [product.part_number, maker, categoryName, "Specifications | SongGlow"],
+    [product.part_number, categoryName, "Specifications | SongGlow"],
+    [product.part_number, maker, "Specifications | SongGlow"],
+    [product.part_number, "Specifications | SongGlow"],
   ].map((parts) => parts.filter(Boolean).join(" "));
   return candidates.find((title) => title.length <= SEO_TITLE_LIMIT) ?? candidates.at(-1)!;
 }
@@ -342,14 +342,56 @@ export function productSeoDescription(
     ? splitBrands(product.manufacturer)[0]
     : "";
   const identity = `${product.part_number}${maker ? ` by ${maker}` : ""}`;
-  const specText = productSeoSpecs(product)
+  const specText = orderedSpecs(product.specs)
+    .slice(0, 2)
     .map(([name, value]) => `${value} ${name.toLowerCase()}`)
     .join(", ");
-  const detailed = `${identity}: ${categoryName}${
-    specText ? `, ${specText}` : ""
-  }. SongGlow RFQ for OEM/EMS sourcing, alternates, and available source documentation.`;
+  const detailed = `${identity}${specText ? `: ${specText}` : ""} ${categoryName.toLowerCase()}. Review specifications and send your quantity for supplier search and quote comparison.`;
   if (detailed.length <= 160) return detailed;
-  return `${identity}: ${categoryName}. SongGlow RFQ for OEM/EMS sourcing, alternates, and available source documentation.`;
+  return `Review ${identity} ${categoryName.toLowerCase()} specifications. Send the requested quantity for supplier search, lead-time review, and quote comparison.`;
+}
+
+/**
+ * Related part-number links ordered by specification similarity instead of
+ * catalog position. This creates useful internal links between close variants
+ * (package, value, tolerance and series) on every exact-part page.
+ */
+export function relatedProducts(
+  product: Product,
+  products: Product[]
+): Product[] {
+  const maker = splitBrands(product.manufacturer ?? "")[0]?.toLowerCase();
+  const score = (candidate: Product) => {
+    const candidateMaker = splitBrands(
+      candidate.manufacturer ?? ""
+    )[0]?.toLowerCase();
+    let total = maker && candidateMaker === maker ? 4 : 0;
+    const weights: Record<string, number> = {
+      Package: 4,
+      Resistance: 3,
+      Capacitance: 3,
+      Inductance: 3,
+      Frequency: 3,
+      Tolerance: 2,
+      Power: 1,
+      Series: 1,
+    };
+    for (const [key, weight] of Object.entries(weights)) {
+      const value = product.specs?.[key];
+      if (value && candidate.specs?.[key] === value) total += weight;
+    }
+    return total;
+  };
+
+  return products
+    .filter((candidate) => candidate.id !== product.id)
+    .map((candidate) => ({ candidate, score: score(candidate) }))
+    .sort(
+      (a, b) =>
+        b.score - a.score ||
+        a.candidate.part_number.localeCompare(b.candidate.part_number)
+    )
+    .map(({ candidate }) => candidate);
 }
 
 /**

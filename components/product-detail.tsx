@@ -5,6 +5,8 @@ import {
   getProductBySlug,
   orderedSpecs,
   productSummary,
+  relatedProducts,
+  slugifyCategory,
   slugifyPart,
   type CatalogSection as Section,
 } from "@/lib/catalog";
@@ -73,10 +75,17 @@ export default async function ProductDetail({
   const drawable = canDrawProduct(product);
   const specs = orderedSpecs(product.specs);
   const summary = productSummary(product);
-  const pageUrl = `${SITE_URL}${basePath}/${categorySlug}/${partSlug}`;
-  const related = category.products
-    .filter((p) => p.id !== product.id)
-    .slice(0, RELATED_LIMIT);
+  const canonicalCategorySlug = slugifyCategory(category.name);
+  const canonicalPartSlug = slugifyPart(product.part_number);
+  const pageUrl = `${SITE_URL}${basePath}/${canonicalCategorySlug}/${canonicalPartSlug}`;
+  const related = relatedProducts(product, category.products).slice(
+    0,
+    RELATED_LIMIT
+  );
+  const identitySpecs = specs
+    .slice(0, 5)
+    .map(([name, value]) => `${value} ${name.toLowerCase()}`)
+    .join(", ");
 
   const pageSchema = {
     "@context": "https://schema.org",
@@ -194,6 +203,20 @@ export default async function ProductDetail({
             {summary}
           </p>
 
+          <section className="product-reference-copy" data-reveal>
+            <h2>{product.part_number} specifications</h2>
+            <p>
+              {product.part_number} is listed as a {product.manufacturer
+                ? `${product.manufacturer} `
+                : ""}
+              {category.name.toLowerCase()}
+              {identitySpecs ? ` with ${identitySpecs}` : ""}. Use the
+              manufacturer datasheet and your application requirements to
+              confirm suitability. This specification reference does not show
+              current availability.
+            </p>
+          </section>
+
           {specs.length > 0 ? (
             <div className="card catalog-card" data-reveal>
               <div className="catalog-scroll">
@@ -228,27 +251,32 @@ export default async function ProductDetail({
           ) : null}
 
           {related.length > 0 ? (
-            <nav
-              className="brand-filters"
-              aria-label={`More ${category.name}`}
-              data-reveal
-            >
-              <span className="spec-filter-label">Related</span>
-              {related.map((p) => (
+            <section className="product-related" data-reveal>
+              <h2>Related {category.name.toLowerCase()} part numbers</h2>
+              <nav
+                className="brand-filters"
+                aria-label={`Related ${category.name} part numbers`}
+              >
+                <span className="spec-filter-label">Related</span>
+                {related.map((p) => (
+                  <Link
+                    key={p.id}
+                    href={`${basePath}/${canonicalCategorySlug}/${slugifyPart(
+                      p.part_number
+                    )}`}
+                    className="brand-chip"
+                  >
+                    {p.part_number}
+                  </Link>
+                ))}
                 <Link
-                  key={p.id}
-                  href={`${basePath}/${categorySlug}/${slugifyPart(
-                    p.part_number
-                  )}`}
+                  href={`${basePath}/${canonicalCategorySlug}`}
                   className="brand-chip"
                 >
-                  {p.part_number}
+                  All {category.name} →
                 </Link>
-              ))}
-              <Link href={`${basePath}/${categorySlug}`} className="brand-chip">
-                All {category.name} →
-              </Link>
-            </nav>
+              </nav>
+            </section>
           ) : null}
 
           <div className="catalog-cta" data-reveal>
