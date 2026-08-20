@@ -19,7 +19,7 @@ const PAGE_UPDATED = {
   obsoleteComponents: "2026-08-20",
   quality: "2026-08-11",
   about: "2026-08-20",
-  contact: "2026-08-12",
+  contact: "2026-08-20",
 } as const;
 
 // Catalog changes go live instantly (CSV upload), so the sitemap must too.
