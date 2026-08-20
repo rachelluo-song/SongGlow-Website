@@ -11,6 +11,7 @@ import TawkChat from "@/components/tawk-chat";
 import {
   SITE_BRAND_IMAGE,
   SITE_DESCRIPTION,
+  SITE_LOGO_IMAGE,
   SITE_NAME,
   SITE_URL,
 } from "@/lib/site";
@@ -58,9 +59,9 @@ const organizationSchema = {
   url: SITE_URL,
   logo: {
     "@type": "ImageObject",
-    url: SITE_BRAND_IMAGE,
-    width: 2400,
-    height: 1260,
+    url: SITE_LOGO_IMAGE,
+    width: 1024,
+    height: 1024,
   },
   description: SITE_DESCRIPTION,
   foundingDate: "2026",
