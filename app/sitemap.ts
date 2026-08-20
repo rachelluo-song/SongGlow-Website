@@ -8,7 +8,19 @@ import {
 import { GUIDES } from "@/lib/guides";
 import { SITE_URL } from "@/lib/site";
 
-const CONTENT_UPDATE = "2026-08-12";
+// Significant page-level updates only. Keep these dates truthful: Google may
+// verify sitemap lastmod values against the page content and structured data.
+const PAGE_UPDATED = {
+  home: "2026-08-19",
+  services: "2026-08-19",
+  bomSourcing: "2026-08-19",
+  bomRfqTemplate: "2026-08-12",
+  chinaSourcing: "2026-08-19",
+  obsoleteComponents: "2026-08-19",
+  quality: "2026-08-11",
+  about: "2026-08-12",
+  contact: "2026-08-12",
+} as const;
 
 // Catalog changes go live instantly (CSV upload), so the sitemap must too.
 export const dynamic = "force-dynamic";
@@ -43,39 +55,49 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: SITE_URL,
       changeFrequency: "weekly",
       priority: 1,
-      lastModified: overall > CONTENT_UPDATE ? overall : CONTENT_UPDATE,
+      lastModified: overall > PAGE_UPDATED.home ? overall : PAGE_UPDATED.home,
     },
     {
       url: `${SITE_URL}/services`,
       changeFrequency: "monthly",
       priority: 0.8,
-      lastModified: CONTENT_UPDATE,
+      lastModified: PAGE_UPDATED.services,
     },
     {
       url: `${SITE_URL}/bom-sourcing`,
       changeFrequency: "monthly",
       priority: 0.9,
-      lastModified: CONTENT_UPDATE,
+      lastModified: PAGE_UPDATED.bomSourcing,
     },
-    { url: `${SITE_URL}/bom-rfq-template`, changeFrequency: "monthly", priority: 0.9 },
+    {
+      url: `${SITE_URL}/bom-rfq-template`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+      lastModified: PAGE_UPDATED.bomRfqTemplate,
+    },
     {
       url: `${SITE_URL}/electronic-component-sourcing-china`,
       changeFrequency: "monthly",
       priority: 0.9,
-      lastModified: CONTENT_UPDATE,
+      lastModified: PAGE_UPDATED.chinaSourcing,
     },
     {
       url: `${SITE_URL}/obsolete-electronic-components`,
       changeFrequency: "monthly",
       priority: 0.9,
-      lastModified: CONTENT_UPDATE,
+      lastModified: PAGE_UPDATED.obsoleteComponents,
     },
-    { url: `${SITE_URL}/quality`, changeFrequency: "monthly", priority: 0.8 },
+    {
+      url: `${SITE_URL}/quality`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      lastModified: PAGE_UPDATED.quality,
+    },
     {
       url: `${SITE_URL}/about`,
       changeFrequency: "monthly",
       priority: 0.7,
-      lastModified: CONTENT_UPDATE,
+      lastModified: PAGE_UPDATED.about,
     },
     {
       url: `${SITE_URL}/components`,
@@ -93,7 +115,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${SITE_URL}/contact`,
       changeFrequency: "yearly",
       priority: 0.7,
-      lastModified: CONTENT_UPDATE,
+      lastModified: PAGE_UPDATED.contact,
     },
     {
       url: `${SITE_URL}/guides`,
