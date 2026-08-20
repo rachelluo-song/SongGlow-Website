@@ -78,6 +78,8 @@ export default async function DrawingPage({
                   className="btn btn-clay"
                   href={`/api/drawing/${product.id}`}
                   download={`${product.part_number.replaceAll("/", "-")}.svg`}
+                  data-analytics-event="Drawing Download Clicked"
+                  data-analytics-format="svg"
                 >
                   Download SVG
                 </a>
@@ -90,6 +92,8 @@ export default async function DrawingPage({
                   href={`/api/spec-sheet/${product.id}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-analytics-event="Spec Sheet Opened"
+                  data-analytics-format="pdf"
                 >
                   Spec Sheet (PDF)
                 </a>

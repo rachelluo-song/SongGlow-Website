@@ -11,6 +11,26 @@ export default function InquiryAttribution() {
     function trackContactIntent(event: MouseEvent) {
       if (!(event.target instanceof Element)) return;
 
+      const analyticsTarget = event.target.closest<HTMLElement>(
+        "[data-analytics-event]"
+      );
+      if (analyticsTarget) {
+        const eventName = analyticsTarget.dataset.analyticsEvent;
+        if (eventName) {
+          const properties: Record<string, string> = {
+            source_page: window.location.pathname,
+          };
+          if (analyticsTarget.dataset.analyticsLocation) {
+            properties.location = analyticsTarget.dataset.analyticsLocation;
+          }
+          if (analyticsTarget.dataset.analyticsFormat) {
+            properties.format = analyticsTarget.dataset.analyticsFormat;
+          }
+          track(eventName, properties);
+          return;
+        }
+      }
+
       const chatButton = event.target.closest(".chat-trigger");
       if (chatButton) {
         track("Live Chat Opened");
@@ -44,12 +64,34 @@ export default function InquiryAttribution() {
             : destination.searchParams.get("project") === "bom"
               ? "bom"
               : "general",
+          source_page: window.location.pathname,
         });
       }
     }
 
+    function trackCatalogSearch(event: SubmitEvent) {
+      if (!(event.target instanceof HTMLFormElement)) return;
+      const form = event.target;
+      const action = new URL(form.action, window.location.origin);
+      if (action.origin !== window.location.origin || action.pathname !== "/search") {
+        return;
+      }
+
+      const query = new FormData(form).get("q");
+      if (typeof query !== "string" || !query.trim()) return;
+
+      track("Catalog Search Submitted", {
+        source: form.dataset.analyticsSearchSource ?? "unknown",
+        query: query.trim().slice(0, 100),
+      });
+    }
+
     document.addEventListener("click", trackContactIntent, true);
-    return () => document.removeEventListener("click", trackContactIntent, true);
+    document.addEventListener("submit", trackCatalogSearch, true);
+    return () => {
+      document.removeEventListener("click", trackContactIntent, true);
+      document.removeEventListener("submit", trackCatalogSearch, true);
+    };
   }, []);
 
   return null;

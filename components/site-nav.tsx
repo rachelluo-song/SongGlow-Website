@@ -36,7 +36,12 @@ function SearchIcon() {
 
 function NavSearch() {
   return (
-    <form action="/search" className="nav-search" role="search">
+    <form
+      action="/search"
+      className="nav-search"
+      role="search"
+      data-analytics-search-source="navigation"
+    >
       <input
         type="search"
         name="q"

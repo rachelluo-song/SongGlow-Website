@@ -158,6 +158,8 @@ export default function BomRfqTemplatePage() {
                 href={DOWNLOAD_PATH}
                 className="btn btn-navy btn-lg"
                 download="SongGlow-BOM-RFQ-Template.xlsx"
+                data-analytics-event="BOM Template Download Clicked"
+                data-analytics-location="hero"
               >
                 Download Excel Template
               </a>
@@ -265,6 +267,8 @@ export default function BomRfqTemplatePage() {
                 href={DOWNLOAD_PATH}
                 className="btn btn-ghost btn-lg"
                 download="SongGlow-BOM-RFQ-Template.xlsx"
+                data-analytics-event="BOM Template Download Clicked"
+                data-analytics-location="final-cta"
               >
                 Download Template
               </a>

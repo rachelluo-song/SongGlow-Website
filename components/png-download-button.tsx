@@ -50,7 +50,13 @@ export default function PngDownloadButton({
   }
 
   return (
-    <button className="btn btn-ghost" onClick={download} disabled={busy}>
+    <button
+      className="btn btn-ghost"
+      onClick={download}
+      disabled={busy}
+      data-analytics-event="Drawing Download Clicked"
+      data-analytics-format="png"
+    >
       {busy ? "Rendering…" : "Download PNG"}
     </button>
   );

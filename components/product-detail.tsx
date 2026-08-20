@@ -169,11 +169,17 @@ export default async function ProductDetail({
               href={`/api/spec-sheet/${product.id}`}
               target="_blank"
               rel="noopener noreferrer"
+              data-analytics-event="Spec Sheet Opened"
+              data-analytics-format="pdf"
             >
               Spec Sheet (PDF)
             </a>
             {drawable ? (
-              <Link href={`/drawing/${product.id}`} className="btn btn-ghost">
+              <Link
+                href={`/drawing/${product.id}`}
+                className="btn btn-ghost"
+                data-analytics-event="Dimension Drawing Opened"
+              >
                 Dimension drawing
               </Link>
             ) : null}
@@ -183,6 +189,7 @@ export default async function ProductDetail({
                 href={product.datasheet_url}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-analytics-event="Manufacturer Datasheet Opened"
               >
                 Datasheet
               </a>

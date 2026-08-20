@@ -47,6 +47,7 @@ export default async function SearchPage({
             action="/search"
             className="catalog-search"
             data-hero-item
+            data-analytics-search-source="search-page"
           >
             <span className="catalog-search-label">
               Know the part number? Jump straight to it:
