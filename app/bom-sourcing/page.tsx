@@ -120,10 +120,10 @@ export default function BomSourcingPage() {
             </p>
           </div>
 
-          <div className="bom-review-card" data-hero-item aria-label="Example BOM review summary">
+          <div className="bom-review-card" data-hero-item aria-label="Illustrative BOM review summary">
             <div className="bom-review-head">
               <div>
-                <span className="bom-review-kicker">Review snapshot</span>
+                <span className="bom-review-kicker">Illustrative review snapshot</span>
                 <h2>Production BOM</h2>
               </div>
               <span className="bom-status">In review</span>
@@ -142,6 +142,19 @@ export default function BomSourcingPage() {
           </div>
         </div>
       </header>
+
+      <section className="answer-strip" aria-label="Electronic BOM sourcing summary">
+        <div className="wrap">
+          <p>
+            <strong>Direct answer:</strong> SongGlow provides quote-to-order BOM
+            sourcing for OEM and EMS teams. We review submitted part numbers and
+            quantities, search potential sources, compare suitable quotations,
+            present alternate candidates separately when requested, and
+            coordinate only the customer-approved order. SongGlow does not hold
+            inventory.
+          </p>
+        </div>
+      </section>
 
       <section className="bom-metrics" aria-label="Service commitments">
         <div className="wrap bom-metrics-grid" data-reveal-group>

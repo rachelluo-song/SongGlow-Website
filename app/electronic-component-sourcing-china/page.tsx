@@ -146,6 +146,18 @@ export default function ElectronicComponentSourcingChinaPage() {
         </div>
       </header>
 
+      <section className="answer-strip" aria-label="China electronic component sourcing summary">
+        <div className="wrap">
+          <p>
+            <strong>Direct answer:</strong> SongGlow is a Shenzhen and Hong Kong
+            quote-to-order sourcing team for international OEM and EMS BOMs. We
+            use the customer&apos;s specified parts and quantities to search
+            potential sources, compare suitable quotations, and coordinate the
+            approved order. We do not operate a stocked catalog.
+          </p>
+        </div>
+      </section>
+
       <section className="block" id="workflow">
         <div className="wrap">
           <div className="section-head" data-reveal>

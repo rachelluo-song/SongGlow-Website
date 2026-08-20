@@ -75,6 +75,19 @@ export default function ServicesContent() {
         </div>
       </header>
 
+      <section className="answer-strip" aria-label="Electronic component sourcing services summary">
+        <div className="wrap">
+          <p>
+            <strong>Direct answer:</strong> SongGlow supports OEM, EMS, and
+            procurement teams with quote-to-order electronic component and BOM
+            sourcing. We receive the requested parts and quantities, search
+            potential sources, compare suitable quotations for value and lead
+            time, and coordinate the customer-approved order. We do not hold
+            inventory or guarantee that every BOM line can be sourced.
+          </p>
+        </div>
+      </section>
+
       <section className="block">
         <div className="wrap">
           <div className="grid-3" data-reveal-group>

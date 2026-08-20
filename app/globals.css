@@ -826,6 +826,22 @@ footer {
   max-width: 620px;
 }
 
+/* Concise, self-contained service summaries for visitors and answer engines. */
+.answer-strip {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.answer-strip p {
+  max-width: 980px;
+  padding: 24px 0;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.7;
+}
+.answer-strip strong {
+  color: var(--ink);
+}
+
 /* ---------- BOM sourcing landing page ---------- */
 
 .bom-hero {

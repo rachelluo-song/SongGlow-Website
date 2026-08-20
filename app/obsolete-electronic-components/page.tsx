@@ -166,6 +166,19 @@ export default function ObsoleteElectronicComponentsPage() {
         </div>
       </header>
 
+      <section className="answer-strip" aria-label="Obsolete component sourcing summary">
+        <div className="wrap">
+          <p>
+            <strong>Direct answer:</strong> SongGlow researches potential supply
+            routes for obsolete, end-of-life, allocated, and hard-to-find
+            electronic components. We compare the requested part, quantity,
+            lead time, source notes, and available documentation, while keeping
+            alternate candidates separate for customer engineering approval.
+            Availability varies by part and is confirmed with each quotation.
+          </p>
+        </div>
+      </section>
+
       <section className="block tight">
         <div className="wrap">
           <div className="section-head" data-reveal>
