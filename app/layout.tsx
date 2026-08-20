@@ -9,7 +9,6 @@ import TawkTitleGuard from "@/components/tawk-title-guard";
 import InquiryAttribution from "@/components/inquiry-attribution";
 import TawkChat from "@/components/tawk-chat";
 import {
-  SITE_BRAND_IMAGE,
   SITE_DESCRIPTION,
   SITE_LOGO_IMAGE,
   SITE_NAME,
@@ -110,6 +109,16 @@ const organizationSchema = {
   },
 };
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  url: SITE_URL,
+  name: SITE_NAME,
+  inLanguage: "en",
+  publisher: { "@id": `${SITE_URL}/#organization` },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -123,6 +132,7 @@ export default function RootLayout({
     >
       <body>
         <JsonLd data={organizationSchema} />
+        <JsonLd data={websiteSchema} />
         <SiteNav />
         {children}
         <SiteFooter />

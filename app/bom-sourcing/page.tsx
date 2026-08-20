@@ -3,7 +3,7 @@ import Link from "next/link";
 import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
 import Faq, { type FaqItem } from "@/components/faq";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Electronic BOM Sourcing & Fulfillment Services | SongGlow",
@@ -85,8 +85,10 @@ const FAQ_ITEMS: FaqItem[] = [
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
+  "@id": `${SITE_URL}/bom-sourcing#service`,
   name: "Electronic BOM Sourcing and Fulfillment",
-  provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+  provider: { "@id": `${SITE_URL}/#organization` },
+  isPartOf: { "@id": `${SITE_URL}/#website` },
   areaServed: "Worldwide",
   serviceType: "Electronic component sourcing and bill of materials fulfillment",
   url: `${SITE_URL}/bom-sourcing`,

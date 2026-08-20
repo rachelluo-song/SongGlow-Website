@@ -3,7 +3,7 @@ import Link from "next/link";
 import Animate from "@/components/animate";
 import Faq, { type FaqItem } from "@/components/faq";
 import JsonLd from "@/components/json-ld";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/obsolete-electronic-components";
 
@@ -91,10 +91,12 @@ const FAQ_ITEMS: FaqItem[] = [
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
+  "@id": `${SITE_URL}${PAGE_PATH}#service`,
   name: "Obsolete and Hard-to-Find Electronic Component Sourcing",
   description:
     "Sourcing for obsolete, end-of-life, allocated, and hard-to-find electronic components, including quote comparison, alternate research, and available source documentation.",
-  provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+  provider: { "@id": `${SITE_URL}/#organization` },
+  isPartOf: { "@id": `${SITE_URL}/#website` },
   areaServed: "Worldwide",
   serviceType: "Obsolete electronic component sourcing",
   url: `${SITE_URL}${PAGE_PATH}`,

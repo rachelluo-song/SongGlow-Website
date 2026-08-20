@@ -3,7 +3,7 @@ import Link from "next/link";
 import Animate from "@/components/animate";
 import JsonLd from "@/components/json-ld";
 import Faq, { type FaqItem } from "@/components/faq";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/about";
 const PAGE_TITLE = "About SongGlow";
@@ -80,9 +80,11 @@ const FAQ_ITEMS: FaqItem[] = [
 const aboutSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
+  "@id": `${SITE_URL}${PAGE_PATH}#webpage`,
   url: `${SITE_URL}${PAGE_PATH}`,
   name: PAGE_TITLE,
-  mainEntity: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+  isPartOf: { "@id": `${SITE_URL}/#website` },
+  mainEntity: { "@id": `${SITE_URL}/#organization` },
 };
 
 const breadcrumbSchema = {

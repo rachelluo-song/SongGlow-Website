@@ -3,7 +3,7 @@ import Link from "next/link";
 import Animate from "@/components/animate";
 import Faq, { type FaqItem } from "@/components/faq";
 import JsonLd from "@/components/json-ld";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/bom-rfq-template";
 const DOWNLOAD_PATH = "/SongGlow-BOM-RFQ-Template.xlsx";
@@ -108,11 +108,13 @@ const FAQ_ITEMS: FaqItem[] = [
 const pageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
+  "@id": `${SITE_URL}${PAGE_PATH}#webpage`,
   name: "Free Electronic BOM RFQ Template",
   url: `${SITE_URL}${PAGE_PATH}`,
   description:
     "A free Excel template for preparing an electronic bill of materials request for quotation.",
-  publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+  publisher: { "@id": `${SITE_URL}/#organization` },
+  isPartOf: { "@id": `${SITE_URL}/#website` },
   mainEntity: {
     "@type": "DigitalDocument",
     name: "SongGlow BOM RFQ Template",

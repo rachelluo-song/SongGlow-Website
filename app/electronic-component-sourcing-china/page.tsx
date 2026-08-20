@@ -3,7 +3,7 @@ import Link from "next/link";
 import Animate from "@/components/animate";
 import Faq, { type FaqItem } from "@/components/faq";
 import JsonLd from "@/components/json-ld";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { SITE_URL } from "@/lib/site";
 
 const PAGE_PATH = "/electronic-component-sourcing-china";
 
@@ -77,11 +77,13 @@ const FAQ_ITEMS: FaqItem[] = [
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
+  "@id": `${SITE_URL}${PAGE_PATH}#service`,
   name: "Electronic Component Sourcing in China",
   description:
     "Quote-to-order electronic component and BOM sourcing from Shenzhen and Hong Kong for international OEM and EMS teams.",
   url: `${SITE_URL}${PAGE_PATH}`,
-  provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+  provider: { "@id": `${SITE_URL}/#organization` },
+  isPartOf: { "@id": `${SITE_URL}/#website` },
   areaServed: "Worldwide",
   serviceType: "Electronic component sourcing and BOM procurement support",
 };

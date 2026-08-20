@@ -11,14 +11,14 @@ import { SITE_URL } from "@/lib/site";
 // Significant page-level updates only. Keep these dates truthful: Google may
 // verify sitemap lastmod values against the page content and structured data.
 const PAGE_UPDATED = {
-  home: "2026-08-19",
-  services: "2026-08-19",
-  bomSourcing: "2026-08-19",
-  bomRfqTemplate: "2026-08-12",
-  chinaSourcing: "2026-08-19",
-  obsoleteComponents: "2026-08-19",
+  home: "2026-08-20",
+  services: "2026-08-20",
+  bomSourcing: "2026-08-20",
+  bomRfqTemplate: "2026-08-20",
+  chinaSourcing: "2026-08-20",
+  obsoleteComponents: "2026-08-20",
   quality: "2026-08-11",
-  about: "2026-08-12",
+  about: "2026-08-20",
   contact: "2026-08-12",
 } as const;
 

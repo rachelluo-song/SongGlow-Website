@@ -10,9 +10,7 @@ export const reviewedBySchema = {
   url: `${SITE_URL}/about`,
   sameAs: [RACHEL_LINKEDIN],
   worksFor: {
-    "@type": "Organization",
-    name: "SongGlow",
-    url: SITE_URL,
+    "@id": `${SITE_URL}/#organization`,
   },
 };
 
