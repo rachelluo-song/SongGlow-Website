@@ -881,6 +881,18 @@ footer {
 .bom-step-num { font-family: var(--serif); color: var(--clay-dark); font-weight: 700; font-size: 14px; }
 .bom-step h3 { font-size: 21px; margin: 26px 0 12px; }
 .bom-step p { color: var(--ink-soft); line-height: 1.65; font-size: 15px; }
+.bom-example-section { background: #f7f9fc; border-top: 1px solid var(--line); }
+.bom-example-frame { overflow: hidden; background: var(--paper); border: 1px solid #d6dfef; border-radius: 16px; box-shadow: 0 26px 60px -48px rgba(15, 20, 48, .55); }
+.bom-example-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.bom-example-table th { padding: 17px 20px; background: var(--dark); color: var(--cream); text-align: left; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.bom-example-table th:first-child { width: 30%; }
+.bom-example-table th:nth-child(2) { width: 48%; }
+.bom-example-table th:last-child { width: 22%; }
+.bom-example-table td { padding: 22px 20px; border-bottom: 1px solid var(--line); color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; vertical-align: top; }
+.bom-example-table tbody tr:last-child td { border-bottom: 0; }
+.bom-example-table td:first-child { color: var(--ink); font-weight: 600; }
+.bom-example-status { display: inline-block; padding: 7px 10px; border-radius: 999px; background: var(--clay-tint); color: var(--clay-dark); font-size: 12px; font-weight: 700; line-height: 1.35; }
+.bom-example-note { margin-top: 14px; color: var(--ink-faint); font-size: 12.5px; line-height: 1.55; }
 .bom-deliverables-section { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .bom-split { display: grid; grid-template-columns: .8fr 1.2fr; gap: 100px; align-items: start; }
 .bom-sticky-copy { position: sticky; top: 130px; }
@@ -1961,6 +1973,17 @@ input[type="file"]::file-selector-button:hover {
    Only .catalog-parts (the listing tables); the product-page spec table
    keeps its two short columns, which fit. */
 @media (max-width: 720px) {
+  .bom-example-frame { background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+  .bom-example-table,
+  .bom-example-table tbody,
+  .bom-example-table tr,
+  .bom-example-table td { display: block; width: 100%; }
+  .bom-example-table thead { display: none; }
+  .bom-example-table tr { margin-bottom: 14px; padding: 18px; background: var(--paper); border: 1px solid #d6dfef; border-radius: 12px; }
+  .bom-example-table td { padding: 0 0 17px; border: 0; }
+  .bom-example-table td:last-child { padding-bottom: 0; }
+  .bom-example-table td::before { content: attr(data-label); display: block; margin-bottom: 6px; color: var(--ink-faint); font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+
   .catalog-parts,
   .catalog-parts tbody,
   .catalog-parts tr,

@@ -41,6 +41,36 @@ const STEPS = [
   },
 ];
 
+const ILLUSTRATIVE_REVIEW = [
+  {
+    request:
+      "Complete manufacturer part number, requested quantity, and target date",
+    review:
+      "Keep the specified part unchanged, search potential sources, and compare suitable quotations by quantity, lead time, value, and available documentation.",
+    status: "Ready for supplier search",
+  },
+  {
+    request:
+      "Electrical value and package provided, but no complete manufacturer part number",
+    review:
+      "Identify the missing manufacturer, series, tolerance, rating, or alternate instructions before asking suppliers to quote.",
+    status: "Needs clarification",
+  },
+  {
+    request: "Obsolete BOM line with alternate research permitted",
+    review:
+      "Research the requested part separately and present potential form-fit-function candidates for the customer's engineering team to evaluate.",
+    status: "Engineering review required",
+  },
+  {
+    request:
+      "Custom fastener without a confirmed drawing revision, material, or finish",
+    review:
+      "Request the missing drawing and specifications so potential suppliers evaluate the same mechanical requirement.",
+    status: "Drawing required",
+  },
+];
+
 const DELIVERABLES = [
   ["Normalized BOM", "Clean manufacturer and part-number data, with questions called out instead of guessed."],
   ["Line-level quote", "Quantity, unit price, lead time, manufacturer, condition, and relevant channel notes by item."],
@@ -185,6 +215,51 @@ export default function BomSourcingPage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="block bom-example-section" id="illustrative-review">
+        <div className="wrap">
+          <div className="section-head" data-reveal>
+            <div className="eyebrow">Illustrative BOM Review</div>
+            <h2>How does SongGlow review a BOM line?</h2>
+            <p>
+              Each line is classified by specification completeness and sourcing
+              path. Fully specified parts can move to supplier search; ambiguous,
+              obsolete, or custom lines are held for clarification or engineering
+              review rather than guessed or silently substituted.
+            </p>
+          </div>
+
+          <div className="bom-example-frame" data-reveal>
+            <table
+              className="bom-example-table"
+              aria-describedby="illustrative-review-note"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">Customer submits</th>
+                  <th scope="col">SongGlow review</th>
+                  <th scope="col">Example status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {ILLUSTRATIVE_REVIEW.map((item) => (
+                  <tr key={item.status}>
+                    <td data-label="Customer submits">{item.request}</td>
+                    <td data-label="SongGlow review">{item.review}</td>
+                    <td data-label="Example status">
+                      <span className="bom-example-status">{item.status}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="bom-example-note" id="illustrative-review-note">
+            Illustrative workflow only. This is not a customer case study,
+            quotation, or statement of current availability.
+          </p>
         </div>
       </section>
 

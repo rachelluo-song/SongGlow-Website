@@ -13,7 +13,7 @@ import { SITE_URL } from "@/lib/site";
 const PAGE_UPDATED = {
   home: "2026-08-21",
   services: "2026-08-20",
-  bomSourcing: "2026-08-20",
+  bomSourcing: "2026-08-21",
   bomRfqTemplate: "2026-08-20",
   chinaSourcing: "2026-08-20",
   obsoleteComponents: "2026-08-20",
