@@ -191,6 +191,23 @@ export default function HomeContent({
         </div>
       </header>
 
+      <section
+        className="answer-strip"
+        aria-label="What SongGlow does"
+      >
+        <div className="wrap">
+          <p>
+            <strong>What does SongGlow do?</strong> SongGlow is a Shenzhen and
+            Hong Kong quote-to-order sourcing team for OEM, EMS, and hardware
+            companies. Customers send their specified part numbers and
+            requested quantities; SongGlow searches potential sources,
+            compares suitable quotations, and coordinates the
+            customer-approved order. SongGlow does not hold inventory or
+            guarantee that every BOM line can be sourced.
+          </p>
+        </div>
+      </section>
+
       <section className="block tight">
         <div className="wrap">
           <div className="trust-strip" data-reveal>
