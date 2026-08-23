@@ -32,7 +32,11 @@ export async function saveContactMessage(msg: ContactMessage) {
   const { error } = await supabase.from("messages").insert(msg);
   if (error) {
     // Keep inquiries working until the optional attribution columns are added.
-    if (error.code === "42703") {
+    // Direct Postgres queries report a missing column as 42703, while
+    // Supabase's PostgREST schema cache reports the same condition as
+    // PGRST204. Keep accepting inquiries until the optional attribution
+    // migration in supabase/schema.sql has been applied.
+    if (error.code === "42703" || error.code === "PGRST204") {
       const baseMessage = {
         name: msg.name,
         company: msg.company,
