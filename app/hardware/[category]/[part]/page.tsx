@@ -8,6 +8,7 @@ import {
   slugifyCategory,
   slugifyPart,
 } from "@/lib/catalog";
+import { shouldIndexProduct } from "@/lib/product-indexing";
 
 export const dynamic = "force-dynamic";
 
@@ -28,6 +29,9 @@ export async function generateMetadata({
   return {
     title,
     description,
+    robots: shouldIndexProduct(product)
+      ? undefined
+      : { index: false, follow: true },
     alternates: { canonical },
     openGraph: { title, description, url: canonical, type: "website" },
   };
