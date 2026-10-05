@@ -21,6 +21,7 @@ export default function SiteFooter() {
             <Link href="/guides">Guides</Link>
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
+            <Link href="/privacy">Privacy</Link>
           </div>
           <div className="footer-meta">
             © 2026 SongGlow. Electronic component sourcing.

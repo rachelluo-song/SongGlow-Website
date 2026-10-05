@@ -19,7 +19,8 @@ const PAGE_UPDATED = {
   obsoleteComponents: "2026-08-20",
   quality: "2026-08-11",
   about: "2026-08-20",
-  contact: "2026-08-20",
+  contact: "2026-10-05",
+  privacy: "2026-10-05",
 } as const;
 
 // Catalog changes go live instantly (CSV upload), so the sitemap must too.
@@ -116,6 +117,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "yearly",
       priority: 0.7,
       lastModified: PAGE_UPDATED.contact,
+    },
+    {
+      url: `${SITE_URL}/privacy`,
+      changeFrequency: "yearly",
+      priority: 0.3,
+      lastModified: PAGE_UPDATED.privacy,
     },
     {
       url: `${SITE_URL}/guides`,

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { track } from "@vercel/analytics";
 import { getInquiryAttribution } from "@/lib/attribution";
@@ -15,6 +16,7 @@ import {
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
   const [error, setError] = useState<string | null>(null);
+  const [submitFailed, setSubmitFailed] = useState(false);
   const successRef = useRef<HTMLDivElement>(null);
   const formStartedRef = useRef(false);
 
@@ -58,6 +60,7 @@ export default function ContactForm() {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError(null);
+    setSubmitFailed(false);
     setStatus("sending");
 
     // Multipart so optional attachments ride along; server validates again.
@@ -118,6 +121,7 @@ export default function ContactForm() {
     } catch (err) {
       track("Inquiry Submit Failed", { inquiry_type: inquiryType });
       setStatus("idle");
+      setSubmitFailed(true);
       setError(
         err instanceof Error && err.message
           ? err.message
@@ -246,7 +250,28 @@ export default function ContactForm() {
             fontSize: 14.5,
           }}
         >
-          {error}
+          <div>{error}</div>
+          {submitFailed && (
+            <div style={{ marginTop: 8, color: "var(--ink-soft)" }}>
+              Your inquiry has not been submitted. Please email{" "}
+              <a
+                href="mailto:rachel@songglow.com?subject=SongGlow%20sourcing%20inquiry"
+                style={{ color: "var(--clay-dark)", fontWeight: 700 }}
+              >
+                rachel@songglow.com
+              </a>{" "}
+              or contact us on{" "}
+              <a
+                href="https://wa.me/8613728931414"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "var(--clay-dark)", fontWeight: 700 }}
+              >
+                WhatsApp
+              </a>
+              .
+            </div>
+          )}
         </div>
       )}
       <div className="full">
@@ -258,6 +283,10 @@ export default function ContactForm() {
         >
           {status === "sending" ? "Sending…" : "Send Message"}
         </button>
+        <p className="field-hint" style={{ textAlign: "center", marginTop: 10 }}>
+          SongGlow uses the details and files you submit only to review and
+          respond to your inquiry. See our <Link href="/privacy">Privacy Policy</Link>.
+        </p>
       </div>
     </form>
   );
