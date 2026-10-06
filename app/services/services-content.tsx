@@ -99,16 +99,21 @@ export default function ServicesContent() {
               </div>
             ))}
           </div>
-          <div style={{ marginTop: 36, textAlign: "center" }} data-reveal>
+          <div className="service-resource-links" data-reveal>
             <Link href="/obsolete-electronic-components" className="btn btn-ghost">
               Explore Obsolete Component Sourcing →
             </Link>
             <Link
               href="/electronic-component-sourcing-china"
               className="btn btn-ghost"
-              style={{ marginLeft: 12 }}
             >
               Electronic Component Sourcing in China →
+            </Link>
+            <Link
+              href="/electronic-component-sourcing-faq"
+              className="btn btn-ghost"
+            >
+              Buyer Questions Answered →
             </Link>
           </div>
         </div>

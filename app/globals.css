@@ -725,6 +725,14 @@ a.trust-item:hover .trust-arrow {
   line-height: 1.6;
 }
 
+.service-resource-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 36px;
+}
+
 /* ---------- Dark band / CTA ---------- */
 
 .band-dark {
@@ -1428,6 +1436,56 @@ input[type="file"]::file-selector-button:hover {
 }
 .faq-item dd p:last-child {
   margin-bottom: 0;
+}
+
+/* ---------- Electronic component sourcing answer center ---------- */
+
+.answer-resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 22px 0 46px;
+}
+
+.answer-resource-card {
+  display: block;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  color: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.answer-resource-card:hover {
+  border-color: #c7d4ee;
+  box-shadow: 0 10px 26px rgba(15, 20, 48, 0.07);
+  transform: translateY(-2px);
+}
+
+.answer-resource-card h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+}
+
+.answer-resource-card p {
+  margin: 0 0 15px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.answer-resource-card span {
+  color: var(--clay-dark);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@media (max-width: 680px) {
+  .answer-resource-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------- Sales team cards ---------- */

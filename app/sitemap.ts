@@ -16,6 +16,7 @@ const PAGE_UPDATED = {
   bomSourcing: "2026-10-06",
   sampleBomResponse: "2026-10-06",
   bomQuoteChecklist: "2026-10-06",
+  sourcingFaq: "2026-10-06",
   bomRfqTemplate: "2026-08-20",
   chinaSourcing: "2026-08-20",
   obsoleteComponents: "2026-08-20",
@@ -89,6 +90,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.8,
       lastModified: PAGE_UPDATED.bomQuoteChecklist,
+    },
+    {
+      url: `${SITE_URL}/electronic-component-sourcing-faq`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      lastModified: PAGE_UPDATED.sourcingFaq,
     },
     {
       url: `${SITE_URL}/electronic-component-sourcing-china`,
