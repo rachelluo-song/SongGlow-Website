@@ -279,6 +279,10 @@ export default function BomSourcingPage() {
               engineers need to make a confident decision.
             </p>
             <Link href="/quality" className="text-link">Our quality approach →</Link>
+            <br />
+            <Link href="/bom-quote-comparison-checklist" className="text-link">
+              BOM quote comparison checklist →
+            </Link>
           </div>
           <div className="bom-deliverables" data-reveal-group>
             {DELIVERABLES.map(([title, body], index) => (

@@ -322,6 +322,11 @@ export default function SampleBomSourcingResponsePage() {
             it does not mean SongGlow is an authorized distributor. SongGlow does
             not own the illustrated inventory.
           </p>
+          <p className="sample-response-checklist-link" data-reveal>
+            <Link href="/bom-quote-comparison-checklist" className="text-link">
+              Use the printable BOM quote comparison checklist →
+            </Link>
+          </p>
         </div>
       </section>
 

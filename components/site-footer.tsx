@@ -12,6 +12,7 @@ export default function SiteFooter() {
             <Link href="/hardware">Hardware</Link>
             <Link href="/bom-sourcing">BOM Sourcing</Link>
             <Link href="/sample-bom-sourcing-response">Sample BOM Response</Link>
+            <Link href="/bom-quote-comparison-checklist">BOM Quote Checklist</Link>
             <Link href="/bom-rfq-template">BOM RFQ Template</Link>
             <Link href="/electronic-component-sourcing-china">
               Sourcing in China
