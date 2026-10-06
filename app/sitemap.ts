@@ -13,7 +13,8 @@ import { SITE_URL } from "@/lib/site";
 const PAGE_UPDATED = {
   home: "2026-08-21",
   services: "2026-08-20",
-  bomSourcing: "2026-08-21",
+  bomSourcing: "2026-10-06",
+  sampleBomResponse: "2026-10-06",
   bomRfqTemplate: "2026-08-20",
   chinaSourcing: "2026-08-20",
   obsoleteComponents: "2026-08-20",
@@ -75,6 +76,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.9,
       lastModified: PAGE_UPDATED.bomRfqTemplate,
+    },
+    {
+      url: `${SITE_URL}/sample-bom-sourcing-response`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      lastModified: PAGE_UPDATED.sampleBomResponse,
     },
     {
       url: `${SITE_URL}/electronic-component-sourcing-china`,

@@ -260,6 +260,11 @@ export default function BomSourcingPage() {
             Illustrative workflow only. This is not a customer case study,
             quotation, or statement of current availability.
           </p>
+          <p className="bom-example-sample-link">
+            <Link href="/sample-bom-sourcing-response" className="text-link">
+              View a realistic sample BOM sourcing response →
+            </Link>
+          </p>
         </div>
       </section>
 
